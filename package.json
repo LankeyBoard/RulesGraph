@@ -12,6 +12,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
+    "@graphql-tools/schema": "^10.0.2",
     "agent-base": "^7.1.0",
     "aggregate-error": "^3.1.0",
     "ansi-escapes": "^4.3.2",
@@ -108,6 +109,7 @@
     "graphql-request": "^6.1.0",
     "graphql-tag": "^2.12.6",
     "graphql-ws": "^5.14.3",
+    "graphql-yoga": "5.1.1",
     "has-flag": "^4.0.0",
     "has-property-descriptors": "^1.0.1",
     "has-proto": "^1.0.1",
