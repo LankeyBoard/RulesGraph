@@ -21,6 +21,16 @@ enum Size {
   COLOSSAL
 }
 
+enum RuleType {
+  RULE
+  FLAVOR
+  EG
+  LIST
+  LISTCOMPACT
+  CHOICE
+  ATTACK
+}
+
 enum Stat {
   METTLE
   AGILITY
@@ -41,9 +51,10 @@ type RuleText {
 type GenericRule implements Rule {
   title: String!
   slug: String!
-  ruleType: String
+  ruleType: RuleType
   text: [RuleText]
   rules: [GenericRule]
+  list: [String]
   shortText: String
 }
 

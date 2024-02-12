@@ -72,7 +72,8 @@ export type GenericFeature = Rule & {
 
 export type GenericRule = Rule & {
   __typename?: 'GenericRule';
-  ruleType?: Maybe<Scalars['String']['output']>;
+  list?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  ruleType?: Maybe<RuleType>;
   rules?: Maybe<Array<Maybe<GenericRule>>>;
   shortText?: Maybe<Scalars['String']['output']>;
   slug: Scalars['String']['output'];
@@ -123,6 +124,15 @@ export type RuleText = {
   text: Scalars['String']['output'];
   type?: Maybe<Scalars['String']['output']>;
 };
+
+export type RuleType =
+  | 'ATTACK'
+  | 'CHOICE'
+  | 'EG'
+  | 'FLAVOR'
+  | 'LIST'
+  | 'LISTCOMPACT'
+  | 'RULE';
 
 export type Size =
   | 'COLOSSAL'
@@ -244,6 +254,7 @@ export type ResolversTypes = {
   Range: ResolverTypeWrapper<Range>;
   Rule: ResolverTypeWrapper<ResolversInterfaceTypes<ResolversTypes>['Rule']>;
   RuleText: ResolverTypeWrapper<RuleText>;
+  RuleType: RuleType;
   Size: Size;
   Stat: Stat;
   Training: ResolverTypeWrapper<Training>;
@@ -327,7 +338,8 @@ export type GenericFeatureResolvers<ContextType = any, ParentType extends Resolv
 };
 
 export type GenericRuleResolvers<ContextType = any, ParentType extends ResolversParentTypes['GenericRule'] = ResolversParentTypes['GenericRule']> = {
-  ruleType?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  list?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
+  ruleType?: Resolver<Maybe<ResolversTypes['RuleType']>, ParentType, ContextType>;
   rules?: Resolver<Maybe<Array<Maybe<ResolversTypes['GenericRule']>>>, ParentType, ContextType>;
   shortText?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
