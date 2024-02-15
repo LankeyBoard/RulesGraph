@@ -6,6 +6,7 @@ export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: 
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = { [_ in K]?: never };
 export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
+export type RequireFields<T, K extends keyof T> = Omit<T, K> & { [P in K]-?: NonNullable<T[P]> };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: { input: string; output: string; }
@@ -15,32 +16,45 @@ export type Scalars = {
   Float: { input: number; output: number; }
 };
 
+export type Action =
+  | 'ACTION'
+  | 'COUNTER';
+
 export type CharacterClass = Rule & {
   __typename?: 'CharacterClass';
-  attackStat?: Maybe<Stat>;
-  damage?: Maybe<Damage>;
-  description?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  features?: Maybe<Array<Maybe<CharacterClassFeature>>>;
-  health?: Maybe<Scalars['Int']['output']>;
-  healthOnLevel?: Maybe<Scalars['Int']['output']>;
-  range?: Maybe<Range>;
+  attackStat: Stat;
+  complexity?: Maybe<Complexity>;
+  damage: Damage;
+  description: Array<Maybe<Scalars['String']['output']>>;
+  features: Array<Maybe<CharacterClassFeature>>;
+  health: Scalars['Int']['output'];
+  healthOnLevel: Scalars['Int']['output'];
+  range: Range;
   slug: Scalars['String']['output'];
-  stamina?: Maybe<Scalars['Int']['output']>;
-  staminaOnLevel?: Maybe<Scalars['Int']['output']>;
-  staminaStat?: Maybe<Stat>;
+  stamina: Scalars['Int']['output'];
+  staminaOnLevel: Scalars['Int']['output'];
+  staminaStat: Stat;
   title: Scalars['String']['output'];
-  training?: Maybe<Training>;
+  training: Training;
 };
 
 export type CharacterClassFeature = Rule & {
   __typename?: 'CharacterClassFeature';
-  costsFortunesFavor?: Maybe<Scalars['Boolean']['output']>;
-  level?: Maybe<Scalars['Int']['output']>;
+  actionType?: Maybe<Action>;
+  choices?: Maybe<Array<Maybe<GenericFeature>>>;
+  costsFortunesFavor: Scalars['Boolean']['output'];
+  level: Scalars['Int']['output'];
+  ruleType?: Maybe<RuleType>;
   rules?: Maybe<Array<Maybe<RuleText>>>;
   slug: Scalars['String']['output'];
-  staminaCost?: Maybe<Scalars['Int']['output']>;
+  staminaCost: Scalars['Int']['output'];
   title: Scalars['String']['output'];
 };
+
+export type Complexity =
+  | 'COMPLEX'
+  | 'SIMPLE'
+  | 'STANDARD';
 
 export type Culture = Rule & {
   __typename?: 'Culture';
@@ -105,7 +119,12 @@ export type Query = {
   genericFeatures: Array<Maybe<GenericFeature>>;
   genericRules: Array<Maybe<GenericRule>>;
   lineages: Array<Maybe<Lineage>>;
-  rulesText: Array<Maybe<RuleText>>;
+  searchAll: Array<Maybe<SearchResult>>;
+};
+
+
+export type QuerysearchAllArgs = {
+  phrase: Scalars['String']['input'];
 };
 
 export type Range = {
@@ -133,6 +152,13 @@ export type RuleType =
   | 'LIST'
   | 'LISTCOMPACT'
   | 'RULE';
+
+export type SearchResult = Rule & {
+  __typename?: 'SearchResult';
+  slug: Scalars['String']['output'];
+  text?: Maybe<Array<Maybe<RuleText>>>;
+  title: Scalars['String']['output'];
+};
 
 export type Size =
   | 'COLOSSAL'
@@ -234,16 +260,18 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 
 /** Mapping of interface types */
 export type ResolversInterfaceTypes<RefType extends Record<string, unknown>> = {
-  Rule: ( CharacterClass & { __typename: 'CharacterClass' } ) | ( CharacterClassFeature & { __typename: 'CharacterClassFeature' } ) | ( Culture & { __typename: 'Culture' } ) | ( GenericFeature & { __typename: 'GenericFeature' } ) | ( GenericRule & { __typename: 'GenericRule' } ) | ( Lineage & { __typename: 'Lineage' } );
+  Rule: ( CharacterClass & { __typename: 'CharacterClass' } ) | ( CharacterClassFeature & { __typename: 'CharacterClassFeature' } ) | ( Culture & { __typename: 'Culture' } ) | ( GenericFeature & { __typename: 'GenericFeature' } ) | ( GenericRule & { __typename: 'GenericRule' } ) | ( Lineage & { __typename: 'Lineage' } ) | ( SearchResult & { __typename: 'SearchResult' } );
 };
 
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
+  Action: Action;
   CharacterClass: ResolverTypeWrapper<CharacterClass>;
   String: ResolverTypeWrapper<Scalars['String']['output']>;
   Int: ResolverTypeWrapper<Scalars['Int']['output']>;
   CharacterClassFeature: ResolverTypeWrapper<CharacterClassFeature>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']['output']>;
+  Complexity: Complexity;
   Culture: ResolverTypeWrapper<Culture>;
   Damage: ResolverTypeWrapper<Damage>;
   GenericFeature: ResolverTypeWrapper<GenericFeature>;
@@ -255,6 +283,7 @@ export type ResolversTypes = {
   Rule: ResolverTypeWrapper<ResolversInterfaceTypes<ResolversTypes>['Rule']>;
   RuleText: ResolverTypeWrapper<RuleText>;
   RuleType: RuleType;
+  SearchResult: ResolverTypeWrapper<SearchResult>;
   Size: Size;
   Stat: Stat;
   Training: ResolverTypeWrapper<Training>;
@@ -278,33 +307,38 @@ export type ResolversParentTypes = {
   Range: Range;
   Rule: ResolversInterfaceTypes<ResolversParentTypes>['Rule'];
   RuleText: RuleText;
+  SearchResult: SearchResult;
   Training: Training;
   Weapons: Weapons;
 };
 
 export type CharacterClassResolvers<ContextType = any, ParentType extends ResolversParentTypes['CharacterClass'] = ResolversParentTypes['CharacterClass']> = {
-  attackStat?: Resolver<Maybe<ResolversTypes['Stat']>, ParentType, ContextType>;
-  damage?: Resolver<Maybe<ResolversTypes['Damage']>, ParentType, ContextType>;
-  description?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
-  features?: Resolver<Maybe<Array<Maybe<ResolversTypes['CharacterClassFeature']>>>, ParentType, ContextType>;
-  health?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
-  healthOnLevel?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
-  range?: Resolver<Maybe<ResolversTypes['Range']>, ParentType, ContextType>;
+  attackStat?: Resolver<ResolversTypes['Stat'], ParentType, ContextType>;
+  complexity?: Resolver<Maybe<ResolversTypes['Complexity']>, ParentType, ContextType>;
+  damage?: Resolver<ResolversTypes['Damage'], ParentType, ContextType>;
+  description?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
+  features?: Resolver<Array<Maybe<ResolversTypes['CharacterClassFeature']>>, ParentType, ContextType>;
+  health?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  healthOnLevel?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  range?: Resolver<ResolversTypes['Range'], ParentType, ContextType>;
   slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  stamina?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
-  staminaOnLevel?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
-  staminaStat?: Resolver<Maybe<ResolversTypes['Stat']>, ParentType, ContextType>;
+  stamina?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  staminaOnLevel?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  staminaStat?: Resolver<ResolversTypes['Stat'], ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  training?: Resolver<Maybe<ResolversTypes['Training']>, ParentType, ContextType>;
+  training?: Resolver<ResolversTypes['Training'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
 export type CharacterClassFeatureResolvers<ContextType = any, ParentType extends ResolversParentTypes['CharacterClassFeature'] = ResolversParentTypes['CharacterClassFeature']> = {
-  costsFortunesFavor?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
-  level?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  actionType?: Resolver<Maybe<ResolversTypes['Action']>, ParentType, ContextType>;
+  choices?: Resolver<Maybe<Array<Maybe<ResolversTypes['GenericFeature']>>>, ParentType, ContextType>;
+  costsFortunesFavor?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
+  level?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  ruleType?: Resolver<Maybe<ResolversTypes['RuleType']>, ParentType, ContextType>;
   rules?: Resolver<Maybe<Array<Maybe<ResolversTypes['RuleText']>>>, ParentType, ContextType>;
   slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  staminaCost?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  staminaCost?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
@@ -371,7 +405,7 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
   genericFeatures?: Resolver<Array<Maybe<ResolversTypes['GenericFeature']>>, ParentType, ContextType>;
   genericRules?: Resolver<Array<Maybe<ResolversTypes['GenericRule']>>, ParentType, ContextType>;
   lineages?: Resolver<Array<Maybe<ResolversTypes['Lineage']>>, ParentType, ContextType>;
-  rulesText?: Resolver<Array<Maybe<ResolversTypes['RuleText']>>, ParentType, ContextType>;
+  searchAll?: Resolver<Array<Maybe<ResolversTypes['SearchResult']>>, ParentType, ContextType, RequireFields<QuerysearchAllArgs, 'phrase'>>;
 };
 
 export type RangeResolvers<ContextType = any, ParentType extends ResolversParentTypes['Range'] = ResolversParentTypes['Range']> = {
@@ -381,7 +415,7 @@ export type RangeResolvers<ContextType = any, ParentType extends ResolversParent
 };
 
 export type RuleResolvers<ContextType = any, ParentType extends ResolversParentTypes['Rule'] = ResolversParentTypes['Rule']> = {
-  __resolveType?: TypeResolveFn<'CharacterClass' | 'CharacterClassFeature' | 'Culture' | 'GenericFeature' | 'GenericRule' | 'Lineage', ParentType, ContextType>;
+  __resolveType?: TypeResolveFn<'CharacterClass' | 'CharacterClassFeature' | 'Culture' | 'GenericFeature' | 'GenericRule' | 'Lineage' | 'SearchResult', ParentType, ContextType>;
   slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
 };
@@ -389,6 +423,13 @@ export type RuleResolvers<ContextType = any, ParentType extends ResolversParentT
 export type RuleTextResolvers<ContextType = any, ParentType extends ResolversParentTypes['RuleText'] = ResolversParentTypes['RuleText']> = {
   text?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type SearchResultResolvers<ContextType = any, ParentType extends ResolversParentTypes['SearchResult'] = ResolversParentTypes['SearchResult']> = {
+  slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  text?: Resolver<Maybe<Array<Maybe<ResolversTypes['RuleText']>>>, ParentType, ContextType>;
+  title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -420,6 +461,7 @@ export type Resolvers<ContextType = any> = {
   Range?: RangeResolvers<ContextType>;
   Rule?: RuleResolvers<ContextType>;
   RuleText?: RuleTextResolvers<ContextType>;
+  SearchResult?: SearchResultResolvers<ContextType>;
   Training?: TrainingResolvers<ContextType>;
   Weapons?: WeaponsResolvers<ContextType>;
 };

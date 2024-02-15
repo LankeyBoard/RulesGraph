@@ -1,5 +1,4 @@
 type Query {
-  rulesText: [RuleText]!
   genericRules: [GenericRule]!
 
   genericFeatures: [GenericFeature]!
@@ -9,6 +8,8 @@ type Query {
   cultures: [Culture]!
 
   characterClasses: [CharacterClass]!
+
+  searchAll(phrase: String!): [SearchResult]!
 }
 
 enum Size {
@@ -38,9 +39,26 @@ enum Stat {
   HEART
 }
 
+enum Complexity {
+  SIMPLE
+  STANDARD
+  COMPLEX
+}
+
+enum Action {
+  ACTION
+  COUNTER
+}
+
 interface Rule {
   title: String!
   slug: String!
+}
+
+type SearchResult implements Rule {
+  title: String!
+  slug: String!
+  text: [RuleText]
 }
 
 type RuleText {
@@ -119,24 +137,28 @@ type Damage {
 type CharacterClassFeature implements Rule {
   title: String!
   slug: String!
-  level: Int
-  staminaCost: Int
-  costsFortunesFavor: Boolean
+  level: Int!
+  staminaCost: Int!
+  costsFortunesFavor: Boolean!
+  ruleType: RuleType
+  actionType: Action
   rules: [RuleText]
+  choices: [GenericFeature]
 }
 
 type CharacterClass implements Rule {
   title: String!
   slug: String!
-  description: [String]
-  health: Int
-  healthOnLevel: Int
-  stamina: Int
-  staminaOnLevel: Int
-  staminaStat: Stat
-  training: Training
-  attackStat: Stat
-  range: Range
-  damage: Damage
-  features: [CharacterClassFeature]
+  complexity: Complexity
+  description: [String]!
+  health: Int!
+  healthOnLevel: Int!
+  stamina: Int!
+  staminaOnLevel: Int!
+  staminaStat: Stat!
+  training: Training!
+  attackStat: Stat!
+  range: Range!
+  damage: Damage!
+  features: [CharacterClassFeature]!
 }
