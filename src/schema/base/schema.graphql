@@ -100,9 +100,9 @@ type GenericFeature implements Rule {
   slug: String!
   ruleType: String
   text: [RuleText]
-  rules: [Rule]
   shortText: String
-  multiselect: Boolean
+  multiSelect: Boolean
+  options: [String]
 }
 
 type Options {

@@ -75,9 +75,9 @@ export type Damage = {
 
 export type GenericFeature = Rule & {
   __typename?: 'GenericFeature';
-  multiselect?: Maybe<Scalars['Boolean']['output']>;
+  multiSelect?: Maybe<Scalars['Boolean']['output']>;
+  options?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   ruleType?: Maybe<Scalars['String']['output']>;
-  rules?: Maybe<Array<Maybe<Rule>>>;
   shortText?: Maybe<Scalars['String']['output']>;
   slug: Scalars['String']['output'];
   text?: Maybe<Array<Maybe<RuleText>>>;
@@ -361,9 +361,9 @@ export type DamageResolvers<ContextType = any, ParentType extends ResolversParen
 };
 
 export type GenericFeatureResolvers<ContextType = any, ParentType extends ResolversParentTypes['GenericFeature'] = ResolversParentTypes['GenericFeature']> = {
-  multiselect?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
+  multiSelect?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
+  options?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
   ruleType?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  rules?: Resolver<Maybe<Array<Maybe<ResolversTypes['Rule']>>>, ParentType, ContextType>;
   shortText?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   text?: Resolver<Maybe<Array<Maybe<ResolversTypes['RuleText']>>>, ParentType, ContextType>;
