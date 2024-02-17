@@ -10,6 +10,13 @@ type Query {
   characterClasses: [CharacterClass]!
 
   searchAll(phrase: String!): [SearchResult]!
+
+  slugMap: [SlugDict]
+}
+
+type SlugDict {
+  slug: String!
+  url: String!
 }
 
 enum Size {
