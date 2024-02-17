@@ -1,13 +1,13 @@
 type Query {
-  genericRules: [GenericRule]!
+  genericRules(slug: String): [GenericRule]!
 
-  genericFeatures: [GenericFeature]!
+  genericFeatures(slug: String): [GenericFeature]!
 
-  lineages: [Lineage]!
+  lineages(slug: String): [Lineage]!
 
-  cultures: [Culture]!
+  cultures(slug: String): [Culture]!
 
-  characterClasses: [CharacterClass]!
+  characterClasses(slug: String): [CharacterClass]!
 
   searchAll(phrase: String!): [SearchResult]!
 

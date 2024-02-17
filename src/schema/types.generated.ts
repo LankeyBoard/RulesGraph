@@ -124,6 +124,31 @@ export type Query = {
 };
 
 
+export type QuerycharacterClassesArgs = {
+  slug?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryculturesArgs = {
+  slug?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QuerygenericFeaturesArgs = {
+  slug?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QuerygenericRulesArgs = {
+  slug?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QuerylineagesArgs = {
+  slug?: InputMaybe<Scalars['String']['input']>;
+};
+
+
 export type QuerysearchAllArgs = {
   phrase: Scalars['String']['input'];
 };
@@ -409,11 +434,11 @@ export type OptionsResolvers<ContextType = any, ParentType extends ResolversPare
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
-  characterClasses?: Resolver<Array<Maybe<ResolversTypes['CharacterClass']>>, ParentType, ContextType>;
-  cultures?: Resolver<Array<Maybe<ResolversTypes['Culture']>>, ParentType, ContextType>;
-  genericFeatures?: Resolver<Array<Maybe<ResolversTypes['GenericFeature']>>, ParentType, ContextType>;
-  genericRules?: Resolver<Array<Maybe<ResolversTypes['GenericRule']>>, ParentType, ContextType>;
-  lineages?: Resolver<Array<Maybe<ResolversTypes['Lineage']>>, ParentType, ContextType>;
+  characterClasses?: Resolver<Array<Maybe<ResolversTypes['CharacterClass']>>, ParentType, ContextType, Partial<QuerycharacterClassesArgs>>;
+  cultures?: Resolver<Array<Maybe<ResolversTypes['Culture']>>, ParentType, ContextType, Partial<QueryculturesArgs>>;
+  genericFeatures?: Resolver<Array<Maybe<ResolversTypes['GenericFeature']>>, ParentType, ContextType, Partial<QuerygenericFeaturesArgs>>;
+  genericRules?: Resolver<Array<Maybe<ResolversTypes['GenericRule']>>, ParentType, ContextType, Partial<QuerygenericRulesArgs>>;
+  lineages?: Resolver<Array<Maybe<ResolversTypes['Lineage']>>, ParentType, ContextType, Partial<QuerylineagesArgs>>;
   searchAll?: Resolver<Array<Maybe<ResolversTypes['SearchResult']>>, ParentType, ContextType, RequireFields<QuerysearchAllArgs, 'phrase'>>;
   slugMap?: Resolver<Maybe<Array<Maybe<ResolversTypes['SlugDict']>>>, ParentType, ContextType>;
 };
