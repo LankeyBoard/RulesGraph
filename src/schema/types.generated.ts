@@ -120,6 +120,32 @@ export type Query = {
   genericRules: Array<Maybe<GenericRule>>;
   lineages: Array<Maybe<Lineage>>;
   searchAll: Array<Maybe<SearchResult>>;
+  slugMap?: Maybe<Array<Maybe<SlugDict>>>;
+};
+
+
+export type QuerycharacterClassesArgs = {
+  slug?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryculturesArgs = {
+  slug?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QuerygenericFeaturesArgs = {
+  slug?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QuerygenericRulesArgs = {
+  slug?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QuerylineagesArgs = {
+  slug?: InputMaybe<Scalars['String']['input']>;
 };
 
 
@@ -168,6 +194,12 @@ export type Size =
   | 'MINISCULE'
   | 'SMALL'
   | 'TINY';
+
+export type SlugDict = {
+  __typename?: 'SlugDict';
+  slug: Scalars['String']['output'];
+  url: Scalars['String']['output'];
+};
 
 export type Stat =
   | 'AGILITY'
@@ -285,6 +317,7 @@ export type ResolversTypes = {
   RuleType: RuleType;
   SearchResult: ResolverTypeWrapper<SearchResult>;
   Size: Size;
+  SlugDict: ResolverTypeWrapper<SlugDict>;
   Stat: Stat;
   Training: ResolverTypeWrapper<Training>;
   Weapons: ResolverTypeWrapper<Weapons>;
@@ -308,6 +341,7 @@ export type ResolversParentTypes = {
   Rule: ResolversInterfaceTypes<ResolversParentTypes>['Rule'];
   RuleText: RuleText;
   SearchResult: SearchResult;
+  SlugDict: SlugDict;
   Training: Training;
   Weapons: Weapons;
 };
@@ -400,12 +434,13 @@ export type OptionsResolvers<ContextType = any, ParentType extends ResolversPare
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
-  characterClasses?: Resolver<Array<Maybe<ResolversTypes['CharacterClass']>>, ParentType, ContextType>;
-  cultures?: Resolver<Array<Maybe<ResolversTypes['Culture']>>, ParentType, ContextType>;
-  genericFeatures?: Resolver<Array<Maybe<ResolversTypes['GenericFeature']>>, ParentType, ContextType>;
-  genericRules?: Resolver<Array<Maybe<ResolversTypes['GenericRule']>>, ParentType, ContextType>;
-  lineages?: Resolver<Array<Maybe<ResolversTypes['Lineage']>>, ParentType, ContextType>;
+  characterClasses?: Resolver<Array<Maybe<ResolversTypes['CharacterClass']>>, ParentType, ContextType, Partial<QuerycharacterClassesArgs>>;
+  cultures?: Resolver<Array<Maybe<ResolversTypes['Culture']>>, ParentType, ContextType, Partial<QueryculturesArgs>>;
+  genericFeatures?: Resolver<Array<Maybe<ResolversTypes['GenericFeature']>>, ParentType, ContextType, Partial<QuerygenericFeaturesArgs>>;
+  genericRules?: Resolver<Array<Maybe<ResolversTypes['GenericRule']>>, ParentType, ContextType, Partial<QuerygenericRulesArgs>>;
+  lineages?: Resolver<Array<Maybe<ResolversTypes['Lineage']>>, ParentType, ContextType, Partial<QuerylineagesArgs>>;
   searchAll?: Resolver<Array<Maybe<ResolversTypes['SearchResult']>>, ParentType, ContextType, RequireFields<QuerysearchAllArgs, 'phrase'>>;
+  slugMap?: Resolver<Maybe<Array<Maybe<ResolversTypes['SlugDict']>>>, ParentType, ContextType>;
 };
 
 export type RangeResolvers<ContextType = any, ParentType extends ResolversParentTypes['Range'] = ResolversParentTypes['Range']> = {
@@ -430,6 +465,12 @@ export type SearchResultResolvers<ContextType = any, ParentType extends Resolver
   slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   text?: Resolver<Maybe<Array<Maybe<ResolversTypes['RuleText']>>>, ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type SlugDictResolvers<ContextType = any, ParentType extends ResolversParentTypes['SlugDict'] = ResolversParentTypes['SlugDict']> = {
+  slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  url?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -462,6 +503,7 @@ export type Resolvers<ContextType = any> = {
   Rule?: RuleResolvers<ContextType>;
   RuleText?: RuleTextResolvers<ContextType>;
   SearchResult?: SearchResultResolvers<ContextType>;
+  SlugDict?: SlugDictResolvers<ContextType>;
   Training?: TrainingResolvers<ContextType>;
   Weapons?: WeaponsResolvers<ContextType>;
 };

@@ -14,13 +14,15 @@ import    { genericFeatures as Query_genericFeatures } from './base/resolvers/Qu
 import    { genericRules as Query_genericRules } from './base/resolvers/Query/genericRules';
 import    { lineages as Query_lineages } from './base/resolvers/Query/lineages';
 import    { searchAll as Query_searchAll } from './base/resolvers/Query/searchAll';
+import    { slugMap as Query_slugMap } from './base/resolvers/Query/slugMap';
 import    { Range } from './base/resolvers/Range';
 import    { RuleText } from './base/resolvers/RuleText';
 import    { SearchResult } from './base/resolvers/SearchResult';
+import    { SlugDict } from './base/resolvers/SlugDict';
 import    { Training } from './base/resolvers/Training';
 import    { Weapons } from './base/resolvers/Weapons';
     export const resolvers: Resolvers = {
-      Query: { characterClasses: Query_characterClasses,cultures: Query_cultures,genericFeatures: Query_genericFeatures,genericRules: Query_genericRules,lineages: Query_lineages,searchAll: Query_searchAll },
+      Query: { characterClasses: Query_characterClasses,cultures: Query_cultures,genericFeatures: Query_genericFeatures,genericRules: Query_genericRules,lineages: Query_lineages,searchAll: Query_searchAll,slugMap: Query_slugMap },
       
       
       CharacterClass: CharacterClass,
@@ -34,6 +36,7 @@ Options: Options,
 Range: Range,
 RuleText: RuleText,
 SearchResult: SearchResult,
+SlugDict: SlugDict,
 Training: Training,
 Weapons: Weapons
     }
