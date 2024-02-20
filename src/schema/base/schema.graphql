@@ -1,7 +1,7 @@
 type Query {
   genericRules(slug: String): [GenericRule]!
 
-  genericFeatures(slug: String): [GenericFeature]!
+  genericFeatures(slug: String, featureType: FeatureType): [GenericFeature]!
 
   lineages(slug: String): [Lineage]!
 
@@ -14,9 +14,9 @@ type Query {
   slugMap: [SlugDict]
 }
 
-type SlugDict {
-  slug: String!
-  url: String!
+enum FeatureType {
+  NOVICE
+  VETERAN
 }
 
 enum Size {
@@ -105,11 +105,16 @@ type Lineage implements Rule {
 type GenericFeature implements Rule {
   title: String!
   slug: String!
-  ruleType: String
+  ruleType: RuleType
   text: [RuleText]
   shortText: String
   multiSelect: Boolean
   options: [String]
+}
+
+type SlugDict {
+  slug: String!
+  url: String!
 }
 
 type Options {

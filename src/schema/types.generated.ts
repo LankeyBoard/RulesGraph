@@ -73,11 +73,15 @@ export type Damage = {
   stat?: Maybe<Stat>;
 };
 
+export type FeatureType =
+  | 'NOVICE'
+  | 'VETERAN';
+
 export type GenericFeature = Rule & {
   __typename?: 'GenericFeature';
   multiSelect?: Maybe<Scalars['Boolean']['output']>;
   options?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  ruleType?: Maybe<Scalars['String']['output']>;
+  ruleType?: Maybe<RuleType>;
   shortText?: Maybe<Scalars['String']['output']>;
   slug: Scalars['String']['output'];
   text?: Maybe<Array<Maybe<RuleText>>>;
@@ -135,6 +139,7 @@ export type QueryculturesArgs = {
 
 
 export type QuerygenericFeaturesArgs = {
+  featureType?: InputMaybe<FeatureType>;
   slug?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -306,6 +311,7 @@ export type ResolversTypes = {
   Complexity: Complexity;
   Culture: ResolverTypeWrapper<Culture>;
   Damage: ResolverTypeWrapper<Damage>;
+  FeatureType: FeatureType;
   GenericFeature: ResolverTypeWrapper<GenericFeature>;
   GenericRule: ResolverTypeWrapper<GenericRule>;
   Lineage: ResolverTypeWrapper<Lineage>;
@@ -397,7 +403,7 @@ export type DamageResolvers<ContextType = any, ParentType extends ResolversParen
 export type GenericFeatureResolvers<ContextType = any, ParentType extends ResolversParentTypes['GenericFeature'] = ResolversParentTypes['GenericFeature']> = {
   multiSelect?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
   options?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
-  ruleType?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  ruleType?: Resolver<Maybe<ResolversTypes['RuleType']>, ParentType, ContextType>;
   shortText?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   text?: Resolver<Maybe<Array<Maybe<ResolversTypes['RuleText']>>>, ParentType, ContextType>;

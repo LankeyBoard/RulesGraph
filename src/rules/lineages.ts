@@ -1,4 +1,4 @@
-import { Lineage, Size } from "../schema/types.generated";
+import { Lineage } from "../schema/types.generated";
 
 export const lineagesData: Lineage[] = [
     {

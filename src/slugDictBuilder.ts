@@ -18,13 +18,13 @@ const SlugMapper = () => {
     
     // General Rules
     generalRules.forEach(rule => {
-        const s = {slug: rule.slug, url: '/rules/'+rule.slug}
+        const s = {slug: rule.slug, url: '/rules/player_rules/'+rule.slug}
         slugDict.push(s);
         subRuleMapper(rule, s.url, slugDict);
     })
     
     culturesData.forEach(culture => {
-        const s = {slug: culture.slug, url: '/'+culture.slug}
+        const s = {slug: culture.slug, url: '/rules/cultures/'+culture.slug}
         slugDict.push(s);
         culture.traits?.forEach(trait => {
             if(trait)
@@ -35,16 +35,16 @@ const SlugMapper = () => {
     
     //Novice Features
     NoviceFeatures.forEach(feature => {
-        slugDict.push({slug: feature.slug, url:'/novice_features#'+feature.slug})
+        slugDict.push({slug: feature.slug, url:'/rules/novice_features/'+feature.slug})
     })
     //Veteran Features
     VeteranFeatures.forEach(feature => {
-        slugDict.push({slug: feature.slug, url:'/veteran_features#'+feature.slug})
+        slugDict.push({slug: feature.slug, url:'/rules/veteran_features/'+feature.slug})
     })
     
     //Lineages
     lineagesData.forEach(lineage => {
-        const s = {slug: lineage.slug, url: '/lineages/'+lineage.slug}
+        const s = {slug: lineage.slug, url: '/rules/lineages/'+lineage.slug}
         slugDict.push(s);
         lineage.traits?.forEach(trait => {
             if(trait)
@@ -54,7 +54,7 @@ const SlugMapper = () => {
     
     // Player Classes
     playerClasses.forEach(playerClass => {
-        const s = {slug: playerClass.slug, url: '/player_classes'+playerClass.slug}
+        const s = {slug: playerClass.slug, url: 'rules/classes'+playerClass.slug}
         slugDict.push(s);
         playerClass.features.forEach(classFeature => {
             if(classFeature)
