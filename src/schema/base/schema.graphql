@@ -61,12 +61,14 @@ interface Rule {
   title: String!
   slug: String!
   href: String
+  shortTitle: String
 }
 
 type SearchResult implements Rule {
   title: String!
   slug: String!
-href: String
+  href: String
+  shortTitle: String
   text: [RuleText]
 }
 
@@ -79,6 +81,7 @@ type GenericRule implements Rule {
   title: String!
   slug: String!
   href: String
+  shortTitle: String
   ruleType: RuleType
   text: [RuleText]
   rules: [GenericRule]
@@ -90,6 +93,7 @@ type Culture implements Rule {
   title: String!
   slug: String!
   href: String
+  shortTitle: String
   description: [String]
   stat: String
   languages: String
@@ -100,6 +104,7 @@ type Lineage implements Rule {
   title: String!
   slug: String!
   href: String
+  shortTitle: String
   description: [String]
   size: [Size]
   speed: Int
@@ -111,6 +116,7 @@ type GenericFeature implements Rule {
   title: String!
   slug: String!
   href: String
+  shortTitle: String
   ruleType: RuleType
   text: [RuleText]
   shortText: String
@@ -121,6 +127,7 @@ type GenericFeature implements Rule {
 type SlugDict {
   slug: String!
   href: String
+  shortTitle: String
   url: String!
 }
 
@@ -157,6 +164,7 @@ type CharacterClassFeature implements Rule {
   title: String!
   slug: String!
   href: String
+  shortTitle: String
   level: Int!
   staminaCost: Int!
   costsFortunesFavor: Boolean!
@@ -170,6 +178,7 @@ type CharacterClass implements Rule {
   title: String!
   slug: String!
   href: String
+  shortTitle: String
   complexity: Complexity
   description: [String]!
   health: Int!

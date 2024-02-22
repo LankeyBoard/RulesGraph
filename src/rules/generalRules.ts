@@ -150,6 +150,7 @@ export const generalRules: GenericRule[] = [
     {
         slug:  "EQUIPMENT",
         title:  "Weapons, Shields, Armor & Equipment",
+        shortTitle: "Equipment",
         ruleType:  "RULE",
         text: [],
         rules: [
@@ -258,6 +259,7 @@ export const generalRules: GenericRule[] = [
     {
         slug:  "EDLH",
         title:  "Exhausted, Dying, Last Stand, & Healing",
+        shortTitle: "Dying & Healing",
         ruleType:  "RULE",
         text: [{ text:  "If damage would reduce you to below 0 stamina or 0 health, it reduces you to 0 instead."}],
         rules: [
@@ -588,6 +590,7 @@ export const generalRules: GenericRule[] = [
     {
         slug:  "WHAT-MAKES-UP-A-CHARACTER",
         title:  "What Makes Up a Character",
+        shortTitle: "Parts of a Character",
         ruleType:  "RULE",
         text: [{ text:  "Level, lineage, culture, class, stats, ties and backstory"}],
         rules:   [

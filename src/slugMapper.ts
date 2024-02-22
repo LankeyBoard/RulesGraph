@@ -6,7 +6,7 @@ import { playerClasses } from "./rules/playerClasses";
 import { GenericRule, SlugDict } from "./schema/types.generated";
 
 export enum baseUrls {
-    generalRules = "general_rules",
+    generalRules = "player_rules",
     cultures = "cultures",
     noviceFeatures = "novice_features",
     veteranFeatures = "veteran_features",
