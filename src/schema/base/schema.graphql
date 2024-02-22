@@ -78,7 +78,7 @@ type RuleText {
 type GenericRule implements Rule {
   title: String!
   slug: String!
-href: String
+  href: String
   ruleType: RuleType
   text: [RuleText]
   rules: [GenericRule]
@@ -89,7 +89,7 @@ href: String
 type Culture implements Rule {
   title: String!
   slug: String!
-href: String
+  href: String
   description: [String]
   stat: String
   languages: String
@@ -99,7 +99,7 @@ href: String
 type Lineage implements Rule {
   title: String!
   slug: String!
-href: String
+  href: String
   description: [String]
   size: [Size]
   speed: Int
@@ -120,7 +120,7 @@ type GenericFeature implements Rule {
 
 type SlugDict {
   slug: String!
-href: String
+  href: String
   url: String!
 }
 
@@ -156,7 +156,7 @@ type Damage {
 type CharacterClassFeature implements Rule {
   title: String!
   slug: String!
-href: String
+  href: String
   level: Int!
   staminaCost: Int!
   costsFortunesFavor: Boolean!
@@ -169,7 +169,7 @@ href: String
 type CharacterClass implements Rule {
   title: String!
   slug: String!
-href: String
+  href: String
   complexity: Complexity
   description: [String]!
   health: Int!
