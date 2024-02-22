@@ -1,4 +1,5 @@
+import { hrefer, baseUrls } from '../../../slugMapper';
 import type   { LineageResolvers } from './../../types.generated';
     export const Lineage: LineageResolvers = {
-    /* Implement Lineage resolver logic here */
+      href: ({slug}) => hrefer(baseUrls.lineages, slug, false)
   };

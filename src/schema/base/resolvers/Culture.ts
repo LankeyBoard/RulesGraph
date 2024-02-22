@@ -1,4 +1,5 @@
+import { hrefer, baseUrls } from '../../../slugMapper';
 import type   { CultureResolvers } from './../../types.generated';
     export const Culture: CultureResolvers = {
-    /* Implement Culture resolver logic here */
+      href: ({slug}) => hrefer(baseUrls.cultures, slug, false)
   };

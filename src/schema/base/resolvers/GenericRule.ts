@@ -1,4 +1,5 @@
+import { hrefer, baseUrls } from '../../../slugMapper';
 import type   { GenericRuleResolvers } from './../../types.generated';
     export const GenericRule: GenericRuleResolvers = {
-    /* Implement GenericRule resolver logic here */
+      href: ({slug}) => hrefer(baseUrls.generalRules, slug, false)
   };
