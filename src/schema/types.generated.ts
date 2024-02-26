@@ -201,11 +201,21 @@ export type RuleType =
 export type SearchResult = Rule & {
   __typename?: 'SearchResult';
   href?: Maybe<Scalars['String']['output']>;
+  page?: Maybe<Scalars['String']['output']>;
   shortTitle?: Maybe<Scalars['String']['output']>;
   slug: Scalars['String']['output'];
   text?: Maybe<Array<Maybe<RuleText>>>;
   title: Scalars['String']['output'];
+  type?: Maybe<SearchResultSource>;
 };
+
+export type SearchResultSource =
+  | 'characterClass'
+  | 'culture'
+  | 'lineage'
+  | 'noviceFeature'
+  | 'rule'
+  | 'veteranFeature';
 
 export type Size =
   | 'COLOSSAL'
@@ -339,6 +349,7 @@ export type ResolversTypes = {
   RuleText: ResolverTypeWrapper<RuleText>;
   RuleType: RuleType;
   SearchResult: ResolverTypeWrapper<SearchResult>;
+  SearchResultSource: SearchResultSource;
   Size: Size;
   SlugDict: ResolverTypeWrapper<SlugDict>;
   Stat: Stat;
@@ -500,10 +511,12 @@ export type RuleTextResolvers<ContextType = any, ParentType extends ResolversPar
 
 export type SearchResultResolvers<ContextType = any, ParentType extends ResolversParentTypes['SearchResult'] = ResolversParentTypes['SearchResult']> = {
   href?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  page?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   shortTitle?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   text?: Resolver<Maybe<Array<Maybe<ResolversTypes['RuleText']>>>, ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  type?: Resolver<Maybe<ResolversTypes['SearchResultSource']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 

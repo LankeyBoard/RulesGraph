@@ -3,7 +3,7 @@ import { generalRules } from '../../../../rules/generalRules';
 import { NoviceFeatures, VeteranFeatures } from '../../../../rules/genericFeatures';
 import { lineagesData } from '../../../../rules/lineages';
 import { playerClasses } from '../../../../rules/playerClasses';
-import type   { CharacterClassFeature, GenericFeature, GenericRule, QueryResolvers, SearchResult } from './../../../types.generated';
+import type   { CharacterClassFeature, GenericFeature, GenericRule, QueryResolvers, SearchResult, SearchResultSource } from './../../../types.generated';
 
 
 
@@ -12,40 +12,46 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (_paren
         const searchPhrase = _arg.phrase.toLocaleLowerCase();
         console.log(_arg.phrase)
         const found: SearchResult[] = []
-        const searchRule = (rule: GenericRule) =>{
+        const searchRule = (rule: GenericRule, parentPage: string, type: SearchResultSource = "rule") =>{
                 if(rule.title.toLocaleLowerCase().includes(searchPhrase) || rule.shortText?.toLocaleLowerCase().includes(searchPhrase) || rule.text?.toLocaleString().toLocaleLowerCase().includes(searchPhrase) || rule.list?.toLocaleString().toLocaleLowerCase().includes(searchPhrase)){
                         found.push({
                                 title: rule.title,
                                 slug: rule.slug,
-                                text: rule.text
+                                text: rule.text,
+                                type: type,
+                                page: parentPage,
                         })
                 }
                 rule.rules?.forEach(r=>{
                         if(r)
-                                searchRule(r);
+                                searchRule(r, parentPage, type);
                 })
         }
 
-        const searchClassFeature = (feature: CharacterClassFeature) => {
+        const searchClassFeature = (feature: CharacterClassFeature, parentPage: string) => {
                 if(feature.title.toLocaleLowerCase().includes(searchPhrase) || feature.rules?.toLocaleString().toLocaleLowerCase().includes(searchPhrase)){
                         found.push({
                                 title: feature.title,
                                 slug: feature.slug,
-                                text: feature.rules
+                                text: feature.rules,
+                                page: parentPage,
+                                type: "characterClass"
                         })
                 }
                 feature.choices?.forEach(choice => {
                         if(choice)
-                                searchGenericFeature(choice)
+                                searchGenericFeature(choice, parentPage, "characterClass")
                 })
                 
         }
-        const searchGenericFeature = (feature: GenericFeature) => {
+        const searchGenericFeature = (feature: GenericFeature, parentPage: string, type: SearchResultSource) => {
                 if(feature.title.toLocaleLowerCase().includes(searchPhrase) || feature.shortText?.toLocaleLowerCase().includes(searchPhrase)){
                         found.push({
                                 title: feature.title,
                                 slug: feature.slug,
-                                text: feature.text
+                                text: feature.text,
+                                page: parentPage,
+                                type: type
                         })
                 }
                 else{
@@ -54,7 +60,9 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (_paren
                                         found.push({
                                                 title: feature.title,
                                                 slug: feature.slug,
-                                                text: feature.text
+                                                text: feature.text,
+                                                page: parentPage,
+                                                type: type
                                         })
                                 }
                         })
@@ -63,7 +71,9 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (_paren
                                         found.push({
                                                 title: feature.title,
                                                 slug: feature.slug,
-                                                text: feature.text
+                                                text: feature.text,
+                                                page: parentPage,
+                                                type: type
                                         })
                                 }
                         })
@@ -71,7 +81,7 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (_paren
         }
 
         generalRules.forEach(rule => {
-                searchRule(rule);                
+                searchRule(rule, rule.title);                
         })
 
         culturesData.forEach(culture => {
@@ -79,7 +89,9 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (_paren
                         found.push({
                                 title: culture.title,
                                 slug: culture.slug,
-                                text: [{text: culture.description?.toLocaleString()|| ""}]
+                                text: [{text: culture.description?.toLocaleString()|| ""}],
+                                page: culture.title,
+                                type: "culture"
                         })
                 }
                 culture.traits?.forEach(trait => {
@@ -87,23 +99,27 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (_paren
                                 found.push({
                                         title: `${culture.title} - ${trait.title}`,
                                         slug: trait.slug,
-                                        text: trait.text
+                                        text: trait.text,
+                                        page: culture.title,
+                                        type: "culture"
                                 })
                         }
                 })
 
         })
-        lineagesData.forEach(lingeage => {
-                if(lingeage.title.toLocaleLowerCase().includes(searchPhrase) || lingeage.description?.toLocaleString().toLocaleLowerCase().includes(searchPhrase) || lingeage.size?.toLocaleString().toLocaleLowerCase().includes(searchPhrase) || lingeage.stat?.toLocaleLowerCase().includes(searchPhrase)){
+        lineagesData.forEach(lineage => {
+                if(lineage.title.toLocaleLowerCase().includes(searchPhrase) || lineage.description?.toLocaleString().toLocaleLowerCase().includes(searchPhrase) || lineage.size?.toLocaleString().toLocaleLowerCase().includes(searchPhrase) || lineage.stat?.toLocaleLowerCase().includes(searchPhrase)){
                         found.push({
-                                title: lingeage.title,
-                                slug: lingeage.slug,
-                                text: [{text: lingeage.description?.toLocaleString() || ""}]
+                                title: lineage.title,
+                                slug: lineage.slug,
+                                text: [{text: lineage.description?.toLocaleString() || ""}],
+                                page: lineage.title,
+                                type: "lineage"
                         })
                 }
-                lingeage.traits?.forEach(trait => {
+                lineage.traits?.forEach(trait => {
                         if(trait)
-                                searchRule(trait)
+                                searchRule(trait, lineage.title, "lineage")
                 })
         })
         playerClasses.forEach(playerClass => {
@@ -111,21 +127,23 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (_paren
                         found.push({
                                 title: playerClass.title,
                                 slug: playerClass.slug,
-                                text: [{text: playerClass.description.toLocaleString()}]
+                                text: [{text: playerClass.description.toLocaleString()}],
+                                page: playerClass.title,
+                                type: "characterClass"
                         })
                 }
                 playerClass.features.forEach(feature => {
                         if(feature)
-                                searchClassFeature(feature)
+                                searchClassFeature(feature, playerClass.title)
                 })
         })
 
         NoviceFeatures.forEach(feature => {
-                searchGenericFeature(feature)
+                searchGenericFeature(feature, feature.title, "noviceFeature")
         })
 
         VeteranFeatures.forEach(feature => {
-                searchGenericFeature(feature)
+                searchGenericFeature(feature, feature.title, "veteranFeature")
         })
         
         return found;
