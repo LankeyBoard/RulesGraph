@@ -126,8 +126,7 @@ type GenericFeature implements Rule {
 
 type SlugDict {
   slug: String!
-  href: String
-  shortTitle: String
+  title: String!
   url: String!
 }
 

@@ -255,7 +255,7 @@ export const playerClasses: CharacterClass[] = [
             title: "Reading the Signs",
             slug: "DEVOTED-RS",
             staminaCost: 1,
-            costsFortunesFavor: true,
+            costsFortunesFavor: false,
             rules: [
               {
                 type: "RULE",

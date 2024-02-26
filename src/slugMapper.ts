@@ -8,8 +8,8 @@ import { GenericRule, SlugDict } from "./schema/types.generated";
 export enum baseUrls {
     generalRules = "player_rules",
     cultures = "cultures",
-    noviceFeatures = "novice_features",
-    veteranFeatures = "veteran_features",
+    noviceFeatures = "generic_features/novice_features",
+    veteranFeatures = "generic_features/veteran_features",
     lineages = "lineages",
     classes = "classes"
 }
@@ -26,7 +26,7 @@ const SlugMapper = () => {
     const slugDict: SlugDict[] =[]
 
     const subRuleMapper = (rule: GenericRule, slugStr: string, dict: SlugDict[]) => {
-        dict.push({slug: rule.slug, url: hrefer(slugStr, rule.slug, true)});
+        dict.push({slug: rule.slug, title: rule.shortTitle || rule.title, url: hrefer(slugStr, rule.slug, true)});
         rule.rules?.forEach(r=>{
             if(r)
             subRuleMapper(r, slugStr, dict)
@@ -35,13 +35,13 @@ const SlugMapper = () => {
     
     // General Rules
     generalRules.forEach(rule => {
-        const s = {slug: rule.slug, url: hrefer(baseUrls.generalRules, rule.slug, false)}
+        const s = {slug: rule.slug, title: rule.shortTitle || rule.title, url: hrefer(baseUrls.generalRules, rule.slug, false)}
         slugDict.push(s);
         subRuleMapper(rule, s.url, slugDict);
     })
     
     culturesData.forEach(culture => {
-        const s = {slug: culture.slug, url: hrefer(baseUrls.cultures, culture.slug, false)}
+        const s = {slug: culture.slug, title: culture.shortTitle || culture.title, url: hrefer(baseUrls.cultures, culture.slug, false)}
         slugDict.push(s);
         culture.traits?.forEach(trait => {
             if(trait)
@@ -52,16 +52,16 @@ const SlugMapper = () => {
     
     //Novice Features
     NoviceFeatures.forEach(feature => {
-        slugDict.push({slug: feature.slug, url: hrefer(baseUrls.noviceFeatures, feature.slug, false)})
+        slugDict.push({slug: feature.slug, title: feature.shortTitle || feature.title, url: hrefer(baseUrls.noviceFeatures, feature.slug, false)})
     })
     //Veteran Features
     VeteranFeatures.forEach(feature => {
-        slugDict.push({slug: feature.slug, url: hrefer(baseUrls.veteranFeatures, feature.slug, false)})
+        slugDict.push({slug: feature.slug, title: feature.shortTitle || feature.title, url: hrefer(baseUrls.veteranFeatures, feature.slug, false)})
     })
     
     //Lineages
     lineagesData.forEach(lineage => {
-        const s = {slug: lineage.slug, url: hrefer(baseUrls.lineages, lineage.slug, false)}
+        const s = {slug: lineage.slug, title: lineage.shortTitle || lineage.title, url: hrefer(baseUrls.lineages, lineage.slug, false)}
         slugDict.push(s);
         lineage.traits?.forEach(trait => {
             if(trait)
@@ -71,11 +71,11 @@ const SlugMapper = () => {
     
     // Player Classes
     playerClasses.forEach(playerClass => {
-        const s = {slug: playerClass.slug, url: hrefer(baseUrls.classes, playerClass.slug, false)}
+        const s = {slug: playerClass.slug, title: playerClass.shortTitle || playerClass.title, url: hrefer(baseUrls.classes, playerClass.slug, false)}
         slugDict.push(s);
         playerClass.features.forEach(classFeature => {
             if(classFeature)
-                slugDict.push({slug: classFeature.slug, url: hrefer(s.url, classFeature.slug, true)})
+                slugDict.push({slug: classFeature.slug, title: classFeature.shortTitle || classFeature.title, url: hrefer(s.url, classFeature.slug, true)})
         })
     })
 

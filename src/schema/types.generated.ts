@@ -218,9 +218,8 @@ export type Size =
 
 export type SlugDict = {
   __typename?: 'SlugDict';
-  href?: Maybe<Scalars['String']['output']>;
-  shortTitle?: Maybe<Scalars['String']['output']>;
   slug: Scalars['String']['output'];
+  title: Scalars['String']['output'];
   url: Scalars['String']['output'];
 };
 
@@ -509,9 +508,8 @@ export type SearchResultResolvers<ContextType = any, ParentType extends Resolver
 };
 
 export type SlugDictResolvers<ContextType = any, ParentType extends ResolversParentTypes['SlugDict'] = ResolversParentTypes['SlugDict']> = {
-  href?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  shortTitle?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   url?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
