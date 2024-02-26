@@ -57,6 +57,15 @@ enum Action {
   COUNTER
 }
 
+enum SearchResultSource {
+  rule,
+  characterClass,
+  culture,
+  lineage,
+  noviceFeature,
+  veteranFeature
+}
+
 interface Rule {
   title: String!
   slug: String!
@@ -70,6 +79,8 @@ type SearchResult implements Rule {
   href: String
   shortTitle: String
   text: [RuleText]
+  page: String
+  type: SearchResultSource
 }
 
 type RuleText {
