@@ -16,6 +16,8 @@ export enum baseUrls {
 
 
 export const hrefer = (baseUrl: baseUrls | string, slug: string, isAnchor: boolean): string => {
+    if(baseUrl.includes('#'))
+        return baseUrl
     if(!isAnchor)
         return `/rules/${baseUrl}/${slug}`
     else
@@ -74,8 +76,13 @@ const SlugMapper = () => {
         const s = {slug: playerClass.slug, title: playerClass.shortTitle || playerClass.title, url: hrefer(baseUrls.classes, playerClass.slug, false)}
         slugDict.push(s);
         playerClass.features.forEach(classFeature => {
-            if(classFeature)
-                slugDict.push({slug: classFeature.slug, title: classFeature.shortTitle || classFeature.title, url: hrefer(s.url, classFeature.slug, true)})
+            if(classFeature){
+                slugDict.push({slug: classFeature.slug, title: classFeature.shortTitle || classFeature.title, url: hrefer(s.url, classFeature.slug, true)});
+                classFeature.choices?.forEach(choice => {
+                    if(choice)
+                        slugDict.push({slug: choice.slug, title: choice.shortTitle || choice.title, url: hrefer(s.url, classFeature.slug, true)})
+                })
+            }
         })
     })
 
