@@ -348,7 +348,7 @@ export const generalRules: GenericRule[] = [
             {
                 slug:  "JUMP",
                 title:  "Jumping",
-                ruleType:  "RULE",
+                ruleType:  "LIST",
                 text: [{ text:  "When jumping use these formulas to calculate the minimum distances you can go. If you are trying to jump further, test your mettle. The difficulty is equal to 10+1 per foot beyond your standard jump range. If you roll below a success, you can spend stamina to increase your roll up to the point of a success if you have the stamina to spend."}],
                 rules:  [{
                     title:  "Running Leap",
