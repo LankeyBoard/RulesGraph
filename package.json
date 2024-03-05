@@ -291,7 +291,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "graphql-codegen && cross-env NODE_ENV=development ts-node-dev --exit-child --respawn src/main.ts",
     "start": "ts-node src/main.ts",
-    "generate": "graphql-codegen"
+    "generate": "graphql-codegen",
+    "build": "npm install && npm run generate"
   },
   "keywords": [],
   "author": "",
