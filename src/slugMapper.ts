@@ -37,7 +37,7 @@ const SlugMapper = () => {
     
     // General Rules
     generalRules.forEach(rule => {
-        const s = {slug: rule.slug, title: rule.shortTitle || rule.title, url: hrefer(baseUrls.generalRules, rule.slug, false)}
+        const s = {slug: rule.slug, title: rule.shortTitle || rule.title, url: hrefer(baseUrls.generalRules, rule.slug, true)}
         slugDict.push(s);
         subRuleMapper(rule, s.url, slugDict);
     })
