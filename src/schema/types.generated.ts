@@ -6,7 +6,6 @@ export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: 
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = { [_ in K]?: never };
 export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
-export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 export type RequireFields<T, K extends keyof T> = Omit<T, K> & { [P in K]-?: NonNullable<T[P]> };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
@@ -27,7 +26,7 @@ export type CharacterClass = Rule & {
   complexity?: Maybe<Complexity>;
   damage: Damage;
   description: Array<Maybe<Scalars['String']['output']>>;
-  extra?: Maybe<ClassExtra>;
+  extra?: Maybe<ShifterForms>;
   features: Array<Maybe<CharacterClassFeature>>;
   health: Scalars['Int']['output'];
   healthOnLevel: Scalars['Int']['output'];
@@ -56,8 +55,6 @@ export type CharacterClassFeature = Rule & {
   staminaCost: Scalars['Int']['output'];
   title: Scalars['String']['output'];
 };
-
-export type ClassExtra = ShifterForms;
 
 export type Complexity =
   | 'COMPLEX'
@@ -229,6 +226,8 @@ export type ShifterForm = Rule & {
   attackStat: Stat;
   damage: Array<Maybe<Damage>>;
   features?: Maybe<Array<Maybe<shifterFeature>>>;
+  href?: Maybe<Scalars['String']['output']>;
+  shortTitle?: Maybe<Scalars['String']['output']>;
   size?: Maybe<Size>;
   slug: Scalars['String']['output'];
   title: Scalars['String']['output'];
@@ -278,7 +277,7 @@ export type Weapons = {
 
 export type shifterArmor = {
   __typename?: 'shifterArmor';
-  base: Scalars['Int']['output'];
+  baseArmor: Scalars['Int']['output'];
   stat?: Maybe<Stat>;
 };
 
@@ -355,25 +354,20 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
   info: GraphQLResolveInfo
 ) => TResult | Promise<TResult>;
 
-/** Mapping of union types */
-export type ResolversUnionTypes<RefType extends Record<string, unknown>> = {
-  ClassExtra: ( ShifterForms & { __typename: 'ShifterForms' } );
-};
 
 /** Mapping of interface types */
 export type ResolversInterfaceTypes<RefType extends Record<string, unknown>> = {
-  Rule: ( Omit<CharacterClass, 'extra'> & { extra?: Maybe<RefType['ClassExtra']> } & { __typename: 'CharacterClass' } ) | ( CharacterClassFeature & { __typename: 'CharacterClassFeature' } ) | ( Culture & { __typename: 'Culture' } ) | ( GenericFeature & { __typename: 'GenericFeature' } ) | ( GenericRule & { __typename: 'GenericRule' } ) | ( Lineage & { __typename: 'Lineage' } ) | ( SearchResult & { __typename: 'SearchResult' } ) | ( ShifterForm & { __typename: 'ShifterForm' } );
+  Rule: ( CharacterClass & { __typename: 'CharacterClass' } ) | ( CharacterClassFeature & { __typename: 'CharacterClassFeature' } ) | ( Culture & { __typename: 'Culture' } ) | ( GenericFeature & { __typename: 'GenericFeature' } ) | ( GenericRule & { __typename: 'GenericRule' } ) | ( Lineage & { __typename: 'Lineage' } ) | ( SearchResult & { __typename: 'SearchResult' } ) | ( ShifterForm & { __typename: 'ShifterForm' } );
 };
 
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
   Action: Action;
-  CharacterClass: ResolverTypeWrapper<Omit<CharacterClass, 'extra'> & { extra?: Maybe<ResolversTypes['ClassExtra']> }>;
+  CharacterClass: ResolverTypeWrapper<CharacterClass>;
   String: ResolverTypeWrapper<Scalars['String']['output']>;
   Int: ResolverTypeWrapper<Scalars['Int']['output']>;
   CharacterClassFeature: ResolverTypeWrapper<CharacterClassFeature>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']['output']>;
-  ClassExtra: ResolverTypeWrapper<ResolversUnionTypes<ResolversTypes>['ClassExtra']>;
   Complexity: Complexity;
   Culture: ResolverTypeWrapper<Culture>;
   Damage: ResolverTypeWrapper<Damage>;
@@ -402,12 +396,11 @@ export type ResolversTypes = {
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
-  CharacterClass: Omit<CharacterClass, 'extra'> & { extra?: Maybe<ResolversParentTypes['ClassExtra']> };
+  CharacterClass: CharacterClass;
   String: Scalars['String']['output'];
   Int: Scalars['Int']['output'];
   CharacterClassFeature: CharacterClassFeature;
   Boolean: Scalars['Boolean']['output'];
-  ClassExtra: ResolversUnionTypes<ResolversParentTypes>['ClassExtra'];
   Culture: Culture;
   Damage: Damage;
   GenericFeature: GenericFeature;
@@ -433,7 +426,7 @@ export type CharacterClassResolvers<ContextType = any, ParentType extends Resolv
   complexity?: Resolver<Maybe<ResolversTypes['Complexity']>, ParentType, ContextType>;
   damage?: Resolver<ResolversTypes['Damage'], ParentType, ContextType>;
   description?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
-  extra?: Resolver<Maybe<ResolversTypes['ClassExtra']>, ParentType, ContextType>;
+  extra?: Resolver<Maybe<ResolversTypes['ShifterForms']>, ParentType, ContextType>;
   features?: Resolver<Array<Maybe<ResolversTypes['CharacterClassFeature']>>, ParentType, ContextType>;
   health?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   healthOnLevel?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
@@ -462,10 +455,6 @@ export type CharacterClassFeatureResolvers<ContextType = any, ParentType extends
   staminaCost?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
-export type ClassExtraResolvers<ContextType = any, ParentType extends ResolversParentTypes['ClassExtra'] = ResolversParentTypes['ClassExtra']> = {
-  __resolveType?: TypeResolveFn<'ShifterForms', ParentType, ContextType>;
 };
 
 export type CultureResolvers<ContextType = any, ParentType extends ResolversParentTypes['Culture'] = ResolversParentTypes['Culture']> = {
@@ -580,6 +569,8 @@ export type ShifterFormResolvers<ContextType = any, ParentType extends Resolvers
   attackStat?: Resolver<ResolversTypes['Stat'], ParentType, ContextType>;
   damage?: Resolver<Array<Maybe<ResolversTypes['Damage']>>, ParentType, ContextType>;
   features?: Resolver<Maybe<Array<Maybe<ResolversTypes['shifterFeature']>>>, ParentType, ContextType>;
+  href?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  shortTitle?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   size?: Resolver<Maybe<ResolversTypes['Size']>, ParentType, ContextType>;
   slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -614,7 +605,7 @@ export type WeaponsResolvers<ContextType = any, ParentType extends ResolversPare
 };
 
 export type shifterArmorResolvers<ContextType = any, ParentType extends ResolversParentTypes['shifterArmor'] = ResolversParentTypes['shifterArmor']> = {
-  base?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  baseArmor?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   stat?: Resolver<Maybe<ResolversTypes['Stat']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
@@ -628,7 +619,6 @@ export type shifterFeatureResolvers<ContextType = any, ParentType extends Resolv
 export type Resolvers<ContextType = any> = {
   CharacterClass?: CharacterClassResolvers<ContextType>;
   CharacterClassFeature?: CharacterClassFeatureResolvers<ContextType>;
-  ClassExtra?: ClassExtraResolvers<ContextType>;
   Culture?: CultureResolvers<ContextType>;
   Damage?: DamageResolvers<ContextType>;
   GenericFeature?: GenericFeatureResolvers<ContextType>;

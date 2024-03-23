@@ -1238,7 +1238,7 @@ export const playerClasses: CharacterClass[] = [
                 type: ["slashing", "bludgeoning", "piercing"],
               }],
               armor: {
-                base: 10,
+                baseArmor: 10,
                 stat: "METTLE"
               },
               features: [
@@ -1264,7 +1264,7 @@ export const playerClasses: CharacterClass[] = [
                 type: ["slashing", "bludgeoning", "piercing"]
               }],
               armor: {
-                base: 10,
+                baseArmor: 10,
                 stat: "AGILITY"
               },
               features: [
@@ -1297,7 +1297,7 @@ export const playerClasses: CharacterClass[] = [
 
             }],
               armor: {
-                base: 10,
+                baseArmor: 10,
                 stat: "AGILITY"
               },
               features: [

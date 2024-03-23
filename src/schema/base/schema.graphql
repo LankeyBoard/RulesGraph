@@ -203,16 +203,18 @@ type CharacterClass implements Rule {
   range: Range!
   damage: Damage!
   features: [CharacterClassFeature]!
-  extra: ClassExtra
+  extra: ShifterForms
 }
 
-union ClassExtra = ShifterForms
-
-type ShifterForms { forms: [ShifterForm]}
+type ShifterForms { 
+  forms: [ShifterForm]
+}
 
 type ShifterForm implements Rule{
   title: String!
   slug: String!
+  href: String
+  shortTitle: String
   size: Size
   attackStat: Stat!
   damage: [Damage]!
@@ -221,8 +223,8 @@ type ShifterForm implements Rule{
 }
 
 type shifterArmor {
-  base: Int!
   stat: Stat
+  baseArmor: Int!
 }
 
 type shifterFeature {
