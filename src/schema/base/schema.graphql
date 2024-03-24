@@ -215,7 +215,7 @@ type ShifterForm implements Rule{
   slug: String!
   href: String
   shortTitle: String
-  size: Size
+  size: Size!
   attackStat: Stat!
   damage: [Damage]!
   armor: shifterArmor

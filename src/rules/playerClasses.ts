@@ -1111,7 +1111,7 @@ export const playerClasses: CharacterClass[] = [
               },
               {
                 type: "EG",
-                text: " Eg. All bears if your form is a grizzly bear, or all snakes if your form is a cobra."
+                text: " All bears if your form is a grizzly bear, or all snakes if your form is a cobra."
               }
             ]
           },
@@ -1231,11 +1231,13 @@ export const playerClasses: CharacterClass[] = [
             {
               title: "Big (Bear or Bull)",
               slug: "SHIFTER-BIG-FORM",
+              size: "LARGE",
               attackStat: "METTLE",
               damage: [{
                 dice: 10,
                 count: 1,
                 type: ["slashing", "bludgeoning", "piercing"],
+                stat: "METTLE"
               }],
               armor: {
                 baseArmor: 10,
@@ -1255,13 +1257,15 @@ export const playerClasses: CharacterClass[] = [
               ]
             },
             {
-              title: "Medium (Wolf or Big cat)",
+              title: "Medium (Wolf or Big Cat)",
               slug: "SHIFTER-MID-FORM",
+              size: "MEDIUM",
               attackStat: "AGILITY",
               damage: [{
                 dice: 10,
                 count: 1,
-                type: ["slashing", "bludgeoning", "piercing"]
+                type: ["slashing", "bludgeoning", "piercing"],
+                stat: "AGILITY"
               }],
               armor: {
                 baseArmor: 10,
@@ -1283,6 +1287,7 @@ export const playerClasses: CharacterClass[] = [
             {
               title: "Small (Snake or Lizard)",
               slug: "SHIFTER-SMALL-FORM",
+              size: "SMALL",
               attackStat: "AGILITY",
               damage: [{
                 dice: 4,
