@@ -86,6 +86,7 @@ type SearchResult implements Rule {
 type RuleText {
   text: String!
   type: String
+  options: [String]
 }
 
 type GenericRule implements Rule {
@@ -168,6 +169,7 @@ type Damage {
   dice: Int!
   count: Int!
   stat: Stat
+  type: [String]
 }
 
 type CharacterClassFeature implements Rule {
@@ -201,4 +203,31 @@ type CharacterClass implements Rule {
   range: Range!
   damage: Damage!
   features: [CharacterClassFeature]!
+  extra: ShifterForms
+}
+
+type ShifterForms { 
+  forms: [ShifterForm]
+}
+
+type ShifterForm implements Rule{
+  title: String!
+  slug: String!
+  href: String
+  shortTitle: String
+  size: Size!
+  attackStat: Stat!
+  damage: [Damage]!
+  armor: shifterArmor
+  features: [shifterFeature]
+}
+
+type shifterArmor {
+  stat: Stat
+  baseArmor: Int!
+}
+
+type shifterFeature {
+  title: String
+  text: String!
 }

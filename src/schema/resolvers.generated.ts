@@ -18,9 +18,13 @@ import    { slugMap as Query_slugMap } from './base/resolvers/Query/slugMap';
 import    { Range } from './base/resolvers/Range';
 import    { RuleText } from './base/resolvers/RuleText';
 import    { SearchResult } from './base/resolvers/SearchResult';
+import    { ShifterForm } from './base/resolvers/ShifterForm';
+import    { ShifterForms } from './base/resolvers/ShifterForms';
 import    { SlugDict } from './base/resolvers/SlugDict';
 import    { Training } from './base/resolvers/Training';
 import    { Weapons } from './base/resolvers/Weapons';
+import    { shifterArmor } from './base/resolvers/shifterArmor';
+import    { shifterFeature } from './base/resolvers/shifterFeature';
     export const resolvers: Resolvers = {
       Query: { characterClasses: Query_characterClasses,cultures: Query_cultures,genericFeatures: Query_genericFeatures,genericRules: Query_genericRules,lineages: Query_lineages,searchAll: Query_searchAll,slugMap: Query_slugMap },
       
@@ -36,7 +40,11 @@ Options: Options,
 Range: Range,
 RuleText: RuleText,
 SearchResult: SearchResult,
+ShifterForm: ShifterForm,
+ShifterForms: ShifterForms,
 SlugDict: SlugDict,
 Training: Training,
-Weapons: Weapons
+Weapons: Weapons,
+shifterArmor: shifterArmor,
+shifterFeature: shifterFeature
     }
