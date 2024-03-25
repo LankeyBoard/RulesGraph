@@ -189,7 +189,7 @@ export const generalRules: GenericRule[] = [
                         ruleType:  "LIST",
                         list:  [
                             "Whips: Range: 10-20ft",
-                            "Pole Weapons: Range: Melee U+2013 10ft"
+                            "Pole Weapons: Range: Melee-10ft"
                         ]
                     }
                 ]

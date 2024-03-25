@@ -22,7 +22,7 @@ export type Action =
 
 export type CharacterClass = Rule & {
   __typename?: 'CharacterClass';
-  attackStat: Stat;
+  attackStat?: Maybe<Array<Stat>>;
   complexity?: Maybe<Complexity>;
   damage: Damage;
   description: Array<Maybe<Scalars['String']['output']>>;
@@ -87,6 +87,8 @@ export type FeatureType =
 
 export type GenericFeature = Rule & {
   __typename?: 'GenericFeature';
+  actionType?: Maybe<Action>;
+  costsFortunesFavor?: Maybe<Scalars['Boolean']['output']>;
   href?: Maybe<Scalars['String']['output']>;
   multiSelect?: Maybe<Scalars['Boolean']['output']>;
   options?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
@@ -94,6 +96,7 @@ export type GenericFeature = Rule & {
   shortText?: Maybe<Scalars['String']['output']>;
   shortTitle?: Maybe<Scalars['String']['output']>;
   slug: Scalars['String']['output'];
+  staminaCost?: Maybe<Scalars['Int']['output']>;
   text?: Maybe<Array<Maybe<RuleText>>>;
   title: Scalars['String']['output'];
 };
@@ -228,7 +231,7 @@ export type ShifterForm = Rule & {
   features?: Maybe<Array<Maybe<shifterFeature>>>;
   href?: Maybe<Scalars['String']['output']>;
   shortTitle?: Maybe<Scalars['String']['output']>;
-  size?: Maybe<Size>;
+  size: Size;
   slug: Scalars['String']['output'];
   title: Scalars['String']['output'];
 };
@@ -422,7 +425,7 @@ export type ResolversParentTypes = {
 };
 
 export type CharacterClassResolvers<ContextType = any, ParentType extends ResolversParentTypes['CharacterClass'] = ResolversParentTypes['CharacterClass']> = {
-  attackStat?: Resolver<ResolversTypes['Stat'], ParentType, ContextType>;
+  attackStat?: Resolver<Maybe<Array<ResolversTypes['Stat']>>, ParentType, ContextType>;
   complexity?: Resolver<Maybe<ResolversTypes['Complexity']>, ParentType, ContextType>;
   damage?: Resolver<ResolversTypes['Damage'], ParentType, ContextType>;
   description?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
@@ -478,6 +481,8 @@ export type DamageResolvers<ContextType = any, ParentType extends ResolversParen
 };
 
 export type GenericFeatureResolvers<ContextType = any, ParentType extends ResolversParentTypes['GenericFeature'] = ResolversParentTypes['GenericFeature']> = {
+  actionType?: Resolver<Maybe<ResolversTypes['Action']>, ParentType, ContextType>;
+  costsFortunesFavor?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
   href?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   multiSelect?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
   options?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
@@ -485,6 +490,7 @@ export type GenericFeatureResolvers<ContextType = any, ParentType extends Resolv
   shortText?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   shortTitle?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  staminaCost?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   text?: Resolver<Maybe<Array<Maybe<ResolversTypes['RuleText']>>>, ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
@@ -571,7 +577,7 @@ export type ShifterFormResolvers<ContextType = any, ParentType extends Resolvers
   features?: Resolver<Maybe<Array<Maybe<ResolversTypes['shifterFeature']>>>, ParentType, ContextType>;
   href?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   shortTitle?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  size?: Resolver<Maybe<ResolversTypes['Size']>, ParentType, ContextType>;
+  size?: Resolver<ResolversTypes['Size'], ParentType, ContextType>;
   slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
