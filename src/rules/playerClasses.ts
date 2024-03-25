@@ -17,10 +17,23 @@ export const playerClasses: CharacterClass[] = [
             weapons: {melee: {options:["unarmed", "improvised"]}, ranged: {options: ["improvised"]}, special: null},
             magic: null
         },
-        attackStat: "METTLE",
+        attackStat: ["METTLE", "AGILITY"],
         range: {min: 0, max: 40},
         damage: {dice: 10, count: 1, stat: "METTLE"},
-        features: [{
+        features: [
+          {
+            level: 1,
+            title: "Fighting Style",
+            slug: "BRAWLER-STYLE",
+            staminaCost: 0,
+            costsFortunesFavor: false,
+            rules: [{
+              type: "RULE",
+              text: "Select either Mettle or Agility for your Attack Stat. Selecting Agility doubles your Base Attack Range."
+            }]
+
+          },
+          {
             level: 1,
             title: "Muscle Bound Body",
             slug: "BRAWLER-MBB",
@@ -113,15 +126,67 @@ export const playerClasses: CharacterClass[] = [
         },
         {
             level: 5,
-            title: "Spinning Lariat",
-            slug: "BRAWLER-SL",
-            staminaCost: 1,
+            title: "Signature Move",
+            slug: "BRAWLER-SIGNATURE-MOVE",
+            staminaCost: 0,
             costsFortunesFavor: false,
-            actionType: "ACTION",
-            rules:[{
+            rules: [
+              {
+                text: "Select a Signature Move from the list below.",
+                type: "RULE"
+              }
+            ],
+            choices: [
+              {
+                title: "Spinning Lariat",
+                slug: "BRAWLER-SL",
+                staminaCost: 1,
+                costsFortunesFavor: false,
+                actionType: "ACTION",
+                text:[{
+                    type: "RULE",
+                    text: "Spend 1 Stamina plus 1 Stamina per enemy within melee range of you. Make an AOE Attack that deals your base damage against all enemies within melee range of you."
+                }]
+              },
+              {
+                title: "Crippling Strke",
+                slug: "BRAWLER-CS",
+                staminaCost: 2,
+                costsFortunesFavor: false,
+                actionType: "ACTION",
+                text:[{
+                    type: "RULE",
+                    text: "Spend 2 Stamina plus 1 for each size larger than you the enemy is. When you hit an enemy with a melee attack, reduce the damage done by their attacks by half and reduce their speed to 0 until the end of this round."
+                }]
+              },
+              {
+                title: "Top Rope Takedown",
+                slug: "BRAWLER-TRT",
+                staminaCost: 1,
+                costsFortunesFavor: false,
+                actionType: "ACTION",
+                text:[{
+                    type: "RULE",
+                    text: "Requires an ally or sturdy object within 5' of the target to jump off of."
+                },
+              {
                 type: "RULE",
-                text: "Spend 1 Stamina plus 1 Stamina per enemy within melee range of you. Make an AOE Attack that deals your base damage against all enemies within melee range of you."
-            }]
+                text: "Spend 1 Stamina to attempt to knock the target prone with your next attack. You and your target make opposed tests based on your Attack Stat. If you succeed, you knock them prone."
+              }]
+              },
+              {
+                title: "Counter Throw",
+                slug: "BRAWLER-CT",
+                staminaCost: 1,
+                costsFortunesFavor: false,
+                actionType: "COUNTER",
+                text:[{
+                    type: "RULE",
+                    text: "When you counter an enemy, spend 1 stamina + 1 per size category the target is larger than you. If you do, you move the enemy up to 15 ft."
+                }]
+              },
+            ]
+            
         },
         {
             level: 6,
@@ -182,7 +247,7 @@ export const playerClasses: CharacterClass[] = [
           weapons: {melee: null, ranged: null, special: null},
           magic: {options:["Divine"]}
         },
-        attackStat: "HEART",
+        attackStat: ["HEART"],
         range: {min: 0, max: 60},
         damage: {dice: 6, count: 1, stat: "HEART"},
         features: [
@@ -375,7 +440,7 @@ export const playerClasses: CharacterClass[] = [
             weapons: {melee: null, ranged: null, special: null},
             magic: {pick: 1, options:["fire","cold","lightning", "rot", "psychic"]}
         },
-        attackStat: "INTELLECT",
+        attackStat: ["INTELLECT"],
         range: {min: 0, max: 80},
         damage: {dice: 6, count: 1, stat: "INTELLECT"},
         features: [{
@@ -538,7 +603,7 @@ export const playerClasses: CharacterClass[] = [
             weapons: {melee: {pick: 2, options: ["Hammers & Clubs", "Slashing Swords", "Piercing Swords & Daggers", "Axes", "Flails, Ball & Chain, etc."]}, ranged: {pick: 2, options:["Heavy Throwing", "Light Throwing", "Bows", "Crossbows"]}, special: null},
             magic: null
         },
-        attackStat: "METTLE",
+        attackStat: ["METTLE"],
         range: {min: 0, max: 120},
         damage: {dice: 10, count: 1, stat: "METTLE"},
         features: [
@@ -702,11 +767,11 @@ export const playerClasses: CharacterClass[] = [
           weapons: {
               melee: {
                   pick: 2,
-                  options: ["any melee weapon"]
+                  options: ["melee weapon classes"]
               },
               ranged: {
                   pick: 1,
-                  options: ["any ranged weapon"]
+                  options: ["ranged weapon class"]
               },
               special: {
                 options: ["whips"]
@@ -714,7 +779,7 @@ export const playerClasses: CharacterClass[] = [
           },
           magic: null
       },
-      attackStat: "AGILITY",
+      attackStat: ["AGILITY"],
       range: {
           min: 0,
           max: 80
@@ -888,7 +953,7 @@ export const playerClasses: CharacterClass[] = [
           weapons: {melee: {pick: 1, options: ["Axes", "Piercing Swords & Dagers", "Slashing Swords" ]}, ranged: {pick: 2, options:["Bows", "Crossbows", "Light Throwing"]}, special: null},
           magic: null
         },
-        attackStat: "AGILITY",
+        attackStat: ["AGILITY"],
         range: {min: 0, max: 120},
         damage: {dice: 8, count: 1, stat: "AGILITY"},
         features: [
@@ -1065,10 +1130,10 @@ export const playerClasses: CharacterClass[] = [
         training: {
           armor: ["Light"],
           shields: null,
-          weapons: {melee: {pick: 1, options: ["Any melee weapon" ]}, ranged: {pick: 2, options:["Any ranged weapon"]}, special: null},
+          weapons: {melee: {pick: 1, options: ["melee weapon class" ]}, ranged: {pick: 2, options:["ranged weapon class"]}, special: null},
           magic: null
         },
-        attackStat: "HEART",
+        attackStat: ["HEART"],
         range: {min: 0, max: 0},
         damage: {dice: 8, count: 1, stat: "HEART"},
         features: [
