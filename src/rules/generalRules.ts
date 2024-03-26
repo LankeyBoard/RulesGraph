@@ -16,6 +16,64 @@ export const generalRules: GenericRule[] = [
         ]
     },
     {
+        slug:  "WHAT-MAKES-UP-A-CHARACTER",
+        title:  "What Makes Up a Character",
+        shortTitle: "Parts of a Character",
+        ruleType:  "RULE",
+        text: [{ text:  "Level, lineage, culture, class, stats, ties and backstory"}],
+        rules:   [
+            {
+                slug:  "LEVEL-RULE-DESC",
+                title:  "Level",
+                ruleType:  "RULE",
+                text: [{ text:  "As your character grows more powerful and experienced you gain levels, unlocking new abilities based on your class. The current rules go from level 1-8."}]
+            },
+            {
+                slug:  "LINEAGE-RULE-DESC",
+                title:  "Lineage",
+                ruleType:  "RULE",
+                text: [{ text:  "Your character's physiology. Visit the lineage section for a list of options."}]
+            },
+            {
+                slug:  "CULTURE-RULE-DESC",
+                title:  "Culture",
+                ruleType:  "RULE",
+                text: [{ text:  "Where your character grew up. Visit the culture section for a list of options"}]
+            },        
+            {
+                slug:  "STATS",
+                title:  "Stats",
+                ruleType:  "LISTCOMPACT",
+                rules:  [
+                    {
+                        slug:  "METTLE",
+                        title:  "Mettle",
+                        ruleType:  "RULE",
+                        text: [{ text:  "The physical force a character can generate as well as their heartiness."}]
+                    },
+                    {
+                        slug:  "AGILITY",
+                        title:  "Agility",
+                        ruleType:  "RULE",
+                        text: [{ text:  "the physical accuracy and control of a character."}]
+                    },
+                    {
+                        slug:  "INTELLECT",
+                        title:  "Intellect",
+                        ruleType:  "RULE",
+                        text: [{ text:  "The ability to gather and retain information."}]
+                    },
+                    {
+                        slug:  "HEART",
+                        title:  "Heart",
+                        ruleType:  "RULE",
+                        text: [{ text:  "Emotional engagement, presence, and determination."}]
+                    }                
+                ]
+            }
+        ]
+    },
+    {
         slug:  "CHAR-RESOURCES",
         title:  "Character Resources",
         ruleType:  "RULE",
@@ -49,15 +107,91 @@ export const generalRules: GenericRule[] = [
                         slug:  "REST-RELAX",
                         title:  "Rest and Relax",
                         ruleType:  "RULE",
-                        text: [{ text:  "In-between adventures you have a chance to rest, relax and prepare yourself for the next call to action. To gain the benefits of resting and relaxing you must spend 5 nights in a safe and relatively comfortable shelter while only engaging in light activity. Eg. At home or in an inn. Or spend 14 days & nights in less than ideal conditions with no more than light activity. Eg. Sleeping in a tent in the woods."}]
+                        text: [{ text:  "In-between adventures you have a chance to rest, relax and prepare yourself for the next call to action. To gain the benefits of Resting and Relaxing (R&R) you must spend 5 nights in a safe and relatively comfortable shelter while only engaging in light activity. Eg. At home or in an inn. Or spend 14 days & nights in less than ideal conditions with no more than light activity. Eg. Sleeping in a tent in the woods."},
+                    {text: "After successful Rest and Relaxation, regain all lost Health and Stamina. You also lose any conditions that do not specifically last through a R&R"}]
                     },
                     {
                         slug:  "NIGHTS-SLEEP",
                         title:  "A Night's Sleep",
                         ruleType:  "RULE",
-                        text: [{ text:  "A good night's rest is still important to an adventurer. If you are awake for more than 24 hours in a row, test your mettle each hour. The difficulty of this test increases by 1 for each hour beyond 24 hours. Pass (15+): You suffer no ill effects. Mixed (10-14): Reduce your current and maximum stamina by 3. Fail (9-): Reduce your current and maximum stamina by 10. If you are reduced to 0 stamina in this way you become unconscious. Once you sleep for at least 6 hours you lose any negative effects from a lack of rest  and reset the difficulty of the test."}]
+                        text: [{ text:  "A good night's rest is still important to an adventurer. If you are awake for more than 24 hours in a row, Test your Mettle each hour. The difficulty of this test increases by 1 for each hour beyond 24 hours. Pass (15+): You suffer no ill effects. Mixed (10-14): Reduce your current and maximum stamina by 3. Fail (9-): Reduce your current and maximum stamina by 10. If you are reduced to 0 stamina in this way you become unconscious. Once you sleep for at least 6 hours you lose any negative effects from a lack of rest  and reset the difficulty of the test."}]
                     }
                 ]
+            }
+        ]
+    },
+    {
+        slug:  "TESTS",
+        title:  "Tests",
+        ruleType:  "RULE",
+        text: [{ text:  "Tests are how you determine the outcome of uncertain events, can you smash open a door (Mettle), talk a guard into looking the other way (Heart), dodging a tomato hurled at your head (Agility).\nFirst the success and failure points of the test is set by the GM (Game Master) and the general outcome of success and failure are announced if it is reasonable for the player characters to know. Then players can decide if they want to attempt the test. The player then rolls 1d20 and adds their stat bonus to the result. If the result is at least equal to the success point, they pass the test and have a beneficial outcome. If the result is greater than or equal to the failure point but worse than the success, then the result is mixed. The GM can offer success with a cost or mixed success. If the results are less than the failure pint, the result is a failure. In general the failure point is five less than the success point."}],
+        rules:   [
+            {
+                slug:  "SUCCESS",
+                title:  "Success",
+                ruleType:  "RULE",
+                text: [{ text:  "Success on a test doesn't always mean getting exactly what you want, but it does mean a favorable outcome for you. You roll at least the  difficulty for the test."},
+                {type: "EG", text: "You are talking to the innkeeper negotiating for a room. The GM calls for a heart test and tells you success needs a 15, and you'll get a good discount. Failure is a 5 and you get no discount and an undesirable room. You roll a 13 and add +2 for your heart to get a total of 15, which means you succeed. You manage to negotiate a 20% discount!"}]
+            },
+            {
+                slug:  "SUSSESS-WITH-COST",
+                title:  "Success With a Cost",
+                ruleType:  "RULE",
+                text: [{ text:  "Success with a cost is when the GM offers a consequence and the player chooses if they want to accept the consequences or fail the test."},
+                {type: "EG", text:  "You try and scale a difficult cliff, you roll a mixed result. The GM may offer that you try and fall the first time, taking 1d6 damage but make it up on the second try or you fail and realize it would be too risky to climb and can't make it up."}]
+            },
+            {
+                slug:  "MIXED-SUCCESS",
+                title:  "Mixed Success",
+                ruleType:  "RULE",
+                text: [{ text:  "A mixed success is when you are partially successful in your endeavor. You achieve some of the outcome you want, but there are some complications or downsides."},
+                {type: "EG", text:  "You are trying to trick a guard into letting you go after being caught breaking curfew. You told him you forgot your pass at home and get a mixed success on the Heart test your GM called for. The guard believes you but insists on escorting you home to show him the pass."}]
+            },
+            {
+                slug:  "FAILURE",
+                title:  "Failure",
+                ruleType:  "RULE",
+                text: [{ text:  "A failure occurs when you cannot achieve your desired outcome. This may mean the situation was harder than you initially believed or because you couldn't do it as well as you hoped or any other reason you and the GM think is reasonable. Sometimes the consequences of failure are direct, such as taking damage, other times they can simply be a complication for the story, this is determined by the GM."},
+                {type: "EG", text:  "You are scaling a castle wall, trying to get in without alerting the goblins keeping watch from the nearby tower. Your GM calls for an agility test, where success is a 15 and means you get up without being noticed and a failure is a 10 and means you get spotted. You roll your agility test, you get a 5 on the dice and add 2 from your agility, giving you a total of 7. The goblins spot you half way up, they begin to shout something you can't understand and begin to run towards the wall you are climbing!"}]
+            },
+            {
+                slug:  "CONTESTS",
+                title:  "Contests",
+                ruleType:  "RULE",
+                text: [{ text:  "When two or more characters are competing, Sometimes each character will roll the same test and success is determined by the highest number, not by rolling above a target. Ties may result in a reroll or both participants doing equally well depending on the test."},
+                {type: "EG", text:  "You and your ally Ronin join an archery contest, you and the other contestants line up and fire at a target. You all roll an agility test. You rolled a 14+3, which is better than your GMs roll of 12+2 but worse than Ronin’s 16+2. Ronin comes out on top in that test."}]
+            },
+            {
+                slug:  "1-20",
+                title:  "1s and 20s",
+                ruleType:  "RULE",
+                text: [],
+                rules:   [
+                    {
+                        slug:  "1s",
+                        title:  "1 - Critical Failure",
+                        ruleType:  "RULE",
+                        text: [{ text:  "Rolling a 1 is the worst a character could do. Tests always fail."}]
+                    },
+                    {
+                        slug:  "20s",
+                        title:  "20 - Critical Success",
+                        ruleType:  "RULE",
+                        text: [{ text:  "Rolling a 20 is the best a character could do. Tests always pass and when you roll a critical success on an attack, you  deal double damage on the attack."}]
+                    }
+                ]
+            },
+            {
+                slug:  "FORTUNES-FAVOR",
+                title:  "Fortune's Favor",
+                ruleType:  "RULE",
+                text: [{ text:  "When you fail a test, you gain Fortune's Favor. While you have Fortune's Favor roll a second d20 whenever you are tested. You can use this result in place of your regular roll. When you do so, you lose Fortune's Favor."}]
+            },
+            {
+                slug:  "MISFORTUNE",
+                title:  "Misfortune",
+                ruleType:  "RULE",
+                text: [{ text:  "Circumstances may cause misfortune as well. When the GM calls for a roll with Misfortune, you roll a second d20 and take the lower of the two rolls. If you have Fortunes Favor, before you roll you can chose to give it up to cancel out the Misfortune and roll the test normally."}]
             }
         ]
     },
@@ -65,8 +199,9 @@ export const generalRules: GenericRule[] = [
         slug:  "COMBAT",
         title:  "Combat",
         ruleType:  "RULE",
-        text: [{ text:  "Each round of combat is split into 3 parts, Environmental effects, players turn, enemies turn. During the players turn, each player makes one action and can move up to their movement speed. During the enemies turn enemies with actions can take one action and move. Enemies with only counters can only move unless they have not been attacked, in which case they can use a counter as an action."}],
+        text: [{ text:  "Each round of combat is split into 3 parts, 1st, Environmental effects, 2nd Players turn, 3rd Enemies turn. During the players turn, each player makes one action and can move up to their movement speed. During the enemies turn enemies with actions can take one action and move. Enemies with only counters can only move unless they have not been attacked, in which case they can use a counter as an action."}],
         rules: [
+            
             {
                 slug:  "EXCHANGES",
                 title:  "Exchanges",
@@ -77,6 +212,37 @@ export const generalRules: GenericRule[] = [
                     slug: "AOE-EXCHANGES",
                     ruleType:  "RULE",
                     text: [{ text:  "When your action targets multiple enemies, roll a single attack test, and compare to each enemies defenses. If any target clashes or counters, the GM chooses which creature will take advantage of the opening. If two or more enemies clash or counter, the creature makes the attack with Fortune's Favor. Only a single enemy can clash or counter a single exchange."}]
+                }]
+            },
+            {
+                slug:  "COMBAT-NUMBERS",
+                title:  "Key Comat Information",
+                ruleType:  "LISTCOMPACT",
+                text: [{ text:  "These are the key fields for most combat Exchanges"}],
+                rules:  [{
+                    title:  "Base Attack Stat",
+                    slug:  "BASIC-ATTACK",
+                    text: [{ text:  "Your Base Attack is the stat you use for Attack rolls and comes from your class."}]
+                },
+                {
+                    title:  "Range",
+                    slug: "BASIC-RANGE",
+                    text: [{ text:  "How far away you can attack. Melee class weapons cannot be used outside of melee range. Ranged class weapons cannot be used in melee range. "}]
+                },
+                {
+                    title:  "Speed",
+                    slug: "BASIC-SPEED",
+                    text: [{ text:  "Your Speed deterimines how far you can move and comes from your lineage."}]
+                },
+                {
+                    title:  "Armor",
+                    slug: "BASIC-ARMOR",
+                    text: [{ text:  "If you are not wearing any armor, your Armor is 10+Agility. Your Armor determines how hard you are to hit."}]
+                },
+                {
+                    title:  "Counter",
+                    slug: "BASIC-COUNTER",
+                    text: [{ text:  "Your Counter is equal to your Armor-5."}]
                 }]
             },
             {
@@ -140,12 +306,6 @@ export const generalRules: GenericRule[] = [
                 text: [{ text:  "When you take damage, you can lose your Health or your Stamina. At least 1 damage must be directed to Health, the rest can be directed to Health or Stamina. You cannot go below 0 Health or Stamina."}]
             }
         ]
-    },
-    {
-        slug:  "CORE-GAME",
-        title:  "The Core of the Game",
-        ruleType:  "RULE",
-        text: [{ text:  "All characters have stamina, a pool of energy they can use to use powerful abilities and take hits. Stamina comes and goes quickly, returning whenever you have a chance to sit down and catch your breath. Characters also have health, which is lost when they take damage. Health is slow to come back, only returning when you spend time relaxing back in town.\nWhen you perform an action where the outcome is uncertain, it’s time to test one of your stats. Tests can have one of three results, a pass, a fail, or a mixed result."}]
     },
     {
         slug:  "EQUIPMENT",
@@ -257,9 +417,9 @@ export const generalRules: GenericRule[] = [
         ]
     },
     {
-        slug:  "EDLH",
-        title:  "Exhausted, Dying, Last Stand, & Healing",
-        shortTitle: "Dying & Healing",
+        slug:  "EDL",
+        title:  "Exhausted, Dying, & Last Stand",
+        shortTitle: "Dying & Last Stand",
         ruleType:  "RULE",
         text: [{ text:  "If damage would reduce you to below 0 stamina or 0 health, it reduces you to 0 instead."}],
         rules: [
@@ -290,7 +450,7 @@ export const generalRules: GenericRule[] = [
         ]
     },
     {
-        slug:  "NON-MGICAL-HEALING",
+        slug:  "NON-MAGICAL-HEALING",
         title:  "Healing",
         ruleType:  "RULE",
         text: [{ text:  "Healing cannot affect dead creatures."}],
@@ -511,138 +671,5 @@ export const generalRules: GenericRule[] = [
                 "Colossal (<50ft)"
             ]
         }]
-    },
-    {
-        slug:  "TESTS",
-        title:  "Tests",
-        ruleType:  "RULE",
-        text: [{ text:  "Tests are how you determine the outcome of uncertain events, can you smash open a door (Mettle), talk a guard into looking the other way (Heart), dodging a tomato hurled at your head (Agility).\nFirst the success and failure points of the test is set by the GM (Game Master) and the general outcome of success and failure are announced if it is reasonable for the player characters to know. Then players can decide if they want to attempt the test. The player then rolls 1d20 and adds their stat bonus to the result. If the result is at least equal to the success point, they pass the test and have a beneficial outcome. If the result is greater than or equal to the failure point but worse than the success, then the result is mixed. The GM can offer success with a cost or mixed success. If the results are less than the failure pint, the result is a failure. In general the failure point is five less than the success point."}],
-        rules:   [
-            {
-                slug:  "SUCCESS",
-                title:  "Success",
-                ruleType:  "RULE",
-                text: [{ text:  "Success on a test doesn't always mean getting exactly what you want, but it does mean a favorable outcome for you. You roll at least the  difficulty for the test."},
-                {type: "EG", text: "You are talking to the innkeeper negotiating for a room. The GM calls for a heart test and tells you success needs a 15, and you'll get a good discount. Failure is a 5 and you get no discount and an undesirable room. You roll a 13 and add +2 for your heart to get a total of 15, which means you succeed. You manage to negotiate a 20% discount!"}]
-            },
-            {
-                slug:  "SUSSESS-WITH-COST",
-                title:  "Success With a Cost",
-                ruleType:  "RULE",
-                text: [{ text:  "Success with a cost is when the GM offers a consequence and the player chooses if they want to accept the consequences or fail the test."},
-                {type: "EG", text:  "You try and scale a difficult cliff, you roll a mixed result. The GM may offer that you try and fall the first time, taking 1d6 damage but make it up on the second try or you fail and realize it would be too risky to climb and can't make it up."}]
-            },
-            {
-                slug:  "MIXED-SUCCESS",
-                title:  "Mixed Success",
-                ruleType:  "RULE",
-                text: [{ text:  "A mixed success is when you are partially successful in your endeavor. You achieve some of the outcome you want, but there are some complications or downsides."},
-                {type: "EG", text:  "You are trying to trick a guard into letting you go after being caught breaking curfew. You told him you forgot your pass at home and get a mixed success on the Heart test your GM called for. The guard believes you but insists on escorting you home to show him the pass."}]
-            },
-            {
-                slug:  "FAILURE",
-                title:  "Failure",
-                ruleType:  "RULE",
-                text: [{ text:  "A failure occurs when you cannot achieve your desired outcome. This may mean the situation was harder than you initially believed or because you couldn't do it as well as you hoped or any other reason you and the GM think is reasonable. Sometimes the consequences of failure are direct, such as taking damage, other times they can simply be a complication for the story, this is determined by the GM."},
-                {type: "EG", text:  "You are scaling a castle wall, trying to get in without alerting the goblins keeping watch from the nearby tower. Your GM calls for an agility test, where success is a 15 and means you get up without being noticed and a failure is a 10 and means you get spotted. You roll your agility test, you get a 5 on the dice and add 2 from your agility, giving you a total of 7. The goblins spot you half way up, they begin to shout something you can't understand and begin to run towards the wall you are climbing!"}]
-            },
-            {
-                slug:  "CONTESTS",
-                title:  "Contests",
-                ruleType:  "RULE",
-                text: [{ text:  "When two or more characters are competing, Sometimes each character will roll the same test and success is determined by the highest number, not by rolling above a target. Ties may result in a reroll or both participants doing equally well depending on the test."},
-                {type: "EG", text:  "You and your ally Ronin join an archery contest, you and the other contestants line up and fire at a target. You all roll an agility test. You rolled a 14+3, which is better than your GMs roll of 12+2 but worse than Ronin’s 16+2. Ronin comes out on top in that test."}]
-            },
-            {
-                slug:  "1-20",
-                title:  "1s and 20s",
-                ruleType:  "RULE",
-                text: [],
-                rules:   [
-                    {
-                        slug:  "1s",
-                        title:  "1 - Critical Failure",
-                        ruleType:  "RULE",
-                        text: [{ text:  "Rolling a 1 is the worst a character could do. Tests always fail."}]
-                    },
-                    {
-                        slug:  "20s",
-                        title:  "20 - Critical Success",
-                        ruleType:  "RULE",
-                        text: [{ text:  "Rolling a 20 is the best a character could do. Tests always pass and when you roll a critical success on an attack, you  deal double damage on the attack."}]
-                    }
-                ]
-            },
-            {
-                slug:  "FORTUNES-FAVOR",
-                title:  "Fortune's Favor",
-                ruleType:  "RULE",
-                text: [{ text:  "When you fail a test, you gain Fortune's Favor. While you have Fortune's Favor roll a second d20 whenever you are tested. You can use this result in place of your regular roll. When you do so, you lose Fortune's Favor."}]
-            },
-            {
-                slug:  "MISFORTUNE",
-                title:  "Misfortune",
-                ruleType:  "RULE",
-                text: [{ text:  "Circumstances may cause misfortune as well. When the GM calls for a roll with Misfortune, you roll a second d20 and take the lower of the two rolls. If you have Fortunes Favor, before you roll you can chose to give it up to cancel out the Misfortune and roll the test normally."}]
-            }
-        ]
-    },
-    {
-        slug:  "WHAT-MAKES-UP-A-CHARACTER",
-        title:  "What Makes Up a Character",
-        shortTitle: "Parts of a Character",
-        ruleType:  "RULE",
-        text: [{ text:  "Level, lineage, culture, class, stats, ties and backstory"}],
-        rules:   [
-            {
-                slug:  "LEVEL-RULE-DESC",
-                title:  "Level",
-                ruleType:  "RULE",
-                text: [{ text:  "As your character grows more powerful and experienced you gain levels, unlocking new abilities based on your class. The current rules go from level 1-8."}]
-            },
-            {
-                slug:  "LINEAGE-RULE-DESC",
-                title:  "Lineage",
-                ruleType:  "RULE",
-                text: [{ text:  "Your character's physiology. Visit the lineage section for a list of options."}]
-            },
-            {
-                slug:  "CULTURE-RULE-DESC",
-                title:  "Culture",
-                ruleType:  "RULE",
-                text: [{ text:  "Where your character grew up. Visit the culture section for a list of options"}]
-            },        
-            {
-                slug:  "STATS",
-                title:  "Stats",
-                ruleType:  "LISTCOMPACT",
-                rules:  [
-                    {
-                        slug:  "METTLE",
-                        title:  "Mettle",
-                        ruleType:  "RULE",
-                        text: [{ text:  "The physical force a character can generate as well as their heartiness."}]
-                    },
-                    {
-                        slug:  "AGILITY",
-                        title:  "Agility",
-                        ruleType:  "RULE",
-                        text: [{ text:  "the physical accuracy and control of a character."}]
-                    },
-                    {
-                        slug:  "INTELLECT",
-                        title:  "Intellect",
-                        ruleType:  "RULE",
-                        text: [{ text:  "The ability to gather and retain information."}]
-                    },
-                    {
-                        slug:  "HEART",
-                        title:  "Heart",
-                        ruleType:  "RULE",
-                        text: [{ text:  "Emotional engagement, presence, and determination."}]
-                    }                
-                ]
-            }
-        ]
     }
 ]
