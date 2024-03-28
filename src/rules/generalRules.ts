@@ -5,8 +5,17 @@ export const generalRules: GenericRule[] = [
         slug:  "BUILDING-A-PC",
         title:  "Building a New Character",
         ruleType: "RULE",
-        text: [{text:"Your GM should tell you the level you are starting at. If you are starting higher than first level, follow the rules for leveling up after building your character at first level.\nPick a Lineage, Culture and Class.\nAssign stats - You have a set of 3,2,0,-2. Use each number once, placing them in your 4 stats.\nHigher numbers are better. Your class will have at least 1 primary stat. It's a good idea to have that be your highest number.\nPick a Novice Feature.\n(Optional) Write a backstory for your character."}],
+        text: [{text:"Your GM should tell you the level you are starting at. If you are starting higher than first level, follow the rules for leveling up after building your character at first level."},
+        {text:"Pick a Lineage, Culture and Class."},
+        {text: "Assign stats - You have a set of 3,2,0,-2. Use each number once, placing them in your 4 stats."},
+        {text: "Higher numbers are better. Your class will have at least 1 primary stat. It's a good idea to have that be your highest number.\nPick a Novice Feature.\n(Optional) Write a backstory for your character."}],
         rules:   [
+            {
+                slug:  "STARTING-EQUIPMENT",
+                title:  "Starting Equipment",
+                ruleType:  "RULE",
+                text: [{text:"Your GM will tell you when you level up. Parties should generally be kept at the same level and should level up at the same time when Recuperating. When you level up, your Health & Stamina increase and you gain new features based on your Class."}]
+            },
             {
                 slug:  "LEVELING-UP",
                 title:  "Leveling Up",
@@ -158,8 +167,15 @@ export const generalRules: GenericRule[] = [
                 slug:  "CONTESTS",
                 title:  "Contests",
                 ruleType:  "RULE",
-                text: [{ text:  "When two or more characters are competing, Sometimes each character will roll the same test and success is determined by the highest number, not by rolling above a target. Ties may result in a reroll or both participants doing equally well depending on the test."},
-                {type: "EG", text:  "You and your ally Ronin join an archery contest, you and the other contestants line up and fire at a target. You all roll an agility test. You rolled a 14+3, which is better than your GMs roll of 12+2 but worse than Ronin’s 16+2. Ronin comes out on top in that test."}]
+                text: [{ text:  "When two or more characters are directly challenging each other the GM might call for a contested roll. A Contest is like any other test except the difficulty is set by comparing the competing dice. If one side is more than 5 higher than the other, then that side passes the test and the other side fails. If both sides are within 5, then the result is a Mixed Success."},
+                {type: "EG", text:  "You joined an arm wrestling competition. Your first competition you are against a stout dwarven woman. The GM calls for a Test of Mettle. You roll a 13 and add your Mettle of 3 or a total of 16. The GM rolls a 10 and adds the woman's Mettle of 2, giving them a result of 12. This makes it a Mixed Success so the GM narrates how you go back and forth, finally winning the best 2-3 rounds on the 3rd round."}]
+            },
+            {
+                slug:  "GROUPT-TESTS",
+                title:  "Group Tests",
+                ruleType:  "RULE",
+                text: [{ text:  "Sometimes a group of characters are performing an action where the success depends on the groups overall performance, not one individuals. One common case is sneaking around a dungeon. When taking a group Test, each character rolls against the test, count the number of Success, Mixed, and Failures. The average of the result is the groups result. An easy way to find the average is to subtract the larger of successes or failures from the other. If that new number is higher than the Mixed, that's the result, otherwise the result is Mixed."},
+                {type: "EG", text:  "The GM calls for a Group Test for a group of 5, Pass is 13 and Fail is 8. If the group rolls 2 Passes, 2 Mixed and 1 Fail, then we subtract the 1 Fail from 2 Passes, leaving us with 1 Pass and 2 Mixed, so the result is Mixed. If instead there were 3 Passes and 1 Mixed, the result would have been a Pass."}]
             },
             {
                 slug:  "1-20",
@@ -185,7 +201,8 @@ export const generalRules: GenericRule[] = [
                 slug:  "FORTUNES-FAVOR",
                 title:  "Fortune's Favor",
                 ruleType:  "RULE",
-                text: [{ text:  "When you fail a test, you gain Fortune's Favor. While you have Fortune's Favor roll a second d20 whenever you are tested. You can use this result in place of your regular roll. When you do so, you lose Fortune's Favor."}]
+                text: [{ text:  "When you fail a test, you gain Fortune's Favor."},
+                {text: "With Fortune's Favor, if you take a Test, you can spend your Fortune's Favor to roll a second d20. You can use the results of either dice."}]
             },
             {
                 slug:  "MISFORTUNE",
@@ -470,12 +487,6 @@ export const generalRules: GenericRule[] = [
         ]
     },
     {
-        slug:  "LIFT-DRAG-PACK",
-        title:  "Lift, Drag, & Pack",
-        ruleType:  "RULE",
-        text: [{ text:  "Your Lift, Drag & Pack (how much you can carry in your backpack and on your person) are all effected by your size. For each size below Medium, amounts are halved, and for each size above Medium they are doubled."},{text: "Using both hands, you can lift up to 50+10x your Mettle pounds."},{text: "You can drag up to 4x your lifting capacity."},{text: "You can pack up to 30+5x your Mettle pounds."}]
-    },
-    {
         slug:  "MOVEMENT",
         title:  "Movement",
         ruleType:  "RULE",
@@ -537,6 +548,47 @@ export const generalRules: GenericRule[] = [
             }
         ]
     },
+    {
+        slug:  "LIFT-DRAG-PACK",
+        title:  "Lift, Drag, & Pack",
+        ruleType:  "RULE",
+        text: [{ text:  "Your Lift, Drag & Pack (how much you can carry in your backpack and on your person) are all effected by your size. For each size below Medium, amounts are halved, and for each size above Medium they are doubled."},
+        {text: "Using both hands, you can lift up to 50+10x your Mettle pounds."},
+        {text: "You can drag up to 4x your lifting capacity."},
+        {text: "You can pack up to 30+5x your Mettle pounds."}]
+    },
+    {
+        slug: "GEAR",
+        title: "Gear",
+        ruleType: "RULE",
+        rules: [{
+            title: "Supplies",
+            slug: "SUPPLIES",
+            text: [{text: "While traveling, it's assumed your pack has all the items you need to get through a normal day. This might include a bed roll, some rope, flint and tinder, etc. For more uncommon gear, if you haven't already established that you have the item, you can Test your Luck. The pass/fail are determined by the GMs judgment of the likelihood of you having the item. A mixed result might mean an item that is similar enough to be used in this instance, like a bed sheet instead of rope, or inferior to what you want, a small hatchet instead of a wood splitting ax."}],
+            list: ["Likely - Pass (10), Fail (5)", 
+            "Unlikely - Pass (15), Fail (10)",
+            "Very Unlikely - Pass (18), Fail (13)"
+        ]
+        },
+        {
+            title: "Notable Items",
+            slug: "NOTABLE-ITEMS",
+            ruleType: "RULE",
+            text: [{text: "A notable item is an item that is valuable and worth keeping track of. Some items will be obviously notable, like The Great Sword of the Duck Lord, but some items will depend on your GM. If you are playing a very resource limited, survival focused game, maybe your arrows are notable items, but if you're playing a heroic fantasy story, then maybe they aren't. This should be coved by your GM as part of the Intro session."}]
+        }]
+    },
+    {
+        slug: "STARTING_GEAR",
+        title: "Starting Equipment",
+        text: [{text: "Your character starts with a pack full of gear and the equipment they need for their adventures. The exact contents will vary from character to character and from campaign to campaign, but generally you have a light source, rope, a comfortable way to sleep, and some weather protection."},
+            {text: "If you have training or experience with equipment, you have the equipment to use that training, if it's portable. You might have one or two melee weapons and one or two ranged weapons from your class, a set of dice from your culture and some artisans tools from your novice feature. The exact items should be discussed with your GM during your intro session."}],
+        rules: [{
+            title: "Starting Coin",
+            slug: "STARTING-COIN",
+            text: [{text: "You start with 5 Coin."}]
+        }]
+        
+        },
     {
         slug:  "REFERENCE",
         title:  "Reference",
@@ -607,12 +659,12 @@ export const generalRules: GenericRule[] = [
             {
                 title:  "Dying",
                 slug: "DYING-STATUS",
-                text: [{ text:  "0 Health. See the [Dead & Dying rules](/rules/player_rules/getting_started/dying) for more information."}]
+                text: [{ text:  "0 Health. See the [Dead & Dying rules](/rules/player_rules#EDL) for more information."}]
             },
             {
                 title:  "Dead",
                 slug: "DEAD-STATUS",
-                text: [{ text:  "0 Health and 0 Stamina. See the [Dead & Dying rules](/rules/player_rules/getting_started/dying) for more information."}]
+                text: [{ text:  "0 Health and 0 Stamina. See the [Dead & Dying rules](/rules/player_rules#EDL) for more information."}]
             },
             {
                 title:  "Blind",
@@ -632,17 +684,17 @@ export const generalRules: GenericRule[] = [
             {
                 title:  "Pinned",
                 slug: "PINNED-STATUS",
-                text: [{ text:  "Your speed is reduced to 0, you have misfortune on all attacks and spellcasting tests."}]
+                text: [{ text:  "Your speed is reduced to 0, you have Misfortune on all attacks and spellcasting Tests."}]
             },
             {
                 title:  "Exhausted",
                 slug: "EXHAUSTED-STATUS",
-                text: [{ text:  "You cannot spend stamina, your Speed is reduced by half and your attacks deal half damage."}]
+                text: [{ text:  "You cannot spend Stamina, your Speed is reduced by half and your attacks deal half damage."}]
             },
             {
                 title:  "Hidden",
                 slug: "HIDDEN-STATUS",
-                text: [{ text:  "You cannot be seen and gain a +3 to attack tests while hidden. Attacking or casting."}]
+                text: [{ text:  "You cannot be seen and gain a +5 to attack Tests while hidden. Attacking, casting magic, or performing another noticeable act while hidden immediately triggers a Heart test  to spot you from any nearby creatures."}]
             },
             {
                 title:  "Prone",
@@ -670,6 +722,21 @@ export const generalRules: GenericRule[] = [
                 "Titanic (~20ft-50ft)",
                 "Colossal (<50ft)"
             ]
+        },
+        {
+            title: "Currency",
+            slug: "CURRENCY",
+            ruleType: "RULE",
+            text: [{
+                text: "Coin: The universal currency. Different places might have different versions, but everyone trades in Coin."
+            },
+        {
+            text: "Bits: Something that costs Bits isn't expensive enough to be worth worrying about."
+        },
+        {
+            text: "Whether something is worth Coin or Bits comes down to the GMs discretion. Generally something that is going to help the player or they should feel the cost should cost Coin. But something that's just flavor, or part of normal everyday life should be Bits. Grabbing a bite to eat and some drinks with the party at the local inn. That costs Bits. Buying a round and plying a patron for information. That's going to cost a Coin or Two. A dress to get you into the royal ball. That's going to be more Coin."
+        }
+    ]
         }]
     }
 ]
