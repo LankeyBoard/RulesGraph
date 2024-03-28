@@ -43,7 +43,7 @@ export const culturesData: Culture[] = [
         title: "Nomads",
         slug: "NOMADS",
         description: ["Nomads roam the vast landscapes, embodying a harmonious existence with nature. Unencumbered by permanent settlements, they excel in survival and navigation, possessing an innate connection to the lands they travel."],
-        stat: "+1 to Wits or Mettle",
+        stat: "+1 to Heart or Mettle",
         languages: "Allspeak and one language of your choice based on the regions most traveled in.",
         traits: [
           {
@@ -62,7 +62,7 @@ export const culturesData: Culture[] = [
         title: "Empyrian",
         slug: "EMPYRIAN",
         description: ["Hailing from a vast multicultural empire, Empyrians seek to foster diplomacy and learning. Their open-mindedness enables them to connect with individuals from various backgrounds, making them skilled negotiators and diplomats."],
-        stat: "+1 to Intelligence or Wits",
+        stat: "+1 to Intelligence or Heart",
         languages: "Allspeak & Another language of your choice",
         traits: [
           {
@@ -119,7 +119,7 @@ export const culturesData: Culture[] = [
         title: "Peoples of the Meadowlands",
         slug: "MEADOWLANDS",
         description: ["The Peoples of the Meadowlands are a community deeply rooted in the fertile plains and gentle meadows of the world. They are known for their idyllic farms, vibrant orchards, and close-knit communal spirit. The Meadowlands people balance hard work and relaxation, and their harvest festivals are some of the most spectacular in all the land."],
-        stat: "+1 to Heart or Wit",
+        stat: "+1 to Mettle or Heart",
         languages: "Allspeak",
         traits: [
           {

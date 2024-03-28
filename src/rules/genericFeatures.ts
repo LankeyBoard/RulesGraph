@@ -77,7 +77,7 @@ export const NoviceFeatures: GenericFeature[] = [
     {
         title: "Medical Training",
         slug: "MEDICAL-TRAINING",
-        text: [{text:  "When you an intellect test to heal a dying ally, make the roll with Fortune's Favor."}]
+        text: [{text:  "When you take an Intellect Test to heal a dying ally, make the roll with Fortune's Favor."}]
     },
     {
         title: "Performer",

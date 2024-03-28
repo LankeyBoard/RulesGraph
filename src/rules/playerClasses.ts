@@ -41,7 +41,7 @@ export const playerClasses: CharacterClass[] = [
             costsFortunesFavor: false,
             rules:[{
                 type: "RULE",
-                text: "When you are not wearing armor, you can calculate your Armor as 10+mettle+dex (max of 2)"       
+                text: "When you are not wearing armor, you can calculate your Armor as 10+Mettle+Agility (max of 2)"       
             },
             {
                 type: "FLAVOR",
@@ -169,10 +169,10 @@ export const playerClasses: CharacterClass[] = [
                     type: "RULE",
                     text: "Requires an ally or sturdy object within 5' of the target to jump off of."
                 },
-              {
-                type: "RULE",
-                text: "Spend 1 Stamina to attempt to knock the target prone with your next attack. You and your target make opposed tests based on your Attack Stat. If you succeed, you knock them prone."
-              }]
+                {
+                  type: "RULE",
+                  text: "Spend 1 Stamina to attempt to knock the target prone with your next attack. You and your target make opposed tests based on your Attack Stat. If you succeed, you knock them prone."
+                }]
               },
               {
                 title: "Counter Throw",
@@ -493,7 +493,7 @@ export const playerClasses: CharacterClass[] = [
             level: 3,
             title: "Focused Training",
             slug: "ELEM-FT",
-            staminaCost: 1,
+            staminaCost: 0,
             costsFortunesFavor: false,
             ruleType: "CHOICE",
             rules:[{
@@ -600,7 +600,7 @@ export const playerClasses: CharacterClass[] = [
         training: {
             armor: ["Light, Medium, Heavy"],
             shields: ["Light, Medium, Heavy"],
-            weapons: {melee: {pick: 2, options: ["Hammers & Clubs", "Slashing Swords", "Piercing Swords & Daggers", "Axes", "Flails, Ball & Chain, etc."]}, ranged: {pick: 2, options:["Heavy Throwing", "Light Throwing", "Bows", "Crossbows"]}, special: null},
+            weapons: {melee: {pick: 2, options: ["Hammers & Clubs", "Slashing Swords", "Piercing Swords & Daggers", "Axes", "Flails"]}, ranged: {pick: 2, options:["Heavy Throwing", "Light Throwing", "Bows", "Crossbows"]}, special: null},
             magic: null
         },
         attackStat: ["METTLE"],
