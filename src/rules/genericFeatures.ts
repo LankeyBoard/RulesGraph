@@ -61,7 +61,7 @@ export const NoviceFeatures: GenericFeature[] = [
         title: "Knowledgeable",
         slug: "KNOWLEDGEABLE",
         text: [{text:  "When you take this feature pick a subject from the list below that you are well versed in. When you take Tests that rely on this knowledge, add a +3 to the roll."}],
-        options: ["Botany", "Carpentry", "Geology", "History", "Oceanography", "Religion"],
+        choices: [{text:"Botany"}, {text: "Carpentry"}, {text: "Geology"}, {text: "History"}, {text: "Oceanography"}, {text: "Religion"}],
         multiSelect: true
     },
     {

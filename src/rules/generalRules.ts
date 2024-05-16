@@ -9,7 +9,7 @@ export const generalRules: GenericRule[] = [
         {text:"Pick a Lineage, Culture and Class."},
         {text: "Assign stats - You have a set of 3,2,0,-2. Use each number once, placing them in your 4 stats."},
         {text: "Higher numbers are better. Your class will have at least 1 primary stat. It's a good idea to have that be your highest number.\nPick a Novice Feature.\n(Optional) Write a backstory for your character."}],
-        rules:   [
+       subRules: [
             {
                 slug:  "STARTING-EQUIPMENT",
                 title:  "Starting Equipment",
@@ -30,7 +30,7 @@ export const generalRules: GenericRule[] = [
         shortTitle: "Parts of a Character",
         ruleType:  "RULE",
         text: [{ text:  "Level, lineage, culture, class, stats, ties and backstory"}],
-        rules:   [
+       subRules: [
             {
                 slug:  "LEVEL-RULE-DESC",
                 title:  "Level",
@@ -53,7 +53,7 @@ export const generalRules: GenericRule[] = [
                 slug:  "STATS",
                 title:  "Stats",
                 ruleType:  "LISTCOMPACT",
-                rules:  [
+               subRules: [
                     {
                         slug:  "METTLE",
                         title:  "Mettle",
@@ -87,7 +87,7 @@ export const generalRules: GenericRule[] = [
         title:  "Character Resources",
         ruleType:  "RULE",
         text: [],
-        rules:   [
+        subRules:   [
             {
                 slug:  "STAMINA",
                 title:  "Stamina",
@@ -105,7 +105,7 @@ export const generalRules: GenericRule[] = [
                 title:  "Resting",
                 ruleType:  "RULE",
                 text: [{ text:  "If you spend stamina while resting, it immediately ends the rest and you gain no benefits from the rest"}],
-                rules:   [
+               subRules: [
                     {
                         slug:  "CATCH-YOUR-BREATH",
                         title:  "Catch Your Breath",
@@ -134,7 +134,7 @@ export const generalRules: GenericRule[] = [
         title:  "Tests",
         ruleType:  "RULE",
         text: [{ text:  "Tests are how you determine the outcome of uncertain events, can you smash open a door (Mettle), talk a guard into looking the other way (Heart), dodging a tomato hurled at your head (Agility).\nFirst the success and failure points of the test is set by the GM (Game Master) and the general outcome of success and failure are announced if it is reasonable for the player characters to know. Then players can decide if they want to attempt the test. The player then rolls 1d20 and adds their stat bonus to the result. If the result is at least equal to the success point, they pass the test and have a beneficial outcome. If the result is greater than or equal to the failure point but worse than the success, then the result is mixed. The GM can offer success with a cost or mixed success. If the results are less than the failure pint, the result is a failure. In general the failure point is five less than the success point."}],
-        rules:   [
+       subRules: [
             {
                 slug:  "SUCCESS",
                 title:  "Success",
@@ -182,7 +182,7 @@ export const generalRules: GenericRule[] = [
                 title:  "1s and 20s",
                 ruleType:  "RULE",
                 text: [],
-                rules:   [
+               subRules: [
                     {
                         slug:  "1s",
                         title:  "1 - Critical Failure",
@@ -217,14 +217,14 @@ export const generalRules: GenericRule[] = [
         title:  "Combat",
         ruleType:  "RULE",
         text: [{ text:  "Each round of combat is split into 3 parts, 1st, Environmental effects, 2nd Players turn, 3rd Enemies turn. During the players turn, each player makes one action and can move up to their movement speed. During the enemies turn enemies with actions can take one action and move. Enemies with only counters can only move unless they have not been attacked, in which case they can use a counter as an action."}],
-        rules: [
+        subRules: [
             
             {
                 slug:  "EXCHANGES",
                 title:  "Exchanges",
                 ruleType:  "RULE",
                 text: [{ text:  "When a character attacks or casts an offensive spell at another creature or creatures an exchange begins. To start the exchange, make an attack roll and add the relevant stats depending on your class. Compare the total attack to the creatures Defense and Counter. If you roll above their Defense then the hit is clean and there is no room for retaliation. If the roll is between their Defense and Counter then you clash. You can either choose to deal no damage or strike but leave yourself open to counter attack. Your attack is resolved first, and then the target can use one of their counter moves. If you roll below their Counter, your attack is countered and the target can use one of their counter moves."}],
-                rules:   [{
+                subRules: [{
                     title:  "AOE Exchanges",
                     slug: "AOE-EXCHANGES",
                     ruleType:  "RULE",
@@ -236,7 +236,7 @@ export const generalRules: GenericRule[] = [
                 title:  "Key Comat Information",
                 ruleType:  "LISTCOMPACT",
                 text: [{ text:  "These are the key fields for most combat Exchanges"}],
-                rules:  [{
+                subRules: [{
                     title:  "Base Attack Stat",
                     slug:  "BASIC-ATTACK",
                     text: [{ text:  "Your Base Attack is the stat you use for Attack rolls and comes from your class."}]
@@ -267,7 +267,7 @@ export const generalRules: GenericRule[] = [
                 title:  "Basic Actions",
                 ruleType:  "LISTCOMPACT",
                 text: [{ text:  "These Actions are available to all players all the time."}],
-                rules:  [{
+               subRules: [{
                     title:  "Attack",
                     slug:  "BASIC-ATTACK",
                     text: [{ text:  "Attack with one of your proficient weapons or magic. You deal your base damage."}]
@@ -298,7 +298,7 @@ export const generalRules: GenericRule[] = [
                 title:  "Basic Counters",
                 ruleType:  "LISTCOMPACT",
                 text: [{ text:  "These Counters are available to all players all the time."}],
-                rules:  [{
+               subRules: [{
                     title:  "Counter Attack",
                     slug: "COUNTER-ATTACK",
                     text: [{ text:  "Attack the target with your currently equipped weapon or magic. The attack deals half your base damage rounded down."}]
@@ -330,13 +330,13 @@ export const generalRules: GenericRule[] = [
         shortTitle: "Equipment",
         ruleType:  "RULE",
         text: [],
-        rules: [
+        subRules: [
             {
                 slug:  "WEAPONS",
                 title:  "Weapons",
                 ruleType:  "RULE",
                 text: [{ text:  "Characters can be proficient in different groups of weapons. It is up to your GMs discretion what category a weapon falls into, or if it is a unique weapon that requires its own training."}, {text: "If a weapon requires two hands to wield or you are wielding a weapon in each hand, increase your base damage while wielding the weapon by one dice step."},{text: "1d4 - 1d6 - 1d8 - 1d10 - 1d12 - 2d6 - 2d8 - etc."}],
-                rules:   [
+               subRules: [
                     {
                         title:  "Melee",
                         slug:  "MELEE-WEAPONS",
@@ -376,7 +376,7 @@ export const generalRules: GenericRule[] = [
                 slug:  "SHIELDS",
                 ruleType:  "LIST",
                 text: [{ text:"Shields come in three sizes, light (bucklers and dueling shields), medium (kite shields), and heavy (tower shields)."}, {text:"Shields not only increase your armor, can also reduce your damage taken when you clash. They cannot reduce the damage taken below 1."}],
-                rules: [{
+                subRules: [{
                     title:  "Light Shields",
                     slug: "LIGHT-SHIELDS",
                     text: [{ text:  "Require at least 3 Agility: +1 to Armor and reduce clash damage taken by your Agility."}]
@@ -397,7 +397,7 @@ export const generalRules: GenericRule[] = [
                 slug:  "ARMOR",
                 ruleType:  "LISTCOMPACT",
                 text: [{ text:  "You can wear armor from any class you are trained in that you are trained in. Armors have different requirements based on how hard they are to move in and how much protection they provide. Each armor indicates how to calculate your armor while waring it."}],
-                rules: [{
+                subRules: [{
                     title:  "No Armor",
                     slug: "NO-ARMOR",
                     text: [{ text:  "10 + Agility"}]
@@ -423,7 +423,7 @@ export const generalRules: GenericRule[] = [
                 slug:  "EQUIPMENT",
                 text: [{ text:  "While traveling, it's assumed your pack has all the items you need to get through a normal day. This might include a bed roll, some rope, etc. For specific adventuring gear, if you haven't already established that you have the item, you can make a luck test. The pass/fail are determined by the GMs judgment of the likelihood of you having the item. A mixed result might mean an item that is similar enough to be used in this instance, like a bed sheet instead of rope, or inferior to what you want, a small hatchet instead of a wood splitting axe."}],
                 ruleType:  "RULE",
-                rules:   [
+               subRules: [
                 {
                     title:  "General Difficulty Guidelines",
                     slug: "DIFFICULTY-GUIDELINES",
@@ -439,7 +439,7 @@ export const generalRules: GenericRule[] = [
         shortTitle: "Dying & Last Stand",
         ruleType:  "RULE",
         text: [{ text:  "If damage would reduce you to below 0 stamina or 0 health, it reduces you to 0 instead."}],
-        rules: [
+        subRules: [
             {
                 slug:  "EXHAUSTED",
                 title:  "Exhausted",
@@ -471,7 +471,7 @@ export const generalRules: GenericRule[] = [
         title:  "Healing",
         ruleType:  "RULE",
         text: [{ text:  "Healing cannot affect dead creatures."}],
-        rules:   [
+       subRules: [
             {
                 slug:  "HEALING-DYING-ALLY",
                 title:  "Healing a Dying Ally",
@@ -491,13 +491,13 @@ export const generalRules: GenericRule[] = [
         title:  "Movement",
         ruleType:  "RULE",
         text: [],
-        rules: [
+        subRules: [
             {
                 slug:  "OVERLAND-TRAVEL",
                 title:  "Overland Travel",
                 ruleType:  "RULE",
                 text: [{ text:  "A full days march assumes 8 hours of marching."}],
-                rules:   [{
+               subRules: [{
                     title:  "Comfortable Marching Pace",
                     slug: "COMFORTABLE-MARCH",
                     ruleType:  "RULE",
@@ -521,7 +521,7 @@ export const generalRules: GenericRule[] = [
                 title:  "Jumping",
                 ruleType:  "LIST",
                 text: [{ text:  "When jumping use these formulas to calculate the minimum distances you can go. If you are trying to jump further, test your mettle. The difficulty is equal to 10+1 per foot beyond your standard jump range. If you roll below a success, you can spend stamina to increase your roll up to the point of a success if you have the stamina to spend."}],
-                rules:  [{
+               subRules: [{
                     title:  "Running Leap",
                     slug: "RUNNING-LEAP",
                     ruleType:  "RULE",
@@ -561,7 +561,7 @@ export const generalRules: GenericRule[] = [
         slug: "GEAR",
         title: "Gear",
         ruleType: "RULE",
-        rules: [{
+        subRules: [{
             title: "Supplies",
             slug: "SUPPLIES",
             text: [{text: "While traveling, it's assumed your pack has all the items you need to get through a normal day. This might include a bed roll, some rope, flint and tinder, etc. For more uncommon gear, if you haven't already established that you have the item, you can Test your Luck. The pass/fail are determined by the GMs judgment of the likelihood of you having the item. A mixed result might mean an item that is similar enough to be used in this instance, like a bed sheet instead of rope, or inferior to what you want, a small hatchet instead of a wood splitting ax."}],
@@ -582,7 +582,7 @@ export const generalRules: GenericRule[] = [
         title: "Starting Equipment",
         text: [{text: "Your character starts with a pack full of gear and the equipment they need for their adventures. The exact contents will vary from character to character and from campaign to campaign, but generally you have a light source, rope, a comfortable way to sleep, and some weather protection."},
             {text: "If you have training or experience with equipment, you have the equipment to use that training, if it's portable. You might have one or two melee weapons and one or two ranged weapons from your class, a set of dice from your culture and some artisans tools from your novice feature. The exact items should be discussed with your GM during your intro session."}],
-        rules: [{
+        subRules: [{
             title: "Starting Coin",
             slug: "STARTING-COIN",
             text: [{text: "You start with 5 Coin."}]
@@ -594,12 +594,12 @@ export const generalRules: GenericRule[] = [
         title:  "Reference",
         ruleType:  "RULE",
         text: [],
-        rules:  [{
+       subRules: [{
             title:  "Languages",
             slug:  "LANGUAGES",
             text: [],
             ruleType:  "LISTCOMPACT",
-            rules: [{
+            subRules: [{
                 title:  "Allspeak",
                 slug: "ALLSPEAK",
                 text: [{ text:  "The universal language known by most civilized peoples, it is a harmonious blend of words and expressions drawn from various cultures, offering a common ground for communication."}]
@@ -651,7 +651,7 @@ export const generalRules: GenericRule[] = [
             slug:  "STATUSES",
             text: [],
             ruleType:  "LISTCOMPACT",
-            rules: [{
+            subRules: [{
                 title:  "Incapacitated",
                 slug: "INCAPACITATED-STATUS",
                 text: [{ text:  "You cannot take actions or move and are unaware of your surroundings."}]

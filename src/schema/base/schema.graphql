@@ -79,6 +79,21 @@ interface Rule {
   shortTitle: String
 }
 
+interface Feature implements Rule {
+  title: String!
+  slug: String!
+  href: String
+  shortTitle: String
+  staminaCost: Int
+  costsFortunesFavor: Boolean
+  actionType: Action
+  ruleType: RuleType
+  text: [RuleText]
+  shortText: String
+  multiSelect: Boolean
+  options: [String]
+}
+
 type SearchResult implements Rule {
   title: String!
   slug: String!
@@ -130,12 +145,14 @@ type GenericRule implements Rule {
   shortTitle: String
   ruleType: RuleType
   text: [RuleText]
-  rules: [GenericRule]
+  subRules: [GenericRule]
   list: [String]
   shortText: String
 }
 
-type GenericFeature implements Rule {
+union FeatureOptions = GenericFeature | RuleText
+
+type GenericFeature implements Feature {
   title: String!
   slug: String!
   href: String
@@ -147,7 +164,7 @@ type GenericFeature implements Rule {
   text: [RuleText]
   shortText: String
   multiSelect: Boolean
-  options: [String]
+  choices: [FeatureOptions]
 }
 
 type SlugDict {
@@ -156,22 +173,22 @@ type SlugDict {
   url: String!
 }
 
-type Options {
+type TrainingOptions {
   pick: Int
   options: [String!]!
 }
 
 type Weapons {
-  melee: Options
-  ranged: Options
-  special: Options
+  melee: TrainingOptions
+  ranged: TrainingOptions
+  special: TrainingOptions
 }
 
 type Training {
   armor: [String]
   shields: [String]
   weapons: Weapons
-  magic: Options
+  magic: TrainingOptions
 }
 
 type Range {
@@ -186,7 +203,7 @@ type Damage {
   type: [String]
 }
 
-type CharacterClassFeature implements Rule {
+type CharacterClassFeature implements Feature {
   title: String!
   slug: String!
   href: String
@@ -196,7 +213,7 @@ type CharacterClassFeature implements Rule {
   costsFortunesFavor: Boolean!
   ruleType: RuleType
   actionType: Action
-  rules: [RuleText]
+  text: [RuleText]
   choices: [GenericFeature]
 }
 

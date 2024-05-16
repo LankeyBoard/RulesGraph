@@ -1,5 +1,46 @@
+import { GenericFeature } from "../schema/types.generated";
 import { Lineage } from "../schema/types.generated";
 
+const options: GenericFeature[] = [{
+        title: "Intimidating",
+        slug: "CHIMERIC-INTIMIDATING",
+        text: [{text: "Gain +2 on tests to intimidate someone."}]
+},
+{
+        title: "Cute",
+        slug: "CHIMERIC-CUTE",
+        text: [{text: "Gain +2 on tests to persuade someone."}]
+},
+{
+        title: "Prehensile Tail",
+        slug: "CHIMERIC-PREHENSILE-TAIL",
+        text: [{text: "You can use your prehensile tail to help you balance as well as to grip things and move through the environment. Gain +3 on tests to climb and balance. Your tail cannot be used to hold weapons or shields in combat."}]
+},
+{
+        title: "Fast",
+        slug: "CHIMERIC-FAST",
+        text: [{text: "Increase your speed by 5ft."}]
+},
+{
+        title: "Tough Skin/Shell",
+        slug: "CHIMERIC-TOUGH",
+        text: [{text: "Add +3 to your Armor when you are not wearing armor."}]
+},
+{
+        title: "Flight",
+        slug: "CHIMERIC-FLIGHT",
+        text: [{text:"You have a pair of wings, you have a fly speed equal to your speed. You can fly for up to 10 minutes."}]
+},
+{
+        title: "Claws/Fangs",
+        slug: "CHIMERIC-CLAWS",
+        text: [{text: "You can attack with your claws/fangs. If you are trained in any melee weapon, you deal your base damage. If you are not, this attack deals 1d6+mettle damage. Choose if the damage is piercing, slashing or bludgeoning when you pick this trait."}]
+},
+{
+        title: "Stealthy",
+        slug: "CHIMERIC-STEALTHY",
+        text: [{text: "Add a +2 to tests when stealthing."}]
+}]
 export const lineagesData: Lineage[] = [
     {
             title: "Human",
@@ -102,49 +143,9 @@ export const lineagesData: Lineage[] = [
                             slug: "CHIMERIC-ANIMAL-FEATURES",
                             text: [{text: "Pick 2 options from the list below."}],
                             ruleType: "CHOICE",
-                            rules: [
-                                    {
-                                            title: "Intimidating",
-                                            slug: "CHIMERIC-INTIMIDATING",
-                                            text: [{text: "Gain +2 on tests to intimidate someone."}]
-                                    },
-                                    {
-                                            title: "Cute",
-                                            slug: "CHIMERIC-CUTE",
-                                            text: [{text: "Gain +2 on tests to persuade someone."}]
-                                    },
-                                    {
-                                            title: "Prehensile Tail",
-                                            slug: "CHIMERIC-PREHENSILE-TAIL",
-                                            text: [{text: "You can use your prehensile tail to help you balance as well as to grip things and move through the environment. Gain +3 on tests to climb and balance. Your tail cannot be used to hold weapons or shields in combat."}]
-                                    },
-                                    {
-                                            title: "Fast",
-                                            slug: "CHIMERIC-FAST",
-                                            text: [{text: "Increase your speed by 5ft."}]
-                                    },
-                                    {
-                                            title: "Tough Skin/Shell",
-                                            slug: "CHIMERIC-TOUGH",
-                                            text: [{text: "Add +3 to your Armor when you are not wearing armor."}]
-                                    },
-                                    {
-                                            title: "Flight",
-                                            slug: "CHIMERIC-FLIGHT",
-                                            text: [{text:"You have a pair of wings, you have a fly speed equal to your speed. You can fly for up to 10 minutes."}]
-                                    },
-                                    {
-                                            title: "Claws/Fangs",
-                                            slug: "CHIMERIC-CLAWS",
-                                            text: [{text: "You can attack with your claws/fangs. If you are trained in any melee weapon, you deal your base damage. If you are not, this attack deals 1d6+mettle damage. Choose if the damage is piercing, slashing or bludgeoning when you pick this trait."}]
-                                    },
-                                    {
-                                            title: "Stealthy",
-                                            slug: "CHIMERIC-STEALTHY",
-                                            text: [{text: "Add a +2 to tests when stealthing."}]
-                                    }
-                            ]
+                            choices: options
                     }
             ]
     }
 ]
+

@@ -7,7 +7,6 @@ import    { Damage } from './base/resolvers/Damage';
 import    { GenericFeature } from './base/resolvers/GenericFeature';
 import    { GenericRule } from './base/resolvers/GenericRule';
 import    { Lineage } from './base/resolvers/Lineage';
-import    { Options } from './base/resolvers/Options';
 import    { characterClasses as Query_characterClasses } from './base/resolvers/Query/characterClasses';
 import    { cultures as Query_cultures } from './base/resolvers/Query/cultures';
 import    { genericFeatures as Query_genericFeatures } from './base/resolvers/Query/genericFeatures';
@@ -23,6 +22,7 @@ import    { ShifterForms } from './base/resolvers/ShifterForms';
 import    { SlugDict } from './base/resolvers/SlugDict';
 import    { Speed } from './base/resolvers/Speed';
 import    { Training } from './base/resolvers/Training';
+import    { TrainingOptions } from './base/resolvers/TrainingOptions';
 import    { Weapons } from './base/resolvers/Weapons';
 import    { shifterArmor } from './base/resolvers/shifterArmor';
 import    { shifterFeature } from './base/resolvers/shifterFeature';
@@ -37,7 +37,6 @@ Damage: Damage,
 GenericFeature: GenericFeature,
 GenericRule: GenericRule,
 Lineage: Lineage,
-Options: Options,
 Range: Range,
 RuleText: RuleText,
 SearchResult: SearchResult,
@@ -46,6 +45,7 @@ ShifterForms: ShifterForms,
 SlugDict: SlugDict,
 Speed: Speed,
 Training: Training,
+TrainingOptions: TrainingOptions,
 Weapons: Weapons,
 shifterArmor: shifterArmor,
 shifterFeature: shifterFeature

@@ -29,8 +29,8 @@ const SlugMapper = () => {
 
     const subRuleMapper = (rule: GenericRule|GenericFeature, slugStr: string, dict: SlugDict[]) => {
         dict.push({slug: rule.slug, title: rule.shortTitle || rule.title, url: hrefer(slugStr, rule.slug, true)});
-        if("rules" in rule){
-            rule.rules?.forEach(r=>{
+        if("subRules" in rule){
+            rule.subRules?.forEach(r=>{
                 if(r)
                 subRuleMapper(r, slugStr, dict)
             })

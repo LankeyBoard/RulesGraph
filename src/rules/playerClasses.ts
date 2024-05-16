@@ -27,7 +27,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "BRAWLER-STYLE",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules: [{
+            text: [{
               type: "RULE",
               text: "Select either Mettle or Agility for your Attack Stat. Selecting Agility doubles your Base Attack Range."
             }]
@@ -39,7 +39,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "BRAWLER-MBB",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules:[{
+            text: [{
                 type: "RULE",
                 text: "When you are not wearing armor, you can calculate your Armor as 10+Mettle+Agility (max of 2)"       
             },
@@ -54,7 +54,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "BRAWLER-TT",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules:[{
+            text: [{
                 type: "RULE",
                 text: "When you succeed in a melee attack test, you can move the enemy up to 5ft into melee range of an ally or swap places with it if you can move. If that ally attacks the enemy before the start of the next round of combat, they have Fortune's Favor for that attack."
             },
@@ -69,7 +69,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "BRAWLER-BRAVADO",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules:[{
+            text: [{
                 type: "RULE",
                 text: "When trying to intimidate an enemy, add your mettle in addition to any other bonuses to the test."
             },
@@ -84,7 +84,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "BRAWLER-COUNTER",
             staminaCost: 1,
             costsFortunesFavor: false,
-            rules:[{
+            text: [{
                 type: "RULE",
                 text: "When you make a counter attack, you can spend 1 stamina to remove the counter attack damage penalty, allowing you to deal your base damage on this counter attack."
             },
@@ -99,7 +99,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "BRAWLER-MIU",
             staminaCost: 0,
             costsFortunesFavor: true,
-            rules:[{
+            text: [{
                 type: "RULE",
                 text: "If you are attacking an enemy you did not attack last turn you can spend Fortune's Favor before the attack to double your base damage if you hit."
             },
@@ -114,7 +114,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "BRAWLER-SU1",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules:[
+            text: [
             {
                 type: "RULE",
                 text: "Increase one of your stats by 1 (max 5)"
@@ -130,7 +130,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "BRAWLER-SIGNATURE-MOVE",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules: [
+            text: [
               {
                 text: "Select a Signature Move from the list below.",
                 type: "RULE"
@@ -194,7 +194,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "BRAWLER-SB",
             staminaCost: 0,
             costsFortunesFavor: true,
-            rules:[{
+            text: [{
                 type: "RULE",
                 text: "Spend Fortune's Favor, halve all damage taken until the start your next turn."
             },
@@ -209,7 +209,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "BRAWLER-RPA",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules:[{
+            text:[{
                 type: "RULE",
                 text: "While making a Last Stand, double your lift, carry and drag amounts, gain Fortune's Favor on all Mettle Tests and double your jump distance."
             }]
@@ -220,7 +220,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "BRAWLER-SU2",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules:[
+            text:[
             {
                 type: "RULE",
                 text: "Increase one of your stats by 1 (max 5)"
@@ -257,7 +257,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "DEVOTED-SPELLCASTING",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules: [
+            text: [
               {
                 type: "RULE",
                 text: "Learning Spells: Start with Heart spells known from the Divine list. You can only learn spells that are less than or equal to your current level. When you level up, learn 1 additional spell."
@@ -274,7 +274,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "DEVOTED-HS",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules: [
+            text: [
               {
                 type: "RULE",
                 text: "You need a holy symbol to cast your divine spells. You require one hand either holding your holy symbol or free to cast."
@@ -291,7 +291,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "DEVOTED-SW",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules: [
+            text: [
               {
                 type: "RULE",
                 text: "Gain a +3 on Intellect tests to recall specific bits of history or religious information."
@@ -308,7 +308,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "DEVOTED-RR",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules: [
+            text: [
               {
                 type: "RULE",
                 text: "3 charges, when you Catch Your Breath, you can expend a charge, you and up to 5 allies regain Health equal to your Heart. You regain all charges when you Rest & Recuperate"
@@ -321,7 +321,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "DEVOTED-RS",
             staminaCost: 1,
             costsFortunesFavor: false,
-            rules: [
+            text: [
               {
                 type: "RULE",
                 text: "Spend 1 stamina and 10 minutes in deep meditation or praying on a solution to an issue to gain Fortune's Favor on the next Test to resolve the issue."
@@ -334,7 +334,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "DEVOTED-MI",
             staminaCost: 0,
             costsFortunesFavor: true,
-            rules: [
+            text: [
               {
                 type: "RULE",
                 text: "Once a day you can spend Fortune's Favor to improve yours or your allies Test results. Turning a Failure to a Mixed or a Mixed to a Success. You can do this after the dice are rolled but before consequences are applied."
@@ -347,7 +347,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "DEVOTED-SU1",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules: [
+            text: [
               {
                 type: "RULE",
                 text: "Increase one of your stats by 1 (max 5)"
@@ -364,7 +364,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "DEVOTED-SW",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules: [
+            text: [
               {
                 type: "FLAVOR",
                 text: "You act as a conduit for the word of your god and you know how to gather others to your cause."
@@ -381,7 +381,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "DEVOTED-M",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules: [
+            text: [
               {
                 type: "FLAVOR",
                 text: "Before you die, you make yourself a holy martyr seeking the final praise of your god."
@@ -398,7 +398,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "DEVOTED-DI",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules: [
+            text: [
               {
                 type: "RULE",
                 text: "3 times per adventure, cast a spell without spending stamina. Any additional effects of the spell that require stamina still require you to spend stamina."
@@ -411,7 +411,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "DEVOTED-SU2",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules: [
+            text: [
               {
                 type: "RULE",
                 text: "Increase a stat by 1 (max 5)"
@@ -449,7 +449,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "ELEM-EA",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules:[{
+            text: [{
                 type: "RULE",
                 text: "You can summon forth your chosen magic to perform minor tasks and tricks as are reasonable for your element."   
             },
@@ -465,7 +465,7 @@ export const playerClasses: CharacterClass[] = [
             staminaCost: 1,
             costsFortunesFavor: false,
             actionType: "ACTION",
-            rules:[{
+            text: [{
                 type: "FLAVOR",
                 text: "A burst of elemental energy surrounds you, warding off nearby foes."       
             },
@@ -480,7 +480,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "ELEM-ENHANCE",
             staminaCost: 1,
             costsFortunesFavor: false,
-            rules:[{
+            text: [{
                 type: "FLAVOR",
                 text: "Surround yourself or an ally with your element, bolstering their natural abilities."       
             },
@@ -496,7 +496,7 @@ export const playerClasses: CharacterClass[] = [
             staminaCost: 0,
             costsFortunesFavor: false,
             ruleType: "CHOICE",
-            rules:[{
+            text: [{
                 type: "RULE",
                 text: "Pick one of the following options to enhance yourself"       
             }],
@@ -512,7 +512,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "ELEM-SU1",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules:[
+            text: [
             {
                 type: "RULE",
                 text: "Increase one of your stats by 1 (max 5)"
@@ -528,7 +528,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "ELEM-TA",
             staminaCost: 2,
             costsFortunesFavor: false,
-            rules:[
+            text: [
             {
                 type: "RULE",
                 text: "Spend 2 Stamina, you can target two different creatures or the same creature twice with your attack."
@@ -540,7 +540,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "ELEM-OVERCHARGE",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules:[
+            text: [
             {
                 type: "RULE",
                 text: "When you take damage of your elemental type, increase your base damage by 2 dice steps the next time you deal elemental damage."
@@ -552,7 +552,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "ELEM-PO",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules:[
+            text: [
             {
                 type: "RULE",
                 text: "During your last stand you can choose to end it early and die. If you choose to do so, make a final 30ft radius attack. The attack deals 3 times your base damage dice to those who it hits, and half damage to all who you either clash or miss. Using this ability kills you."
@@ -564,7 +564,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "ElemBS",
             staminaCost: 0,
             costsFortunesFavor: true,
-            rules:[
+            text: [
             {
                 type: "RULE",
                 text: "You can spend your Fortune's Favor when you make a magic attack. If the attack hits, all enemies within 5ft of the target take half as much damage."
@@ -576,7 +576,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "ELEM-SU2",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules:[
+            text: [
             {
                 type: "RULE",
                 text: "Increase one of your stats by 1 (max 5)"
@@ -613,7 +613,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "KNIGHT-DA",
             staminaCost: 1,
             costsFortunesFavor: false,
-            rules:[{
+            text: [{
                 type: "FLAVOR",
                 text: "Your flurry of attacks drive the enemy back."       
             },
@@ -628,7 +628,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "KNIGHT-SA",
             staminaCost: 1,
             costsFortunesFavor: false,
-            rules:[{
+            text: [{
                 type: "FLAVOR",
                 text: "You sweep your attacks, aiming to harm all who stand in your way."       
             },
@@ -643,7 +643,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "KNIGHT-VOW",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules:[{
+            text: [{
                 type: "FLAVOR",
                 text: "Your word is your bond, those who recognize your station believe you when you speak truth."       
             },
@@ -658,7 +658,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "KNIGHT-INTERCEPT",
             staminaCost: 1,
             costsFortunesFavor: false,
-            rules:[{
+            text: [{
                 type: "FLAVOR",
                 text: "You swiftly step between your ally and danger."       
             },
@@ -673,7 +673,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "KNIGHT-SU1",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules:[
+            text: [
             {
                 type: "RULE",
                 text: "Increase one of your stats by 1 (max 5)"
@@ -689,7 +689,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "KnightU",
             staminaCost: 0,
             costsFortunesFavor: true,
-            rules:[{
+            text: [{
                 type: "RULE",
                 text: "Spend Fortune's Favor, until the end of your next turn, your speed cannot be reduced below half your base speed."
             }]
@@ -700,7 +700,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "KNIGHT-NR-NS",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules:[{
+            text: [{
                 type: "FLAVOR",
                 text: "You never run from a fight and don’t stop until your enemies are dead."       
             },
@@ -715,7 +715,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "KNIGHT-MC",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules:[{
+            text: [{
                 type: "RULE",
                 text: "Gain a +3 to tests to control a trained mount."
             }]
@@ -726,7 +726,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "KNIGHT-WONT-KILL-ME",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules:[
+            text: [
             {
                 type: "RULE",
                 text: "When you make your Last Stand, pick a creature, you are immune to damage from that creature."
@@ -738,7 +738,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "KNIGHT-SU2",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules:[
+            text: [
             {
                 type: "RULE",
                 text: "Increase one of your stats by 1 (max 5)"
@@ -795,7 +795,7 @@ export const playerClasses: CharacterClass[] = [
               slug: "MAVERICK-KI",
               staminaCost: 0,
               costsFortunesFavor: false,
-              rules: [{
+              text: [{
                       type: "RULE",
                       text: "When you make a test to identify a lie or avoid a trap, add +3 to the roll."
                   },
@@ -811,7 +811,7 @@ export const playerClasses: CharacterClass[] = [
               slug: "MAVERICK-WE",
               staminaCost: 0,
               costsFortunesFavor: false,
-              rules: [{
+              text: [{
                       type: "RULE",
                       text: "You can use your whip to wrap around objects and either pull them to you or pull yourself to them depending on their weight and size."
                   },
@@ -828,7 +828,7 @@ export const playerClasses: CharacterClass[] = [
               staminaCost: 2,
               costsFortunesFavor: false,
               actionType: "ACTION",
-              rules: [{
+              text: [{
                   type: "RULE",
                   text: "As an action, spend 2 Stamina and make an attack with your whip. On a hit deal damage and if you are at most 1 size smaller than the target, knock them Prone. On a clash, deal half damage and the next attack against them this turn gains Fortune's Favor."
               }]
@@ -839,7 +839,7 @@ export const playerClasses: CharacterClass[] = [
               slug: "MAVERICK-LS",
               staminaCost: 0,
               costsFortunesFavor: true,
-              rules: [{
+              text: [{
                   type: "RULE",
                   text: "Before you roll an attack test, you can choose to spend your Fortune's Favor. If you hit with the attack, deal an extra 2d6 damage."
               }]
@@ -850,7 +850,7 @@ export const playerClasses: CharacterClass[] = [
               slug: "MAVERICK-SOH",
               staminaCost: 0,
               costsFortunesFavor: false,
-              rules: [{
+              text: [{
                   type: "RULE",
                   text: "Add +3 to tests to snatch and conceal small items."
               }]
@@ -861,7 +861,7 @@ export const playerClasses: CharacterClass[] = [
               slug: "MAVERICK-KEC",
               staminaCost: 0,
               costsFortunesFavor: false,
-              rules: [{
+              text: [{
                   type: "RULE",
                   text: "You have a good idea how much a relic or art piece is worth, or at least know someone willing to buy it."
               }]
@@ -872,7 +872,7 @@ export const playerClasses: CharacterClass[] = [
               slug: "MAVERICK-SU1",
               staminaCost: 0,
               costsFortunesFavor: false,
-              rules: [{
+              text: [{
                       type: "RULE",
                       text: "Increase one of your stats by 1 (max 5)"
                   },
@@ -888,7 +888,7 @@ export const playerClasses: CharacterClass[] = [
               slug: "MAVERICK-BF",
               staminaCost: 1,
               costsFortunesFavor: false,
-              rules: [{
+              text: [{
                   type: "RULE",
                   text: "When you are wielding a whip and another weapon, when you make a Basic Attack, you may spend 1 Stamina to attack once with each weapon, targeting a different creature with each attack."
               }]
@@ -899,7 +899,7 @@ export const playerClasses: CharacterClass[] = [
               slug: "MAVERICK-LRO",
               staminaCost: 0,
               costsFortunesFavor: false,
-              rules: [{
+              text: [{
                       type: "RULE",
                       text: "When you make your Last Stand, and at the start of each turn while in Last Stand, gain Fortune's Favor."
                   },
@@ -915,7 +915,7 @@ export const playerClasses: CharacterClass[] = [
               slug: "MAVERICK-FTS",
               staminaCost: 3,
               costsFortunesFavor: false,
-              rules: [{
+              text: [{
                   type: "RULE",
                   text: "Spend 3 Stamina to double your speed until the end of your next turn, or 1 minute if not in combat."
               }]
@@ -926,7 +926,7 @@ export const playerClasses: CharacterClass[] = [
               slug: "MAVERICK-SU2",
               staminaCost: 0,
               costsFortunesFavor: false,
-              rules: [{
+              text: [{
                       type: "RULE",
                       text: "Increase a stat by 1 (max 5)"
                   },
@@ -964,7 +964,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "RANGER-SENSE",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules: [
+            text: [
               {
                 type: "FLAVOR",
                 text: "You have almost supernaturally heightened senses."
@@ -981,7 +981,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "RANGER-PRECISION",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules: [
+            text: [
               {
                 type: "FLAVOR",
                 text: "Your attacks are incredibly accurate, always targeting the weakest points in the target."
@@ -998,7 +998,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "RANGER-STALKER",
             staminaCost: 1,
             costsFortunesFavor: false,
-            rules: [
+            text: [
               {
                 type: "FLAVOR",
                 text: "You have spent countless hours tracking prey through the woods or back alleys and instinctively step lightly and quietly."
@@ -1015,7 +1015,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "RANGER-GUIDE",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules: [
+            text: [
               {
                 type: "FLAVOR",
                 text: "You move through rough and wild terrain with skill and can guide others along the safest routes with ease."
@@ -1032,7 +1032,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "RANGER-QUICK-COUNTER",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules: [
+            text: [
               {
                 type: "FLAVOR",
                 text: "Your weapons are just a hand twitch away."
@@ -1049,7 +1049,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "RANGER-SU1",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules: [
+            text: [
               {
                 type: "RULE",
                 text: "Increase one of your stats by 1 (max 5)"
@@ -1066,7 +1066,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "RANGER-POISON",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules: [
+            text: [
               {
                 type: "RULE",
                 text: "Whenever you Catch Your Breath you can coat one of your weapons in poison. When you deal damage with that weapon, deal an extra 1d4 rot damage."
@@ -1079,7 +1079,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "RANGER-FINAL-HUNT",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules: [
+            text: [
               {
                 type: "RULE",
                 text: "When you make a Last Stand, your speed increases by 10ft. All of your weapons gain the effect of Poisoned Blade and double your bonus from Predator's Sense."
@@ -1092,7 +1092,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "RANGER-LS",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules: [
+            text: [
               {
                 type: "RULE",
                 text: "Reduce your speed to 0 to double your range until the start of your next turn."
@@ -1105,7 +1105,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "RANGER-SU2",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules: [
+            text: [
               {
                 type: "RULE",
                 text: "Increase a stat by 1 (max 5)"
@@ -1144,7 +1144,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "SHIFTER-SHAPE-CHANGER",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules: [
+            text: [
               {
                 type: "RULE",
                 text: "When you take your first level, pick your form from the list at the end. The exact form is up to you and your GM, the forms provide templates for general classes of animal. While transformed, you can replace your forms attack stat with your Heart.. The form lasts until you Catch Your Breath or you are reduced to 0 Health. You can also end the form early at any time."
@@ -1158,7 +1158,7 @@ export const playerClasses: CharacterClass[] = [
             staminaCost: 1,
             costsFortunesFavor: false,
             actionType: "ACTION",
-            rules: [
+            text: [
               {
                 type: "RULE",
                 text: "Spend 1 Stamina to transform. You can transform as an Action or as part of your Basic Attack Action."
@@ -1171,7 +1171,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "SHIFTER-COMM-NATURE",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules: [
+            text: [
               {
                 type: "RULE",
                 text: "You can understand and communicate with animals, you gain a +3 on tests when interacting with animals that closely resemble your chosen form."
@@ -1189,7 +1189,7 @@ export const playerClasses: CharacterClass[] = [
             staminaCost: 3,
             costsFortunesFavor: false,
             actionType: "ACTION",
-            rules: [
+            text: [
               {
                 type: "FLAVOR",
                 text: "The spirit of nature fills your body, stitching your body back together."
@@ -1206,7 +1206,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "SHIFTER-SU1",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules: [
+            text: [
               {
                 type: "RULE",
                 text: "Increase one of your stats by 1 (max 5)"
@@ -1223,7 +1223,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "SHIFTER-UNUSUAL-FORM",
             staminaCost: 2,
             costsFortunesFavor: false,
-            rules: [
+            text: [
               {
                 type: "CHOICE",
                 text: "When you shapeshift you can spend 2 stamina to gain an extra form of movement from the list below.",
@@ -1238,7 +1238,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "SHIFTER-WRATH",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules: [
+            text: [
               {
                 type: "RULE",
                 text: "When you make your Last Stand, add 2d6 rot damage to all attacks and you can immediately transform into your animal form."
@@ -1251,7 +1251,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "SHIFTER-TRACKER",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules: [
+            text: [
               {
                 type: "RULE",
                 text: "Gain +5 on tests to track an enemy you've dealt damage to in the last hour."
@@ -1264,7 +1264,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "SHIFTER-SURVIVALIST",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules: [
+            text: [
               {
                 type: "RULE",
                 text: "While traveling, you don't have to reduce your pace to forage for food or water. In addition, if there is enough to be found, you find enough supplies for your entire party."
@@ -1281,7 +1281,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "SHIFTER-SU2",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules: [
+            text: [
               {
                 type: "RULE",
                 text: "Increase a stat by 1 (max 5)"
