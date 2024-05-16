@@ -66,6 +66,12 @@ enum SearchResultSource {
   veteranFeature
 }
 
+enum SpeedTypes {
+  ground,
+  flying,
+  swimming
+}
+
 interface Rule {
   title: String!
   slug: String!
@@ -89,6 +95,34 @@ type RuleText {
   options: [String]
 }
 
+type Culture implements Rule {
+  title: String!
+  slug: String!
+  href: String
+  shortTitle: String
+  description: [String]
+  stat: String
+  languages: String
+  traits: [GenericFeature]
+}
+
+type Speed {
+  type: SpeedTypes!
+  speed: Int!
+}
+
+type Lineage implements Rule {
+  title: String!
+  slug: String!
+  href: String
+  shortTitle: String
+  description: [String]
+  size: [Size]
+  speeds: [Speed]
+  stat: String
+  traits: [GenericFeature]
+}
+
 type GenericRule implements Rule {
   title: String!
   slug: String!
@@ -99,29 +133,6 @@ type GenericRule implements Rule {
   rules: [GenericRule]
   list: [String]
   shortText: String
-}
-
-type Culture implements Rule {
-  title: String!
-  slug: String!
-  href: String
-  shortTitle: String
-  description: [String]
-  stat: String
-  languages: String
-  traits: [GenericRule]
-}
-
-type Lineage implements Rule {
-  title: String!
-  slug: String!
-  href: String
-  shortTitle: String
-  description: [String]
-  size: [Size]
-  speed: Int
-  stat: String
-  traits: [GenericRule]
 }
 
 type GenericFeature implements Rule {

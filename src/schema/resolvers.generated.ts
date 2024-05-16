@@ -21,6 +21,7 @@ import    { SearchResult } from './base/resolvers/SearchResult';
 import    { ShifterForm } from './base/resolvers/ShifterForm';
 import    { ShifterForms } from './base/resolvers/ShifterForms';
 import    { SlugDict } from './base/resolvers/SlugDict';
+import    { Speed } from './base/resolvers/Speed';
 import    { Training } from './base/resolvers/Training';
 import    { Weapons } from './base/resolvers/Weapons';
 import    { shifterArmor } from './base/resolvers/shifterArmor';
@@ -43,6 +44,7 @@ SearchResult: SearchResult,
 ShifterForm: ShifterForm,
 ShifterForms: ShifterForms,
 SlugDict: SlugDict,
+Speed: Speed,
 Training: Training,
 Weapons: Weapons,
 shifterArmor: shifterArmor,

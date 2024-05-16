@@ -6,7 +6,7 @@ export const lineagesData: Lineage[] = [
             slug: "HUMAN",
             description: ["Humans typically have a wide range of appearances, with various skin tones, hair colors, and facial features."],
             size: ["MEDIUM"],
-            speed: 30,
+            speeds: [{speed:30, type: "ground"}],
             stat: "+1 to any stat",
             traits: [
                     {
@@ -26,7 +26,7 @@ export const lineagesData: Lineage[] = [
             slug: "DWARF",
             description: ["Dwarves are stout and stocky, with thick beards and durable builds"],
             size: ["MEDIUM"],
-            speed: 25,
+            speeds: [{speed:25, type: "ground"}],
             stat: "+1 to Mettle",
             traits: [{
                             title: "Low Light Vision",
@@ -46,11 +46,11 @@ export const lineagesData: Lineage[] = [
             ]
     },
     {
-            title: "ELF",
+            title: "Elf",
             slug: "ELF",
             description: ["Tall, slender and long lived, Elves have pointed ears and bright eyes."],
             size: ["MEDIUM"],
-            speed: 35,
+            speeds: [{speed:35, type: "ground"}],
             stat: "+1 to Agility or Intellect",
             traits: [
                     {
@@ -75,7 +75,7 @@ export const lineagesData: Lineage[] = [
             slug: "FAERY",
             description: ["Faeries have large gossamer wings, usually similar to butterfly or moth wings. Fully grown they are usually 2-2.5ft tall."],
             size: ["TINY"],
-            speed: 20,
+            speeds: [{speed:20, type: "ground"}],
             stat: "+1 to Agility or Heart",
             traits: [
                     {
@@ -95,7 +95,7 @@ export const lineagesData: Lineage[] = [
             slug: "CHIMERIC",
             description: ["Chimeric are a whole class of people who are humanoids who express animal traits. Often they have the head of their animal, but they come in many shapes and sizes, sometimes indistinguishable from humans, to obviously Chimeric."],
             size: ["SMALL", "MEDIUM", "LARGE"],
-            speed: 30,
+            speeds: [{speed:30, type: "ground"}],
             stat: "+1 to any stat",
             traits: [{
                             title: "Animal Features",

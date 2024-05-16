@@ -70,7 +70,7 @@ export type Culture = Rule & {
   slug: Scalars['String']['output'];
   stat?: Maybe<Scalars['String']['output']>;
   title: Scalars['String']['output'];
-  traits?: Maybe<Array<Maybe<GenericRule>>>;
+  traits?: Maybe<Array<Maybe<GenericFeature>>>;
 };
 
 export type Damage = {
@@ -121,10 +121,10 @@ export type Lineage = Rule & {
   shortTitle?: Maybe<Scalars['String']['output']>;
   size?: Maybe<Array<Maybe<Size>>>;
   slug: Scalars['String']['output'];
-  speed?: Maybe<Scalars['Int']['output']>;
+  speeds?: Maybe<Array<Maybe<Speed>>>;
   stat?: Maybe<Scalars['String']['output']>;
   title: Scalars['String']['output'];
-  traits?: Maybe<Array<Maybe<GenericRule>>>;
+  traits?: Maybe<Array<Maybe<GenericFeature>>>;
 };
 
 export type Options = {
@@ -256,6 +256,17 @@ export type SlugDict = {
   title: Scalars['String']['output'];
   url: Scalars['String']['output'];
 };
+
+export type Speed = {
+  __typename?: 'Speed';
+  speed: Scalars['Int']['output'];
+  type: SpeedTypes;
+};
+
+export type SpeedTypes =
+  | 'flying'
+  | 'ground'
+  | 'swimming';
 
 export type Stat =
   | 'AGILITY'
@@ -390,6 +401,8 @@ export type ResolversTypes = {
   ShifterForms: ResolverTypeWrapper<ShifterForms>;
   Size: Size;
   SlugDict: ResolverTypeWrapper<SlugDict>;
+  Speed: ResolverTypeWrapper<Speed>;
+  SpeedTypes: SpeedTypes;
   Stat: Stat;
   Training: ResolverTypeWrapper<Training>;
   Weapons: ResolverTypeWrapper<Weapons>;
@@ -418,6 +431,7 @@ export type ResolversParentTypes = {
   ShifterForm: ShifterForm;
   ShifterForms: ShifterForms;
   SlugDict: SlugDict;
+  Speed: Speed;
   Training: Training;
   Weapons: Weapons;
   shifterArmor: shifterArmor;
@@ -468,7 +482,7 @@ export type CultureResolvers<ContextType = any, ParentType extends ResolversPare
   slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   stat?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  traits?: Resolver<Maybe<Array<Maybe<ResolversTypes['GenericRule']>>>, ParentType, ContextType>;
+  traits?: Resolver<Maybe<Array<Maybe<ResolversTypes['GenericFeature']>>>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -515,10 +529,10 @@ export type LineageResolvers<ContextType = any, ParentType extends ResolversPare
   shortTitle?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   size?: Resolver<Maybe<Array<Maybe<ResolversTypes['Size']>>>, ParentType, ContextType>;
   slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  speed?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  speeds?: Resolver<Maybe<Array<Maybe<ResolversTypes['Speed']>>>, ParentType, ContextType>;
   stat?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  traits?: Resolver<Maybe<Array<Maybe<ResolversTypes['GenericRule']>>>, ParentType, ContextType>;
+  traits?: Resolver<Maybe<Array<Maybe<ResolversTypes['GenericFeature']>>>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -595,6 +609,12 @@ export type SlugDictResolvers<ContextType = any, ParentType extends ResolversPar
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
+export type SpeedResolvers<ContextType = any, ParentType extends ResolversParentTypes['Speed'] = ResolversParentTypes['Speed']> = {
+  speed?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  type?: Resolver<ResolversTypes['SpeedTypes'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
 export type TrainingResolvers<ContextType = any, ParentType extends ResolversParentTypes['Training'] = ResolversParentTypes['Training']> = {
   armor?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
   magic?: Resolver<Maybe<ResolversTypes['Options']>, ParentType, ContextType>;
@@ -639,6 +659,7 @@ export type Resolvers<ContextType = any> = {
   ShifterForm?: ShifterFormResolvers<ContextType>;
   ShifterForms?: ShifterFormsResolvers<ContextType>;
   SlugDict?: SlugDictResolvers<ContextType>;
+  Speed?: SpeedResolvers<ContextType>;
   Training?: TrainingResolvers<ContextType>;
   Weapons?: WeaponsResolvers<ContextType>;
   shifterArmor?: shifterArmorResolvers<ContextType>;

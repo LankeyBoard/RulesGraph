@@ -3,7 +3,7 @@ import { generalRules } from "./rules/generalRules";
 import { NoviceFeatures, VeteranFeatures } from "./rules/genericFeatures";
 import { lineagesData } from "./rules/lineages";
 import { playerClasses } from "./rules/playerClasses";
-import { GenericRule, SlugDict } from "./schema/types.generated";
+import { GenericFeature, GenericRule, SlugDict } from "./schema/types.generated";
 
 export enum baseUrls {
     generalRules = "player_rules",
@@ -27,12 +27,14 @@ export const hrefer = (baseUrl: baseUrls | string, slug: string, isAnchor: boole
 const SlugMapper = () => {
     const slugDict: SlugDict[] =[]
 
-    const subRuleMapper = (rule: GenericRule, slugStr: string, dict: SlugDict[]) => {
+    const subRuleMapper = (rule: GenericRule|GenericFeature, slugStr: string, dict: SlugDict[]) => {
         dict.push({slug: rule.slug, title: rule.shortTitle || rule.title, url: hrefer(slugStr, rule.slug, true)});
-        rule.rules?.forEach(r=>{
-            if(r)
-            subRuleMapper(r, slugStr, dict)
-        })
+        if("rules" in rule){
+            rule.rules?.forEach(r=>{
+                if(r)
+                subRuleMapper(r, slugStr, dict)
+            })
+        }
     }
     
     // General Rules

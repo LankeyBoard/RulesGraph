@@ -827,6 +827,7 @@ export const playerClasses: CharacterClass[] = [
               slug: "MAVERICK-YOINK",
               staminaCost: 2,
               costsFortunesFavor: false,
+              actionType: "ACTION",
               rules: [{
                   type: "RULE",
                   text: "As an action, spend 2 Stamina and make an attack with your whip. On a hit deal damage and if you are at most 1 size smaller than the target, knock them Prone. On a clash, deal half damage and the next attack against them this turn gains Fortune's Favor."
@@ -1156,6 +1157,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "SHIFTER-SHIFT",
             staminaCost: 1,
             costsFortunesFavor: false,
+            actionType: "ACTION",
             rules: [
               {
                 type: "RULE",
