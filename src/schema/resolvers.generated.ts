@@ -1,12 +1,11 @@
 /* This file was automatically generated. DO NOT UPDATE MANUALLY. */
-    import type   { Resolvers } from './types.generated';
-    import    { CharacterClass } from './base/resolvers/CharacterClass';
+import type   { Resolvers } from './types.generated';
+import    { CharacterClass } from './base/resolvers/CharacterClass';
 import    { CharacterClassFeature } from './base/resolvers/CharacterClassFeature';
 import    { Culture } from './base/resolvers/Culture';
 import    { Damage } from './base/resolvers/Damage';
-import    { FeatureWithComplexChoices } from './base/resolvers/FeatureWithComplexChoices';
-import    { FeatureWithSimpleChoices } from './base/resolvers/FeatureWithSimpleChoices';
 import    { FeatureWithoutChoices } from './base/resolvers/FeatureWithoutChoices';
+import    { GenericFeature } from './base/resolvers/GenericFeature';
 import    { GenericRule } from './base/resolvers/GenericRule';
 import    { Lineage } from './base/resolvers/Lineage';
 import    { characterClasses as Query_characterClasses } from './base/resolvers/Query/characterClasses';
@@ -28,17 +27,16 @@ import    { TrainingOptions } from './base/resolvers/TrainingOptions';
 import    { Weapons } from './base/resolvers/Weapons';
 import    { shifterArmor } from './base/resolvers/shifterArmor';
 import    { shifterFeature } from './base/resolvers/shifterFeature';
-    export const resolvers: Resolvers = {
-      Query: { characterClasses: Query_characterClasses,cultures: Query_cultures,genericRules: Query_genericRules,lineages: Query_lineages,searchAll: Query_searchAll,slugMap: Query_slugMap,universalFeatures: Query_universalFeatures },
-      
-      
-      CharacterClass: CharacterClass,
+import { FeatureChoices } from './base/resolvers/FeatureChoices';
+export const resolvers: Resolvers = {
+Query: { characterClasses: Query_characterClasses,cultures: Query_cultures,genericRules: Query_genericRules,lineages: Query_lineages,searchAll: Query_searchAll,slugMap: Query_slugMap,universalFeatures: Query_universalFeatures },
+
+CharacterClass: CharacterClass,
 CharacterClassFeature: CharacterClassFeature,
 Culture: Culture,
 Damage: Damage,
-FeatureWithComplexChoices: FeatureWithComplexChoices,
-FeatureWithSimpleChoices: FeatureWithSimpleChoices,
 FeatureWithoutChoices: FeatureWithoutChoices,
+GenericFeature: GenericFeature,
 GenericRule: GenericRule,
 Lineage: Lineage,
 Range: Range,
@@ -52,5 +50,6 @@ Training: Training,
 TrainingOptions: TrainingOptions,
 Weapons: Weapons,
 shifterArmor: shifterArmor,
-shifterFeature: shifterFeature
-    }
+shifterFeature: shifterFeature,
+FeatureChoices: FeatureChoices
+}

@@ -1,2 +1,9 @@
 import type   { FeatureWithoutChoicesResolvers } from './../../types.generated';
-    export const FeatureWithoutChoices: FeatureWithoutChoicesResolvers = {};
+const verifyType = (object: object) => {
+  if("__typename" in object && object.__typename === "FeatureWithoutChoices")
+    return true;
+  return false
+}
+    export const FeatureWithoutChoices: FeatureWithoutChoicesResolvers = {
+      __isTypeOf: (object) => verifyType(object)
+    };

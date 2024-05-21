@@ -3,7 +3,7 @@ import { generalRules } from '../../../../rules/generalRules';
 import { NoviceFeatures, VeteranFeatures } from '../../../../rules/genericFeatures';
 import { lineagesData } from '../../../../rules/lineages';
 import { playerClasses } from '../../../../rules/playerClasses';
-import type   { CharacterClassFeature, GenericRule, QueryResolvers, SearchResult, SearchResultSource, FeatureWithComplexChoices, FeatureWithSimpleChoices, FeatureWithoutChoices } from './../../../types.generated';
+import type   { CharacterClassFeature, GenericRule, QueryResolvers, SearchResult, SearchResultSource, GenericFeature, FeatureWithoutChoices } from './../../../types.generated';
 
 
 
@@ -39,11 +39,20 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (_paren
                         })
                 }
                 feature.choices?.forEach(choice => {
-                        searchGenericFeature(choice, parentPage, "characterClass")
+                        if("slug" in choice)
+                                searchGenericFeature(choice, parentPage, "characterClass")
+                        else if(choice.text.toLocaleLowerCase().includes(searchPhrase))
+                                found.push({
+                                        title: feature.title,
+                                        slug: feature.slug,
+                                        text: [choice],
+                                        page: parentPage,
+                                        type: "characterClass"   
+                                })
                 })
                 
         }
-        type featureTypes = FeatureWithSimpleChoices | FeatureWithComplexChoices | FeatureWithoutChoices
+        type featureTypes = GenericFeature | FeatureWithoutChoices
         const searchGenericFeature = (feature: featureTypes, parentPage: string, type: SearchResultSource) => {
                 if(feature.title.toLocaleLowerCase().includes(searchPhrase) || feature.shortText?.toLocaleLowerCase().includes(searchPhrase)){
                         found.push({

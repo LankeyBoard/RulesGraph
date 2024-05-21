@@ -1,6 +1,6 @@
-import { Feature, FeatureWithSimpleChoices } from "../schema/types.generated";
+import { Feature, GenericFeature } from "../schema/types.generated";
 
-export const NoviceFeatures: FeatureWithSimpleChoices[] = [
+export const NoviceFeatures: GenericFeature[] = [
     {
         
         title: "Academic",

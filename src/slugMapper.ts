@@ -81,7 +81,8 @@ const SlugMapper = () => {
             if(classFeature){
                 slugDict.push({slug: classFeature.slug, title: classFeature.shortTitle || classFeature.title, url: hrefer(s.url, classFeature.slug, true)});
                 classFeature.choices?.forEach(choice => {
-                        slugDict.push({slug: choice.slug, title: choice.shortTitle || choice.title, url: hrefer(s.url, classFeature.slug, true)})
+                        if("slug" in choice)
+                            slugDict.push({slug: choice.slug, title: choice.shortTitle || choice.title, url: hrefer(s.url, classFeature.slug, true)})
                 })
             }
         })
