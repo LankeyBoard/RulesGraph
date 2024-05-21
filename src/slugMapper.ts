@@ -3,7 +3,7 @@ import { generalRules } from "./rules/generalRules";
 import { NoviceFeatures, VeteranFeatures } from "./rules/genericFeatures";
 import { lineagesData } from "./rules/lineages";
 import { playerClasses } from "./rules/playerClasses";
-import { GenericFeature, GenericRule, SlugDict } from "./schema/types.generated";
+import { Feature, GenericRule, SlugDict } from "./schema/types.generated";
 
 export enum baseUrls {
     generalRules = "player_rules",
@@ -27,7 +27,7 @@ export const hrefer = (baseUrl: baseUrls | string, slug: string, isAnchor: boole
 const SlugMapper = () => {
     const slugDict: SlugDict[] =[]
 
-    const subRuleMapper = (rule: GenericRule|GenericFeature, slugStr: string, dict: SlugDict[]) => {
+    const subRuleMapper = (rule: GenericRule|Feature, slugStr: string, dict: SlugDict[]) => {
         dict.push({slug: rule.slug, title: rule.shortTitle || rule.title, url: hrefer(slugStr, rule.slug, true)});
         if("subRules" in rule){
             rule.subRules?.forEach(r=>{
@@ -81,7 +81,6 @@ const SlugMapper = () => {
             if(classFeature){
                 slugDict.push({slug: classFeature.slug, title: classFeature.shortTitle || classFeature.title, url: hrefer(s.url, classFeature.slug, true)});
                 classFeature.choices?.forEach(choice => {
-                    if(choice)
                         slugDict.push({slug: choice.slug, title: choice.shortTitle || choice.title, url: hrefer(s.url, classFeature.slug, true)})
                 })
             }

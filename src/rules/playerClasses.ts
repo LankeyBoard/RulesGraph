@@ -22,7 +22,8 @@ export const playerClasses: CharacterClass[] = [
         damage: {dice: 10, count: 1, stat: "METTLE"},
         features: [
           {
-            level: 1,
+            
+              level: 1,
             title: "Fighting Style",
             slug: "BRAWLER-STYLE",
             staminaCost: 0,
@@ -34,7 +35,8 @@ export const playerClasses: CharacterClass[] = [
 
           },
           {
-            level: 1,
+            
+              level: 1,
             title: "Muscle Bound Body",
             slug: "BRAWLER-MBB",
             staminaCost: 0,
@@ -49,7 +51,8 @@ export const playerClasses: CharacterClass[] = [
             }]
         },
         {
-            level: 1,
+            
+              level: 1,
             title: "Tag Team",
             slug: "BRAWLER-TT",
             staminaCost: 0,
@@ -64,7 +67,8 @@ export const playerClasses: CharacterClass[] = [
             }]
         },
         {
-            level: 2,
+            
+              level: 2,
             title: "Bravado",
             slug: "BRAWLER-BRAVADO",
             staminaCost: 0,
@@ -79,7 +83,8 @@ export const playerClasses: CharacterClass[] = [
             }]
         },
         {
-            level: 2,
+            
+              level: 2,
             title: "Counter Puncher",
             slug: "BRAWLER-COUNTER",
             staminaCost: 1,
@@ -94,7 +99,8 @@ export const playerClasses: CharacterClass[] = [
             }]
         },
         {
-            level: 3,
+            
+              level: 3,
             title: "Mix It Up",
             slug: "BRAWLER-MIU",
             staminaCost: 0,
@@ -109,7 +115,8 @@ export const playerClasses: CharacterClass[] = [
             }]
         },
         {
-            level: 4,
+            
+              level: 4,
             title: "Stat Up",
             slug: "BRAWLER-SU1",
             staminaCost: 0,
@@ -125,7 +132,8 @@ export const playerClasses: CharacterClass[] = [
             }]
         },
         {
-            level: 5,
+            
+              level: 5,
             title: "Signature Move",
             slug: "BRAWLER-SIGNATURE-MOVE",
             staminaCost: 0,
@@ -146,7 +154,7 @@ export const playerClasses: CharacterClass[] = [
                 text:[{
                     type: "RULE",
                     text: "Spend 1 Stamina plus 1 Stamina per enemy within melee range of you. Make an AOE Attack that deals your base damage against all enemies within melee range of you."
-                }]
+                }],
               },
               {
                 title: "Crippling Strke",
@@ -189,7 +197,8 @@ export const playerClasses: CharacterClass[] = [
             
         },
         {
-            level: 6,
+            
+              level: 6,
             title: "Slab of Beef",
             slug: "BRAWLER-SB",
             staminaCost: 0,
@@ -204,7 +213,8 @@ export const playerClasses: CharacterClass[] = [
             }]
         },
         {
-            level: 7,
+            
+              level: 7,
             title: "Running on Pure Adrenaline",
             slug: "BRAWLER-RPA",
             staminaCost: 0,
@@ -215,7 +225,8 @@ export const playerClasses: CharacterClass[] = [
             }]
         },
         {
-            level: 8,
+            
+              level: 8,
             title: "Stat Up 2",
             slug: "BRAWLER-SU2",
             staminaCost: 0,
@@ -252,7 +263,8 @@ export const playerClasses: CharacterClass[] = [
         damage: {dice: 6, count: 1, stat: "HEART"},
         features: [
           {
-            level: 1,
+            
+              level: 1,
             title: "Spellcasting",
             slug: "DEVOTED-SPELLCASTING",
             staminaCost: 0,
@@ -269,7 +281,8 @@ export const playerClasses: CharacterClass[] = [
             ]
           },
           {
-            level: 1,
+            
+              level: 1,
             title: "Holy Symbol",
             slug: "DEVOTED-HS",
             staminaCost: 0,
@@ -286,7 +299,8 @@ export const playerClasses: CharacterClass[] = [
             ]
           },
           {
-            level: 1,
+            
+              level: 1,
             title: "I've Studied the Word",
             slug: "DEVOTED-SW",
             staminaCost: 0,
@@ -303,7 +317,8 @@ export const playerClasses: CharacterClass[] = [
             ]
           },
           {
-            level: 2,
+            
+              level: 2,
             title: "Rapid Recuperation",
             slug: "DEVOTED-RR",
             staminaCost: 0,
@@ -316,7 +331,8 @@ export const playerClasses: CharacterClass[] = [
             ]
           },
           {
-            level: 3,
+            
+              level: 3,
             title: "Reading the Signs",
             slug: "DEVOTED-RS",
             staminaCost: 1,
@@ -329,7 +345,8 @@ export const playerClasses: CharacterClass[] = [
             ]
           },
           {
-            level: 3,
+            
+              level: 3,
             title: "Minor Intervention",
             slug: "DEVOTED-MI",
             staminaCost: 0,
@@ -342,7 +359,8 @@ export const playerClasses: CharacterClass[] = [
             ]
           },
           {
-            level: 4,
+            
+              level: 4,
             title: "Stat Up",
             slug: "DEVOTED-SU1",
             staminaCost: 0,
@@ -359,7 +377,8 @@ export const playerClasses: CharacterClass[] = [
             ]
           },
           {
-            level: 5,
+            
+              level: 5,
             title: "Shepherd of the Word",
             slug: "DEVOTED-SW",
             staminaCost: 0,
@@ -376,7 +395,8 @@ export const playerClasses: CharacterClass[] = [
             ]
           },
           {
-            level: 6,
+            
+              level: 6,
             title: "Martyr",
             slug: "DEVOTED-M",
             staminaCost: 0,
@@ -393,7 +413,8 @@ export const playerClasses: CharacterClass[] = [
             ]
           },
           {
-            level: 7,
+            
+              level: 7,
             title: "Divine Inspiration",
             slug: "DEVOTED-DI",
             staminaCost: 0,
@@ -406,7 +427,8 @@ export const playerClasses: CharacterClass[] = [
             ]
           },
           {
-            level: 8,
+            
+              level: 8,
             title: "Stat Up 2",
             slug: "DEVOTED-SU2",
             staminaCost: 0,
@@ -444,7 +466,8 @@ export const playerClasses: CharacterClass[] = [
         range: {min: 0, max: 80},
         damage: {dice: 6, count: 1, stat: "INTELLECT"},
         features: [{
-            level: 1,
+            
+              level: 1,
             title: "Elemental Adept",
             slug: "ELEM-EA",
             staminaCost: 0,
@@ -459,7 +482,8 @@ export const playerClasses: CharacterClass[] = [
             }]
         },
         {
-            level: 1,
+            
+              level: 1,
             title: "Elemental Burst",
             slug: "ELEM-EB",
             staminaCost: 1,
@@ -475,7 +499,8 @@ export const playerClasses: CharacterClass[] = [
             }]
         },
         {
-            level: 2,
+            
+              level: 2,
             title: "Enhance",
             slug: "ELEM-ENHANCE",
             staminaCost: 1,
@@ -507,7 +532,8 @@ export const playerClasses: CharacterClass[] = [
             ]
         },
         {
-            level: 4,
+            
+              level: 4,
             title: "Stat Up",
             slug: "ELEM-SU1",
             staminaCost: 0,
@@ -523,7 +549,8 @@ export const playerClasses: CharacterClass[] = [
             }]
         },
         {
-            level: 5,
+            
+              level: 5,
             title: "Twin Attack",
             slug: "ELEM-TA",
             staminaCost: 2,
@@ -535,7 +562,8 @@ export const playerClasses: CharacterClass[] = [
             }]
         },
         {
-            level: 5,
+            
+              level: 5,
             title: "Overcharge",
             slug: "ELEM-OVERCHARGE",
             staminaCost: 0,
@@ -547,7 +575,8 @@ export const playerClasses: CharacterClass[] = [
             }]
         },
         {
-            level: 6,
+            
+              level: 6,
             title: "Power Overwhelming",
             slug: "ELEM-PO",
             staminaCost: 0,
@@ -559,7 +588,8 @@ export const playerClasses: CharacterClass[] = [
             }]
         },
         {
-            level: 7,
+            
+              level: 7,
             title: "Bursting Shot",
             slug: "ElemBS",
             staminaCost: 0,
@@ -571,7 +601,8 @@ export const playerClasses: CharacterClass[] = [
             }]
         },
         {
-            level: 8,
+            
+              level: 8,
             title: "Stat Up 2",
             slug: "ELEM-SU2",
             staminaCost: 0,
@@ -608,7 +639,8 @@ export const playerClasses: CharacterClass[] = [
         damage: {dice: 10, count: 1, stat: "METTLE"},
         features: [
         {
-            level: 1,
+            
+              level: 1,
             title: "Driving Attack",
             slug: "KNIGHT-DA",
             staminaCost: 1,
@@ -623,7 +655,8 @@ export const playerClasses: CharacterClass[] = [
             }]
         },
         {
-            level: 1,
+            
+              level: 1,
             title: "Sweeping Attack",
             slug: "KNIGHT-SA",
             staminaCost: 1,
@@ -638,7 +671,8 @@ export const playerClasses: CharacterClass[] = [
             }]
         },
         {
-            level: 2,
+            
+              level: 2,
             title: "Vow",
             slug: "KNIGHT-VOW",
             staminaCost: 0,
@@ -653,7 +687,8 @@ export const playerClasses: CharacterClass[] = [
             }]
         },
         {
-            level: 3,
+            
+              level: 3,
             title: "Intercept",
             slug: "KNIGHT-INTERCEPT",
             staminaCost: 1,
@@ -668,7 +703,8 @@ export const playerClasses: CharacterClass[] = [
             }]
         },
         {
-            level: 4,
+            
+              level: 4,
             title: "Stat Up",
             slug: "KNIGHT-SU1",
             staminaCost: 0,
@@ -684,7 +720,8 @@ export const playerClasses: CharacterClass[] = [
             }]
         },
         {
-            level: 5,
+            
+              level: 5,
             title: "Unstoppable",
             slug: "KnightU",
             staminaCost: 0,
@@ -695,7 +732,8 @@ export const playerClasses: CharacterClass[] = [
             }]
         },
         {
-            level: 6,
+            
+              level: 6,
             title: "No Retreat, No Surrender",
             slug: "KNIGHT-NR-NS",
             staminaCost: 0,
@@ -710,7 +748,8 @@ export const playerClasses: CharacterClass[] = [
             }]
         },
         {
-            level: 6,
+            
+              level: 6,
             title: "Mounted Combatant",
             slug: "KNIGHT-MC",
             staminaCost: 0,
@@ -721,7 +760,8 @@ export const playerClasses: CharacterClass[] = [
             }]
         },
         {
-            level: 7,
+            
+              level: 7,
             title: "You Won't Be The One To Kill Me",
             slug: "KNIGHT-WONT-KILL-ME",
             staminaCost: 0,
@@ -733,7 +773,8 @@ export const playerClasses: CharacterClass[] = [
             }]
         },
         {
-            level: 8,
+            
+              level: 8,
             title: "Stat Up 2",
             slug: "KNIGHT-SU2",
             staminaCost: 0,
@@ -790,22 +831,24 @@ export const playerClasses: CharacterClass[] = [
           stat: "AGILITY"
       },
       features: [{
-              level: 1,
-              title: "Keen Intuition",
-              slug: "MAVERICK-KI",
-              staminaCost: 0,
-              costsFortunesFavor: false,
-              text: [{
-                      type: "RULE",
-                      text: "When you make a test to identify a lie or avoid a trap, add +3 to the roll."
-                  },
-                  {
-                      type: "FLAVOR",
-                      text: "Years of practice have sharpened your intuition allowing you to sniff out danger and lies with ease."
-                  }
-              ]
-          },
+        
+        level: 1,
+        title: "Keen Intuition",
+        slug: "MAVERICK-KI",
+        staminaCost: 0,
+        costsFortunesFavor: false,
+        text: [{
+                type: "RULE",
+                text: "When you make a test to identify a lie or avoid a trap, add +3 to the roll."
+            },
+            {
+                type: "FLAVOR",
+                text: "Years of practice have sharpened your intuition allowing you to sniff out danger and lies with ease."
+            }
+          ]  
+        },
           {
+            
               level: 1,
               title: "Whip Expert",
               slug: "MAVERICK-WE",
@@ -822,6 +865,7 @@ export const playerClasses: CharacterClass[] = [
               ]
           },
           {
+            
               level: 1,
               title: "Yoink",
               slug: "MAVERICK-YOINK",
@@ -834,6 +878,7 @@ export const playerClasses: CharacterClass[] = [
               }]
           },
           {
+            
               level: 2,
               title: "Lucky Shot",
               slug: "MAVERICK-LS",
@@ -845,6 +890,7 @@ export const playerClasses: CharacterClass[] = [
               }]
           },
           {
+            
               level: 3,
               title: "Sleight of Hand",
               slug: "MAVERICK-SOH",
@@ -856,6 +902,7 @@ export const playerClasses: CharacterClass[] = [
               }]
           },
           {
+            
               level: 3,
               title: "A Keen Eye for Coin",
               slug: "MAVERICK-KEC",
@@ -867,6 +914,7 @@ export const playerClasses: CharacterClass[] = [
               }]
           },
           {
+            
               level: 4,
               title: "Stat Up",
               slug: "MAVERICK-SU1",
@@ -883,6 +931,7 @@ export const playerClasses: CharacterClass[] = [
               ]
           },
           {
+            
               level: 5,
               title: "Balanced Fighter",
               slug: "MAVERICK-BF",
@@ -894,6 +943,7 @@ export const playerClasses: CharacterClass[] = [
               }]
           },
           {
+            
               level: 6,
               title: "Luck Runs Out",
               slug: "MAVERICK-LRO",
@@ -910,6 +960,7 @@ export const playerClasses: CharacterClass[] = [
               ]
           },
           {
+            
               level: 7,
               title: "Flee the Scene",
               slug: "MAVERICK-FTS",
@@ -921,6 +972,7 @@ export const playerClasses: CharacterClass[] = [
               }]
           },
           {
+            
               level: 8,
               title: "Stat Up 2",
               slug: "MAVERICK-SU2",
@@ -943,8 +995,7 @@ export const playerClasses: CharacterClass[] = [
         slug: "RANGER",
         description: [ "A skilled survivalist as well as ranged and melee fighter relying more on quickness and skill than outright strength."],
         complexity: "SIMPLE",
-        health: 16,
-        healthOnLevel: 2,
+        health: 16,        healthOnLevel: 2,
         staminaStat: "AGILITY",
         stamina: 6,
         staminaOnLevel: 2,
@@ -959,7 +1010,8 @@ export const playerClasses: CharacterClass[] = [
         damage: {dice: 8, count: 1, stat: "AGILITY"},
         features: [
           {
-            level: 1,
+            
+              level: 1,
             title: "Predator's Sense",
             slug: "RANGER-SENSE",
             staminaCost: 0,
@@ -976,7 +1028,8 @@ export const playerClasses: CharacterClass[] = [
             ]
           },
           {
-            level: 1,
+            
+              level: 1,
             title: "Precision of the Hawk",
             slug: "RANGER-PRECISION",
             staminaCost: 0,
@@ -993,7 +1046,8 @@ export const playerClasses: CharacterClass[] = [
             ]
           },
           {
-            level: 2,
+            
+              level: 2,
             title: "Cunning Stalker",
             slug: "RANGER-STALKER",
             staminaCost: 1,
@@ -1010,7 +1064,8 @@ export const playerClasses: CharacterClass[] = [
             ]
           },
           {
-            level: 2,
+            
+              level: 2,
             title: "Wild Guide",
             slug: "RANGER-GUIDE",
             staminaCost: 0,
@@ -1027,7 +1082,8 @@ export const playerClasses: CharacterClass[] = [
             ]
           },
           {
-            level: 3,
+            
+              level: 3,
             title: "Quickdraw Counter",
             slug: "RANGER-QUICK-COUNTER",
             staminaCost: 0,
@@ -1044,7 +1100,8 @@ export const playerClasses: CharacterClass[] = [
             ]
           },
           {
-            level: 4,
+            
+              level: 4,
             title: "Stat Up",
             slug: "RANGER-SU1",
             staminaCost: 0,
@@ -1061,7 +1118,8 @@ export const playerClasses: CharacterClass[] = [
             ]
           },
           {
-            level: 5,
+            
+              level: 5,
             title: "Poisoned Blade",
             slug: "RANGER-POISON",
             staminaCost: 0,
@@ -1074,7 +1132,8 @@ export const playerClasses: CharacterClass[] = [
             ]
           },
           {
-            level: 6,
+            
+              level: 6,
             title: "Final Hunt",
             slug: "RANGER-FINAL-HUNT",
             staminaCost: 0,
@@ -1087,7 +1146,8 @@ export const playerClasses: CharacterClass[] = [
             ]
           },
           {
-            level: 7,
+            
+              level: 7,
             title: "Long Shot",
             slug: "RANGER-LS",
             staminaCost: 0,
@@ -1100,7 +1160,8 @@ export const playerClasses: CharacterClass[] = [
             ]
           },
           {
-            level: 8,
+            
+              level: 8,
             title: "Stat Up 2",
             slug: "RANGER-SU2",
             staminaCost: 0,
@@ -1139,7 +1200,8 @@ export const playerClasses: CharacterClass[] = [
         damage: {dice: 8, count: 1, stat: "HEART"},
         features: [
           {
-            level: 1,
+            
+              level: 1,
             title: "Shape Changer",
             slug: "SHIFTER-SHAPE-CHANGER",
             staminaCost: 0,
@@ -1152,7 +1214,8 @@ export const playerClasses: CharacterClass[] = [
             ]
           },
           {
-            level: 1,
+            
+              level: 1,
             title: "Shift",
             slug: "SHIFTER-SHIFT",
             staminaCost: 1,
@@ -1166,7 +1229,8 @@ export const playerClasses: CharacterClass[] = [
             ]
           },
           {
-            level: 2,
+            
+              level: 2,
             title: "Commune with Nature",
             slug: "SHIFTER-COMM-NATURE",
             staminaCost: 0,
@@ -1183,7 +1247,8 @@ export const playerClasses: CharacterClass[] = [
             ]
           },
           {
-            level: 3,
+            
+              level: 3,
             title: "Reinvigorate",
             slug: "SHIFTER-REINVIGORATE",
             staminaCost: 3,
@@ -1201,7 +1266,8 @@ export const playerClasses: CharacterClass[] = [
             ]
           },
           {
-            level: 4,
+            
+              level: 4,
             title: "Stat Up",
             slug: "SHIFTER-SU1",
             staminaCost: 0,
@@ -1218,7 +1284,8 @@ export const playerClasses: CharacterClass[] = [
             ]
           },
           {
-            level: 5,
+            
+              level: 5,
             title: "Unusual Form",
             slug: "SHIFTER-UNUSUAL-FORM",
             staminaCost: 2,
@@ -1233,7 +1300,8 @@ export const playerClasses: CharacterClass[] = [
             
           },
           {
-            level: 6,
+            
+              level: 6,
             title: "Nature's Wrath",
             slug: "SHIFTER-WRATH",
             staminaCost: 0,
@@ -1246,7 +1314,8 @@ export const playerClasses: CharacterClass[] = [
             ]
           },
           {
-            level: 7,
+            
+              level: 7,
             title: "Blood Tracker",
             slug: "SHIFTER-TRACKER",
             staminaCost: 0,
@@ -1259,7 +1328,8 @@ export const playerClasses: CharacterClass[] = [
             ]
           },
           {
-            level: 7,
+            
+              level: 7,
             title: "Impeccable Survivalist",
             slug: "SHIFTER-SURVIVALIST",
             staminaCost: 0,
@@ -1276,7 +1346,8 @@ export const playerClasses: CharacterClass[] = [
             ]
           },
           {
-            level: 8,
+            
+              level: 8,
             title: "Stat Up 2",
             slug: "SHIFTER-SU2",
             staminaCost: 0,

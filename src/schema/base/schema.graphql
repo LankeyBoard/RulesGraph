@@ -1,7 +1,7 @@
 type Query {
   genericRules(slug: String): [GenericRule]!
 
-  genericFeatures(slug: String, featureType: FeatureType): [GenericFeature]!
+  universalFeatures(slug: String, featureType: FeatureType): [FeatureWithSimpleChoices]!
 
   lineages(slug: String): [Lineage]!
 
@@ -79,7 +79,20 @@ interface Rule {
   shortTitle: String
 }
 
-interface Feature implements Rule {
+interface Feature {
+  title: String!
+  slug: String!
+  href: String
+  shortTitle: String
+  staminaCost: Int
+  costsFortunesFavor: Boolean
+  actionType: Action
+  ruleType: RuleType
+  text: [RuleText]
+  shortText: String
+}
+
+interface FeatureWithChoice implements Feature {
   title: String!
   slug: String!
   href: String
@@ -91,7 +104,6 @@ interface Feature implements Rule {
   text: [RuleText]
   shortText: String
   multiSelect: Boolean
-  options: [String]
 }
 
 type SearchResult implements Rule {
@@ -118,7 +130,7 @@ type Culture implements Rule {
   description: [String]
   stat: String
   languages: String
-  traits: [GenericFeature]
+  traits: [FeatureWithComplexChoices!]
 }
 
 type Speed {
@@ -135,7 +147,7 @@ type Lineage implements Rule {
   size: [Size]
   speeds: [Speed]
   stat: String
-  traits: [GenericFeature]
+  traits: [FeatureWithComplexChoices!]
 }
 
 type GenericRule implements Rule {
@@ -150,9 +162,20 @@ type GenericRule implements Rule {
   shortText: String
 }
 
-union FeatureOptions = GenericFeature | RuleText
+type FeatureWithoutChoices implements Feature {
+  title: String!
+  slug: String!
+  href: String
+  shortTitle: String
+  staminaCost: Int
+  costsFortunesFavor: Boolean
+  actionType: Action
+  ruleType: RuleType
+  text: [RuleText]
+  shortText: String
+}
 
-type GenericFeature implements Feature {
+type FeatureWithSimpleChoices implements FeatureWithChoice & Feature {
   title: String!
   slug: String!
   href: String
@@ -164,7 +187,22 @@ type GenericFeature implements Feature {
   text: [RuleText]
   shortText: String
   multiSelect: Boolean
-  choices: [FeatureOptions]
+  choices: [RuleText!]
+}
+
+type FeatureWithComplexChoices implements FeatureWithChoice & Feature {
+  title: String!
+  slug: String!
+  href: String
+  shortTitle: String
+  staminaCost: Int
+  costsFortunesFavor: Boolean
+  actionType: Action
+  ruleType: RuleType
+  text: [RuleText]
+  shortText: String
+  multiSelect: Boolean
+  choices: [FeatureWithoutChoices!]
 }
 
 type SlugDict {
@@ -203,7 +241,7 @@ type Damage {
   type: [String]
 }
 
-type CharacterClassFeature implements Feature {
+type CharacterClassFeature implements FeatureWithChoice & Feature {
   title: String!
   slug: String!
   href: String
@@ -214,7 +252,9 @@ type CharacterClassFeature implements Feature {
   ruleType: RuleType
   actionType: Action
   text: [RuleText]
-  choices: [GenericFeature]
+  multiSelect: Boolean
+  shortText: String
+  choices: [FeatureWithComplexChoices!]
 }
 
 type CharacterClass implements Rule {
