@@ -1,6 +1,6 @@
 /* This file was automatically generated. DO NOT UPDATE MANUALLY. */
-import type   { Resolvers } from './types.generated';
-import    { CharacterClass } from './base/resolvers/CharacterClass';
+    import type   { Resolvers } from './types.generated';
+    import    { CharacterClass } from './base/resolvers/CharacterClass';
 import    { CharacterClassFeature } from './base/resolvers/CharacterClassFeature';
 import    { Culture } from './base/resolvers/Culture';
 import    { Damage } from './base/resolvers/Damage';
@@ -27,11 +27,11 @@ import    { TrainingOptions } from './base/resolvers/TrainingOptions';
 import    { Weapons } from './base/resolvers/Weapons';
 import    { shifterArmor } from './base/resolvers/shifterArmor';
 import    { shifterFeature } from './base/resolvers/shifterFeature';
-import { FeatureChoices } from './base/resolvers/FeatureChoices';
-export const resolvers: Resolvers = {
-Query: { characterClasses: Query_characterClasses,cultures: Query_cultures,genericRules: Query_genericRules,lineages: Query_lineages,searchAll: Query_searchAll,slugMap: Query_slugMap,universalFeatures: Query_universalFeatures },
-
-CharacterClass: CharacterClass,
+    export const resolvers: Resolvers = {
+      Query: { characterClasses: Query_characterClasses,cultures: Query_cultures,genericRules: Query_genericRules,lineages: Query_lineages,searchAll: Query_searchAll,slugMap: Query_slugMap,universalFeatures: Query_universalFeatures },
+      
+      
+      CharacterClass: CharacterClass,
 CharacterClassFeature: CharacterClassFeature,
 Culture: Culture,
 Damage: Damage,
@@ -50,6 +50,5 @@ Training: Training,
 TrainingOptions: TrainingOptions,
 Weapons: Weapons,
 shifterArmor: shifterArmor,
-shifterFeature: shifterFeature,
-FeatureChoices: FeatureChoices
-}
+shifterFeature: shifterFeature
+    }

@@ -1,6 +1,5 @@
 import { FeatureChoicesResolvers } from "../../types.generated";
 const findType = (object: object) => {
-    console.log("HERE", object)
     if("text" in object){
         if(typeof object.text === "string")
             return "RuleText"
