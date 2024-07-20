@@ -253,8 +253,8 @@ export const playerClasses: CharacterClass[] = [
         stamina: 6,
         staminaOnLevel: 2,
         training: {
-          armor: [null],
-          shields: [null],
+          armor: null,
+          shields: null,
           weapons: {melee: null, ranged: null, special: null},
           magic: {options:["Divine"]}
         },
@@ -457,8 +457,8 @@ export const playerClasses: CharacterClass[] = [
         stamina: 6,
         staminaOnLevel: 2,
         training: {
-            armor: [null],
-            shields: [null],
+            armor: null,
+            shields: null,
             weapons: {melee: null, ranged: null, special: null},
             magic: {pick: 1, options:["fire","cold","lightning", "rot", "psychic"]}
         },
@@ -629,8 +629,8 @@ export const playerClasses: CharacterClass[] = [
         stamina: 6,
         staminaOnLevel: 2,
         training: {
-            armor: ["Light, Medium, Heavy"],
-            shields: ["Light, Medium, Heavy"],
+            armor: ["Light", "Medium", "Heavy"],
+            shields: ["Light", "Medium", "Heavy"],
             weapons: {melee: {pick: 2, options: ["Hammers & Clubs", "Slashing Swords", "Piercing Swords & Daggers", "Axes", "Flails"]}, ranged: {pick: 2, options:["Heavy Throwing", "Light Throwing", "Bows", "Crossbows"]}, special: null},
             magic: null
         },
@@ -651,7 +651,7 @@ export const playerClasses: CharacterClass[] = [
             },
             {
                 type: "RULE",
-                text: "When you make an attack action you may spend 1 stamina to attempt to also drive your enemy back 5ft. On a mix, you chose whether to damage or move the creature back. On a pass, you can do both.\nIf you chose to move a creature, they can opt to instead take an extra base attacks worth of damage to avoid being moved."
+                text: "When you make an attack action you may spend 1 stamina to attempt to also drive your enemy back 5ft. On a Mix, you chose whether to damage or move the creature back. On a Success, you can do both.\nIf you chose to move a creature, they can opt to instead take an extra base attacks worth of damage to avoid being moved."
             }]
         },
         {

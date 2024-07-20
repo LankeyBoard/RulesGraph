@@ -113,7 +113,7 @@ export const culturesData: Culture[] = [
             
             title: "Rugged Mountaineer",
             slug: "HIGHLAND-CLANS-MOUNTAINEER",
-            text: [{text:  "You always have Fortune's Favor on mettle tests to resist the effects of cold weather. You also gain +2 on checks to navigate cliffs and mountains."}]
+            text: [{text:  "You always have Fortune's Favor on Mettle Tests to resist the effects of cold weather. You also gain +2 on tests to navigate cliffs and mountains."}]
           },
           {
             title: "Craig Jumper",
@@ -152,7 +152,7 @@ export const culturesData: Culture[] = [
             
             title: "Never Trust a Tulip",
             slug: "FAE-FOLK-NEVER-TRUST-A-TULIP",
-            text: [{text:  "You grew up having to double and triple check your interactions for deceptions. Add a +2 to heart checks to determine if someone is lying."}]
+            text: [{text:  "You grew up having to double and triple check your interactions for deceptions. Add a +2 to Heart Tests to determine if someone is lying."}]
           },
           {
             

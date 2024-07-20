@@ -83,7 +83,7 @@ export const lineagesData: Lineage[] = [
             slug: "FAERY",
             description: ["Faeries have large gossamer wings, usually similar to butterfly or moth wings. Fully grown they are usually 2-2.5ft tall."],
             size: ["TINY"],
-            speeds: [{speed:20, type: "ground"}],
+            speeds: [{speed:20, type: "ground"}, {speed: 20, type: "flying"}],
             stat: "+1 to Agility or Heart",
             traits: [
                     {
