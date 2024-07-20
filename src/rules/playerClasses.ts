@@ -138,6 +138,7 @@ export const playerClasses: CharacterClass[] = [
             slug: "BRAWLER-SIGNATURE-MOVE",
             staminaCost: 0,
             costsFortunesFavor: false,
+            ruleType: "CHOICE",
             text: [
               {
                 text: "Select a Signature Move from the list below.",
@@ -1000,7 +1001,7 @@ export const playerClasses: CharacterClass[] = [
         stamina: 6,
         staminaOnLevel: 2,
         training: {
-          armor: ["Light"],
+          armor: ["Light", "Medium"],
           shields: null,
           weapons: {melee: {pick: 1, options: ["Axes", "Piercing Swords & Dagers", "Slashing Swords" ]}, ranged: {pick: 2, options:["Bows", "Crossbows", "Light Throwing"]}, special: null},
           magic: null
