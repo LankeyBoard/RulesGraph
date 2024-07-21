@@ -163,6 +163,7 @@ type GenericFeature implements Feature {
   shortText: String
   multiSelect: Boolean
   choices: [FeatureChoices!]
+  featureType: FeatureType
 }
 
 type FeatureWithoutChoices implements Feature {

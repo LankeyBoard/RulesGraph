@@ -9,7 +9,15 @@ const makeFeatureLink = (slug: string) => {
     return hrefer(baseUrls.veteranFeatures, slug, false)
   else return undefined
 }
+const featureTyper = (slug: string) => {
+  if(NoviceFeatures.find(f => f.slug === slug))
+    return "NOVICE"
+  else if(VeteranFeatures.find(f => f.slug === slug))
+    return "VETERAN"
+  else return undefined
+}
 
 export const GenericFeature: GenericFeatureResolvers = {
-  href: ({slug}) => makeFeatureLink(slug)
+  href: ({slug}) => makeFeatureLink(slug),
+  featureType: ({slug}) => featureTyper(slug)
 };

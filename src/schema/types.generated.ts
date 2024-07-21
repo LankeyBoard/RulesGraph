@@ -123,6 +123,7 @@ export type GenericFeature = Feature & {
   actionType?: Maybe<Action>;
   choices?: Maybe<Array<FeatureChoices>>;
   costsFortunesFavor?: Maybe<Scalars['Boolean']['output']>;
+  featureType?: Maybe<FeatureType>;
   href?: Maybe<Scalars['String']['output']>;
   multiSelect?: Maybe<Scalars['Boolean']['output']>;
   ruleType?: Maybe<RuleType>;
@@ -577,6 +578,7 @@ export type GenericFeatureResolvers<ContextType = any, ParentType extends Resolv
   actionType?: Resolver<Maybe<ResolversTypes['Action']>, ParentType, ContextType>;
   choices?: Resolver<Maybe<Array<ResolversTypes['FeatureChoices']>>, ParentType, ContextType>;
   costsFortunesFavor?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
+  featureType?: Resolver<Maybe<ResolversTypes['FeatureType']>, ParentType, ContextType>;
   href?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   multiSelect?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
   ruleType?: Resolver<Maybe<ResolversTypes['RuleType']>, ParentType, ContextType>;

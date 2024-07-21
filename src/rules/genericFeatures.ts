@@ -115,7 +115,7 @@ export const NoviceFeatures: GenericFeature[] = [
         
         title: "Swift",
         slug: "SWIFT",
-        text: [{text:  "Increase your speed by 10ft."}]
+        text: [{text:  "Increase your ground speed by 10ft."}]
     },
     {
         
