@@ -163,6 +163,7 @@ type GenericFeature implements Feature {
   shortText: String
   multiSelect: Boolean
   choices: [FeatureChoices!]
+  chooseNum: Int
   featureType: FeatureType
 }
 
@@ -230,6 +231,7 @@ type CharacterClassFeature implements Feature {
   multiSelect: Boolean
   shortText: String
   choices: [FeatureChoices!]
+  chooseNum: Int
 }
 
 type CharacterClass implements Rule {

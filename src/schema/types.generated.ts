@@ -46,6 +46,7 @@ export type CharacterClassFeature = Feature & {
   __typename?: 'CharacterClassFeature';
   actionType?: Maybe<Action>;
   choices?: Maybe<Array<FeatureChoices>>;
+  chooseNum?: Maybe<Scalars['Int']['output']>;
   costsFortunesFavor: Scalars['Boolean']['output'];
   href?: Maybe<Scalars['String']['output']>;
   level: Scalars['Int']['output'];
@@ -122,6 +123,7 @@ export type GenericFeature = Feature & {
   __typename?: 'GenericFeature';
   actionType?: Maybe<Action>;
   choices?: Maybe<Array<FeatureChoices>>;
+  chooseNum?: Maybe<Scalars['Int']['output']>;
   costsFortunesFavor?: Maybe<Scalars['Boolean']['output']>;
   featureType?: Maybe<FeatureType>;
   href?: Maybe<Scalars['String']['output']>;
@@ -507,6 +509,7 @@ export type CharacterClassResolvers<ContextType = any, ParentType extends Resolv
 export type CharacterClassFeatureResolvers<ContextType = any, ParentType extends ResolversParentTypes['CharacterClassFeature'] = ResolversParentTypes['CharacterClassFeature']> = {
   actionType?: Resolver<Maybe<ResolversTypes['Action']>, ParentType, ContextType>;
   choices?: Resolver<Maybe<Array<ResolversTypes['FeatureChoices']>>, ParentType, ContextType>;
+  chooseNum?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   costsFortunesFavor?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   href?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   level?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
@@ -577,6 +580,7 @@ export type FeatureWithoutChoicesResolvers<ContextType = any, ParentType extends
 export type GenericFeatureResolvers<ContextType = any, ParentType extends ResolversParentTypes['GenericFeature'] = ResolversParentTypes['GenericFeature']> = {
   actionType?: Resolver<Maybe<ResolversTypes['Action']>, ParentType, ContextType>;
   choices?: Resolver<Maybe<Array<ResolversTypes['FeatureChoices']>>, ParentType, ContextType>;
+  chooseNum?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   costsFortunesFavor?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
   featureType?: Resolver<Maybe<ResolversTypes['FeatureType']>, ParentType, ContextType>;
   href?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;

@@ -145,6 +145,7 @@ export const playerClasses: CharacterClass[] = [
                 type: "RULE"
               }
             ],
+            chooseNum: 1,
             choices: [
               {
                 title: "Spinning Lariat",
@@ -526,6 +527,7 @@ export const playerClasses: CharacterClass[] = [
                 type: "RULE",
                 text: "Pick one of the following options to enhance yourself"       
             }],
+            chooseNum: 1,
             choices: [
                 {title: "Elemental Armor", slug:"ELEM-ARMOR", text: [{text: "Add your Intellect to your armor and take half damage from your chosen element."}]},
                 {title: "Bolt Thrower", slug: "ELEM-BOLT-THROWER", text: [{text:"Increase your base attack range by 30ft"}]},
@@ -1295,7 +1297,7 @@ export const playerClasses: CharacterClass[] = [
               {
                 type: "CHOICE",
                 text: "When you shapeshift you can spend 2 stamina to gain an extra form of movement from the list below.",
-                options: ["30 ft. fly", "20 ft. swim", "20 ft. burrow"]
+                options: ["30 ft. fly", "20 ft. swim", "20 ft. burrow"],
               }
             ],
             

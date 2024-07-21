@@ -112,6 +112,7 @@ export const lineagesData: Lineage[] = [
                         slug: "CHIMERIC-ANIMAL-FEATURES",
                         text: [{text: "Pick 2 options from the list below."}],
                         ruleType: "CHOICE",
+                        chooseNum: 2,
                         choices: [{
                                 
                                 title: "Intimidating",
