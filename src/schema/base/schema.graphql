@@ -85,7 +85,7 @@ type SearchResult implements Rule {
 
 type RuleText {
   text: String!
-  type: String
+  type: RuleType
   options: [String]
 }
 

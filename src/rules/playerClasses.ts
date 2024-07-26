@@ -41,7 +41,7 @@ export const playerClasses: CharacterClass[] = [
             costsFortunesFavor: false,
             rules:[{
                 type: "RULE",
-                text: "When you are not wearing armor, you can calculate your Armor as 10+mettle+dex (max of 2)"       
+                text: "When you are not wearing armor, you can calculate your Armor as 10+Mettle+Agility (max of 2)"       
             },
             {
                 type: "FLAVOR",
@@ -56,7 +56,7 @@ export const playerClasses: CharacterClass[] = [
             costsFortunesFavor: false,
             rules:[{
                 type: "RULE",
-                text: "When you succeed in a melee attack test, you can move the enemy up to 5ft into melee range of an ally or swap places with it if you can move. If that ally attacks the enemy before the start of the next round of combat, they have Fortune's Favor for that attack."
+                text: "When you succeed on a melee attack Test, you can move the enemy you attacked up to 5 ft. into melee range of an ally or swap places with it if you can move. If that ally attacks the enemy before the start of the next round of combat, they have Fortune's Favor for that attack."
             },
             {
                 type: "FLAVOR",
@@ -71,7 +71,7 @@ export const playerClasses: CharacterClass[] = [
             costsFortunesFavor: false,
             rules:[{
                 type: "RULE",
-                text: "When trying to intimidate an enemy, add your mettle in addition to any other bonuses to the test."
+                text: "When trying to intimidate an enemy, add your Mettle in addition to any other bonuses to the Test."
             },
             {
                 type: "FLAVOR",
@@ -84,9 +84,10 @@ export const playerClasses: CharacterClass[] = [
             slug: "BRAWLER-COUNTER",
             staminaCost: 1,
             costsFortunesFavor: false,
+            actionType: "COUNTER",
             rules:[{
                 type: "RULE",
-                text: "When you make a counter attack, you can spend 1 stamina to remove the counter attack damage penalty, allowing you to deal your base damage on this counter attack."
+                text: "When you make a Counter Attack, you can spend 1 Stamina to deal your Base Damage on this Counter Attack."
             },
             {
                 type: "FLAVOR",
@@ -101,7 +102,7 @@ export const playerClasses: CharacterClass[] = [
             costsFortunesFavor: true,
             rules:[{
                 type: "RULE",
-                text: "If you are attacking an enemy you did not attack last turn you can spend Fortune's Favor before the attack to double your base damage if you hit."
+                text: "If you are attacking an enemy you did not attack last turn you can spend Fortune's Favor before the attack to double your Base Damage if you hit."
             },
             {
                 type: "FLAVOR",
@@ -145,7 +146,7 @@ export const playerClasses: CharacterClass[] = [
                 actionType: "ACTION",
                 text:[{
                     type: "RULE",
-                    text: "Spend 1 Stamina plus 1 Stamina per enemy within melee range of you. Make an AOE Attack that deals your base damage against all enemies within melee range of you."
+                    text: "Spend 1 Stamina plus 1 Stamina per enemy within melee range of you. Attack all enemies within melee range of you. This attack deals your Base Damage on hit."
                 }]
               },
               {
@@ -156,7 +157,7 @@ export const playerClasses: CharacterClass[] = [
                 actionType: "ACTION",
                 text:[{
                     type: "RULE",
-                    text: "Spend 2 Stamina plus 1 for each size larger than you the enemy is. When you hit an enemy with a melee attack, reduce the damage done by their attacks by half and reduce their speed to 0 until the end of this round."
+                    text: "When you hit an enemy with a melee attack, spend 2 Stamina plus 1 for each size larger than you the enemy is.  Reduce the damage done by their attacks by half and reduce their Speed to 0 until the end of this round."
                 }]
               },
               {
@@ -165,13 +166,10 @@ export const playerClasses: CharacterClass[] = [
                 staminaCost: 1,
                 costsFortunesFavor: false,
                 actionType: "ACTION",
-                text:[{
-                    type: "RULE",
-                    text: "Requires an ally or sturdy object within 5' of the target to jump off of."
-                },
+                text:[
               {
                 type: "RULE",
-                text: "Spend 1 Stamina to attempt to knock the target prone with your next attack. You and your target make opposed tests based on your Attack Stat. If you succeed, you knock them prone."
+                text: "Spend 1 Stamina to attempt to knock the target Prone with your next melee attack. On a hit, make an opposed Mettle or Agility test with the target, on a success they are knocked Prone."
               }]
               },
               {
@@ -182,7 +180,7 @@ export const playerClasses: CharacterClass[] = [
                 actionType: "COUNTER",
                 text:[{
                     type: "RULE",
-                    text: "When you counter an enemy, spend 1 stamina + 1 per size category the target is larger than you. If you do, you move the enemy up to 15 ft."
+                    text: "When you Counter an enemy, spend 1 Stamina + 1 per size category the target is larger than you. If you do, you move the enemy up to 15 ft. in a straight line."
                 }]
               },
             ]
@@ -196,7 +194,7 @@ export const playerClasses: CharacterClass[] = [
             costsFortunesFavor: true,
             rules:[{
                 type: "RULE",
-                text: "Spend Fortune's Favor, halve all damage taken until the start your next turn."
+                text: "Spend Fortune's Favor to halve all damage taken until the start your next turn."
             },
             {
                 type: "FLAVOR",
@@ -280,8 +278,8 @@ export const playerClasses: CharacterClass[] = [
                 text: "You need a holy symbol to cast your divine spells. You require one hand either holding your holy symbol or free to cast."
               },
               {
-                type: "FLAVOR",
-                text: "E.g., if you are using a staff, you have to be holding it in one hand or if you have a tattoo on the back of your hand, then you can't have anything in that hand to cast."
+                type: "EG",
+                text: "E.g. If you are using a staff, you have to be holding it in one hand or if you have a tattoo on the back of your hand, then you can't have anything in that hand to cast."
               }
             ]
           },
@@ -294,7 +292,7 @@ export const playerClasses: CharacterClass[] = [
             rules: [
               {
                 type: "RULE",
-                text: "Gain a +3 on Intellect tests to recall specific bits of history or religious information."
+                text: "Gain a +3 on Intellect Tests to recall specific bits of history or religious information."
               },
               {
                 type: "FLAVOR",
@@ -311,7 +309,7 @@ export const playerClasses: CharacterClass[] = [
             rules: [
               {
                 type: "RULE",
-                text: "3 charges, when you Catch Your Breath, you can expend a charge, you and up to 5 allies regain Health equal to your Heart. You regain all charges when you Rest & Recuperate"
+                text: "Starts with 3 charges, when you Catch Your Breath, you can expend a charge, you and up to 5 allies regain Health equal to your Heart. You regain all charges when you Rest & Recuperate"
               }
             ]
           },
@@ -324,7 +322,7 @@ export const playerClasses: CharacterClass[] = [
             rules: [
               {
                 type: "RULE",
-                text: "Spend 1 stamina and 10 minutes in deep meditation or praying on a solution to an issue to gain Fortune's Favor on the next Test to resolve the issue."
+                text: "Spend 1 Stamina and 10 minutes in deep meditation or praying on a solution to an issue to gain Fortune's Favor on the next Test to resolve the issue."
               }
             ]
           },
@@ -337,7 +335,7 @@ export const playerClasses: CharacterClass[] = [
             rules: [
               {
                 type: "RULE",
-                text: "Once a day you can spend Fortune's Favor to improve yours or your allies Test results. Turning a Failure to a Mixed or a Mixed to a Success. You can do this after the dice are rolled but before consequences are applied."
+                text: "Once a day you can spend Fortune's Favor to improve yours or your allies Test results. Turning a Failure to a Mixed or a Mixed to a Success. You can do this after the dice are rolled but before consequences are known."
               }
             ]
           },
@@ -366,12 +364,12 @@ export const playerClasses: CharacterClass[] = [
             costsFortunesFavor: false,
             rules: [
               {
-                type: "FLAVOR",
-                text: "You act as a conduit for the word of your god and you know how to gather others to your cause."
-              },
-              {
                 type: "RULE",
                 text: "Add a +3 to tests to persuade others to follow your god's tenets."
+              },
+              {
+                type: "FLAVOR",
+                text: "You act as a conduit for the word of your god and you know how to gather others to your cause."
               }
             ]
           },
@@ -383,12 +381,12 @@ export const playerClasses: CharacterClass[] = [
             costsFortunesFavor: false,
             rules: [
               {
-                type: "FLAVOR",
-                text: "Before you die, you make yourself a holy martyr seeking the final praise of your god."
+                type: "RULE",
+                text: "When you use your Last Stand, you can cast 2 spells per Action, and increase your Base Damage by 1 dice step."
               },
               {
-                type: "RULE",
-                text: "When you use your Last Stand, you can cast 2 spells per action, and increase your base damage by 1 dice step."
+                type: "FLAVOR",
+                text: "Before you die, you make yourself a holy martyr seeking the final praise of your god."
               }
             ]
           },
@@ -401,7 +399,7 @@ export const playerClasses: CharacterClass[] = [
             rules: [
               {
                 type: "RULE",
-                text: "3 times per adventure, cast a spell without spending stamina. Any additional effects of the spell that require stamina still require you to spend stamina."
+                text: "3 times per Rest and Recuperation, cast a spell without spending Stamina. Any additional costs or stamina outside of initial requirements must still be paid."
               }
             ]
           },
@@ -465,14 +463,15 @@ export const playerClasses: CharacterClass[] = [
             staminaCost: 1,
             costsFortunesFavor: false,
             actionType: "ACTION",
-            rules:[{
-                type: "FLAVOR",
-                text: "A burst of elemental energy surrounds you, warding off nearby foes."       
-            },
+            rules:[
             {
                 type: "RULE",
-                text: "Attack all creatures within 5ft of you. Dealing base damage to those you hit."
-            }]
+                text: "Attack all creatures within 10 ft. of you. Dealing your Base Damage to those you hit."
+            },
+            {
+              type: "FLAVOR",
+              text: "A burst of elemental energy surrounds you, warding off nearby foes."       
+          },]
         },
         {
             level: 2,
@@ -480,14 +479,15 @@ export const playerClasses: CharacterClass[] = [
             slug: "ELEM-ENHANCE",
             staminaCost: 1,
             costsFortunesFavor: false,
-            rules:[{
-                type: "FLAVOR",
-                text: "Surround yourself or an ally with your element, bolstering their natural abilities."       
-            },
+            rules:[
             {
                 type: "RULE",
-                text: "Select yourself or an ally you can see within 30ft of you, add your intellect to the next Mettle or Agility test they make. If you have fortunes favor, you can spend it to double the bonus Enhance provides."
-            }]
+                text: "Select yourself or an ally you can see within 30 ft. of you. Add your Intellect to the next Mettle or Agility test the target makes. Spend Fortune's Favor to double the bonus Enhance provides."
+            },
+            {
+              type: "FLAVOR",
+              text: "Surround yourself or an ally with your element, bolstering their natural abilities."       
+          }]
         },
         {
             level: 3,
@@ -501,9 +501,9 @@ export const playerClasses: CharacterClass[] = [
                 text: "Pick one of the following options to enhance yourself"       
             }],
             choices: [
-                {title: "Elemental Armor", slug:"ELEM-ARMOR", text: [{text: "Add your Intellect to your armor and take half damage from your chosen element."}]},
-                {title: "Bolt Thrower", slug: "ELEM-BOLT-THROWER", text: [{text:"Increase your base attack range by 30ft"}]},
-                {title: "Bigger Burst", slug: "ELEM-BIGGER-BURST", text: [{text: "Increase the size of your burst to all creatures within 10ft of you."}]}
+                {title: "Elemental Armor", slug:"ELEM-ARMOR", text: [{text: "Add your Intellect to your Armor and take half damage from your chosen element."}]},
+                {title: "Bolt Thrower", slug: "ELEM-BOLT-THROWER", text: [{text:"Increase your Base Attack range by 30 ft."}]},
+                {title: "Bigger Burst", slug: "ELEM-BIGGER-BURST", text: [{text: "Increase the size of your burst by 20 ft."}]}
             ]
         },
         {
@@ -531,7 +531,7 @@ export const playerClasses: CharacterClass[] = [
             rules:[
             {
                 type: "RULE",
-                text: "Spend 2 Stamina, you can target two different creatures or the same creature twice with your attack."
+                text: "Spend 2 Stamina to make 2 Attacks when you use the Attack Action."
             }]
         },
         {
@@ -543,7 +543,7 @@ export const playerClasses: CharacterClass[] = [
             rules:[
             {
                 type: "RULE",
-                text: "When you take damage of your elemental type, increase your base damage by 2 dice steps the next time you deal elemental damage."
+                text: "When you take damage of your elemental type, gain Elemental Overcharge for the next minute. You can use Elemental Overcharge to increase your base damage by 2 dice steps when you hit with your Basic Attack."
             }]
         },
         {
@@ -555,8 +555,12 @@ export const playerClasses: CharacterClass[] = [
             rules:[
             {
                 type: "RULE",
-                text: "During your last stand you can choose to end it early and die. If you choose to do so, make a final 30ft radius attack. The attack deals 3 times your base damage dice to those who it hits, and half damage to all who you either clash or miss. Using this ability kills you."
-            }]
+                text: "During your Last Stand you can use your Action to make a final Attack. The Attack is an AOE Attack with a radius of 90 ft. and deals 3x your Base Damage. After the Attack, your body is completely destroyed and you die."
+            },
+          {
+            type: "FLAVOR",
+            text: "As a last ditch effor you turn yourself into a living conduit for your chosen element, holding as much power as you can before it overwhelms you."
+          }]
         },
         {
             level: 7,
@@ -567,7 +571,7 @@ export const playerClasses: CharacterClass[] = [
             rules:[
             {
                 type: "RULE",
-                text: "You can spend your Fortune's Favor when you make a magic attack. If the attack hits, all enemies within 5ft of the target take half as much damage."
+                text: "You can spend your Fortune's Favor when you make a Basic Attack. If the attack hits, all enemies within 5 ft. of the target take half as much damage."
             }]
         },
         {
@@ -613,14 +617,15 @@ export const playerClasses: CharacterClass[] = [
             slug: "KNIGHT-DA",
             staminaCost: 1,
             costsFortunesFavor: false,
-            rules:[{
-                type: "FLAVOR",
-                text: "Your flurry of attacks drive the enemy back."       
-            },
+            rules:[
             {
                 type: "RULE",
                 text: "When you make an attack action you may spend 1 stamina to attempt to also drive your enemy back 5ft. On a mix, you chose whether to damage or move the creature back. On a pass, you can do both.\nIf you chose to move a creature, they can opt to instead take an extra base attacks worth of damage to avoid being moved."
-            }]
+            },
+            {
+              type: "FLAVOR",
+              text: "Your flurry of attacks drive the enemy back."       
+          }]
         },
         {
             level: 1,
@@ -628,14 +633,15 @@ export const playerClasses: CharacterClass[] = [
             slug: "KNIGHT-SA",
             staminaCost: 1,
             costsFortunesFavor: false,
-            rules:[{
-                type: "FLAVOR",
-                text: "You sweep your attacks, aiming to harm all who stand in your way."       
-            },
+            rules:[
             {
                 type: "RULE",
-                text: "When you take an attack action with a melee weapon, you may spend 1 stamina to attempt to also attack enemies adjacent to your target and within your weapons reach."
-            }]
+                text: "When you take a Basic Attack with a melee weapon, you may spend 1 Stamina to attempt to also attack enemies adjacent to your target and within your weapons reach."
+            },
+            {
+              type: "FLAVOR",
+              text: "You sweep your attacks, aiming to harm all who stand in your way."       
+          }]
         },
         {
             level: 2,
@@ -643,14 +649,15 @@ export const playerClasses: CharacterClass[] = [
             slug: "KNIGHT-VOW",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules:[{
-                type: "FLAVOR",
-                text: "Your word is your bond, those who recognize your station believe you when you speak truth."       
-            },
+            rules:[
             {
                 type: "RULE",
-                text: "When you take a Heart test to convince someone of true information, you gain a +3 on the test."
-            }]
+                text: "When you take a Test to convince someone of true information, you gain a +5 on the Test."
+            },
+            {
+              type: "FLAVOR",
+              text: "Your word is your bond, those who recognize your station believe you when you speak truth."       
+          }]
         },
         {
             level: 3,
@@ -658,14 +665,15 @@ export const playerClasses: CharacterClass[] = [
             slug: "KNIGHT-INTERCEPT",
             staminaCost: 1,
             costsFortunesFavor: false,
-            rules:[{
-                type: "FLAVOR",
-                text: "You swiftly step between your ally and danger."       
-            },
+            rules:[
             {
                 type: "RULE",
-                text: "When an ally within 5ft of you would be hit by an attack or counter, you can spend 1 stamina to switch places with your ally, taking the hit for them."
-            }]
+                text: "When an ally within 5 ft. of you would be hit by an Attack or Counter, you can spend 1 Stamina to switch places with them, taking the hit for them."
+            },
+            {
+              type: "FLAVOR",
+              text: "You swiftly step between your ally and danger."       
+          }]
         },
         {
             level: 4,
@@ -691,7 +699,7 @@ export const playerClasses: CharacterClass[] = [
             costsFortunesFavor: true,
             rules:[{
                 type: "RULE",
-                text: "Spend Fortune's Favor, until the end of your next turn, your speed cannot be reduced below half your base speed."
+                text: "Spend Fortune's Favor. Until the end of your next turn, your Speed cannot be reduced below half your Base Speed."
             }]
         },
         {
@@ -700,14 +708,15 @@ export const playerClasses: CharacterClass[] = [
             slug: "KNIGHT-NR-NS",
             staminaCost: 0,
             costsFortunesFavor: false,
-            rules:[{
-                type: "FLAVOR",
-                text: "You never run from a fight and don’t stop until your enemies are dead."       
-            },
+            rules:[
             {
                 type: "RULE",
-                text: "If you attack the same creature you attacked last turn and did not willingly get further away from them, increase your Base Damage by 1 step."
-            }]
+                text: "If you attack the same creature you attacked last turn and did not willingly move further away from them, increase your Base Damage by 1 step."
+            },
+            {
+              type: "FLAVOR",
+              text: "You never run from a fight and don't stop until your enemies are dead."       
+          }]
         },
         {
             level: 6,
