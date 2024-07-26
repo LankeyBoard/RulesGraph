@@ -1,7 +1,7 @@
 type Query {
   genericRules(slug: String): [GenericRule]!
 
-  genericFeatures(slug: String, featureType: FeatureType): [GenericFeature]!
+  universalFeatures(slug: String, featureType: FeatureType): [GenericFeature]!
 
   lineages(slug: String): [Lineage]!
 
@@ -66,11 +66,30 @@ enum SearchResultSource {
   veteranFeature
 }
 
+enum SpeedTypes {
+  ground,
+  flying,
+  swimming
+}
+
 interface Rule {
   title: String!
   slug: String!
   href: String
   shortTitle: String
+}
+
+interface Feature {
+  title: String!
+  slug: String!
+  href: String
+  shortTitle: String
+  staminaCost: Int
+  costsFortunesFavor: Boolean
+  actionType: Action
+  ruleType: RuleType
+  text: [RuleText]
+  shortText: String
 }
 
 type SearchResult implements Rule {
@@ -89,18 +108,6 @@ type RuleText {
   options: [String]
 }
 
-type GenericRule implements Rule {
-  title: String!
-  slug: String!
-  href: String
-  shortTitle: String
-  ruleType: RuleType
-  text: [RuleText]
-  rules: [GenericRule]
-  list: [String]
-  shortText: String
-}
-
 type Culture implements Rule {
   title: String!
   slug: String!
@@ -109,7 +116,12 @@ type Culture implements Rule {
   description: [String]
   stat: String
   languages: String
-  traits: [GenericRule]
+  traits: [GenericFeature!]
+}
+
+type Speed {
+  type: SpeedTypes!
+  speed: Int!
 }
 
 type Lineage implements Rule {
@@ -119,12 +131,26 @@ type Lineage implements Rule {
   shortTitle: String
   description: [String]
   size: [Size]
-  speed: Int
+  speeds: [Speed]
   stat: String
-  traits: [GenericRule]
+  traits: [GenericFeature!]
 }
 
-type GenericFeature implements Rule {
+type GenericRule implements Rule {
+  title: String!
+  slug: String!
+  href: String
+  shortTitle: String
+  ruleType: RuleType
+  text: [RuleText]
+  subRules: [GenericRule]
+  list: [String]
+  shortText: String
+}
+
+union FeatureChoices = RuleText | FeatureWithoutChoices
+
+type GenericFeature implements Feature {
   title: String!
   slug: String!
   href: String
@@ -136,7 +162,23 @@ type GenericFeature implements Rule {
   text: [RuleText]
   shortText: String
   multiSelect: Boolean
-  options: [String]
+  choices: [FeatureChoices!]
+  chooseNum: Int
+  featureType: FeatureType
+}
+
+type FeatureWithoutChoices implements Feature {
+  title: String!
+  slug: String!
+  href: String
+  shortTitle: String
+  staminaCost: Int
+  costsFortunesFavor: Boolean
+  actionType: Action
+  ruleType: RuleType
+  text: [RuleText]
+  shortText: String
+  multiSelect: Boolean
 }
 
 type SlugDict {
@@ -145,22 +187,22 @@ type SlugDict {
   url: String!
 }
 
-type Options {
+type TrainingOptions {
   pick: Int
   options: [String!]!
 }
 
 type Weapons {
-  melee: Options
-  ranged: Options
-  special: Options
+  melee: TrainingOptions
+  ranged: TrainingOptions
+  special: TrainingOptions
 }
 
 type Training {
   armor: [String]
   shields: [String]
   weapons: Weapons
-  magic: Options
+  magic: TrainingOptions
 }
 
 type Range {
@@ -175,7 +217,7 @@ type Damage {
   type: [String]
 }
 
-type CharacterClassFeature implements Rule {
+type CharacterClassFeature implements Feature {
   title: String!
   slug: String!
   href: String
@@ -185,8 +227,11 @@ type CharacterClassFeature implements Rule {
   costsFortunesFavor: Boolean!
   ruleType: RuleType
   actionType: Action
-  rules: [RuleText]
-  choices: [GenericFeature]
+  text: [RuleText]
+  multiSelect: Boolean
+  shortText: String
+  choices: [FeatureChoices!]
+  chooseNum: Int
 }
 
 type CharacterClass implements Rule {

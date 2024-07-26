@@ -9,11 +9,13 @@ export const culturesData: Culture[] = [
         languages: "Allspeak & Dwarvish",
         traits: [
             {
+              
                 title: "A Sense of Value",
                 slug: "DEEP-MINGIN-VALUE",
                 text: [{text:  "You always know the approximate value of precious stones and metals."}]
             },
             {
+              
                 title: "The Stone Remembers",
                 slug: "DEEP-MINING-REMEMBERS",
                 text: [{text:  "You always have Fortune's Favor on tests to gather and recall information about stones, mining and masonry."}]
@@ -28,11 +30,13 @@ export const culturesData: Culture[] = [
         languages: "Allspeak & Elvish",
         traits: [
           {
+            
             title: "Nature's Steward",
             slug: "FOREST-FOLK-STEWARD",
             text: [{text:  "You always have Fortune's Favor on tests to gather and recall information about trees, plants, and animals."}]
           },
           {
+            
             title: "Woodland Skills",
             slug: "FOREST-FOLK-SKILLS",
             text: [{text:  "Gain training in a musical instrument or artist's tools."}]
@@ -47,11 +51,13 @@ export const culturesData: Culture[] = [
         languages: "Allspeak and one language of your choice based on the regions most traveled in.",
         traits: [
           {
+            
             title: "Natural Navigator",
             slug: "NOMADS-NAVIGATOR",
             text: [{text:  "You unconsciously keep track of your location and know how to retrace your steps without issue. As long as you aren't incapacitated or deprived of all senses and moved, you know your way back to the last place you slept."}]
           },
           {
+            
             title: "Versatile Skills",
             slug: "NOMADS-SKILLS",
             text: [{text:  "Gain training in one gaming set or musical instrument."}]
@@ -104,9 +110,10 @@ export const culturesData: Culture[] = [
         languages: "Allspeak",
         traits: [
           {
+            
             title: "Rugged Mountaineer",
             slug: "HIGHLAND-CLANS-MOUNTAINEER",
-            text: [{text:  "You always have Fortune's Favor on mettle tests to resist the effects of cold weather. You also gain +2 on checks to navigate cliffs and mountains."}]
+            text: [{text:  "You always have Fortune's Favor on Mettle Tests to resist the effects of cold weather. You also gain +2 on tests to navigate cliffs and mountains."}]
           },
           {
             title: "Craig Jumper",
@@ -142,11 +149,13 @@ export const culturesData: Culture[] = [
         languages: "Allspeak, Thissletongue",
         traits: [
           {
+            
             title: "Never Trust a Tulip",
             slug: "FAE-FOLK-NEVER-TRUST-A-TULIP",
-            text: [{text:  "You grew up having to double and triple check your interactions for deceptions. Add a +2 to heart checks to determine if someone is lying."}]
+            text: [{text:  "You grew up having to double and triple check your interactions for deceptions. Add a +2 to Heart Tests to determine if someone is lying."}]
           },
           {
+            
             title: "Fae Touched",
             slug: "FAE-FOLK-TOUCHED",
             text: [{text:  "Spend 10 minutes to make flowers blossom and plants grow as if they've been growing for a month."}]
