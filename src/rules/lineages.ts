@@ -17,7 +17,7 @@ export const lineagesData: Lineage[] = [
                     {
                             title: "Resilient Immune System",
                             slug: "HUMAN-RESILIENT",
-                            text: [{text: "Gain Fortune's Favor on tests to resist the effects of diseases."}]
+                            text: [{text: "Gain Fortune's Favor on Tests to resist the effects of diseases."}]
                     }
             ]
     },
@@ -41,7 +41,7 @@ export const lineagesData: Lineage[] = [
                     {
                             title: "Hearty",
                             slug: "DWARF-HEARTY",
-                            text: [{text: "Gain Fortune's Favor on checks to resist poisons as well as alcohol related effects."}]
+                            text: [{text: "Gain Fortune's Favor on Tests to resist poisons as well as alcohol related effects."}]
                     }
             ]
     },
@@ -81,12 +81,12 @@ export const lineagesData: Lineage[] = [
                     {
                             title: "Wings",
                             slug: "FAERY-WINGS",
-                            text: [{text: "Your wings allow you to fly, flitting from place to place. You gain a flying speed of 20ft and can remain in the air for up to 10 minutes."}]
+                            text: [{type: "RULE", text: "You gain a flying speed of 20 ft. and can remain in the air for up to 10 minutes at a time."},{type: "FLAVOR", text: "Your wings allow you to fly, flitting from place to place."}]
                     },
                     {
                             title: "Fae Origins",
                             slug: "FAERY-WINGS",
-                            text: [{text: "Your fae origins help you to resist the effects that would charm you. You have Fortune's Favor on tests to resist the effects of charm spells."}]
+                            text: [{type: "RULE", text: "You have Fortune's Favor on Tests to resist the effects of magical charm effects."},{type: "FLAVOR", text: "Your fae origins help you to resist the effects that would charm you. "}]
                     }
             ]
     },
@@ -106,42 +106,42 @@ export const lineagesData: Lineage[] = [
                                     {
                                             title: "Intimidating",
                                             slug: "CHIMERIC-INTIMIDATING",
-                                            text: [{text: "Gain +2 on tests to intimidate someone."}]
+                                            text: [{text: "Gain +2 on Tests to intimidate someone."}]
                                     },
                                     {
                                             title: "Cute",
                                             slug: "CHIMERIC-CUTE",
-                                            text: [{text: "Gain +2 on tests to persuade someone."}]
+                                            text: [{text: "Gain +2 on Test to persuade someone."}]
                                     },
                                     {
                                             title: "Prehensile Tail",
                                             slug: "CHIMERIC-PREHENSILE-TAIL",
-                                            text: [{text: "You can use your prehensile tail to help you balance as well as to grip things and move through the environment. Gain +3 on tests to climb and balance. Your tail cannot be used to hold weapons or shields in combat."}]
+                                            text: [{text: "You can use your prehensile tail to help you balance as well as to grip things and move through the environment. Gain +3 on Tests to climb and balance. Your tail cannot be used to hold weapons or shields in combat."}]
                                     },
                                     {
                                             title: "Fast",
                                             slug: "CHIMERIC-FAST",
-                                            text: [{text: "Increase your speed by 5ft."}]
+                                            text: [{text: "Increase your ground speed by 5 ft."}]
                                     },
                                     {
                                             title: "Tough Skin/Shell",
                                             slug: "CHIMERIC-TOUGH",
-                                            text: [{text: "Add +3 to your Armor when you are not wearing armor."}]
+                                            text: [{text: "You can calulate your Armor as 13+Agility when not wearing any armor."}]
                                     },
                                     {
                                             title: "Flight",
                                             slug: "CHIMERIC-FLIGHT",
-                                            text: [{text:"You have a pair of wings, you have a fly speed equal to your speed. You can fly for up to 10 minutes."}]
+                                            text: [{text:"You have a pair of wings, you have a fly speed equal to your Base Speed. You can fly for up to 10 minutes at a time."}]
                                     },
                                     {
                                             title: "Claws/Fangs",
                                             slug: "CHIMERIC-CLAWS",
-                                            text: [{text: "You can attack with your claws/fangs. If you are trained in any melee weapon, you deal your base damage. If you are not, this attack deals 1d6+mettle damage. Choose if the damage is piercing, slashing or bludgeoning when you pick this trait."}]
+                                            text: [{text: "You can attack with your claws/fangs. If you are trained in any melee weapon, you are also trained in your claws/fangs. If you are not, this attack deals 1d6+Mettle damage. Choose if the damage is piercing, slashing or bludgeoning when you pick this trait."}]
                                     },
                                     {
                                             title: "Stealthy",
                                             slug: "CHIMERIC-STEALTHY",
-                                            text: [{text: "Add a +2 to tests when stealthing."}]
+                                            text: [{text: "Add a +2 to Agility Tests to move stealthily and hide."}]
                                     }
                             ]
                     }

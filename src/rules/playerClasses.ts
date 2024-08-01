@@ -604,7 +604,14 @@ export const playerClasses: CharacterClass[] = [
         training: {
             armor: ["Light, Medium, Heavy"],
             shields: ["Light, Medium, Heavy"],
-            weapons: {melee: {pick: 2, options: ["Hammers & Clubs", "Slashing Swords", "Piercing Swords & Daggers", "Axes", "Flails, Ball & Chain, etc."]}, ranged: {pick: 2, options:["Heavy Throwing", "Light Throwing", "Bows", "Crossbows"]}, special: null},
+            weapons: {melee: {pick: 2, options: [
+              "Hammers & Clubs",
+              "Slashing Swords",
+              "Piercing Swords & Daggers",
+              "Axes",
+              "Flails, Ball & Chain, etc."
+          ]}, ranged: {pick: 2, options:["Bows", "Crossbows", "Light Throwing Weapons", "Heavy Throwing Weapons"]},
+           special: null},
             magic: null
         },
         attackStat: ["METTLE"],
@@ -776,11 +783,21 @@ export const playerClasses: CharacterClass[] = [
           weapons: {
               melee: {
                   pick: 2,
-                  options: ["melee weapon classes"]
+                  options: [
+                    "Hammers & Clubs",
+                    "Slashing Swords",
+                    "Piercing Swords & Daggers",
+                    "Axes",
+                    "Flails, Ball & Chain, etc."
+                ]
               },
               ranged: {
                   pick: 1,
-                  options: ["ranged weapon class"]
+                  options: [
+                    "Bows",
+                    "Crossbows",
+                    "Light Throwing Weapons"
+                ]
               },
               special: {
                 options: ["whips"]
@@ -806,7 +823,7 @@ export const playerClasses: CharacterClass[] = [
               costsFortunesFavor: false,
               rules: [{
                       type: "RULE",
-                      text: "When you make a test to identify a lie or avoid a trap, add +3 to the roll."
+                      text: "When you make a Test to identify a lie or avoid a trap, add +3 to the roll."
                   },
                   {
                       type: "FLAVOR",
@@ -822,7 +839,7 @@ export const playerClasses: CharacterClass[] = [
               costsFortunesFavor: false,
               rules: [{
                       type: "RULE",
-                      text: "You can use your whip to wrap around objects and either pull them to you or pull yourself to them depending on their weight and size."
+                      text: "You can use your whip to wrap around objects and either pull them to you or pull yourself to them depending on their weight and size. If you are trying to pull an unwilling creature make an Attack against them. On a success you can pull them, on a Mix you move half the distance."
                   },
                   {
                       type: "FLAVOR",
@@ -838,7 +855,7 @@ export const playerClasses: CharacterClass[] = [
               costsFortunesFavor: false,
               rules: [{
                   type: "RULE",
-                  text: "As an action, spend 2 Stamina and make an attack with your whip. On a hit deal damage and if you are at most 1 size smaller than the target, knock them Prone. On a clash, deal half damage and the next attack against them this turn gains Fortune's Favor."
+                  text: "As an action, spend 2 Stamina and make an attack with your whip. On a hit deal damage and if you are at most 1 size smaller than the target, knock them Prone. On a Clash, deal half damage and the next attack against them this turn gains Fortune's Favor."
               }]
           },
           {
@@ -849,7 +866,7 @@ export const playerClasses: CharacterClass[] = [
               costsFortunesFavor: true,
               rules: [{
                   type: "RULE",
-                  text: "Before you roll an attack test, you can choose to spend your Fortune's Favor. If you hit with the attack, deal an extra 2d6 damage."
+                  text: "Before you roll an Attack, you can choose to spend Fortune's Favor. If you hit, the attack deals an extra 2d6 damage."
               }]
           },
           {
@@ -860,7 +877,7 @@ export const playerClasses: CharacterClass[] = [
               costsFortunesFavor: false,
               rules: [{
                   type: "RULE",
-                  text: "Add +3 to tests to snatch and conceal small items."
+                  text: "Add +3 to Tests to snatch and conceal small items."
               }]
           },
           {
@@ -925,7 +942,7 @@ export const playerClasses: CharacterClass[] = [
               costsFortunesFavor: false,
               rules: [{
                   type: "RULE",
-                  text: "Spend 3 Stamina to double your speed until the end of your next turn, or 1 minute if not in combat."
+                  text: "Spend 3 Stamina to double your Speed until the end of your next turn, or 1 minute if not in combat."
               }]
           },
           {
@@ -957,9 +974,9 @@ export const playerClasses: CharacterClass[] = [
         stamina: 6,
         staminaOnLevel: 2,
         training: {
-          armor: ["Light"],
+          armor: ["Light", "Medium"],
           shields: null,
-          weapons: {melee: {pick: 1, options: ["Axes", "Piercing Swords & Dagers", "Slashing Swords" ]}, ranged: {pick: 2, options:["Bows", "Crossbows", "Light Throwing"]}, special: null},
+          weapons: {melee: {pick: 1, options: ["Axes", "Piercing Swords & Daggers", "Slashing Swords" ]}, ranged: {pick: 2, options:["Bows", "Crossbows", "Light Throwing Weapons"]}, special: null},
           magic: null
         },
         attackStat: ["AGILITY"],
@@ -974,13 +991,13 @@ export const playerClasses: CharacterClass[] = [
             costsFortunesFavor: false,
             rules: [
               {
-                type: "FLAVOR",
-                text: "You have almost supernaturally heightened senses."
-              },
-              {
                 type: "RULE",
                 text: "Gain +3 to tests when tracking as well as on tests to find hidden creatures."
-              }
+              },
+              {
+                type: "FLAVOR",
+                text: "Nothing escapes your clutches once you are on the scent."
+              },
             ]
           },
           {
@@ -991,12 +1008,12 @@ export const playerClasses: CharacterClass[] = [
             costsFortunesFavor: false,
             rules: [
               {
-                type: "FLAVOR",
-                text: "Your attacks are incredibly accurate, always targeting the weakest points in the target."
+                type: "RULE",
+                text: "When you roll Weapon Attack damage, you can reroll any 1s, taking the new result."
               },
               {
-                type: "RULE",
-                text: "When you roll weapon attack damage, you can reroll any 1s, taking the new result."
+                type: "FLAVOR",
+                text: "Your attacks are incredibly accurate, always targeting the weakest points in the target."
               }
             ]
           },
@@ -1008,12 +1025,12 @@ export const playerClasses: CharacterClass[] = [
             costsFortunesFavor: false,
             rules: [
               {
-                type: "FLAVOR",
-                text: "You have spent countless hours tracking prey through the woods or back alleys and instinctively step lightly and quietly."
+                type: "RULE",
+                text: "Spend 1 Stamina. For the next 10 minutes you leave no tracks, enemies have Misfortune when trying to track you, and you get a +3 on stealth tests."
               },
               {
-                type: "RULE",
-                text: "Spend 1 stamina, you leave no tracks, enemies have Misfortune when trying to track you and you get a +2 on stealth tests."
+                type: "FLAVOR",
+                text: "You have spent countless hours tracking prey through the woods or back alleys and instinctively step lightly and quietly."
               }
             ]
           },
@@ -1025,12 +1042,12 @@ export const playerClasses: CharacterClass[] = [
             costsFortunesFavor: false,
             rules: [
               {
-                type: "FLAVOR",
-                text: "You move through rough and wild terrain with skill and can guide others along the safest routes with ease."
-              },
-              {
                 type: "RULE",
                 text: "Your party can add your Heart to their daily pace when traveling across terrain without roads."
+              },
+              {
+                type: "FLAVOR",
+                text: "You move through rough and wild terrain with skill and can guide others along the safest routes with ease."
               }
             ]
           },
@@ -1042,12 +1059,12 @@ export const playerClasses: CharacterClass[] = [
             costsFortunesFavor: false,
             rules: [
               {
-                type: "FLAVOR",
-                text: "Your weapons are just a hand twitch away."
+                type: "RULE",
+                text: "When you Counter Attack, you can use any weapon on your person to make the counter."
               },
               {
-                type: "RULE",
-                text: "When you counterattack, you can use any weapon on your person to make the counter."
+                type: "FLAVOR",
+                text: "Your weapons are just a hand twitch away."
               }
             ]
           },
@@ -1090,7 +1107,7 @@ export const playerClasses: CharacterClass[] = [
             rules: [
               {
                 type: "RULE",
-                text: "When you make a Last Stand, your speed increases by 10ft. All of your weapons gain the effect of Poisoned Blade and double your bonus from Predator's Sense."
+                text: "When you make a Last Stand, your Ground Speed increases by 10ft. All of your weapons gain the effect of Poisoned Blade and double your bonus from Predator's Sense."
               }
             ]
           },
@@ -1103,7 +1120,7 @@ export const playerClasses: CharacterClass[] = [
             rules: [
               {
                 type: "RULE",
-                text: "Reduce your speed to 0 to double your range until the start of your next turn."
+                text: "Reduce your Speed to 0 to double your range until the start of your next turn."
               }
             ]
           },
@@ -1139,11 +1156,22 @@ export const playerClasses: CharacterClass[] = [
         training: {
           armor: ["Light"],
           shields: null,
-          weapons: {melee: {pick: 1, options: ["melee weapon class" ]}, ranged: {pick: 2, options:["ranged weapon class"]}, special: null},
+          weapons: {melee: {pick: 1, options: [
+            "Hammers & Clubs",
+            "Slashing Swords",
+            "Piercing Swords & Daggers",
+            "Axes",
+            "Flails, Ball & Chain, etc."
+        ]}, ranged: {pick: 2, options:[
+          "Bows",
+          "Crossbows",
+          "Light Throwing weapons (Dart, Throwing Dagger)",
+          "Heavy Throwing weapons (Shotput, Heavy Spear)"
+      ]}, special: null},
           magic: null
         },
         attackStat: ["HEART"],
-        range: {min: 0, max: 0},
+        range: {min: 0, max: 80},
         damage: {dice: 8, count: 1, stat: "HEART"},
         features: [
           {
@@ -1155,7 +1183,7 @@ export const playerClasses: CharacterClass[] = [
             rules: [
               {
                 type: "RULE",
-                text: "When you take your first level, pick your form from the list at the end. The exact form is up to you and your GM, the forms provide templates for general classes of animal. While transformed, you can replace your forms attack stat with your Heart.. The form lasts until you Catch Your Breath or you are reduced to 0 Health. You can also end the form early at any time."
+                text: "When you take your first level, pick your form from the list at the end. The exact form is up to you and your GM, the forms provide templates for general classes of animal. While transformed, your range is reduced to Melee only. You can replace your forms Attack Stat with your Heart. The form lasts until you Catch Your Breath or you are reduced to 0 Health. You can also end the form early at any time."
               }
             ]
           },
@@ -1181,11 +1209,11 @@ export const playerClasses: CharacterClass[] = [
             rules: [
               {
                 type: "RULE",
-                text: "You can understand and communicate with animals, you gain a +3 on tests when interacting with animals that closely resemble your chosen form."
+                text: "You can understand and communicate with animals, you gain a +5 on tests when interacting with animals that closely resemble your chosen form."
               },
               {
                 type: "EG",
-                text: " All bears if your form is a grizzly bear, or all snakes if your form is a cobra."
+                text: "You get a +5 when interacing with any bear if your form is a grizzly bear, or all snakes if your form is a cobra."
               }
             ]
           },
@@ -1198,12 +1226,12 @@ export const playerClasses: CharacterClass[] = [
             actionType: "ACTION",
             rules: [
               {
-                type: "FLAVOR",
-                text: "The spirit of nature fills your body, stitching your body back together."
+                type: "RULE",
+                text: "As an Action, you regain 1d8+Heart Health and add your Heart to your Armor until the end of your next turn. You can do this 3 times per day."
               },
               {
-                type: "RULE",
-                text: "As an action, you regain 1d8+heart health and add your Heart to your Armor until the end of your next turn. You can do this 3 times per day."
+                type: "FLAVOR",
+                text: "The spirit of nature fills your body, stitching your body back together."
               }
             ]
           },
@@ -1233,7 +1261,7 @@ export const playerClasses: CharacterClass[] = [
             rules: [
               {
                 type: "CHOICE",
-                text: "When you shapeshift you can spend 2 stamina to gain an extra form of movement from the list below.",
+                text: "When you shapeshift you can spend 2 Stamina to gain an extra form of movement from the list below while shifted.",
                 options: ["30 ft. fly", "20 ft. swim", "20 ft. burrow"]
               }
             ],
@@ -1248,7 +1276,7 @@ export const playerClasses: CharacterClass[] = [
             rules: [
               {
                 type: "RULE",
-                text: "When you make your Last Stand, add 2d6 rot damage to all attacks and you can immediately transform into your animal form."
+                text: "When you make your Last Stand, add 2d6 Rot damage to all attacks and you can immediately transform into your animal form."
               }
             ]
           },
@@ -1261,7 +1289,7 @@ export const playerClasses: CharacterClass[] = [
             rules: [
               {
                 type: "RULE",
-                text: "Gain +5 on tests to track an enemy you've dealt damage to in the last hour."
+                text: "Whenever you damaage an enemy, Gain +5 on tests to track that enemy for the next hour."
               }
             ]
           },
@@ -1274,7 +1302,7 @@ export const playerClasses: CharacterClass[] = [
             rules: [
               {
                 type: "RULE",
-                text: "While traveling, you don't have to reduce your pace to forage for food or water. In addition, if there is enough to be found, you find enough supplies for your entire party."
+                text: "While traveling, you don't have to reduce your pace to forage for food or water. In addition, if there is enough to be found, you find supplies for your entire party."
               },
               {
                 type: "FLAVOR",
@@ -1319,14 +1347,14 @@ export const playerClasses: CharacterClass[] = [
               },
               features: [
                 {
-                  text: "Gain 4 Health per Shapeshifter level, this Health lasts until you leave this form."
+                  text: "While shifted, gain 4 Health per Shapeshifter level."
                 },
                 {
                   text: "Gain a +3 to Mettle tests to lift, carry or drag."
                 },
                 {
                   title: "Heavy Blows",
-                  text: "When you deal damage to a medium or smaller creature you can spend 2 stamina to try and also knock them down. Make a contested Mettle test, on a Success, you knock them prone, or shove them 5ft. On a Mixed Result you reduce their speed by half."
+                  text: "When you deal damage to a Medium or smaller creature you can spend 2 Stamina to try and also knock them down. Make a contested Mettle test, on a Success, you knock them Prone, or shove them 5 ft. On a Mixed Result you reduce their Speed by half."
                 }
               ]
             },
@@ -1347,10 +1375,10 @@ export const playerClasses: CharacterClass[] = [
               },
               features: [
                 {
-                  text: "	+10 to Speed"
+                  text: "Increase your ground speed by 10 ft."
                 },
                 {
-                  text: "Add your Agility to your jump distance, and to Tests to navigate difficult terrain."
+                  text: "Add your Agility to your jump distance, and to tests to navigate difficult terrain."
                 },
                 {
                   title: "Distracting Strike",
@@ -1381,14 +1409,10 @@ export const playerClasses: CharacterClass[] = [
               },
               features: [
                 {
-                  text: "	+10 to Speed"
+                  text: "Decrease your ground speed by 10 ft."
                 },
                 {
-                  text: "Add your Agility to your jump distance, and to Tests to navigate difficult terrain."
-                },
-                {
-                  title: "Distracting Strike",
-                  text: "When an ally is going to attack an enemy within your melee range, you can spend Fortune's Favor to grant an ally a bonus to their attack equal to your Heart."
+                  text: "Gain a +5 on Agility tests to move stealthily and hide."
                 }
               ]
             }

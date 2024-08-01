@@ -83,7 +83,7 @@ export const generalRules: GenericRule[] = [
                 slug:  "STAMINA",
                 title:  "Stamina",
                 ruleType:  "RULE",
-                text: [{ text:  "Each character has a pool of stamina. The exact amount is determined by their class or stat block if they are an NPC. Your stamina can be used for class abilities as well as to enhance certain generic tests such as jumping and marching. You can also opt to have damage cost stamina instead of health."}]
+                text: [{ text:  "Each character has a pool of stamina. The exact amount is determined by their class or stat block if they are an NPC. Your stamina can be used for class abilities as well as to enhance certain generic Tests such as jumping and marching. You can also opt to have damage cost stamina instead of health."}]
             },
             {
                 slug:  "HEALTH",
@@ -114,7 +114,7 @@ export const generalRules: GenericRule[] = [
                         slug:  "NIGHTS-SLEEP",
                         title:  "A Night's Sleep",
                         ruleType:  "RULE",
-                        text: [{ text:  "A good night's rest is still important to an adventurer. If you are awake for more than 24 hours in a row, Test your Mettle each hour. The difficulty of this test increases by 1 for each hour beyond 24 hours. Pass (15+): You suffer no ill effects. Mixed (10-14): Reduce your current and maximum stamina by 3. Fail (9-): Reduce your current and maximum stamina by 10. If you are reduced to 0 stamina in this way you become unconscious. Once you sleep for at least 6 hours you lose any negative effects from a lack of rest  and reset the difficulty of the test."}]
+                        text: [{ text:  "A good night's rest is still important to an adventurer. If you are awake for more than 24 hours in a row, Test your Mettle each hour. The difficulty of this Test increases by 1 for each hour beyond 24 hours. Pass (15+): You suffer no ill effects. Mixed (10-14): Reduce your current and maximum stamina by 3. Fail (9-): Reduce your current and maximum stamina by 10. If you are reduced to 0 stamina in this way you become unconscious. Once you sleep for at least 6 hours you lose any negative effects from a lack of rest  and reset the difficulty of the Test."}]
                     }
                 ]
             }
@@ -124,20 +124,20 @@ export const generalRules: GenericRule[] = [
         slug:  "TESTS",
         title:  "Tests",
         ruleType:  "RULE",
-        text: [{ text:  "Tests are how you determine the outcome of uncertain events, can you smash open a door (Mettle), talk a guard into looking the other way (Heart), dodging a tomato hurled at your head (Agility).\nFirst the success and failure points of the test is set by the GM (Game Master) and the general outcome of success and failure are announced if it is reasonable for the player characters to know. Then players can decide if they want to attempt the test. The player then rolls 1d20 and adds their stat bonus to the result. If the result is at least equal to the success point, they pass the test and have a beneficial outcome. If the result is greater than or equal to the failure point but worse than the success, then the result is mixed. The GM can offer success with a cost or mixed success. If the results are less than the failure pint, the result is a failure. In general the failure point is five less than the success point."}],
+        text: [{ text:  "Tests are how you determine the outcome of uncertain events, can you smash open a door (Mettle), talk a guard into looking the other way (Heart), dodging a tomato hurled at your head (Agility).\nFirst the success and failure points of the Test is set by the GM (Game Master) and the general outcome of success and failure are announced if it is reasonable for the player characters to know. Then players can decide if they want to attempt the Test. The player then rolls 1d20 and adds their stat bonus to the result. If the result is at least equal to the success point, they pass the Test and have a beneficial outcome. If the result is greater than or equal to the failure point but worse than the success, then the result is mixed. The GM can offer success with a cost or mixed success. If the results are less than the failure pint, the result is a failure. In general the failure point is five less than the success point."}],
         rules:   [
             {
                 slug:  "SUCCESS",
                 title:  "Success",
                 ruleType:  "RULE",
-                text: [{ text:  "Success on a test doesn't always mean getting exactly what you want, but it does mean a favorable outcome for you. You roll at least the  difficulty for the test."},
-                {type: "EG", text: "You are talking to the innkeeper negotiating for a room. The GM calls for a heart test and tells you success needs a 15, and you'll get a good discount. Failure is a 5 and you get no discount and an undesirable room. You roll a 13 and add +2 for your heart to get a total of 15, which means you succeed. You manage to negotiate a 20% discount!"}]
+                text: [{ text:  "Success on a Test doesn't always mean getting exactly what you want, but it does mean a favorable outcome for you. You roll at least the  difficulty for the Test."},
+                {type: "EG", text: "You are talking to the innkeeper negotiating for a room. The GM calls for a heart Test and tells you success needs a 15, and you'll get a good discount. Failure is a 5 and you get no discount and an undesirable room. You roll a 13 and add +2 for your heart to get a total of 15, which means you succeed. You manage to negotiate a 20% discount!"}]
             },
             {
                 slug:  "SUSSESS-WITH-COST",
                 title:  "Success With a Cost",
                 ruleType:  "RULE",
-                text: [{ text:  "Success with a cost is when the GM offers a consequence and the player chooses if they want to accept the consequences or fail the test."},
+                text: [{ text:  "Success with a cost is when the GM offers a consequence and the player chooses if they want to accept the consequences or fail the Test."},
                 {type: "EG", text:  "You try and scale a difficult cliff, you roll a mixed result. The GM may offer that you try and fall the first time, taking 1d6 damage but make it up on the second try or you fail and realize it would be too risky to climb and can't make it up."}]
             },
             {
@@ -145,21 +145,21 @@ export const generalRules: GenericRule[] = [
                 title:  "Mixed Success",
                 ruleType:  "RULE",
                 text: [{ text:  "A mixed success is when you are partially successful in your endeavor. You achieve some of the outcome you want, but there are some complications or downsides."},
-                {type: "EG", text:  "You are trying to trick a guard into letting you go after being caught breaking curfew. You told him you forgot your pass at home and get a mixed success on the Heart test your GM called for. The guard believes you but insists on escorting you home to show him the pass."}]
+                {type: "EG", text:  "You are trying to trick a guard into letting you go after being caught breaking curfew. You told him you forgot your pass at home and get a mixed success on the Heart Test your GM called for. The guard believes you but insists on escorting you home to show him the pass."}]
             },
             {
                 slug:  "FAILURE",
                 title:  "Failure",
                 ruleType:  "RULE",
                 text: [{ text:  "A failure occurs when you cannot achieve your desired outcome. This may mean the situation was harder than you initially believed or because you couldn't do it as well as you hoped or any other reason you and the GM think is reasonable. Sometimes the consequences of failure are direct, such as taking damage, other times they can simply be a complication for the story, this is determined by the GM."},
-                {type: "EG", text:  "You are scaling a castle wall, trying to get in without alerting the goblins keeping watch from the nearby tower. Your GM calls for an agility test, where success is a 15 and means you get up without being noticed and a failure is a 10 and means you get spotted. You roll your agility test, you get a 5 on the dice and add 2 from your agility, giving you a total of 7. The goblins spot you half way up, they begin to shout something you can't understand and begin to run towards the wall you are climbing!"}]
+                {type: "EG", text:  "You are scaling a castle wall, trying to get in without alerting the goblins keeping watch from the nearby tower. Your GM calls for an agility Test, where success is a 15 and means you get up without being noticed and a failure is a 10 and means you get spotted. You roll your agility Test, you get a 5 on the dice and add 2 from your agility, giving you a total of 7. The goblins spot you half way up, they begin to shout something you can't understand and begin to run towards the wall you are climbing!"}]
             },
             {
                 slug:  "CONTESTS",
                 title:  "Contests",
                 ruleType:  "RULE",
-                text: [{ text:  "When two or more characters are competing, Sometimes each character will roll the same test and success is determined by the highest number, not by rolling above a target. Ties may result in a reroll or both participants doing equally well depending on the test."},
-                {type: "EG", text:  "You and your ally Ronin join an archery contest, you and the other contestants line up and fire at a target. You all roll an agility test. You rolled a 14+3, which is better than your GMs roll of 12+2 but worse than Ronin’s 16+2. Ronin comes out on top in that test."}]
+                text: [{ text:  "When two or more characters are competing, Sometimes each character will roll the same Test and success is determined by the highest number, not by rolling above a target. Ties may result in a reroll or both participants doing equally well depending on the Test."},
+                {type: "EG", text:  "You and your ally Ronin join an archery contest, you and the other contestants line up and fire at a target. You all roll an agility Test. You rolled a 14+3, which is better than your GMs roll of 12+2 but worse than Ronin’s 16+2. Ronin comes out on top in that Test."}]
             },
             {
                 slug:  "1-20",
@@ -185,13 +185,13 @@ export const generalRules: GenericRule[] = [
                 slug:  "FORTUNES-FAVOR",
                 title:  "Fortune's Favor",
                 ruleType:  "RULE",
-                text: [{ text:  "When you fail a test, you gain Fortune's Favor. While you have Fortune's Favor roll a second d20 whenever you are tested. You can use this result in place of your regular roll. When you do so, you lose Fortune's Favor."}]
+                text: [{ text:  "When you fail a Test, you gain Fortune's Favor. While you have Fortune's Favor roll a second d20 whenever you are tested. You can use this result in place of your regular roll. When you do so, you lose Fortune's Favor."}]
             },
             {
                 slug:  "MISFORTUNE",
                 title:  "Misfortune",
                 ruleType:  "RULE",
-                text: [{ text:  "Circumstances may cause misfortune as well. When the GM calls for a roll with Misfortune, you roll a second d20 and take the lower of the two rolls. If you have Fortunes Favor, before you roll you can chose to give it up to cancel out the Misfortune and roll the test normally."}]
+                text: [{ text:  "Circumstances may cause misfortune as well. When the GM calls for a roll with Misfortune, you roll a second d20 and take the lower of the two rolls. If you have Fortunes Favor, before you roll you can chose to give it up to cancel out the Misfortune and roll the Test normally."}]
             }
         ]
     },
@@ -211,7 +211,7 @@ export const generalRules: GenericRule[] = [
                     title:  "AOE Exchanges",
                     slug: "AOE-EXCHANGES",
                     ruleType:  "RULE",
-                    text: [{ text:  "When your action targets multiple enemies, roll a single attack test, and compare to each enemies defenses. If any target clashes or counters, the GM chooses which creature will take advantage of the opening. If two or more enemies clash or counter, the creature makes the attack with Fortune's Favor. Only a single enemy can clash or counter a single exchange."}]
+                    text: [{ text:  "When your action targets multiple enemies, roll a single attack Test, and compare to each enemies defenses. If any target clashes or counters, the GM chooses which creature will take advantage of the opening. If two or more enemies clash or counter, the creature makes the attack with Fortune's Favor. Only a single enemy can clash or counter a single exchange."}]
                 }]
             },
             {
@@ -404,7 +404,7 @@ export const generalRules: GenericRule[] = [
             {
                 title:  "Equipment",
                 slug:  "EQUIPMENT",
-                text: [{ text:  "While traveling, it's assumed your pack has all the items you need to get through a normal day. This might include a bed roll, some rope, etc. For specific adventuring gear, if you haven't already established that you have the item, you can make a luck test. The pass/fail are determined by the GMs judgment of the likelihood of you having the item. A mixed result might mean an item that is similar enough to be used in this instance, like a bed sheet instead of rope, or inferior to what you want, a small hatchet instead of a wood splitting axe."}],
+                text: [{ text:  "While traveling, it's assumed your pack has all the items you need to get through a normal day. This might include a bed roll, some rope, etc. For specific adventuring gear, if you haven't already established that you have the item, you can make a luck Test. The pass/fail are determined by the GMs judgment of the likelihood of you having the item. A mixed result might mean an item that is similar enough to be used in this instance, like a bed sheet instead of rope, or inferior to what you want, a small hatchet instead of a wood splitting axe."}],
                 ruleType:  "RULE",
                 rules:   [
                 {
@@ -459,7 +459,7 @@ export const generalRules: GenericRule[] = [
                 slug:  "HEALING-DYING-ALLY",
                 title:  "Healing a Dying Ally",
                 ruleType:  "RULE",
-                text: [{ text:  "If an ally is at 0 health, you can use an action to attempt to heal them. Make an Intellect test, Pass: 15, Fail: 10. On a pass they regain 1 Health, on a fail they lose 1 Stamina."}]
+                text: [{ text:  "If an ally is at 0 health, you can use an action to attempt to heal them. Make an Intellect Test, Pass: 15, Fail: 10. On a pass they regain 1 Health, on a fail they lose 1 Stamina."}]
             },
             {
                 slug:  "HEALING-WHEN-CATCHING-YOUR-BREATH",
@@ -502,14 +502,14 @@ export const generalRules: GenericRule[] = [
                 title:  "Treacherous Terrain",
                 slug: "TREACHEROUS-TERRAIN",
                 ruleType:  "RULE",
-                text: [{ text:  "Difficult terrain takes extra energy to traverse. For each hour navigating treacherous terrain make a Mettle test. Pass - 13, Fail - 8. On a Fail, lose 2 stamina, on a mixed, lose 1."}]
+                text: [{ text:  "Difficult terrain takes extra energy to traverse. For each hour navigating treacherous terrain make a Mettle Test. Pass - 13, Fail - 8. On a Fail, lose 2 stamina, on a mixed, lose 1."}]
             }]
             },
             {
                 slug:  "JUMP",
                 title:  "Jumping",
                 ruleType:  "LIST",
-                text: [{ text:  "When jumping use these formulas to calculate the minimum distances you can go. If you are trying to jump further, test your mettle. The difficulty is equal to 10+1 per foot beyond your standard jump range. If you roll below a success, you can spend stamina to increase your roll up to the point of a success if you have the stamina to spend."}],
+                text: [{ text:  "When jumping use these formulas to calculate the minimum distances you can go. If you are trying to jump further, Test your mettle. The difficulty is equal to 10+1 per foot beyond your standard jump range. If you roll below a success, you can spend stamina to increase your roll up to the point of a success if you have the stamina to spend."}],
                 rules:  [{
                     title:  "Running Leap",
                     slug: "RUNNING-LEAP",
@@ -533,7 +533,7 @@ export const generalRules: GenericRule[] = [
                 slug:  "FALL",
                 title:  "Falling",
                 ruleType:  "RULE",
-                text: [{ text:  "When you fall from a height greater than 10 ft. Make an Agility test. Pass - 12, Fail - 7. For every 5 ft. past 10 ft. the difficulty increases by 2. On a pass you take no damage. On a fail you take 1d10 per 5 ft. On a Mixed you take half damage."}]
+                text: [{ text:  "When you fall from a height greater than 10 ft. Make an Agility Test. Pass - 12, Fail - 7. For every 5 ft. past 10 ft. the difficulty increases by 2. On a pass you take no damage. On a fail you take 1d10 per 5 ft. On a Mixed you take half damage."}]
             }
         ]
     },
@@ -622,7 +622,7 @@ export const generalRules: GenericRule[] = [
             {
                 title:  "Deaf",
                 slug: "DEAF-STATUS",
-                text: [{ text:  "You cannot hear. You have Misfortune on all tests to stealth or notice something sneaking up on you."}]
+                text: [{ text:  "You cannot hear. You have Misfortune on all Tests to stealth or notice something sneaking up on you."}]
             },
             {
                 title:  "Entangled",
@@ -632,7 +632,7 @@ export const generalRules: GenericRule[] = [
             {
                 title:  "Pinned",
                 slug: "PINNED-STATUS",
-                text: [{ text:  "Your speed is reduced to 0, you have misfortune on all attacks and spellcasting tests."}]
+                text: [{ text:  "Your speed is reduced to 0, you have misfortune on all attacks and spellcasting Tests."}]
             },
             {
                 title:  "Exhausted",
@@ -642,7 +642,7 @@ export const generalRules: GenericRule[] = [
             {
                 title:  "Hidden",
                 slug: "HIDDEN-STATUS",
-                text: [{ text:  "You cannot be seen and gain a +3 to attack tests while hidden. Attacking or casting."}]
+                text: [{ text:  "You cannot be seen and gain a +3 to attack Tests while hidden. Attacking or casting."}]
             },
             {
                 title:  "Prone",
