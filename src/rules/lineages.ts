@@ -104,7 +104,7 @@ export const lineagesData: Lineage[] = [
       "Faeries have large gossamer wings, usually similar to butterfly or moth wings. Fully grown they are usually 2-2.5ft tall.",
     ],
     size: ["TINY"],
-    speed: 20,
+    speeds: [{type: "ground", speed: 20}, {type: "flying", speed: 20}],
     stat: "+1 to Agility or Heart",
     traits: [
       {
