@@ -136,7 +136,7 @@ type GenericFeature implements Rule {
   text: [RuleText]
   shortText: String
   multiSelect: Boolean
-  options: [String]
+  choices: [String]
 }
 
 type SlugDict {

@@ -48,7 +48,7 @@ export const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "Your character's physiology. Visit the lineage section for a list of options.",
+            text: "Your character's physiology. Visit the [lineage section](/rules/lineages) for a list of options.",
           },
         ],
       },
@@ -58,7 +58,17 @@ export const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "Where your character grew up. Visit the culture section for a list of options",
+            text: "Where your character grew up. Visit the [culture section](/rules/cultures) for a list of options",
+          },
+        ],
+      },
+      {
+        slug: "CLASS-RULE-DESC",
+        title: "Class",
+        ruleType: "RULE",
+        text: [
+          {
+            text: "Your characters core competency. Visit the [classes section](/rules/classes) for a list of options",
           },
         ],
       },
@@ -727,10 +737,10 @@ export const generalRules: GenericRule[] = [
         text: "Your Lift, Drag & Pack (how much you can carry in your backpack and on your person) are all effected by your size. For each size below Medium, amounts are halved, and for each size above Medium they are doubled.",
       },
       {
-        text: "Using both hands, you can lift up to 50+10x your Mettle pounds.",
+        text: "Using both hands, you can lift up to 50+10 your Mettle pounds.",
       },
-      { text: "You can drag up to 4x your lifting capacity." },
-      { text: "You can pack up to 30+5x your Mettle pounds." },
+      { text: "You can drag up to 4&#215; your lifting capacity." },
+      { text: "You can pack up to 30+5&#215; your Mettle pounds." },
     ],
   },
   {

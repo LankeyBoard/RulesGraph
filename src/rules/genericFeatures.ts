@@ -95,7 +95,7 @@ export const NoviceFeatures: GenericFeature[] = [
         text: "When you take this feature pick a subject from the list below that you are well versed in. When you take Tests that rely on this knowledge, add +3 to the roll.",
       },
     ],
-    options: [
+    choices: [
       "Botany",
       "Carpentry",
       "Geology",

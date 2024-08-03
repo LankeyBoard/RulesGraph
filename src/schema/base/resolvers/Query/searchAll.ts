@@ -94,7 +94,7 @@ export const searchAll: NonNullable<QueryResolvers["searchAll"]> = async (
           });
         }
       });
-      feature.options?.forEach((option) => {
+      feature.choices?.forEach((option) => {
         if (option?.toLocaleLowerCase().includes(searchPhrase)) {
           found.push({
             title: feature.title,

@@ -1902,7 +1902,7 @@ export const typeDefs = {
           kind: "FieldDefinition",
           name: {
             kind: "Name",
-            value: "options",
+            value: "choices",
             loc: { start: 1959, end: 1966 },
           },
           arguments: [],

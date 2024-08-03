@@ -96,10 +96,10 @@ export type FeatureType = "NOVICE" | "VETERAN";
 export type GenericFeature = Rule & {
   __typename?: "GenericFeature";
   actionType?: Maybe<Action>;
+  choices?: Maybe<Array<Maybe<Scalars["String"]["output"]>>>;
   costsFortunesFavor?: Maybe<Scalars["Boolean"]["output"]>;
   href?: Maybe<Scalars["String"]["output"]>;
   multiSelect?: Maybe<Scalars["Boolean"]["output"]>;
-  options?: Maybe<Array<Maybe<Scalars["String"]["output"]>>>;
   ruleType?: Maybe<RuleType>;
   shortText?: Maybe<Scalars["String"]["output"]>;
   shortTitle?: Maybe<Scalars["String"]["output"]>;
@@ -617,6 +617,11 @@ export type GenericFeatureResolvers<
     ParentType,
     ContextType
   >;
+  choices?: Resolver<
+    Maybe<Array<Maybe<ResolversTypes["String"]>>>,
+    ParentType,
+    ContextType
+  >;
   costsFortunesFavor?: Resolver<
     Maybe<ResolversTypes["Boolean"]>,
     ParentType,
@@ -625,11 +630,6 @@ export type GenericFeatureResolvers<
   href?: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
   multiSelect?: Resolver<
     Maybe<ResolversTypes["Boolean"]>,
-    ParentType,
-    ContextType
-  >;
-  options?: Resolver<
-    Maybe<Array<Maybe<ResolversTypes["String"]>>>,
     ParentType,
     ContextType
   >;
