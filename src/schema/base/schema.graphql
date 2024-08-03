@@ -58,17 +58,17 @@ enum Action {
 }
 
 enum SearchResultSource {
-  rule,
-  characterClass,
-  culture,
-  lineage,
-  noviceFeature,
+  rule
+  characterClass
+  culture
+  lineage
+  noviceFeature
   veteranFeature
 }
 
 enum SpeedTypes {
-  ground,
-  flying,
+  ground
+  flying
   swimming
 }
 
@@ -105,7 +105,7 @@ type SearchResult implements Rule {
 type RuleText {
   text: String!
   type: String
-  options: [String]
+  choices: [String]
 }
 
 type Culture implements Rule {
@@ -254,11 +254,11 @@ type CharacterClass implements Rule {
   extra: ShifterForms
 }
 
-type ShifterForms { 
+type ShifterForms {
   forms: [ShifterForm]
 }
 
-type ShifterForm implements Rule{
+type ShifterForm implements Rule {
   title: String!
   slug: String!
   href: String

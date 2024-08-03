@@ -220,7 +220,7 @@ export type Rule = {
 
 export type RuleText = {
   __typename?: 'RuleText';
-  options?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  choices?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   text: Scalars['String']['output'];
   type?: Maybe<Scalars['String']['output']>;
 };
@@ -646,7 +646,7 @@ export type RuleResolvers<ContextType = any, ParentType extends ResolversParentT
 };
 
 export type RuleTextResolvers<ContextType = any, ParentType extends ResolversParentTypes['RuleText'] = ResolversParentTypes['RuleText']> = {
-  options?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
+  choices?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
   text?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
