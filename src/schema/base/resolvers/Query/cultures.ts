@@ -1,7 +1,7 @@
 import { GraphQLError } from "graphql";
 import { culturesData } from "../../../../rules/cultures";
 import type { QueryResolvers } from "./../../../types.generated";
-export const cultures: NonNullable<QueryResolvers["cultures"]> = async (
+export const cultures: NonNullable<QueryResolvers['cultures']> = async (
   _parent,
   _arg,
 ) => {

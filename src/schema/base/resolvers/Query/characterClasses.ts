@@ -2,9 +2,7 @@ import { playerClasses } from "../../../../rules/playerClasses";
 import type { QueryResolvers } from "./../../../types.generated";
 import { GraphQLError } from "graphql";
 
-export const characterClasses: NonNullable<
-  QueryResolvers["characterClasses"]
-> = async (_parent, _arg) => {
+export const characterClasses: NonNullable<QueryResolvers['characterClasses']> = async (_parent, _arg) => {
   const searchSlug = _arg.slug?.toLocaleLowerCase();
   if (searchSlug) {
     const result = playerClasses.find((playerClass) => {

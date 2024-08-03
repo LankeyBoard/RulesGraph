@@ -5,9 +5,7 @@ import {
 } from "../../../../rules/genericFeatures";
 import type { QueryResolvers } from "./../../../types.generated";
 
-export const genericFeatures: NonNullable<
-  QueryResolvers["genericFeatures"]
-> = async (_parent, _arg) => {
+export const genericFeatures: NonNullable<QueryResolvers['genericFeatures']> = async (_parent, _arg) => {
   const searchSlug = _arg.slug?.toLocaleLowerCase();
   const featureType = _arg.featureType;
   if (searchSlug) {
