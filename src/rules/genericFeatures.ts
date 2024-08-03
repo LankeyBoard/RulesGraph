@@ -1,4 +1,4 @@
-import { GenericFeature } from "../schema/types.generated";
+import { Feature, GenericFeature } from "../schema/types.generated";
 
 export const NoviceFeatures: GenericFeature[] = [
   {

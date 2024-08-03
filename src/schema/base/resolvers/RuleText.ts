@@ -1,4 +1,10 @@
-import type { RuleTextResolvers } from "./../../types.generated";
+import type   { RuleTextResolvers } from './../../types.generated';
 export const RuleText: RuleTextResolvers = {
-  /* Implement RuleText resolver logic here */
+    __isTypeOf: (object) => verifyType(object)
 };
+
+function verifyType(object: object): boolean | Promise<boolean> {
+    if("text" in object && typeof object.text === "string")
+        return true;
+      return false
+}
