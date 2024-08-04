@@ -36,14 +36,14 @@ const textAreaToText = (textArea: Maybe<RuleText>[]): string => {
 const ruleToText = (rule: Maybe<GenericRule>, depth: number): string => {
   if (!rule) return "";
   let text = "#".repeat(depth) + " " + rule.title + "\n";
-  if (rule.slug) text += "slug: " + rule.slug + "\\\n";
+  if (rule.slug) text += "slug: " + rule.slug + "\n\n";
   if (typeof rule.text !== "undefined" && rule.text !== null)
     text += textAreaToText(rule.text);
   if (rule.subRules)
     rule.subRules.forEach((r) => {
       text += ruleToText(r, depth + 1);
     });
-  return text;
+  return text + "\n";
 };
 
 const writeRulesToFile = (rules: GenericRule[]) => {
