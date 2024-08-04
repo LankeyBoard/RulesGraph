@@ -294,7 +294,8 @@
     "start": "ts-node src/main.ts",
     "generate": "graphql-codegen",
     "build": "npm install && npm run generate",
-    "genFiles": "ts-node src/fileWriter.ts"
+    "genFiles": "ts-node src/fileWriter.ts",
+    "readFiles": "ts-node src/fileReader.ts"
   },
   "keywords": [],
   "author": "",
