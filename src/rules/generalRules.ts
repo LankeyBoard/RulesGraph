@@ -1,5 +1,6 @@
 import { GenericRule } from "../schema/types.generated";
-
+// import { generatedRules } from "../../generatedRules";
+// export const generalRules: GenericRule[] = generatedRules;
 export const generalRules: GenericRule[] = [
   {
     slug: "BUILDING-A-PC",
