@@ -33,12 +33,23 @@ const textAreaToText = (textArea: Maybe<RuleText>[]): string => {
   return text.slice(0, -2) + "\n";
 };
 
+const listToText = (list: Maybe<string>[]): string => {
+  let text = "";
+  list.forEach((li) => {
+    text += `- ${li}\n`;
+  });
+  return text;
+};
+
 const ruleToText = (rule: Maybe<GenericRule>, depth: number): string => {
   if (!rule) return "";
   let text = "#".repeat(depth) + " " + rule.title + "\n";
-  if (rule.slug) text += "slug: " + rule.slug + "\n\n";
+  if (rule.slug) text += "slug: " + rule.slug + "\n";
+  if (rule.ruleType) text += "ruleType: " + rule.ruleType + `\n`;
   if (typeof rule.text !== "undefined" && rule.text !== null)
     text += textAreaToText(rule.text);
+  if (typeof rule.list !== "undefined" && rule.list !== null)
+    text += listToText(rule.list);
   if (rule.subRules)
     rule.subRules.forEach((r) => {
       text += ruleToText(r, depth + 1);

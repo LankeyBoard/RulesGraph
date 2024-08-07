@@ -1,5 +1,10 @@
 import fs from "node:fs";
-import { GenericRule, Maybe, RuleText } from "./schema/types.generated";
+import {
+  GenericRule,
+  Maybe,
+  RuleText,
+  RuleType,
+} from "./schema/types.generated";
 
 const readFile = (filename: string): string => {
   try {
@@ -12,6 +17,7 @@ const readFile = (filename: string): string => {
 };
 
 const ruleTextToStr = (contents: Maybe<RuleText>[]): string => {
+  if (contents.length < 1) return "";
   let result = `[`;
   contents.forEach((rule) => {
     if (!rule) return;
@@ -28,22 +34,36 @@ const ruleTextToStr = (contents: Maybe<RuleText>[]): string => {
   result += "]";
   return result;
 };
+const ruleListToStr = (contents: Maybe<string>[]): string => {
+  if (contents.length < 1) return "";
+  let result = `[`;
+  contents.forEach((li) => {
+    if (!li) return;
+    result += `"${li}", `;
+  });
+  result = result.slice(0, -2);
+  result += "]";
+  return result;
+};
 
 const fileContentsToJsonStr = (contents: Maybe<GenericRule>[]): string => {
   if (contents === undefined) return "";
   let result = "[";
   contents.forEach((rule) => {
+    console.log(rule?.list);
     if (!rule) return;
     const text = rule.text ? ruleTextToStr(rule.text) : "";
+    const list = rule.list ? ruleListToStr(rule.list) : "";
     const subRules = rule.subRules ? fileContentsToJsonStr(rule.subRules) : "";
     result += `
     {
     slug: "${rule.slug}",
-    title: "${rule.title}",
-    text: ${text},
-    subRules: ${subRules}
-    },
-    `;
+    title: "${rule.title}",`;
+    if (rule.ruleType) result += `ruleType: "${rule.ruleType}",`;
+    if (rule.text) result += `text: ${text},`;
+    if (rule.list) result += `list: ${list},`;
+    if (rule.subRules) result += `subRules: ${subRules}`;
+    result += `},`;
   });
   result += "]";
   return result;
@@ -110,6 +130,20 @@ const lineProcesser = (line: string): string => {
   return processedLine;
 };
 
+const strToRuleType = (str: string): RuleType | null => {
+  if (
+    str === "EG" ||
+    str === "FLAVOR" ||
+    str === "RULE" ||
+    str === "ATTACK" ||
+    str === "CHOICE" ||
+    str === "LIST" ||
+    str === "LISTCOMPACT"
+  )
+    return str;
+  return null;
+};
+
 //Rules come in as an array of strings split on top headings
 //For each rule in the array, split on sub headings so the first section is the rule and lower ones are sub-rules
 //make a new Generic Rule from array[0] and subRules from the rest of the array
@@ -122,19 +156,37 @@ const ruleArrayToRule = (rulesArray: string[], level: number) => {
     const splitRule = rule.split(splitStr);
     // if (level === 1) console.log("first split", splitStr, splitRule);
     const baseRule = splitRule[0].split(/\n/);
+    if (baseRule[-1] === "") baseRule.pop();
     // if (level === 1) console.log("baseSplit", baseRule);
     const subRules =
       splitRule.length < 2
         ? []
         : ruleArrayToRule(splitRule.slice(1), level + 1);
-    const text = baseRule.length > 2 ? textMaker(baseRule.slice(2)) : [];
-    if (baseRule.length > 1)
-      rules.push({
-        title: lineProcesser(baseRule[0]),
-        slug: baseRule[1].slice(6),
-        text: text,
-        subRules: subRules,
-      });
+    // need to split out list text from text blocks
+    const title = lineProcesser(baseRule[0]);
+    const slug = baseRule[1].slice(6);
+    const list: string[] = [];
+    const unprocessedText: string[] = [];
+    let ruleType: RuleType | null = null;
+
+    baseRule.slice(2).forEach((line) => {
+      if (typeof line === "string") {
+        if (line.includes("ruleType")) ruleType = strToRuleType(line);
+        else if (line[0] === "-") list.push(line.slice(2));
+        else unprocessedText.push(line);
+      }
+    });
+
+    const text = textMaker(unprocessedText);
+
+    if (baseRule.length > 1) {
+      const ruleBuilder: { title: string; slug: string; [k: string]: unknown } =
+        { title: title, slug: slug };
+      if (ruleType) ruleBuilder.ruleType = ruleType;
+      if (text.length > 0) ruleBuilder.text = text;
+      if (subRules && subRules?.length > 0) ruleBuilder.subRules = subRules;
+      rules.push(ruleBuilder);
+    }
   });
   return rules;
 };
@@ -146,7 +198,6 @@ const rulesStringToObj = (fileContents: string): GenericRule[] | undefined => {
 function main() {
   const fileContentsStr = readFile("generalRules.md");
   const rules = rulesStringToObj(fileContentsStr);
-  if (rules) console.log(rules[0]);
   if (rules) writeToFile(rules, "generatedRules.ts");
 }
 main();
