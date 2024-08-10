@@ -50,15 +50,14 @@ const fileContentsToJsonStr = (contents: Maybe<GenericRule>[]): string => {
   if (contents === undefined) return "";
   let result = "[";
   contents.forEach((rule) => {
-    console.log(rule?.list);
     if (!rule) return;
     const text = rule.text ? ruleTextToStr(rule.text) : "";
     const list = rule.list ? ruleListToStr(rule.list) : "";
     const subRules = rule.subRules ? fileContentsToJsonStr(rule.subRules) : "";
     result += `
     {
-    slug: "${rule.slug}",
-    title: "${rule.title}",`;
+    title: "${rule.title}",
+    slug: "${rule.slug}",`;
     if (rule.ruleType) result += `ruleType: "${rule.ruleType}",`;
     if (rule.text) result += `text: ${text},`;
     if (rule.list) result += `list: ${list},`;
@@ -121,12 +120,11 @@ const lineProcesser = (line: string): string => {
   let processedLine = "";
   while (badStartingChar(processingLine.at(0)) && line.length > 0) {
     processingLine = processingLine.substring(1);
-    processedLine = processingLine;
   }
   while (badEndingChar(processingLine.at(-1)) && line.length > 0) {
-    processingLine = processingLine.substring(0, -2);
-    processedLine = processingLine;
+    processingLine = processingLine.substring(0, -1);
   }
+  processedLine = processingLine;
   return processedLine;
 };
 
@@ -154,10 +152,8 @@ const ruleArrayToRule = (rulesArray: string[], level: number) => {
   rulesArray.forEach((rule) => {
     const splitStr = new RegExp("[^#]" + "#".repeat(level + 1) + " ");
     const splitRule = rule.split(splitStr);
-    // if (level === 1) console.log("first split", splitStr, splitRule);
     const baseRule = splitRule[0].split(/\n/);
     if (baseRule[-1] === "") baseRule.pop();
-    // if (level === 1) console.log("baseSplit", baseRule);
     const subRules =
       splitRule.length < 2
         ? []
