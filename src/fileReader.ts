@@ -51,6 +51,7 @@ const fileContentsToJsonStr = (contents: Maybe<GenericRule>[]): string => {
   let result = "[";
   contents.forEach((rule) => {
     if (!rule) return;
+    console.log("rule - ", rule.title, rule.ruleType, rule.list);
     const text = rule.text ? ruleTextToStr(rule.text) : "";
     const list = rule.list ? ruleListToStr(rule.list) : "";
     const subRules = rule.subRules ? fileContentsToJsonStr(rule.subRules) : "";
@@ -129,6 +130,8 @@ const lineProcesser = (line: string): string => {
 };
 
 const strToRuleType = (str: string): RuleType | null => {
+  str = str.substring("ruleType: ".length, str.length - 1);
+  console.log(str);
   if (
     str === "EG" ||
     str === "FLAVOR" ||
@@ -172,6 +175,7 @@ const ruleArrayToRule = (rulesArray: string[], level: number) => {
         else unprocessedText.push(line);
       }
     });
+    console.log(title, "list: ", list);
 
     const text = textMaker(unprocessedText);
 
@@ -180,6 +184,7 @@ const ruleArrayToRule = (rulesArray: string[], level: number) => {
         { title: title, slug: slug };
       if (ruleType) ruleBuilder.ruleType = ruleType;
       if (text.length > 0) ruleBuilder.text = text;
+      if (list.length > 0) ruleBuilder.list = list;
       if (subRules && subRules?.length > 0) ruleBuilder.subRules = subRules;
       rules.push(ruleBuilder);
     }
