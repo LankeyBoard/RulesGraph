@@ -1,5 +1,5 @@
-import { generalRules } from "./rules/generalRules";
-// import { generatedRules } from "../generatedRules";
+import { generatedRules } from "../generatedRules";
+// import { generalRules } from "./rules/generalRules";
 import { GenericRule, Maybe, RuleText } from "./schema/types.generated";
 
 const writeToFile = (contents: string, filename: string) => {
@@ -66,9 +66,9 @@ const writeRulesToFile = (rules: GenericRule[]) => {
   rules.forEach((rule) => {
     text += ruleToText(rule, 1);
   });
-  writeToFile(text, "generalRules");
+  writeToFile(text, "generatedRules");
 };
 function main() {
-  writeRulesToFile(generalRules);
+  writeRulesToFile(generatedRules);
 }
 main();
