@@ -177,32 +177,38 @@ export type Query = {
 
 export type QuerycharacterClassesArgs = {
   slug?: InputMaybe<Scalars['String']['input']>;
+  version?: InputMaybe<VERSIONS>;
 };
 
 
 export type QueryculturesArgs = {
   slug?: InputMaybe<Scalars['String']['input']>;
+  version?: InputMaybe<VERSIONS>;
 };
 
 
 export type QuerygenericRulesArgs = {
   slug?: InputMaybe<Scalars['String']['input']>;
+  version?: InputMaybe<VERSIONS>;
 };
 
 
 export type QuerylineagesArgs = {
   slug?: InputMaybe<Scalars['String']['input']>;
+  version?: InputMaybe<VERSIONS>;
 };
 
 
 export type QuerysearchAllArgs = {
   phrase: Scalars['String']['input'];
+  version?: InputMaybe<VERSIONS>;
 };
 
 
 export type QueryuniversalFeaturesArgs = {
   featureType?: InputMaybe<FeatureType>;
   slug?: InputMaybe<Scalars['String']['input']>;
+  version?: InputMaybe<VERSIONS>;
 };
 
 export type Range = {
@@ -317,6 +323,10 @@ export type TrainingOptions = {
   options: Array<Scalars['String']['output']>;
   pick?: Maybe<Scalars['Int']['output']>;
 };
+
+export type VERSIONS =
+  | '_1a'
+  | '_1b';
 
 export type Weapons = {
   __typename?: 'Weapons';
@@ -449,6 +459,7 @@ export type ResolversTypes = {
   Stat: Stat;
   Training: ResolverTypeWrapper<Training>;
   TrainingOptions: ResolverTypeWrapper<TrainingOptions>;
+  VERSIONS: VERSIONS;
   Weapons: ResolverTypeWrapper<Weapons>;
   shifterArmor: ResolverTypeWrapper<shifterArmor>;
   shifterFeature: ResolverTypeWrapper<shifterFeature>;
