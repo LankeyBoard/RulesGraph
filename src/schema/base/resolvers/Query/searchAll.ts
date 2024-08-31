@@ -18,7 +18,7 @@ import type {
   Lineage,
 } from "./../../../types.generated";
 
-export const searchAll: NonNullable<QueryResolvers["searchAll"]> = async (
+export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (
   _parent,
   _arg
 ) => {

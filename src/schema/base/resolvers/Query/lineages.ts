@@ -1,7 +1,7 @@
 import { GraphQLError } from "graphql";
 import lineagesData from "../../../../rules/1b/lineages";
 import type { Lineage, QueryResolvers } from "./../../../types.generated";
-export const lineages: NonNullable<QueryResolvers["lineages"]> = async (
+export const lineages: NonNullable<QueryResolvers['lineages']> = async (
   _parent,
   _arg
 ) => {

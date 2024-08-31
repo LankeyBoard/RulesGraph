@@ -5,9 +5,7 @@ import type {
 } from "./../../../types.generated";
 import { GraphQLError } from "graphql";
 
-export const characterClasses: NonNullable<
-  QueryResolvers["characterClasses"]
-> = async (_parent, _arg) => {
+export const characterClasses: NonNullable<QueryResolvers['characterClasses']> = async (_parent, _arg) => {
   let currentClasses: CharacterClass[] = playerClasses;
   if (_arg.version) {
     import(`../../../../rules/${_arg.version.slice(1)}/playerClasses`).then(

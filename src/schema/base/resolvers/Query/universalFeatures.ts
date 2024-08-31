@@ -3,9 +3,7 @@ import NoviceFeatures from "../../../../rules/1b/noviceFeatures";
 import VeteranFeatures from "../../../../rules/1b/veteranFeatures";
 import type { Feature, QueryResolvers } from "./../../../types.generated";
 
-export const universalFeatures: NonNullable<
-  QueryResolvers["universalFeatures"]
-> = async (_parent, _arg) => {
+export const universalFeatures: NonNullable<QueryResolvers['universalFeatures']> = async (_parent, _arg) => {
   let currentNoviceFeatures: Feature[] = NoviceFeatures;
   let currentVeteranFeatures: Feature[] = VeteranFeatures;
   if (_arg.version) {
