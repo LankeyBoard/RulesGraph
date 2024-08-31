@@ -1,11 +1,9 @@
-import { culturesData } from "../../../../rules/cultures";
-import { generalRules } from "../../../../rules/generalRules";
-import {
-  NoviceFeatures,
-  VeteranFeatures,
-} from "../../../../rules/genericFeatures";
-import { lineagesData } from "../../../../rules/lineages";
-import { playerClasses } from "../../../../rules/playerClasses";
+import culturesData from "../../../../rules/1b/cultures";
+import generalRules from "../../../../rules/1b/generalRules";
+import NoviceFeatures from "../../../../rules/1b/noviceFeatures";
+import VeteranFeatures from "../../../../rules/1b/veteranFeatures";
+import lineagesData from "../../../../rules/1b/lineages";
+import playerClasses from "../../../../rules/1b/playerClasses";
 import type {
   CharacterClassFeature,
   GenericRule,
@@ -14,12 +12,64 @@ import type {
   SearchResultSource,
   GenericFeature,
   FeatureWithoutChoices,
+  CharacterClass,
+  Feature,
+  Culture,
+  Lineage,
 } from "./../../../types.generated";
 
-export const searchAll: NonNullable<QueryResolvers["searchAll"]> = async (
+export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (
   _parent,
   _arg
 ) => {
+  let currentClasses: CharacterClass[] = playerClasses;
+  let currentLineages: Lineage[] = lineagesData;
+  let currentNoviceFeatures: Feature[] = NoviceFeatures;
+  let currentVeteranFeatures: Feature[] = VeteranFeatures;
+  let currentCultures: Culture[] = culturesData;
+  let currentRules: GenericRule[] = generalRules;
+
+  if (_arg.version) {
+    import(`../../../../rules/${_arg.version.slice(1)}/playerClasses`).then(
+      (classes) => {
+        currentClasses = classes;
+      }
+    );
+  }
+
+  if (_arg.version) {
+    import(`../../../../rules/${_arg.version.slice(1)}/noviceFeatures`).then(
+      (f) => {
+        currentNoviceFeatures = f;
+      }
+    );
+    import(`../../../../rules/${_arg.version.slice(1)}/veteranFeatures`).then(
+      (f) => {
+        currentVeteranFeatures = f;
+      }
+    );
+  }
+
+  if (_arg.version) {
+    import(`../../../../rules/${_arg.version.slice(1)}/cultures`).then((c) => {
+      currentCultures = c;
+    });
+  }
+
+  if (_arg.version) {
+    import(`../../../../rules/${_arg.version.slice(1)}/generalRules`).then(
+      (r) => {
+        currentRules = r;
+      }
+    );
+  }
+
+  if (_arg.version) {
+    import(`../../../../rules/${_arg.version.slice(1)}/lineages`).then((l) => {
+      currentLineages = l;
+    });
+  }
+
   const searchPhrase = _arg.phrase.toLocaleLowerCase();
   console.log(_arg.phrase);
   const found: SearchResult[] = [];
@@ -151,11 +201,11 @@ export const searchAll: NonNullable<QueryResolvers["searchAll"]> = async (
     }
   };
 
-  generalRules.forEach((rule) => {
+  currentRules.forEach((rule) => {
     searchRule(rule, rule.title);
   });
 
-  culturesData.forEach((culture) => {
+  currentCultures.forEach((culture) => {
     if (
       culture.title.toLocaleLowerCase().includes(searchPhrase) ||
       culture.title.toLocaleLowerCase().includes(searchPhrase) ||
@@ -171,7 +221,7 @@ export const searchAll: NonNullable<QueryResolvers["searchAll"]> = async (
         type: "culture",
       });
     }
-    culture.traits?.forEach((trait) => {
+    culture.traits?.forEach((trait: GenericFeature) => {
       if (
         trait?.title.toLocaleLowerCase().includes(searchPhrase) ||
         trait?.shortText?.toLocaleLowerCase().includes(searchPhrase)
@@ -199,7 +249,7 @@ export const searchAll: NonNullable<QueryResolvers["searchAll"]> = async (
       });
     });
   });
-  lineagesData.forEach((lineage) => {
+  currentLineages.forEach((lineage) => {
     if (
       lineage.title.toLocaleLowerCase().includes(searchPhrase) ||
       lineage.description
@@ -224,7 +274,7 @@ export const searchAll: NonNullable<QueryResolvers["searchAll"]> = async (
       if (trait) searchGenericFeature(trait, lineage.title, "lineage");
     });
   });
-  playerClasses.forEach((playerClass) => {
+  currentClasses.forEach((playerClass) => {
     if (
       playerClass.title.toLocaleLowerCase().includes(searchPhrase) ||
       playerClass.attackStat
@@ -274,11 +324,11 @@ export const searchAll: NonNullable<QueryResolvers["searchAll"]> = async (
     });
   });
 
-  NoviceFeatures.forEach((feature) => {
+  currentNoviceFeatures.forEach((feature) => {
     searchGenericFeature(feature, feature.title, "noviceFeature");
   });
 
-  VeteranFeatures.forEach((feature) => {
+  currentVeteranFeatures.forEach((feature) => {
     searchGenericFeature(feature, feature.title, "veteranFeature");
   });
 

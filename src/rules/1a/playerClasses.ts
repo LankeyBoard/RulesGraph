@@ -1,6 +1,6 @@
-import { CharacterClass } from "../schema/types.generated";
+import { CharacterClass } from "../../schema/types.generated";
 
-export const playerClasses: CharacterClass[] = [
+const playerClasses: CharacterClass[] = [
   {
     title: "Brawler",
     slug: "BRAWLER",
@@ -1539,3 +1539,5 @@ export const playerClasses: CharacterClass[] = [
     },
   },
 ];
+
+export default playerClasses;

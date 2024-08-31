@@ -1,17 +1,26 @@
 type Query {
-  genericRules(slug: String): [GenericRule]!
+  genericRules(slug: String, version: VERSIONS): [GenericRule]!
 
-  universalFeatures(slug: String, featureType: FeatureType): [GenericFeature]!
+  universalFeatures(
+    slug: String
+    featureType: FeatureType
+    version: VERSIONS
+  ): [GenericFeature]!
 
-  lineages(slug: String): [Lineage]!
+  lineages(slug: String, version: VERSIONS): [Lineage]!
 
-  cultures(slug: String): [Culture]!
+  cultures(slug: String, version: VERSIONS): [Culture]!
 
-  characterClasses(slug: String): [CharacterClass]!
+  characterClasses(slug: String, version: VERSIONS): [CharacterClass]!
 
-  searchAll(phrase: String!): [SearchResult]!
+  searchAll(phrase: String!, version: VERSIONS): [SearchResult]!
 
   slugMap: [SlugDict]
+}
+
+enum VERSIONS {
+  _1a
+  _1b
 }
 
 enum FeatureType {
