@@ -11,7 +11,7 @@ const generalRules: GenericRule[] = [
       },
       { text: "Pick a Lineage, Culture and Class." },
       {
-        text: "Assign stats - You have a set of 3,2,0,-2. Use each number once, placing them in your 4 stats.",
+        text: "Assign stats - You have a set of 3,2,0,-2. Use each number once, placing them in your 4 stats. Then add your stat bonuses from your Lineage and your Culture. These cannot both go to the same Stat.",
       },
       {
         text: "Higher numbers are better. Your class will have at least 1 primary stat. It's a good idea to have that be your highest number.",
@@ -136,7 +136,7 @@ const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "Each character has a pool of stamina. The exact amount is determined by their class or stat block if they are an NPC. Your stamina can be used for class abilities as well as to enhance certain generic tests such as jumping and marching. You can also opt to have damage cost stamina instead of health.",
+            text: "Each character has a pool of stamina. The exact amount is determined by their class or stat block if they are an NPC. Your stamina can be used for class abilities as well as to enhance certain generic tests such as jumping and marching.",
           },
         ],
       },
@@ -146,7 +146,7 @@ const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "Health represents the life force of your character. See Exhausted, Dying, Last Stand & Healing for what happens at 0 Health ",
+            text: "Health represents the life force of your character. See [Exhausted, Dying, Last Stand & Healing](/rules/player_rules#EDL) for what happens at 0 Health ",
           },
         ],
       },
@@ -171,6 +171,16 @@ const generalRules: GenericRule[] = [
             ],
           },
           {
+            slug: "NIGHTS-REST",
+            title: "A Night's Rest",
+            ruleType: "RULE",
+            text: [
+              {
+                text: "A good night's rest is still important to an adventurer. To complete a nights rest spend a minimum of 6 hours sleeping. This gives surface level wounds a chance to heal and prepare yourself for the next day. When you finish a Night's Rest, return your Stamina to full. If you are above half health, return to full Health. If you are at or below half Health, return to half Health.  If you are awake for more than 24 hours in a row, Test your Mettle each hour. The difficulty of this test increases by 1 for each hour beyond 24 hours. Pass (15+): You suffer no ill effects. Mixed (10-14): Reduce your current and maximum stamina by 3. Fail (9-): Reduce your current and maximum stamina by 10. If you are reduced to 0 stamina in this way you become unconscious. You must complete a Night's Rest to remove these effects.",
+              },
+            ],
+          },
+          {
             slug: "REST-RELAX",
             title: "Rest and Relax",
             ruleType: "RULE",
@@ -180,16 +190,6 @@ const generalRules: GenericRule[] = [
               },
               {
                 text: "After successful Rest and Relaxation, regain all lost Health and Stamina. You also lose any conditions that do not specifically last through a R&R",
-              },
-            ],
-          },
-          {
-            slug: "NIGHTS-SLEEP",
-            title: "A Night's Sleep",
-            ruleType: "RULE",
-            text: [
-              {
-                text: "A good night's rest is still important to an adventurer. If you are awake for more than 24 hours in a row, Test your Mettle each hour. The difficulty of this test increases by 1 for each hour beyond 24 hours. Pass (15+): You suffer no ill effects. Mixed (10-14): Reduce your current and maximum stamina by 3. Fail (9-): Reduce your current and maximum stamina by 10. If you are reduced to 0 stamina in this way you become unconscious. Once you sleep for at least 6 hours you lose any negative effects from a lack of rest  and reset the difficulty of the test.",
               },
             ],
           },
@@ -288,6 +288,20 @@ const generalRules: GenericRule[] = [
           {
             type: "EG",
             text: "The GM calls for a Group Test for a group of 5, Pass is 13 and Fail is 8. If the group rolls 2 Passes, 2 Mixed and 1 Fail, then we subtract the 1 Fail from 2 Passes, leaving us with 1 Pass and 2 Mixed, so the result is Mixed. If instead there were 3 Passes and 1 Mixed, the result would have been a Pass.",
+          },
+        ],
+      },
+      {
+        slug: "HELP",
+        title: "Helping on a Test",
+        ruleType: "RULE",
+        text: [
+          {
+            text: "If a character is taking a Test and others are providing aid, if the character is not already rolling with Fortune's Favor, they can roll with Fortune's Favor. Otherwise add a +3 to the result of the test. No matter how many people are helping, you can only gain each bonus once.",
+          },
+          {
+            type: "EG",
+            text: "Bill the Brawler is trying to open a big heavy stone door. His party is helping him by giving him a crowbar and helping to pull on the door. If Bill is not already using Fortune's Favor on this roll, he gets Fortune's Favor and adds +3 to the roll because there are two different ways the party is helping him.",
           },
         ],
       },
@@ -441,9 +455,13 @@ const generalRules: GenericRule[] = [
             ],
           },
           {
-            title: "Sprint",
-            slug: "SPRINT",
-            text: [{ text: "Double your Speed this turn." }],
+            title: "Careful Attack",
+            slug: "CAREFUL-ATTACK",
+            text: [
+              {
+                text: "Attack with one of your proficient weapons or magic. You deal your base damage.",
+              },
+            ],
           },
           {
             title: "Defend",
@@ -467,6 +485,11 @@ const generalRules: GenericRule[] = [
                 text: "Your movement does not trigger counter moves this round.",
               },
             ],
+          },
+          {
+            title: "Sprint",
+            slug: "SPRINT",
+            text: [{ text: "Double your Speed this turn." }],
           },
         ],
       },
@@ -492,7 +515,7 @@ const generalRules: GenericRule[] = [
             slug: "DIVE-ROLL",
             text: [
               {
-                text: "Move up to half your Speed without triggering Counters.",
+                text: "Move up to 10 ft.",
               },
             ],
           },
@@ -518,7 +541,7 @@ const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "When you take damage, you can lose your Health or your Stamina. At least 1 damage must be directed to Health, the rest can be directed to Health or Stamina. You cannot go below 0 Health or Stamina.",
+            text: "When you take damage, you can spend a mix of Health and Stamina. At least 1 damage must come out of your Health, the rest can be directed to Health or Stamina. You cannot spend more Health or Stamina than you have. See the [rules on dying](/rules/player_rules#EDL) for what happens when you go to 0 Health and/or 0 Stamina.",
           },
         ],
       },
@@ -540,7 +563,7 @@ const generalRules: GenericRule[] = [
             text: "Characters can be proficient in different groups of weapons. It is up to your GMs discretion what category a weapon falls into, or if it is a unique weapon that requires its own training.",
           },
           {
-            text: "If a weapon requires two hands to wield or you are wielding a weapon in each hand, increase your base damage while wielding the weapon by one dice step.",
+            text: "Some effects cause your damage dice to go up or down by one or more step. Follow the pattern below to determine the new damage dice.",
           },
           { text: "1d4 - 1d6 - 1d8 - 1d10 - 1d12 - 2d6 - 2d8 - etc." },
         ],
@@ -582,7 +605,7 @@ const generalRules: GenericRule[] = [
         ruleType: "LIST",
         text: [
           {
-            text: "Shields come in three sizes, light (bucklers and dueling shields), medium (kite shields), and heavy (tower shields).",
+            text: "Shields come in three sizes, light (bucklers and dueling shields), medium (kite shields), and heavy (tower shields) and require a free hand to wield effectively.",
           },
           {
             text: "Shields not only increase your armor, can also reduce your damage taken when you clash. They cannot reduce the damage taken below 1.",
@@ -1012,20 +1035,11 @@ const generalRules: GenericRule[] = [
         ruleType: "LISTCOMPACT",
         subRules: [
           {
-            title: "Incapacitated",
-            slug: "INCAPACITATED-STATUS",
+            title: "Blind",
+            slug: "BLIND-STATUS",
             text: [
               {
-                text: "You cannot take actions or move and are unaware of your surroundings.",
-              },
-            ],
-          },
-          {
-            title: "Dying",
-            slug: "DYING-STATUS",
-            text: [
-              {
-                text: "0 Health. See the [Dead & Dying rules](/rules/player_rules#EDL) for more information.",
+                text: "You cannot see. All attacks have misfortune and attacks against you gain fortune's favor.",
               },
             ],
           },
@@ -1039,15 +1053,6 @@ const generalRules: GenericRule[] = [
             ],
           },
           {
-            title: "Blind",
-            slug: "BLIND-STATUS",
-            text: [
-              {
-                text: "You cannot see. All attacks have misfortune and attacks against you gain fortune's favor.",
-              },
-            ],
-          },
-          {
             title: "Deaf",
             slug: "DEAF-STATUS",
             text: [
@@ -1057,18 +1062,27 @@ const generalRules: GenericRule[] = [
             ],
           },
           {
+            title: "Dying",
+            slug: "DYING-STATUS",
+            text: [
+              {
+                text: "0 Health. See the [Dead & Dying rules](/rules/player_rules#EDL) for more information.",
+              },
+            ],
+          },
+          {
+            title: "Engaged",
+            slug: "ENGAGED-STATUS",
+            text: [
+              {
+                text: "You were attacked by an enemy. Reduce your Base Speed by half.",
+              },
+            ],
+          },
+          {
             title: "Entangled",
             slug: "ENTANGLED-STATUS",
             text: [{ text: "Your speed is reduced to 0." }],
-          },
-          {
-            title: "Pinned",
-            slug: "PINNED-STATUS",
-            text: [
-              {
-                text: "Your speed is reduced to 0, you have Misfortune on all attacks and spellcasting Tests.",
-              },
-            ],
           },
           {
             title: "Exhausted",
@@ -1085,6 +1099,24 @@ const generalRules: GenericRule[] = [
             text: [
               {
                 text: "You cannot be seen and gain a +5 to attack Tests while hidden. Attacking, casting magic, or performing another noticeable act while hidden immediately triggers a Heart test  to spot you from any nearby creatures.",
+              },
+            ],
+          },
+          {
+            title: "Incapacitated",
+            slug: "INCAPACITATED-STATUS",
+            text: [
+              {
+                text: "You cannot take actions or move and are unaware of your surroundings.",
+              },
+            ],
+          },
+          {
+            title: "Pinned",
+            slug: "PINNED-STATUS",
+            text: [
+              {
+                text: "Your speed is reduced to 0, you have Misfortune on all attacks and spellcasting Tests.",
               },
             ],
           },
