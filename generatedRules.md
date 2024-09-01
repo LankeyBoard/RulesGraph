@@ -5,17 +5,10 @@ slug: BUILDING-A-PC
 ruleType: RULE\
 Your GM should tell you the level you are starting at. If you are starting higher than first level, follow the rules for leveling up after building your character at first level.\
 Pick a Lineage, Culture and Class.\
-Assign stats - You have a set of 3,2,0,-2. Use each number once, placing them in your 4 stats.\
+Assign stats - You have a set of 3,2,0,-2. Use each number once, placing them in your 4 stats. Then add your stat bonuses from your Lineage and your Culture. These cannot both go to the same Stat.\
 Higher numbers are better. Your class will have at least 1 primary stat. It's a good idea to have that be your highest number.\
-Pick a (Novice Feature)[rules/generic_features/novice_features].\
+Pick a [Novice Feature](rules/generic_features/novice_features).\
 (Optional) Write a backstory for your character.
-
-## Starting Equipment
-
-slug: STARTING-EQUIPMENT
-
-ruleType: RULE\
-Your GM will tell you when you level up. Parties should generally be kept at the same level and should level up at the same time when Recuperating. When you level up, your Health & Stamina increase and you gain new features based on your Class.
 
 ## Leveling Up
 
@@ -29,7 +22,7 @@ Your GM will tell you when you level up. Parties should generally be kept at the
 slug: WHAT-MAKES-UP-A-CHARACTER
 
 ruleType: RULE\
-Level, lineage, culture, class, stats, ties and backstory
+Level, Lineage, Culture, Class, and Stats
 
 ## Level
 
@@ -43,14 +36,21 @@ As your character grows more powerful and experienced you gain levels, unlocking
 slug: LINEAGE-RULE-DESC
 
 ruleType: RULE\
-Your character's physiology. Visit the lineage section for a list of options.
+Your character's physiology. Visit the [lineage section](/rules/lineages) for a list of options.
 
 ## Culture
 
 slug: CULTURE-RULE-DESC
 
 ruleType: RULE\
-Where your character grew up. Visit the culture section for a list of options
+Where your character grew up. Visit the [culture section](/rules/cultures) for a list of options.
+
+## Class
+
+slug: CLASS-RULES-DESC
+
+ruleType: RULE\
+What your character does. This is their main skill set and how they contribute as adventurers. Visit the [classes section](/rules/classes) for a list of options.
 
 ## Stats
 
@@ -63,14 +63,14 @@ ruleType: LISTCOMPACT\
 slug: METTLE
 
 ruleType: RULE\
-The physical force a character can generate as well as their heartiness.
+Physical strength and toughness.
 
 ### Agility
 
 slug: AGILITY
 
 ruleType: RULE\
-the physical accuracy and control of a character.
+Physical accuracy, body control and balance..
 
 ### Intellect
 
@@ -97,30 +97,38 @@ ruleType: RULE\
 slug: STAMINA
 
 ruleType: RULE\
-Each character has a pool of stamina. The exact amount is determined by their class or stat block if they are an NPC. Your stamina can be used for class abilities as well as to enhance certain generic tests such as jumping and marching. You can also opt to have damage cost stamina instead of health.
+Stamina is the characters wellspring of energy. It is relatively quick to go down, and easy to get back. The exact amount of Stamina a character has is determined by their Class and stat block. Stamina can be used for Class abilities and to avoid taking damage. See [Exhausted, Dying, Last Stand & Healing](/rules/player_rules#EDL) for what happens at 0 Stamina.
 
 ## Health
 
 slug: HEALTH
 
 ruleType: RULE\
-Health represents the life force of your character. See Exhausted, Dying, Last Stand & Healing for what happens at 0 Health
+Health represents the life force of your character. It is slow to get back and in limited supply. See [Exhausted, Dying, Last Stand & Healing](/rules/player_rules#EDL) for what happens at 0 Health.
 
 ## Resting
 
 slug: REST
 
 ruleType: RULE\
-If you spend stamina while resting, it immediately ends the rest and you gain no benefits from the rest
+If you spend Stamina or engage in strenuous activities while resting, the rest ends immediately and you gain no benefits from it.
 
 ### Catch Your Breath
 
 slug: CATCH-YOUR-BREATH
 
 ruleType: RULE\
-When you have a moment, you can catch your breath, tending to your wounds, wiping down your weapons, and centering yourself. To Catch Your Breath, spend 10 minutes resting and performing light activities without interruption.\
-At the end of the rest, you regain all missing stamina.\
+When you have a moment, you can Catch Your Breath, tending to your wounds, wiping down your weapons, and centering yourself. To Catch Your Breath, spend 10 minutes resting and performing light activities.
+At the end of the rest, you regain all missing Stamina.
 If you are at 0 Health, you gain 1 Health. Some classes may also have features that refresh when you Catch Your Breath.
+
+### A Night's Rest
+
+slug: NIGHTS-REST
+
+ruleType: RULE\
+A good Night's Rest is still important to an adventurer. To complete a night's rest, spend a minimum of 6 hours sleeping. This gives surface level wounds a chance to heal and prepare yourself for the next day. When you finish a Night's Rest, return your Stamina to full. If you are above half Health, return to full Health. If you are at or below half Health, return to half Health.
+If you are awake for more than 24 hours in a row, Test your Mettle each hour. The difficulty of this test increases by 1 for each hour beyond 24 hours. Pass (15+): You suffer no ill effects. Mixed (10-14): Reduce your current and maximum stamina by 3. Fail (9-): Reduce your current and maximum stamina by 10. If you are reduced to 0 stamina in this way you become unconscious. You must complete a Night's Rest to remove these effects.
 
 ### Rest and Relax
 
@@ -130,20 +138,13 @@ ruleType: RULE\
 In-between adventures you have a chance to rest, relax and prepare yourself for the next call to action. To gain the benefits of Resting and Relaxing (R&R) you must spend 5 nights in a safe and relatively comfortable shelter while only engaging in light activity. Eg. At home or in an inn. Or spend 14 days & nights in less than ideal conditions with no more than light activity. Eg. Sleeping in a tent in the woods.\
 After successful Rest and Relaxation, regain all lost Health and Stamina. You also lose any conditions that do not specifically last through a R&R
 
-### A Night's Sleep
-
-slug: NIGHTS-SLEEP
-
-ruleType: RULE\
-A good night's rest is still important to an adventurer. If you sleep for less than 6 hours in a 24 hour period, Test your Mettle each hour. The difficulty of this test increases by 1 for each hour beyond 24 hours. Pass (15+): You suffer no ill effects. Mixed (10-14): Reduce your current and maximum stamina by 3. Fail (9-): Reduce your current and maximum stamina by 10. If you are reduced to 0 stamina in this way you become unconscious. Once you sleep for at least 6 hours you lose any negative effects from a lack of rest and reset the difficulty of the test.
-
 # Tests
 
 slug: TESTS
 
 ruleType: RULE\
-Tests are how you determine the outcome of uncertain events, can you smash open a door (Mettle), talk a guard into looking the other way (Heart), dodging a tomato hurled at your head (Agility).\
-First the success and failure points of the test is set by the GM (Game Master) and the general outcome of success and failure are announced if it is reasonable for the player characters to know. Then players can decide if they want to attempt the test. The player then rolls 1d20 and adds their stat bonus to the result. If the result is at least equal to the success point, they pass the test and have a beneficial outcome. If the result is greater than or equal to the failure point but worse than the success, then the result is mixed. The GM can offer success with a cost or mixed success. If the results are less than the failure pint, the result is a failure. In general the failure point is five less than the success point.
+Tests are how you determine the outcome of uncertain events, can you smash open a door (Mettle), talk a guard into looking the other way (Heart), dodging a tomato hurled at your head (Agility).
+First the success and failure points of the test are set by the GM (Game Master) and the general outcome of success and failure are announced if it is reasonable for the player characters to know. Then players can decide if they want to attempt the test. The player then rolls 1d20 and adds their stat bonus to the result. If the result is at least equal to the success point, they pass the test and have a beneficial outcome. If the result is greater than or equal to the failure point but worse than the success, then the result is mixed. The GM can offer success with a cost or mixed success. If the results are less than the failure point, the result is a failure. In general the failure point is five less than the success point.
 
 ## Success
 
@@ -155,7 +156,7 @@ Eg: You are talking to the innkeeper negotiating for a room. The GM calls for a 
 
 ## Success With a Cost
 
-slug: SUSSESS-WITH-COST
+slug: SUCCESS-WITH-COST
 
 ruleType: RULE\
 Success with a cost is when the GM offers a consequence and the player chooses if they want to accept the consequences or fail the test.\
@@ -167,7 +168,7 @@ slug: MIXED-SUCCESS
 
 ruleType: RULE\
 A mixed success is when you are partially successful in your endeavor. You achieve some of the outcome you want, but there are some complications or downsides.\
-Eg: You are trying to trick a guard into letting you go after being caught breaking curfew. You told him you forgot your pass at home and get a mixed success on the Heart test your GM called for. The guard believes you but insists on escorting you home to show him the pass.
+Eg: You are trying to trick a guard into letting you go after being caught breaking curfew. You told him you forgot your pass at home and got a mixed success on the Heart test your GM called for. The guard believes you but insists on escorting you home to show him the pass.
 
 ## Failure
 
@@ -187,11 +188,19 @@ Eg: You joined an arm wrestling competition. Your first competition you are agai
 
 ## Group Tests
 
-slug: GROUPT-TESTS
+slug: GROUP-TESTS
 
 ruleType: RULE\
-Sometimes a group of characters are performing an action where the success depends on the groups overall performance, not one individuals. One common case is sneaking around a dungeon. When taking a group Test, each character rolls against the test, count the number of Success, Mixed, and Failures. The average of the result is the groups result. An easy way to find the average is to subtract the larger of successes or failures from the other. If that new number is higher than the Mixed, that's the result, otherwise the result is Mixed.\
+Sometimes a group of characters are performing an action where the success depends on the group's overall performance, not one individual. One common case is sneaking around a dungeon. When taking a group Test, each character rolls against the test, counting the number of Success, Mixed, and Failures. The average of the result is the group's result. An easy way to find the average is to subtract the larger of successes or failures from the other. If that new number is higher than the Mixed, that's the result, otherwise the result is Mixed.\
 Eg: The GM calls for a Group Test for a group of 5, Pass is 13 and Fail is 8. If the group rolls 2 Passes, 2 Mixed and 1 Fail, then we subtract the 1 Fail from 2 Passes, leaving us with 1 Pass and 2 Mixed, so the result is Mixed. If instead there were 3 Passes and 1 Mixed, the result would have been a Pass.
+
+## Helping on a Test
+
+slug: HELP
+
+ruleType: RULE\
+If a character is taking a Test and others are providing aid, if the character is not already rolling with Fortune's Favor, they can roll with Fortune's Favor. Otherwise add a +3 to the result of the test. No matter how many people are helping, you can only gain each bonus once.\
+Eg: Bill the Brawler is trying to open a big heavy stone door. His party is helping him by giving him a crowbar and helping to pull on the door. If Bill is not already using Fortune's Favor on this roll, he gets Fortune's Favor and adds +3 to the roll because there are two different ways the party is helping him.
 
 ## 1s and 20s
 
@@ -226,14 +235,14 @@ With Fortune's Favor, if you take a Test, you can spend your Fortune's Favor to 
 slug: MISFORTUNE
 
 ruleType: RULE\
-Circumstances may cause misfortune as well. When the GM calls for a roll with Misfortune, you roll a second d20 and take the lower of the two rolls. If you have Fortunes Favor, before you roll you can chose to give it up to cancel out the Misfortune and roll the test normally.
+Circumstances may cause misfortune as well. When the GM calls for a roll with Misfortune, you roll a second d20 and take the lower of the two rolls. If you have Fortune's Favor, before you roll you can chose to give it up to cancel out the Misfortune and roll the test normally.
 
 # Combat
 
 slug: COMBAT
 
 ruleType: RULE\
-Each round of combat is split into 3 parts, 1st, Environmental effects, 2nd Players turn, 3rd Enemies turn. During the players turn, each player makes one action and can move up to their movement speed. During the enemies turn enemies with actions can take one action and move. Enemies with only counters can only move unless they have not been attacked, in which case they can use a counter as an action.
+Each round of combat is split into 3 parts, 1st, Environmental effects, 2nd Players turn, 3rd Enemies turn. During the player's turn, each player makes one action and can move up to their movement speed. During the enemies turn enemies with actions can take one action and move. Enemies with only counters can only move unless they have not been attacked, in which case they can use a counter as an action.
 
 ## Exchanges
 
@@ -247,7 +256,7 @@ When a character attacks or casts an offensive spell at another creature or crea
 slug: AOE-EXCHANGES
 
 ruleType: RULE\
-When your action targets multiple enemies, roll a single attack test, and compare to each enemies defenses. If any target clashes or counters, the GM chooses which creature will take advantage of the opening. If two or more enemies clash or counter, the creature makes the attack with Fortune's Favor. Only a single enemy can clash or counter a single exchange.
+When your action targets multiple enemies, roll a single attack test, and compare to each enemy's defenses. If any target clashes or counters, the GM chooses which creature will take advantage of the opening. If two or more enemies clash or counter, the creature makes the attack with Fortune's Favor. Only a single enemy can clash or counter a single exchange.
 
 ## Key Comat Information
 
@@ -272,7 +281,7 @@ How far away you can attack. Melee class weapons cannot be used outside of melee
 
 slug: BASIC-SPEED
 
-Your Speed deterimines how far you can move and comes from your lineage.
+Your Speed determines how far you can move and comes from your lineage.
 
 ### Armor
 
@@ -299,11 +308,11 @@ slug: BASIC-ATTACK
 
 Attack with one of your proficient weapons or magic. You deal your base damage.
 
-### Sprint
+### Careful Attack
 
-slug: SPRINT
+slug: CAREFUL-ATTACK
 
-Double your Speed this turn.
+Attack with one of your proficient weapons or magic. You deal your base damage.
 
 ### Defend
 
@@ -323,6 +332,12 @@ slug: SLIP-AWAY
 
 Your movement does not trigger counter moves this round.
 
+### Sprint
+
+slug: SPRINT
+
+Double your Speed this turn.
+
 ## Basic Counters
 
 slug: BASIC-COUNTERS
@@ -340,7 +355,7 @@ Attack the target with your currently equipped weapon or magic. The attack deals
 
 slug: DIVE-ROLL
 
-Move up to half your Speed without triggering Counters.
+Move up to 10 ft.
 
 ## Moving in Combat
 
@@ -355,7 +370,7 @@ Eg: You move 10 ft. Make an Attack and then move another 20 ft. If you move away
 slug: TAKING-DMG
 
 ruleType: RULE\
-When you take damage, you can lose your Health or your Stamina. At least 1 damage must be directed to Health, the rest can be directed to Health or Stamina. You cannot go below 0 Health or Stamina.
+When you take damage, you can spend a mix of Health and Stamina. At least 1 damage must come out of your Health, the rest can be directed to Health or Stamina. You cannot spend more Health or Stamina than you have. See the [rules on dying](/rules/player_rules#EDL) for what happens when you go to 0 Health and/or 0 Stamina.
 
 # Weapons, Shields, Armor & Equipment
 
@@ -369,7 +384,7 @@ slug: WEAPONS
 
 ruleType: RULE\
 Characters can be proficient in different groups of weapons. It is up to your GMs discretion what category a weapon falls into, or if it is a unique weapon that requires its own training.\
-If a weapon requires two hands to wield or you are wielding a weapon in each hand, increase your base damage while wielding the weapon by one dice step.\
+Some effects cause your damage dice to go up or down by one or more steps. Follow the pattern below to determine the new damage dice.\
 1d4 - 1d6 - 1d8 - 1d10 - 1d12 - 2d6 - 2d8 - etc.
 
 ### Melee
@@ -393,7 +408,7 @@ ruleType: LIST\
 - Bows
 - Crossbows
 - Light Throwing weapons (Dart, Throwing Dagger)
-- Heavy Throwing weapons (Shotput, Heavy Spear)
+- Heavy Throwing weapons (Shot Put, Heavy Spear)
 
 ### Special Weapons
 
@@ -409,8 +424,8 @@ ruleType: LIST\
 slug: SHIELDS
 
 ruleType: LIST\
-Shields come in three sizes, light (bucklers and dueling shields), medium (kite shields), and heavy (tower shields).\
-Shields not only increase your armor, can also reduce your damage taken when you clash. They cannot reduce the damage taken below 1.
+Shields come in three sizes, light (bucklers and dueling shields), medium (kite shields), and heavy (tower shields) and require a free hand to wield effectively.\
+Shields not only increase your armor, but can also reduce your damage taken when you clash. They cannot reduce the damage taken below 1.
 
 ### Light Shields
 
@@ -435,7 +450,7 @@ Require at least 3 mettle: +2 to Armor reduce clash damage taken by Mettle.
 slug: ARMOR
 
 ruleType: LISTCOMPACT\
-You can wear armor from any class you are trained in that you are trained in. Armors have different requirements based on how hard they are to move in and how much protection they provide. Each armor indicates how to calculate your armor while waring it.
+You can wear armor from any class you are trained in that you are trained in. Armors have different requirements based on how hard they are to move in and how much protection they provide. Each armor indicates how to calculate your armor while wearing it.
 
 ### No Armor
 
@@ -466,7 +481,7 @@ slug: HEAVY ARMOR
 slug: EQUIPMENT
 
 ruleType: RULE\
-While traveling, it's assumed your pack has all the items you need to get through a normal day. This might include a bed roll, some rope, etc. For specific adventuring gear, if you haven't already established that you have the item, you can make a luck test. The pass/fail are determined by the GMs judgment of the likelihood of you having the item. A mixed result might mean an item that is similar enough to be used in this instance, like a bed sheet instead of rope, or inferior to what you want, a small hatchet instead of a wood splitting axe.
+While traveling, it's assumed your pack has all the items you need to get through a normal day. This might include a bed roll, some rope, etc. For specific adventuring gear, if you haven't already established that you have the item, you can make a luck test. The pass/fail are determined by the GMs judgment of the likelihood of you having the item. A mixed result might mean an item that is similar enough to be used in this instance, like a bed sheet instead of rope, or inferior to what you want, a small hatchet instead of a wood splitting ax.
 
 ### General Difficulty Guidelines
 
@@ -530,7 +545,7 @@ If an ally is at 0 health, you can use an action to attempt to heal them. Make a
 slug: HEALING-WHEN-CATCHING-YOUR-BREATH
 
 ruleType: RULE\
-When you Catch Your Breath, you patch up and tend to any non life threatening injuries.\
+When you Catch Your Breath, you patch up and tend to any non life threatening injuries.
 If you Catch Your Breath and are at 0 Health, you regain 1 Health.
 
 # Movement
@@ -544,7 +559,7 @@ ruleType: RULE\
 slug: OVERLAND-TRAVEL
 
 ruleType: RULE\
-A full days march assumes 8 hours of marching.
+A full day's march assumes 8 hours of marching.
 
 ### Comfortable Marching Pace
 
@@ -572,7 +587,7 @@ Difficult terrain takes extra energy to traverse. For each hour navigating treac
 slug: JUMP
 
 ruleType: LIST\
-When jumping use these formulas to calculate the minimum distances you can go. If you are trying to jump further, test your mettle. The difficulty is equal to 10+1 per foot beyond your standard jump range. If you roll below a success, you can spend stamina to increase your roll up to the point of a success if you have the stamina to spend.
+When jumping, use these formulas to calculate the minimum distances you can go. If you are trying to jump further, test your mettle. The difficulty is equal to 10+1 per foot beyond your standard jump range. If you roll below a success, you can spend stamina to increase your roll up to the point of a success if you have the stamina to spend.
 
 ### Running Leap
 
@@ -607,7 +622,7 @@ When you fall from a height greater than 10 ft. Make an Agility test. Pass - 12,
 slug: LIFT-DRAG-PACK
 
 ruleType: RULE\
-Your Lift, Drag & Pack (how much you can carry in your backpack and on your person) are all effected by your size. For each size below Medium, amounts are halved, and for each size above Medium they are doubled.\
+Your Lift, Drag & Pack (how much you can carry in your backpack and on your person) are all affected by your size. For each size below Medium, amounts are halved, and for each size above Medium they are doubled.\
 Using both hands, you can lift up to 50+10x your Mettle pounds.\
 You can drag up to 4x your lifting capacity.\
 You can pack up to 30+5x your Mettle pounds.
@@ -633,7 +648,7 @@ While traveling, it's assumed your pack has all the items you need to get throug
 slug: NOTABLE-ITEMS
 
 ruleType: RULE\
-A notable item is an item that is valuable and worth keeping track of. Some items will be obviously notable, like The Great Sword of the Duck Lord, but some items will depend on your GM. If you are playing a very resource limited, survival focused game, maybe your arrows are notable items, but if you're playing a heroic fantasy story, then maybe they aren't. This should be coved by your GM as part of the Intro session.
+A notable item is an item that is valuable and worth keeping track of. Some items will be obviously notable, like The Great Sword of the Duck Lord, but some items will depend on your GM. If you are playing a very resource limited, survival focused game, maybe your arrows are notable items, but if you're playing a heroic fantasy story, then maybe they aren't. This should be covered by your GM as part of the Intro session.
 
 # Starting Equipment
 
@@ -670,7 +685,7 @@ The universal language known by most civilized peoples, it is a harmonious blend
 
 slug: ELVISH
 
-The common language of elves, spoken with a grace and intertwined lyrical tones.
+The common language of elves, spoken with grace and intertwined lyrical tones.
 
 ### Dwarvish
 
@@ -688,7 +703,7 @@ The language of faeries and other fae folk. Thistletongue is ethereal, filled wi
 
 slug: STARREND
 
-The language of celestials as well as some air elementals and other sky dwellers. Starrend is a celestial tongue, each word carrying the weight of cosmic forces, and is characterized by crystalline tones and etherial echoes.
+The language of celestials as well as some air elementals and other sky dwellers. Starrend is a celestial tongue, each word carrying the weight of cosmic forces, and is characterized by crystalline tones and ethereal echoes.
 
 ### Deeproot
 
@@ -700,7 +715,7 @@ The language of Ents and Stone Colossi. It's a deep and slow language for deep a
 
 slug: SEAWHISPER
 
-A fluid and melodic language spoken by merfolk and other denizens of the ocean. Seawhisper uses clicks and sharp bursts of noise and can only properly be spoken under water.
+A fluid and melodic language spoken by merfolk and other denizens of the ocean. Seawhisper uses clicks and sharp bursts of noise and can only properly be spoken underwater.
 
 ### Voidhowl
 
@@ -721,17 +736,11 @@ slug: STATUSES
 
 ruleType: LISTCOMPACT\
 
-### Incapacitated
+### Blind
 
-slug: INCAPACITATED-STATUS
+slug: BLIND-STATUS
 
-You cannot take actions or move and are unaware of your surroundings.
-
-### Dying
-
-slug: DYING-STATUS
-
-0 Health. See the [Dead & Dying rules](/rules/player_rules#EDL) for more information.
+You cannot see. All attacks have misfortune and attacks against you gain fortune's favor.
 
 ### Dead
 
@@ -739,29 +748,29 @@ slug: DEAD-STATUS
 
 0 Health and 0 Stamina. See the [Dead & Dying rules](/rules/player_rules#EDL) for more information.
 
-### Blind
-
-slug: BLIND-STATUS
-
-You cannot see. All attacks have misfortune and attacks against you gain fortune's favor.
-
 ### Deaf
 
 slug: DEAF-STATUS
 
 You cannot hear. You have Misfortune on all tests to stealth or notice something sneaking up on you.
 
+### Dying
+
+slug: DYING-STATUS
+
+0 Health. See the [Dead & Dying rules](/rules/player_rules#EDL) for more information.
+
+### Engaged
+
+slug: ENGAGED-STATUS
+
+You were attacked by an enemy. Reduce your Base Speed by half.
+
 ### Entangled
 
 slug: ENTANGLED-STATUS
 
 Your speed is reduced to 0.
-
-### Pinned
-
-slug: PINNED-STATUS
-
-Your speed is reduced to 0, you have Misfortune on all attacks and spellcasting Tests.
 
 ### Exhausted
 
@@ -775,11 +784,23 @@ slug: HIDDEN-STATUS
 
 You cannot be seen and gain a +5 to attack Tests while hidden. Attacking, casting magic, or performing another noticeable act while hidden immediately triggers a Heart test to spot you from any nearby creatures.
 
+### Incapacitated
+
+slug: INCAPACITATED-STATUS
+
+You cannot take actions or move and are unaware of your surroundings.
+
+### Pinned
+
+slug: PINNED-STATUS
+
+Your speed is reduced to 0, you have Misfortune on all attacks and spellcasting Tests.
+
 ### Prone
 
 slug: PRONE-STATUS
 
-Your speed is reduced by 20ft to a minimum of 5ft. Ranged attacks against you have Misfortune while melee attacks have Fortune's Favor.
+Your speed is reduced by 20 ft. to a minimum of 5 ft. Ranged attacks against you have Misfortune while melee attacks have Fortune's Favor.
 
 ### Slowed
 

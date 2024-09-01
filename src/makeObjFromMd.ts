@@ -197,7 +197,7 @@ const rulesStringToObj = (fileContents: string): GenericRule[] | undefined => {
 };
 
 function main() {
-  const fileContentsStr = readFile("generalRules.md");
+  const fileContentsStr = readFile("generatedRules.md");
   const rules = rulesStringToObj(fileContentsStr);
   if (rules) writeToFile(rules, "generatedRules.ts");
 }
