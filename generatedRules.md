@@ -127,7 +127,7 @@ If you are at 0 Health, you gain 1 Health. Some classes may also have features t
 slug: NIGHTS-REST
 
 ruleType: RULE\
-A good Night's Rest is still important to an adventurer. To complete a night's rest, spend a minimum of 6 hours sleeping. This gives surface level wounds a chance to heal and prepare yourself for the next day. When you finish a Night's Rest, return your Stamina to full. If you are above half Health, return to full Health. If you are at or below half Health, return to half Health.
+A good Night's Rest is still important to an adventurer. To complete a night's rest, spend a minimum of 6 hours sleeping. This gives surface level wounds a chance to heal and prepare yourself for the next day. When you finish a Night's Rest, return your Stamina to full, and gain Fortune's Favor. If you are above half Health, return to full Health. If you are at or below half Health, return to half Health.
 If you are awake for more than 24 hours in a row, Test your Mettle each hour. The difficulty of this test increases by 1 for each hour beyond 24 hours. Pass (15+): You suffer no ill effects. Mixed (10-14): Reduce your current and maximum stamina by 3. Fail (9-): Reduce your current and maximum stamina by 10. If you are reduced to 0 stamina in this way you become unconscious. You must complete a Night's Rest to remove these effects.
 
 ### Rest and Relax
@@ -144,22 +144,22 @@ slug: TESTS
 
 ruleType: RULE\
 Tests are how you determine the outcome of uncertain events, can you smash open a door (Mettle), talk a guard into looking the other way (Heart), dodging a tomato hurled at your head (Agility).
-First the success and failure points of the test are set by the GM (Game Master) and the general outcome of success and failure are announced if it is reasonable for the player characters to know. Then players can decide if they want to attempt the test. The player then rolls 1d20 and adds their stat bonus to the result. If the result is at least equal to the success point, they pass the test and have a beneficial outcome. If the result is greater than or equal to the failure point but worse than the success, then the result is mixed. The GM can offer success with a cost or mixed success. If the results are less than the failure point, the result is a failure. In general the failure point is five less than the success point.
+First the Success and Failure points of the test are set by the GM (Game Master) and the general outcome of success and failure are announced if it is reasonable for the player characters to know them. The player then rolls 1d20 and adds any relevant bonuses to the result. If the result is at least equal to the Success point, they pass the test and have a beneficial outcome. If the result is greater than or equal to the Failure point but worse than the Success, then the result is Mixed. The GM can offer Success with a Cost or Mixed Success on a Mixed result. If the results are less than the Failure point, the result is a failure. In general the Failure point is five less than the Success point.
 
 ## Success
 
 slug: SUCCESS
 
 ruleType: RULE\
-Success on a test doesn't always mean getting exactly what you want, but it does mean a favorable outcome for you. You roll at least the difficulty for the test.\
-Eg: You are talking to the innkeeper negotiating for a room. The GM calls for a heart test and tells you success needs a 15, and you'll get a good discount. Failure is a 5 and you get no discount and an undesirable room. You roll a 13 and add +2 for your heart to get a total of 15, which means you succeed. You manage to negotiate a 20% discount!
+Success on a test doesn't always mean getting exactly what you want, but it does mean a favorable outcome for you. To achieve Success, you have to roll at least the Success point for the Test.\
+Eg: You are talking to the innkeeper negotiating for a room. The GM calls for a Heart Test and tells you that you'll succeed on a 15, earning your party a good discount. Failure is a 5 and you get no discount and an undesirable room. You roll a 13 and add +2 for your Heart to get a total of 15, which means you succeed. You manage to negotiate a 20% discount!
 
 ## Success With a Cost
 
 slug: SUCCESS-WITH-COST
 
 ruleType: RULE\
-Success with a cost is when the GM offers a consequence and the player chooses if they want to accept the consequences or fail the test.\
+Success with a Cost is one possible Mixed Result where the GM offers a consequence and the player chooses if they want to accept the consequences or fail the test.\
 Eg: You try and scale a difficult cliff, you roll a mixed result. The GM may offer that you try and fall the first time, taking 1d6 damage but make it up on the second try or you fail and realize it would be too risky to climb and can't make it up.
 
 ## Mixed Success
@@ -167,23 +167,24 @@ Eg: You try and scale a difficult cliff, you roll a mixed result. The GM may off
 slug: MIXED-SUCCESS
 
 ruleType: RULE\
-A mixed success is when you are partially successful in your endeavor. You achieve some of the outcome you want, but there are some complications or downsides.\
-Eg: You are trying to trick a guard into letting you go after being caught breaking curfew. You told him you forgot your pass at home and got a mixed success on the Heart test your GM called for. The guard believes you but insists on escorting you home to show him the pass.
+A Mixed Ssuccess is another possible Mixed Result when you are partially successful in your endeavor. You achieve some of the outcome you want, but there are some complications or downsides.\
+Eg: You are trying to trick a guard into letting you go after being caught breaking curfew. You told him you forgot your pass at home and got a Mixed Success on the Heart Test your GM called for. The guard believes you but insists on escorting you home to show him the pass.
 
 ## Failure
 
 slug: FAILURE
 
 ruleType: RULE\
-A failure occurs when you cannot achieve your desired outcome. This may mean the situation was harder than you initially believed or because you couldn't do it as well as you hoped or any other reason you and the GM think is reasonable. Sometimes the consequences of failure are direct, such as taking damage, other times they can simply be a complication for the story, this is determined by the GM.\
-Eg: You are scaling a castle wall, trying to get in without alerting the goblins keeping watch from the nearby tower. Your GM calls for an agility test, where success is a 15 and means you get up without being noticed and a failure is a 10 and means you get spotted. You roll your agility test, you get a 5 on the dice and add 2 from your agility, giving you a total of 7. The goblins spot you half way up, they begin to shout something you can't understand and begin to run towards the wall you are climbing!
+A Failure occurs when you cannot achieve your desired outcome. This may mean the situation was harder than you initially believed or because you couldn't do it as well as you hoped or any other reason you and the GM think is reasonable. Sometimes the consequences of failure are direct, such as taking damage, other times they can simply be a complication for the story, this is determined by the GM.\
+When you roll a Failure, you gain [Fortune's Favor](/rules/player_rules#FORTUNES-FAVOR)\
+Eg: You are scaling a castle wall, trying to get in without alerting the goblins keeping watch from the nearby tower. Your GM calls for an Agility Test, where Success is a 15 and means you get up without being noticed and a Failure is a 10 and means you get spotted. You roll your Agility Test, you get a 5 on the dice and add 2 from your Agility, giving you a total of 7. The goblins spot you half way up, they begin to shout something you can't understand and begin to run towards the wall you are climbing!
 
 ## Contests
 
 slug: CONTESTS
 
 ruleType: RULE\
-When two or more characters are directly challenging each other the GM might call for a contested roll. A Contest is like any other test except the difficulty is set by comparing the competing dice. If one side is more than 5 higher than the other, then that side passes the test and the other side fails. If both sides are within 5, then the result is a Mixed Success.\
+When two or more characters are directly challenging each other the GM might call for a contested roll. A Contest is like any other test except the difficulty is set by comparing the competing dice. If one side is more than 5 higher than the other, then that side Succeeds on the Test and the other side Fails. If both sides are within 5, then the result is Mixed.\
 Eg: You joined an arm wrestling competition. Your first competition you are against a stout dwarven woman. The GM calls for a Test of Mettle. You roll a 13 and add your Mettle of 3 or a total of 16. The GM rolls a 10 and adds the woman's Mettle of 2, giving them a result of 12. This makes it a Mixed Success so the GM narrates how you go back and forth, finally winning the best 2-3 rounds on the 3rd round.
 
 ## Group Tests
@@ -191,7 +192,7 @@ Eg: You joined an arm wrestling competition. Your first competition you are agai
 slug: GROUP-TESTS
 
 ruleType: RULE\
-Sometimes a group of characters are performing an action where the success depends on the group's overall performance, not one individual. One common case is sneaking around a dungeon. When taking a group Test, each character rolls against the test, counting the number of Success, Mixed, and Failures. The average of the result is the group's result. An easy way to find the average is to subtract the larger of successes or failures from the other. If that new number is higher than the Mixed, that's the result, otherwise the result is Mixed.\
+Sometimes a group of characters are performing an action where the success depends on the group's overall performance, not one individual. One common case is sneaking around a dungeon. When taking a Group Test, each character rolls against the Test, counting the number of Success, Mixed, and Failures. The average of the result is the group's result. An easy way to find the average is to subtract the larger of successes or failures from the other. If that new number is higher than the Mixed, that's the result, otherwise the result is Mixed.\
 Eg: The GM calls for a Group Test for a group of 5, Pass is 13 and Fail is 8. If the group rolls 2 Passes, 2 Mixed and 1 Fail, then we subtract the 1 Fail from 2 Passes, leaving us with 1 Pass and 2 Mixed, so the result is Mixed. If instead there were 3 Passes and 1 Mixed, the result would have been a Pass.
 
 ## Helping on a Test
@@ -220,15 +221,15 @@ Rolling a 1 is the worst a character could do. Tests always fail.
 slug: 20s
 
 ruleType: RULE\
-Rolling a 20 is the best a character could do. Tests always pass and when you roll a critical success on an attack, you deal double damage on the attack.
+Rolling a 20 is the best a character could do. Tests always pass and when you roll a Critical Success on an attack, you deal double damage on the attack.
 
 ## Fortune's Favor
 
 slug: FORTUNES-FAVOR
 
 ruleType: RULE\
-When you fail a test, you gain Fortune's Favor.\
-With Fortune's Favor, if you take a Test, you can spend your Fortune's Favor to roll a second d20. You can use the results of either dice.
+When you Fail a Test, you gain Fortune's Favor.\
+With Fortune's Favor, when you take a Test, before you roll any dice, you can spend your Fortune's Favor to roll a second d20. You can use the results of either dice.
 
 ## Misfortune
 
