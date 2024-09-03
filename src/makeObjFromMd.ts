@@ -163,12 +163,12 @@ const ruleArrayToRule = (rulesArray: string[], level: number) => {
         : ruleArrayToRule(splitRule.slice(1), level + 1);
     // need to split out list text from text blocks
     const title = lineProcesser(baseRule[0]);
-    const slug = baseRule[1].slice(6);
+    const slug = baseRule[2].slice(6);
     const list: string[] = [];
     const unprocessedText: string[] = [];
     let ruleType: RuleType | null = null;
 
-    baseRule.slice(2).forEach((line) => {
+    baseRule.slice(3).forEach((line) => {
       if (typeof line === "string") {
         if (line.includes("ruleType")) ruleType = strToRuleType(line);
         else if (line[0] === "-") list.push(line.slice(2));
@@ -197,7 +197,7 @@ const rulesStringToObj = (fileContents: string): GenericRule[] | undefined => {
 };
 
 function main() {
-  const fileContentsStr = readFile("generalRules.md");
+  const fileContentsStr = readFile("generatedRules.md");
   const rules = rulesStringToObj(fileContentsStr);
   if (rules) writeToFile(rules, "generatedRules.ts");
 }
