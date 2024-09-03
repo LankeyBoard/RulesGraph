@@ -203,6 +203,12 @@ ruleType: RULE\
 If a character is taking a Test and others are providing aid, if the character is not already rolling with Fortune's Favor, they can roll with Fortune's Favor. Otherwise add a +3 to the result of the test. No matter how many people are helping, you can only gain each bonus once.\
 Eg: Bill the Brawler is trying to open a big heavy stone door. His party is helping him by giving him a crowbar and helping to pull on the door. If Bill is not already using Fortune's Favor on this roll, he gets Fortune's Favor and adds +3 to the roll because there are two different ways the party is helping him.
 
+## Luck Test
+
+slug: LUCK-TEST
+A Luck Test is a special kind of Test without any Stat attached and cannot be helped on. It's just a Test to see if the player is lucky.
+Eg: Smee the Shapeshifter wants to know what the smartest animals are around to communicate with. They aren't willing to track or spend time looking around for a smart animal so this wouldn't be a Test of their Heart or Intellect, instead it will be a Test of Luck.
+
 ## 1s and 20s
 
 slug: 1-20
@@ -243,21 +249,21 @@ Circumstances may cause misfortune as well. When the GM calls for a roll with Mi
 slug: COMBAT
 
 ruleType: RULE\
-Each round of combat is split into 3 parts, 1st, Environmental effects, 2nd Players turn, 3rd Enemies turn. During the player's turn, each player makes one action and can move up to their movement speed. During the enemies turn enemies with actions can take one action and move. Enemies with only counters can only move unless they have not been attacked, in which case they can use a counter as an action.
+Each round of combat is split into 3 parts, 1st, Environmental effects, 2nd, Players take their turn, 3rd, Enemies take their turn. During the player's turn, each player makes one Action and can move up to their speed. During the enemies turn enemies with actions can take one action and move. Enemies with only counters can only move unless they are not engaged, in which case they can use a counter as an action.
 
 ## Exchanges
 
 slug: EXCHANGES
 
 ruleType: RULE\
-When a character attacks or casts an offensive spell at another creature or creatures an exchange begins. To start the exchange, make an attack roll and add the relevant stats depending on your class. Compare the total attack to the creatures Defense and Counter. If you roll above their Defense then the hit is clean and there is no room for retaliation. If the roll is between their Defense and Counter then you clash. You can either choose to deal no damage or strike but leave yourself open to counter attack. Your attack is resolved first, and then the target can use one of their counter moves. If you roll below their Counter, your attack is countered and the target can use one of their counter moves.
+When a character attacks or casts an offensive spell at another creature or creatures an exchange begins. To start the exchange, Test your Attack, adding your Base Attack Bonus. The defenders Armor and Counter become the Success and Failure points of the Test. If you Succeed on the Test then the hit is clean and there is no room for retaliation. If the result is Mixed then you Clash. You can either choose to deal no damage or strike but leave yourself open to counter attack. Your Attack is resolved first, and then the target can use one of their Counter Actions. If you Fail the Test, your Attack is countered, with no effect and the target can use one of their counter moves.
 
 ### AOE Exchanges
 
 slug: AOE-EXCHANGES
 
 ruleType: RULE\
-When your action targets multiple enemies, roll a single attack test, and compare to each enemy's defenses. If any target clashes or counters, the GM chooses which creature will take advantage of the opening. If two or more enemies clash or counter, the creature makes the attack with Fortune's Favor. Only a single enemy can clash or counter a single exchange.
+When your Attack targets multiple enemies, roll a single attack test, and compare to each enemy's defenses. If the roll would be a Clash or Counter, the GM chooses which creature will get to take a Counter Action.
 
 ## Key Comat Information
 
@@ -270,19 +276,20 @@ These are the key fields for most combat Exchanges
 
 slug: BASIC-ATTACK
 
-Your Base Attack is the stat you use for Attack rolls and comes from your class.
+Your Base Attack is the stat you use for Attack rolls and comes from your Class.
 
 ### Range
 
 slug: BASIC-RANGE
 
-How far away you can attack. Melee class weapons cannot be used outside of melee range. Ranged class weapons cannot be used in melee range.
+How far away you can Attack. Your class range shows the minimum and maximum distances you can attack if you have the appropriate equipment. Melee class weapons cannot be used outside of melee range. Ranged class weapons cannot be used in melee range.
 
 ### Speed
 
 slug: BASIC-SPEED
 
-Your Speed determines how far you can move and comes from your lineage.
+Your Speed determines how far you can move and comes from your lineage. If you have more than one Speed, you can use any combination of them when you move. If you use a combination of Speeds, any movement counts against the total distance you can travel with all of them.
+Eg: You have a 30 ft. Base Speed and a 20 ft. Fly Speed. You could fly 10 ft. and then run 20 ft. or run 10 ft. and then Fly 10 ft. But you could not run 20 ft. and then fly 10 ft.
 
 ### Armor
 
@@ -307,13 +314,13 @@ These Actions are available to all players all the time.
 
 slug: BASIC-ATTACK
 
-Attack with one of your proficient weapons or magic. You deal your base damage.
+Attack with one of your proficient weapons or magic. You deal your Base Damage.
 
 ### Careful Attack
 
 slug: CAREFUL-ATTACK
 
-Attack with one of your proficient weapons or magic. You deal your base damage.
+Attack with one of your proficient weapons or magic. You deal your Base Damage.
 
 ### Defend
 
@@ -325,13 +332,7 @@ Add +2 to your Armor and Counter.
 
 slug: HIDE-ACTION
 
-When you are obscured from enemies you can try and hide. See the rules on stealth for how to handle this.
-
-### Slip Away
-
-slug: SLIP-AWAY
-
-Your movement does not trigger counter moves this round.
+When you are obscured from enemies you can try and hide. The GM determines the difficulty of the Agility Test. If you pass the test you gain the [Hidden status](/rules/player_rules#STATUSES). On a Mixed, you are harder to spot. If you try and Hide again on your next round, the difficulty of the Test is reduced by 3.
 
 ### Sprint
 
@@ -350,20 +351,20 @@ These Counters are available to all players all the time.
 
 slug: COUNTER-ATTACK
 
-Attack the target with your currently equipped weapon or magic. The attack deals half your base damage rounded down.
+Attack the target with your currently equipped weapon or magic. The Attack deals half your Base Damage rounded down.
 
 ### Dive Roll
 
 slug: DIVE-ROLL
 
-Move up to 10 ft.
+Move up to 10 ft. in a straight line.
 
 ## Moving in Combat
 
 slug: MOVING-COMBAT
 
 ruleType: RULE\
-In addition to an action, you can move during your turn in combat, moving up to your Speed in any direction. You can move at any point during your turn, and can split your move before and after your action.\
+In addition to an Action, you can move during your turn in combat, moving up to your Speed in any direction. You can move at any point during your turn, and can split your move before and after your action.\
 Eg: You move 10 ft. Make an Attack and then move another 20 ft. If you move away from an enemy, they get a chance to make a counter attack against you as you try to slip by.
 
 ## Taking Damage
@@ -384,9 +385,8 @@ ruleType: RULE\
 slug: WEAPONS
 
 ruleType: RULE\
-Characters can be proficient in different groups of weapons. It is up to your GMs discretion what category a weapon falls into, or if it is a unique weapon that requires its own training.\
-Some effects cause your damage dice to go up or down by one or more steps. Follow the pattern below to determine the new damage dice.\
-1d4 - 1d6 - 1d8 - 1d10 - 1d12 - 2d6 - 2d8 - etc.
+Characters can be proficient in different groups of weapons and magic. It is up to your GMs discretion what category a weapon falls into, or if it is a unique weapon that requires its own training.\
+Weapons can require one or two hands to wield. If you leave one hand free to wield a Shield or some other item, your Base Damage is reduced by one step.
 
 ### Melee
 
@@ -420,31 +420,45 @@ ruleType: LIST\
 - Whips: Range: 10-20ft
 - Pole Weapons: Range: Melee-10ft
 
+### Magic
+
+slug: MAGIC-TRAINING
+
+ruleType: RULE\
+How a characters magic training manifests is up to the player. The player determines what is required to cast. A wand, staff, talisman or other focus is typical, but chanting and hand movements or other ideas are also valid. Note that the one and two hand rules for weapons applies to magic attacks as well.
+
+## Damage Dice
+
+slug: DAMAGE-DICE
+
+ruleType: RULE\
+Some effects cause your Base Damage to go up or down by one or more steps. Follow the pattern below to determine the new Base Damage dice.\
+1d4 - 1d6 - 1d8 - 1d10 - 1d12 - 2d6 - 2d8 - etc.
+
 ## Shields
 
 slug: SHIELDS
 
 ruleType: LIST\
 Shields come in three sizes, light (bucklers and dueling shields), medium (kite shields), and heavy (tower shields) and require a free hand to wield effectively.\
-Shields not only increase your armor, but can also reduce your damage taken when you clash. They cannot reduce the damage taken below 1.
 
 ### Light Shields
 
 slug: LIGHT-SHIELDS
 
-Require at least 3 Agility: +1 to Armor and reduce clash damage taken by your Agility.
+Require at least 3 Agility: +1 to Armor and +2 to Counter.
 
 ### Medium Shields
 
 slug: MEDIUM-SHIELDS
 
-Require at least 1 Agility and 1 Mettle: +2 to Armor and reduce clash damage taken by 2.
+Require at least 1 Agility and 1 Mettle: +2 to Armor.
 
 ### Heavy Shields
 
 slug: HEAVY-SHIELDS
 
-Require at least 3 mettle: +2 to Armor reduce clash damage taken by Mettle.
+Require at least 3 mettle: +2 to Armor reduce Clash damage taken by Mettle.
 
 ## Armor
 
@@ -477,48 +491,33 @@ slug: HEAVY ARMOR
 
 17
 
-## Equipment
-
-slug: EQUIPMENT
-
-ruleType: RULE\
-While traveling, it's assumed your pack has all the items you need to get through a normal day. This might include a bed roll, some rope, etc. For specific adventuring gear, if you haven't already established that you have the item, you can make a luck test. The pass/fail are determined by the GMs judgment of the likelihood of you having the item. A mixed result might mean an item that is similar enough to be used in this instance, like a bed sheet instead of rope, or inferior to what you want, a small hatchet instead of a wood splitting ax.
-
-### General Difficulty Guidelines
-
-slug: DIFFICULTY-GUIDELINES
-
-Likely - Pass: 10 Fail: 5\
-Unlikely - Pass: 15 Fail: 10\
-Very Unlikely - Pass: 18 Fail: 13
-
 # Exhausted, Dying, & Last Stand
 
 slug: EDL
 
 ruleType: RULE\
-If damage would reduce you to below 0 stamina or 0 health, it reduces you to 0 instead.
+If you would be reduced to below 0 Stamina or 0 Health, you are reduced to 0 instead.
 
 ## Exhausted
 
 slug: EXHAUSTED
 
 ruleType: RULE\
-When your Stamina is reduced to 0 you are Exhausted. See statuses for more info.
+When your Stamina is reduced to 0 you are [Exhausted](/rules/player_rules#STATUSES).
 
 ## Dying
 
 slug: DYING
 
 ruleType: RULE\
-When your Health is reduced to 0, you have been mortally wounded and are Dying. Taking an Action or moving more than half your speed costs 1 stamina. An ally can use the Help Action to aid you, removing the stamina cost as long as they stay within 5ft of you.
+When your Health is reduced to 0, you have been mortally wounded and are Dying. Taking an Action or moving more than half your Speed costs 1 stamina. An ally can use the Help Action to aid you, removing the Stamina cost as long as they stay within 5ft of you.
 
 ## Last Stand
 
 slug: LAST-STAND
 
 ruleType: RULE\
-When your Health is reduced to 0 you can opt to make a Last Stand, pushing yourself to the absolute limit, knowing these will be your final moments. For the next minute, you cannot regain Health in any way. You immediately and the start of each round of combat regain all of your stamina. If you are reduced to 0 Stamina or at the end of the 1 minute, you die.
+While you have below half your maximum Health, you can opt to make a Last Stand, pushing yourself to the absolute limit, knowing these will be your final moments. For the next minute, You immediately and the start of each round of combat regain all of your Health & Stamina. If you are reduced to 0 Stamina or at the end of the 1 minute, you die.
 
 ## Death
 
@@ -539,7 +538,7 @@ Healing cannot affect dead creatures.
 slug: HEALING-DYING-ALLY
 
 ruleType: RULE\
-If an ally is at 0 health, you can use an action to attempt to heal them. Make an Intellect test, Pass: 15, Fail: 10. On a pass they regain 1 Health, on a fail they lose 1 Stamina.
+If an ally is at 0 Health, you can use an Action to attempt to heal them. Make an Intellect Test, Pass: 15, Fail: 10. On a pass they regain 1 Health, on a fail they lose 1 Stamina.
 
 ## Healing when Catching Your Breath
 
@@ -548,6 +547,13 @@ slug: HEALING-WHEN-CATCHING-YOUR-BREATH
 ruleType: RULE\
 When you Catch Your Breath, you patch up and tend to any non life threatening injuries.
 If you Catch Your Breath and are at 0 Health, you regain 1 Health.
+
+## Healing during a Night's Rest
+
+slug: HEALING-NIGHTS-REST
+
+ruleType: RULE\
+When you finish a Night's Rest, if you have more than half your Health, return to full health, otherwise return to half your Health.
 
 # Movement
 
@@ -588,35 +594,35 @@ Difficult terrain takes extra energy to traverse. For each hour navigating treac
 slug: JUMP
 
 ruleType: LIST\
-When jumping, use these formulas to calculate the minimum distances you can go. If you are trying to jump further, test your mettle. The difficulty is equal to 10+1 per foot beyond your standard jump range. If you roll below a success, you can spend stamina to increase your roll up to the point of a success if you have the stamina to spend.
+When jumping, use these formulas to calculate the minimum distances you can go. If you are trying to jump further, Test your Mettle. The difficulty is equal to 10+1 per foot beyond your standard jump range. If you roll below a Success, you can spend Stamina to increase your roll up to the point of a Success if you have the Stamina to spend.
 
 ### Running Leap
 
 slug: RUNNING-LEAP
 
 ruleType: RULE\
-If you move up to 10ft before jumping: (4 + 2\*Mettle) ft horizontally (Min 2ft)
+If you move up to 10 ft. before jumping: (4 + 2\*Mettle) ft. horizontally (Min 2 ft.)
 
 ### Standing Leap
 
 slug: STANDING-LEAP
 
 ruleType: RULE\
-(3 + Mettle) ft horizontally (Min 1ft)
+(3 + Mettle) ft. horizontally (Min 1 ft.)
 
 ### High Jump
 
 slug: HIGH-JUMP
 
 ruleType: RULE\
-(1 + Mettle) ft vertically (Min 1ft)
+(1 + Mettle) ft. vertically (Min 1 ft.)
 
 ## Falling
 
 slug: FALL
 
 ruleType: RULE\
-When you fall from a height greater than 10 ft. Make an Agility test. Pass - 12, Fail - 7. For every 5 ft. past 10 ft. the difficulty increases by 2. On a pass you take no damage. On a fail you take 1d10 per 5 ft. On a Mixed you take half damage.
+When you fall from a height greater than 10 ft. Make an Agility Test. Pass: 12, Fail: 7. For every 5 ft. past 10 ft. the difficulty increases by 2. On a Pass you take no damage. On a fail you take 1d10 bludgeoning damage per 5 ft. On a Mixed you take half damage.
 
 # Lift, Drag, & Pack
 
@@ -650,6 +656,15 @@ slug: NOTABLE-ITEMS
 
 ruleType: RULE\
 A notable item is an item that is valuable and worth keeping track of. Some items will be obviously notable, like The Great Sword of the Duck Lord, but some items will depend on your GM. If you are playing a very resource limited, survival focused game, maybe your arrows are notable items, but if you're playing a heroic fantasy story, then maybe they aren't. This should be covered by your GM as part of the Intro session.
+
+## Currency
+
+slug: CURRENCY
+
+ruleType: RULE\
+Coin: The universal currency. Different places might have different versions, but everyone trades in Coin.\
+Bits: Something that costs Bits isn't expensive enough to be worth worrying about.\
+Whether something is worth Coin or Bits comes down to the GMs discretion. Generally something that is going to help the player or they should feel the cost should cost Coin. But something that's just flavor, or part of normal everyday life should be Bits. Grabbing a bite to eat and some drinks with the party at the local inn. That costs Bits. Buying a round and plying a patron for information. That's going to cost a Coin or Two. A dress to get you into the royal ball. That's going to be more Coin.
 
 # Starting Equipment
 
@@ -729,7 +744,7 @@ Spoken by demons and other infernal beings. Voidhowl is a cacophony of malevolen
 slug: DAMAGE-TYPES
 
 ruleType: RULE\
-Bludgeoning, piercing, slashing, fire, cold, lightning, rot, radiant, & psychic
+Bludgeoning, Cold, Fire, Lightning, Piercing, Psychic, Radiant, Rot, & Slashing
 
 ## Statuses
 
@@ -741,7 +756,7 @@ ruleType: LISTCOMPACT\
 
 slug: BLIND-STATUS
 
-You cannot see. All attacks have misfortune and attacks against you gain fortune's favor.
+You cannot see. Your Attacks have Misfortune and Attacks against you gain Fortune's Favor.
 
 ### Dead
 
@@ -753,7 +768,7 @@ slug: DEAD-STATUS
 
 slug: DEAF-STATUS
 
-You cannot hear. You have Misfortune on all tests to stealth or notice something sneaking up on you.
+You cannot hear. You have Misfortune on all Tests to stealth or notice something sneaking up on you.
 
 ### Dying
 
@@ -771,7 +786,7 @@ You were attacked by an enemy. Reduce your Base Speed by half.
 
 slug: ENTANGLED-STATUS
 
-Your speed is reduced to 0.
+Your Speed is reduced to 0.
 
 ### Exhausted
 
@@ -789,25 +804,25 @@ You cannot be seen and gain a +5 to attack Tests while hidden. Attacking, castin
 
 slug: INCAPACITATED-STATUS
 
-You cannot take actions or move and are unaware of your surroundings.
+You cannot take Actions or move and are unaware of your surroundings.
 
 ### Pinned
 
 slug: PINNED-STATUS
 
-Your speed is reduced to 0, you have Misfortune on all attacks and spellcasting Tests.
+Your Speed is reduced to 0, you have Misfortune on all Actions.
 
 ### Prone
 
 slug: PRONE-STATUS
 
-Your speed is reduced by 20 ft. to a minimum of 5 ft. Ranged attacks against you have Misfortune while melee attacks have Fortune's Favor.
+Your Speed is reduced by 20 ft. to a minimum of 5 ft. Ranged Attacks against you have Misfortune while Melee Attacks have Fortune's Favor.
 
 ### Slowed
 
 slug: SLOWED-STATUS
 
-Your speed is halved.
+Your Speed is halved.
 
 ## Creature Sizes
 
@@ -815,7 +830,7 @@ slug: SIZES
 
 ruleType: LISTCOMPACT\
 
-- Miniscule(>6in)
+- Miniscule (>6in)
 - Tiny (~6in - 2ft)
 - Small (~2ft - 4ft)
 - Medium (~4ft - 7ft)
@@ -823,12 +838,3 @@ ruleType: LISTCOMPACT\
 - Gigantic (~10ft - 20ft)
 - Titanic (~20ft-50ft)
 - Colossal (<50ft)
-
-## Currency
-
-slug: CURRENCY
-
-ruleType: RULE\
-Coin: The universal currency. Different places might have different versions, but everyone trades in Coin.\
-Bits: Something that costs Bits isn't expensive enough to be worth worrying about.\
-Whether something is worth Coin or Bits comes down to the GMs discretion. Generally something that is going to help the player or they should feel the cost should cost Coin. But something that's just flavor, or part of normal everyday life should be Bits. Grabbing a bite to eat and some drinks with the party at the local inn. That costs Bits. Buying a round and plying a patron for information. That's going to cost a Coin or Two. A dress to get you into the royal ball. That's going to be more Coin.

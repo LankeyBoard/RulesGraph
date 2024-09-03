@@ -216,7 +216,7 @@ const generalRules: GenericRule[] = [
             ruleType: "RULE",
             text: [
               {
-                text: "A good Night's Rest is still important to an adventurer. To complete a night's rest, spend a minimum of 6 hours sleeping. This gives surface level wounds a chance to heal and prepare yourself for the next day. When you finish a Night's Rest, return your Stamina to full. If you are above half Health, return to full Health. If you are at or below half Health, return to half Health.",
+                text: "A good Night's Rest is still important to an adventurer. To complete a night's rest, spend a minimum of 6 hours sleeping. This gives surface level wounds a chance to heal and prepare yourself for the next day. When you finish a Night's Rest, return your Stamina to full, and gain Fortune's Favor. If you are above half Health, return to full Health. If you are at or below half Health, return to half Health.",
                 type: "RULE",
               },
               {
@@ -254,7 +254,7 @@ const generalRules: GenericRule[] = [
         type: "RULE",
       },
       {
-        text: "First the success and failure points of the test are set by the GM (Game Master) and the general outcome of success and failure are announced if it is reasonable for the player characters to know. Then players can decide if they want to attempt the test. The player then rolls 1d20 and adds their stat bonus to the result. If the result is at least equal to the success point, they pass the test and have a beneficial outcome. If the result is greater than or equal to the failure point but worse than the success, then the result is mixed. The GM can offer success with a cost or mixed success. If the results are less than the failure point, the result is a failure. In general the failure point is five less than the success point.",
+        text: "First the Success and Failure points of the test are set by the GM (Game Master) and the general outcome of success and failure are announced if it is reasonable for the player characters to know them. The player then rolls 1d20 and adds any relevant bonuses to the result. If the result is at least equal to the Success point, they pass the test and have a beneficial outcome. If the result is greater than or equal to the Failure point but worse than the Success, then the result is Mixed. The GM can offer Success with a Cost or Mixed Success on a Mixed result. If the results are less than the Failure point, the result is a failure. In general the Failure point is five less than the Success point.",
         type: "RULE",
       },
     ],
@@ -265,11 +265,11 @@ const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "Success on a test doesn't always mean getting exactly what you want, but it does mean a favorable outcome for you. You roll at least the difficulty for the test.",
+            text: "Success on a test doesn't always mean getting exactly what you want, but it does mean a favorable outcome for you. To achieve Success, you have to roll at least the Success point for the Test.",
             type: "RULE",
           },
           {
-            text: "Eg: You are talking to the innkeeper negotiating for a room. The GM calls for a heart test and tells you success needs a 15, and you'll get a good discount. Failure is a 5 and you get no discount and an undesirable room. You roll a 13 and add +2 for your heart to get a total of 15, which means you succeed. You manage to negotiate a 20% discount!",
+            text: "Eg: You are talking to the innkeeper negotiating for a room. The GM calls for a Heart Test and tells you that you'll succeed on a 15, earning your party a good discount. Failure is a 5 and you get no discount and an undesirable room. You roll a 13 and add +2 for your Heart to get a total of 15, which means you succeed. You manage to negotiate a 20% discount!",
             type: "RULE",
           },
         ],
@@ -280,7 +280,7 @@ const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "Success with a cost is when the GM offers a consequence and the player chooses if they want to accept the consequences or fail the test.",
+            text: "Success with a Cost is one possible Mixed Result where the GM offers a consequence and the player chooses if they want to accept the consequences or fail the test.",
             type: "RULE",
           },
           {
@@ -295,11 +295,11 @@ const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "A mixed success is when you are partially successful in your endeavor. You achieve some of the outcome you want, but there are some complications or downsides.",
+            text: "A Mixed Ssuccess is another possible Mixed Result when you are partially successful in your endeavor. You achieve some of the outcome you want, but there are some complications or downsides.",
             type: "RULE",
           },
           {
-            text: "Eg: You are trying to trick a guard into letting you go after being caught breaking curfew. You told him you forgot your pass at home and got a mixed success on the Heart test your GM called for. The guard believes you but insists on escorting you home to show him the pass.",
+            text: "Eg: You are trying to trick a guard into letting you go after being caught breaking curfew. You told him you forgot your pass at home and got a Mixed Success on the Heart Test your GM called for. The guard believes you but insists on escorting you home to show him the pass.",
             type: "RULE",
           },
         ],
@@ -310,11 +310,15 @@ const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "A failure occurs when you cannot achieve your desired outcome. This may mean the situation was harder than you initially believed or because you couldn't do it as well as you hoped or any other reason you and the GM think is reasonable. Sometimes the consequences of failure are direct, such as taking damage, other times they can simply be a complication for the story, this is determined by the GM.",
+            text: "A Failure occurs when you cannot achieve your desired outcome. This may mean the situation was harder than you initially believed or because you couldn't do it as well as you hoped or any other reason you and the GM think is reasonable. Sometimes the consequences of failure are direct, such as taking damage, other times they can simply be a complication for the story, this is determined by the GM.",
             type: "RULE",
           },
           {
-            text: "Eg: You are scaling a castle wall, trying to get in without alerting the goblins keeping watch from the nearby tower. Your GM calls for an agility test, where success is a 15 and means you get up without being noticed and a failure is a 10 and means you get spotted. You roll your agility test, you get a 5 on the dice and add 2 from your agility, giving you a total of 7. The goblins spot you half way up, they begin to shout something you can't understand and begin to run towards the wall you are climbing!",
+            text: "When you roll a Failure, you gain [Fortune's Favor](/rules/player_rules#FORTUNES-FAVOR)",
+            type: "RULE",
+          },
+          {
+            text: "Eg: You are scaling a castle wall, trying to get in without alerting the goblins keeping watch from the nearby tower. Your GM calls for an Agility Test, where Success is a 15 and means you get up without being noticed and a Failure is a 10 and means you get spotted. You roll your Agility Test, you get a 5 on the dice and add 2 from your Agility, giving you a total of 7. The goblins spot you half way up, they begin to shout something you can't understand and begin to run towards the wall you are climbing!",
             type: "RULE",
           },
         ],
@@ -325,7 +329,7 @@ const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "When two or more characters are directly challenging each other the GM might call for a contested roll. A Contest is like any other test except the difficulty is set by comparing the competing dice. If one side is more than 5 higher than the other, then that side passes the test and the other side fails. If both sides are within 5, then the result is a Mixed Success.",
+            text: "When two or more characters are directly challenging each other the GM might call for a contested roll. A Contest is like any other test except the difficulty is set by comparing the competing dice. If one side is more than 5 higher than the other, then that side Succeeds on the Test and the other side Fails. If both sides are within 5, then the result is Mixed.",
             type: "RULE",
           },
           {
@@ -340,7 +344,7 @@ const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "Sometimes a group of characters are performing an action where the success depends on the group's overall performance, not one individual. One common case is sneaking around a dungeon. When taking a group Test, each character rolls against the test, counting the number of Success, Mixed, and Failures. The average of the result is the group's result. An easy way to find the average is to subtract the larger of successes or failures from the other. If that new number is higher than the Mixed, that's the result, otherwise the result is Mixed.",
+            text: "Sometimes a group of characters are performing an action where the success depends on the group's overall performance, not one individual. One common case is sneaking around a dungeon. When taking a Group Test, each character rolls against the Test, counting the number of Success, Mixed, and Failures. The average of the result is the group's result. An easy way to find the average is to subtract the larger of successes or failures from the other. If that new number is higher than the Mixed, that's the result, otherwise the result is Mixed.",
             type: "RULE",
           },
           {
@@ -360,6 +364,20 @@ const generalRules: GenericRule[] = [
           },
           {
             text: "Eg: Bill the Brawler is trying to open a big heavy stone door. His party is helping him by giving him a crowbar and helping to pull on the door. If Bill is not already using Fortune's Favor on this roll, he gets Fortune's Favor and adds +3 to the roll because there are two different ways the party is helping him.",
+            type: "RULE",
+          },
+        ],
+      },
+      {
+        title: "Luck Test",
+        slug: "LUCK-TEST",
+        text: [
+          {
+            text: "A Luck Test is a special kind of Test without any Stat attached and cannot be helped on. It's just a Test to see if the player is lucky.",
+            type: "RULE",
+          },
+          {
+            text: "Eg: Smee the Shapeshifter wants to know what the smartest animals are around to communicate with. They aren't willing to track or spend time looking around for a smart animal so this wouldn't be a Test of their Heart or Intellect, instead it will be a Test of Luck.",
             type: "RULE",
           },
         ],
@@ -386,7 +404,7 @@ const generalRules: GenericRule[] = [
             ruleType: "RULE",
             text: [
               {
-                text: "Rolling a 20 is the best a character could do. Tests always pass and when you roll a critical success on an attack, you deal double damage on the attack.",
+                text: "Rolling a 20 is the best a character could do. Tests always pass and when you roll a Critical Success on an attack, you deal double damage on the attack.",
                 type: "RULE",
               },
             ],
@@ -399,11 +417,11 @@ const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "When you fail a test, you gain Fortune's Favor.",
+            text: "When you Fail a Test, you gain Fortune's Favor.",
             type: "RULE",
           },
           {
-            text: "With Fortune's Favor, if you take a Test, you can spend your Fortune's Favor to roll a second d20. You can use the results of either dice.",
+            text: "With Fortune's Favor, when you take a Test, before you roll any dice, you can spend your Fortune's Favor to roll a second d20. You can use the results of either dice.",
             type: "RULE",
           },
         ],
@@ -427,7 +445,7 @@ const generalRules: GenericRule[] = [
     ruleType: "RULE",
     text: [
       {
-        text: "Each round of combat is split into 3 parts, 1st, Environmental effects, 2nd Players turn, 3rd Enemies turn. During the player's turn, each player makes one action and can move up to their movement speed. During the enemies turn enemies with actions can take one action and move. Enemies with only counters can only move unless they have not been attacked, in which case they can use a counter as an action.",
+        text: "Each round of combat is split into 3 parts, 1st, Environmental effects, 2nd, Players take their turn, 3rd, Enemies take their turn. During the player's turn, each player makes one Action and can move up to their speed. During the enemies turn enemies with actions can take one action and move. Enemies with only counters can only move unless they are not engaged, in which case they can use a counter as an action.",
         type: "RULE",
       },
     ],
@@ -438,7 +456,7 @@ const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "When a character attacks or casts an offensive spell at another creature or creatures an exchange begins. To start the exchange, make an attack roll and add the relevant stats depending on your class. Compare the total attack to the creatures Defense and Counter. If you roll above their Defense then the hit is clean and there is no room for retaliation. If the roll is between their Defense and Counter then you clash. You can either choose to deal no damage or strike but leave yourself open to counter attack. Your attack is resolved first, and then the target can use one of their counter moves. If you roll below their Counter, your attack is countered and the target can use one of their counter moves.",
+            text: "When a character attacks or casts an offensive spell at another creature or creatures an exchange begins. To start the exchange, Test your Attack, adding your Base Attack Bonus. The defenders Armor and Counter become the Success and Failure points of the Test. If you Succeed on the Test then the hit is clean and there is no room for retaliation. If the result is Mixed then you Clash. You can either choose to deal no damage or strike but leave yourself open to counter attack. Your Attack is resolved first, and then the target can use one of their Counter Actions. If you Fail the Test, your Attack is countered, with no effect and the target can use one of their counter moves.",
             type: "RULE",
           },
         ],
@@ -449,7 +467,7 @@ const generalRules: GenericRule[] = [
             ruleType: "RULE",
             text: [
               {
-                text: "When your action targets multiple enemies, roll a single attack test, and compare to each enemy's defenses. If any target clashes or counters, the GM chooses which creature will take advantage of the opening. If two or more enemies clash or counter, the creature makes the attack with Fortune's Favor. Only a single enemy can clash or counter a single exchange.",
+                text: "When your Attack targets multiple enemies, roll a single attack test, and compare to each enemy's defenses. If the roll would be a Clash or Counter, the GM chooses which creature will get to take a Counter Action.",
                 type: "RULE",
               },
             ],
@@ -472,7 +490,7 @@ const generalRules: GenericRule[] = [
             slug: "BASIC-ATTACK",
             text: [
               {
-                text: "Your Base Attack is the stat you use for Attack rolls and comes from your class.",
+                text: "Your Base Attack is the stat you use for Attack rolls and comes from your Class.",
                 type: "RULE",
               },
             ],
@@ -482,7 +500,7 @@ const generalRules: GenericRule[] = [
             slug: "BASIC-RANGE",
             text: [
               {
-                text: "How far away you can attack. Melee class weapons cannot be used outside of melee range. Ranged class weapons cannot be used in melee range.",
+                text: "How far away you can Attack. Your class range shows the minimum and maximum distances you can attack if you have the appropriate equipment. Melee class weapons cannot be used outside of melee range. Ranged class weapons cannot be used in melee range.",
                 type: "RULE",
               },
             ],
@@ -492,7 +510,11 @@ const generalRules: GenericRule[] = [
             slug: "BASIC-SPEED",
             text: [
               {
-                text: "Your Speed determines how far you can move and comes from your lineage.",
+                text: "Your Speed determines how far you can move and comes from your lineage. If you have more than one Speed, you can use any combination of them when you move. If you use a combination of Speeds, any movement counts against the total distance you can travel with all of them.",
+                type: "RULE",
+              },
+              {
+                text: "Eg: You have a 30 ft. Base Speed and a 20 ft. Fly Speed. You could fly 10 ft. and then run 20 ft. or run 10 ft. and then Fly 10 ft. But you could not run 20 ft. and then fly 10 ft.",
                 type: "RULE",
               },
             ],
@@ -535,7 +557,7 @@ const generalRules: GenericRule[] = [
             slug: "BASIC-ATTACK",
             text: [
               {
-                text: "Attack with one of your proficient weapons or magic. You deal your base damage.",
+                text: "Attack with one of your proficient weapons or magic. You deal your Base Damage.",
                 type: "RULE",
               },
             ],
@@ -545,7 +567,7 @@ const generalRules: GenericRule[] = [
             slug: "CAREFUL-ATTACK",
             text: [
               {
-                text: "Attack with one of your proficient weapons or magic. You deal your base damage.",
+                text: "Attack with one of your proficient weapons or magic. You deal your Base Damage.",
                 type: "RULE",
               },
             ],
@@ -565,17 +587,7 @@ const generalRules: GenericRule[] = [
             slug: "HIDE-ACTION",
             text: [
               {
-                text: "When you are obscured from enemies you can try and hide. See the rules on stealth for how to handle this.",
-                type: "RULE",
-              },
-            ],
-          },
-          {
-            title: "Slip Away",
-            slug: "SLIP-AWAY",
-            text: [
-              {
-                text: "Your movement does not trigger counter moves this round.",
+                text: "When you are obscured from enemies you can try and hide. The GM determines the difficulty of the Agility Test. If you pass the test you gain the [Hidden status](/rules/player_rules#STATUSES). On a Mixed, you are harder to spot. If you try and Hide again on your next round, the difficulty of the Test is reduced by 3.",
                 type: "RULE",
               },
             ],
@@ -608,7 +620,7 @@ const generalRules: GenericRule[] = [
             slug: "COUNTER-ATTACK",
             text: [
               {
-                text: "Attack the target with your currently equipped weapon or magic. The attack deals half your base damage rounded down.",
+                text: "Attack the target with your currently equipped weapon or magic. The Attack deals half your Base Damage rounded down.",
                 type: "RULE",
               },
             ],
@@ -618,7 +630,7 @@ const generalRules: GenericRule[] = [
             slug: "DIVE-ROLL",
             text: [
               {
-                text: "Move up to 10 ft.",
+                text: "Move up to 10 ft. in a straight line.",
                 type: "RULE",
               },
             ],
@@ -631,7 +643,7 @@ const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "In addition to an action, you can move during your turn in combat, moving up to your Speed in any direction. You can move at any point during your turn, and can split your move before and after your action.",
+            text: "In addition to an Action, you can move during your turn in combat, moving up to your Speed in any direction. You can move at any point during your turn, and can split your move before and after your action.",
             type: "RULE",
           },
           {
@@ -664,15 +676,11 @@ const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "Characters can be proficient in different groups of weapons. It is up to your GMs discretion what category a weapon falls into, or if it is a unique weapon that requires its own training.",
+            text: "Characters can be proficient in different groups of weapons and magic. It is up to your GMs discretion what category a weapon falls into, or if it is a unique weapon that requires its own training.",
             type: "RULE",
           },
           {
-            text: "Some effects cause your damage dice to go up or down by one or more steps. Follow the pattern below to determine the new damage dice.",
-            type: "RULE",
-          },
-          {
-            text: "1d4 - 1d6 - 1d8 - 1d10 - 1d12 - 2d6 - 2d8 - etc.",
+            text: "Weapons can require one or two hands to wield. If you leave one hand free to wield a Shield or some other item, your Base Damage is reduced by one step.",
             type: "RULE",
           },
         ],
@@ -706,6 +714,32 @@ const generalRules: GenericRule[] = [
             ruleType: "LIST",
             list: ["Whips: Range: 10-20ft", "Pole Weapons: Range: Melee-10ft"],
           },
+          {
+            title: "Magic",
+            slug: "MAGIC-TRAINING",
+            ruleType: "RULE",
+            text: [
+              {
+                text: "How a characters magic training manifests is up to the player. The player determines what is required to cast. A wand, staff, talisman or other focus is typical, but chanting and hand movements or other ideas are also valid. Note that the one and two hand rules for weapons applies to magic attacks as well.",
+                type: "RULE",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "Damage Dice",
+        slug: "DAMAGE-DICE",
+        ruleType: "RULE",
+        text: [
+          {
+            text: "Some effects cause your Base Damage to go up or down by one or more steps. Follow the pattern below to determine the new Base Damage dice.",
+            type: "RULE",
+          },
+          {
+            text: "1d4 - 1d6 - 1d8 - 1d10 - 1d12 - 2d6 - 2d8 - etc.",
+            type: "RULE",
+          },
         ],
       },
       {
@@ -717,10 +751,6 @@ const generalRules: GenericRule[] = [
             text: "Shields come in three sizes, light (bucklers and dueling shields), medium (kite shields), and heavy (tower shields) and require a free hand to wield effectively.",
             type: "RULE",
           },
-          {
-            text: "Shields not only increase your armor, but can also reduce your damage taken when you clash. They cannot reduce the damage taken below 1.",
-            type: "RULE",
-          },
         ],
         subRules: [
           {
@@ -728,7 +758,7 @@ const generalRules: GenericRule[] = [
             slug: "LIGHT-SHIELDS",
             text: [
               {
-                text: "Require at least 3 Agility: +1 to Armor and reduce clash damage taken by your Agility.",
+                text: "Require at least 3 Agility: +1 to Armor and +2 to Counter.",
                 type: "RULE",
               },
             ],
@@ -738,7 +768,7 @@ const generalRules: GenericRule[] = [
             slug: "MEDIUM-SHIELDS",
             text: [
               {
-                text: "Require at least 1 Agility and 1 Mettle: +2 to Armor and reduce clash damage taken by 2.",
+                text: "Require at least 1 Agility and 1 Mettle: +2 to Armor.",
                 type: "RULE",
               },
             ],
@@ -748,7 +778,7 @@ const generalRules: GenericRule[] = [
             slug: "HEAVY-SHIELDS",
             text: [
               {
-                text: "Require at least 3 mettle: +2 to Armor reduce clash damage taken by Mettle.",
+                text: "Require at least 3 mettle: +2 to Armor reduce Clash damage taken by Mettle.",
                 type: "RULE",
               },
             ],
@@ -808,37 +838,6 @@ const generalRules: GenericRule[] = [
           },
         ],
       },
-      {
-        title: "Equipment",
-        slug: "EQUIPMENT",
-        ruleType: "RULE",
-        text: [
-          {
-            text: "While traveling, it's assumed your pack has all the items you need to get through a normal day. This might include a bed roll, some rope, etc. For specific adventuring gear, if you haven't already established that you have the item, you can make a luck test. The pass/fail are determined by the GMs judgment of the likelihood of you having the item. A mixed result might mean an item that is similar enough to be used in this instance, like a bed sheet instead of rope, or inferior to what you want, a small hatchet instead of a wood splitting ax.",
-            type: "RULE",
-          },
-        ],
-        subRules: [
-          {
-            title: "General Difficulty Guidelines",
-            slug: "DIFFICULTY-GUIDELINES",
-            text: [
-              {
-                text: "Likely - Pass: 10 Fail: 5",
-                type: "RULE",
-              },
-              {
-                text: "Unlikely - Pass: 15 Fail: 10",
-                type: "RULE",
-              },
-              {
-                text: "Very Unlikely - Pass: 18 Fail: 13",
-                type: "RULE",
-              },
-            ],
-          },
-        ],
-      },
     ],
   },
   {
@@ -847,7 +846,7 @@ const generalRules: GenericRule[] = [
     ruleType: "RULE",
     text: [
       {
-        text: "If damage would reduce you to below 0 stamina or 0 health, it reduces you to 0 instead.",
+        text: "If you would be reduced to below 0 Stamina or 0 Health, you are reduced to 0 instead.",
         type: "RULE",
       },
     ],
@@ -858,7 +857,7 @@ const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "When your Stamina is reduced to 0 you are Exhausted. See statuses for more info.",
+            text: "When your Stamina is reduced to 0 you are [Exhausted](/rules/player_rules#STATUSES).",
             type: "RULE",
           },
         ],
@@ -869,7 +868,7 @@ const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "When your Health is reduced to 0, you have been mortally wounded and are Dying. Taking an Action or moving more than half your speed costs 1 stamina. An ally can use the Help Action to aid you, removing the stamina cost as long as they stay within 5ft of you.",
+            text: "When your Health is reduced to 0, you have been mortally wounded and are Dying. Taking an Action or moving more than half your Speed costs 1 stamina. An ally can use the Help Action to aid you, removing the Stamina cost as long as they stay within 5ft of you.",
             type: "RULE",
           },
         ],
@@ -880,7 +879,7 @@ const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "When your Health is reduced to 0 you can opt to make a Last Stand, pushing yourself to the absolute limit, knowing these will be your final moments. For the next minute, you cannot regain Health in any way. You immediately and the start of each round of combat regain all of your stamina. If you are reduced to 0 Stamina or at the end of the 1 minute, you die.",
+            text: "While you have below half your maximum Health, you can opt to make a Last Stand, pushing yourself to the absolute limit, knowing these will be your final moments. For the next minute, You immediately and the start of each round of combat regain all of your Health & Stamina. If you are reduced to 0 Stamina or at the end of the 1 minute, you die.",
             type: "RULE",
           },
         ],
@@ -915,7 +914,7 @@ const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "If an ally is at 0 health, you can use an action to attempt to heal them. Make an Intellect test, Pass: 15, Fail: 10. On a pass they regain 1 Health, on a fail they lose 1 Stamina.",
+            text: "If an ally is at 0 Health, you can use an Action to attempt to heal them. Make an Intellect Test, Pass: 15, Fail: 10. On a pass they regain 1 Health, on a fail they lose 1 Stamina.",
             type: "RULE",
           },
         ],
@@ -931,6 +930,17 @@ const generalRules: GenericRule[] = [
           },
           {
             text: "If you Catch Your Breath and are at 0 Health, you regain 1 Health.",
+            type: "RULE",
+          },
+        ],
+      },
+      {
+        title: "Healing during a Night's Rest",
+        slug: "HEALING-NIGHTS-REST",
+        ruleType: "RULE",
+        text: [
+          {
+            text: "When you finish a Night's Rest, if you have more than half your Health, return to full health, otherwise return to half your Health.",
             type: "RULE",
           },
         ],
@@ -994,7 +1004,7 @@ const generalRules: GenericRule[] = [
         ruleType: "LIST",
         text: [
           {
-            text: "When jumping, use these formulas to calculate the minimum distances you can go. If you are trying to jump further, test your mettle. The difficulty is equal to 10+1 per foot beyond your standard jump range. If you roll below a success, you can spend stamina to increase your roll up to the point of a success if you have the stamina to spend.",
+            text: "When jumping, use these formulas to calculate the minimum distances you can go. If you are trying to jump further, Test your Mettle. The difficulty is equal to 10+1 per foot beyond your standard jump range. If you roll below a Success, you can spend Stamina to increase your roll up to the point of a Success if you have the Stamina to spend.",
             type: "RULE",
           },
         ],
@@ -1005,7 +1015,7 @@ const generalRules: GenericRule[] = [
             ruleType: "RULE",
             text: [
               {
-                text: "If you move up to 10ft before jumping: (4 + 2*Mettle) ft horizontally (Min 2ft)",
+                text: "If you move up to 10 ft. before jumping: (4 + 2*Mettle) ft. horizontally (Min 2 ft.)",
                 type: "RULE",
               },
             ],
@@ -1016,7 +1026,7 @@ const generalRules: GenericRule[] = [
             ruleType: "RULE",
             text: [
               {
-                text: "(3 + Mettle) ft horizontally (Min 1ft)",
+                text: "(3 + Mettle) ft. horizontally (Min 1 ft.)",
                 type: "RULE",
               },
             ],
@@ -1027,7 +1037,7 @@ const generalRules: GenericRule[] = [
             ruleType: "RULE",
             text: [
               {
-                text: "(1 + Mettle) ft vertically (Min 1ft)",
+                text: "(1 + Mettle) ft. vertically (Min 1 ft.)",
                 type: "RULE",
               },
             ],
@@ -1040,7 +1050,7 @@ const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "When you fall from a height greater than 10 ft. Make an Agility test. Pass - 12, Fail - 7. For every 5 ft. past 10 ft. the difficulty increases by 2. On a pass you take no damage. On a fail you take 1d10 per 5 ft. On a Mixed you take half damage.",
+            text: "When you fall from a height greater than 10 ft. Make an Agility Test. Pass: 12, Fail: 7. For every 5 ft. past 10 ft. the difficulty increases by 2. On a Pass you take no damage. On a fail you take 1d10 bludgeoning damage per 5 ft. On a Mixed you take half damage.",
             type: "RULE",
           },
         ],
@@ -1097,6 +1107,25 @@ const generalRules: GenericRule[] = [
         text: [
           {
             text: "A notable item is an item that is valuable and worth keeping track of. Some items will be obviously notable, like The Great Sword of the Duck Lord, but some items will depend on your GM. If you are playing a very resource limited, survival focused game, maybe your arrows are notable items, but if you're playing a heroic fantasy story, then maybe they aren't. This should be covered by your GM as part of the Intro session.",
+            type: "RULE",
+          },
+        ],
+      },
+      {
+        title: "Currency",
+        slug: "CURRENCY",
+        ruleType: "RULE",
+        text: [
+          {
+            text: "Coin: The universal currency. Different places might have different versions, but everyone trades in Coin.",
+            type: "RULE",
+          },
+          {
+            text: "Bits: Something that costs Bits isn't expensive enough to be worth worrying about.",
+            type: "RULE",
+          },
+          {
+            text: "Whether something is worth Coin or Bits comes down to the GMs discretion. Generally something that is going to help the player or they should feel the cost should cost Coin. But something that's just flavor, or part of normal everyday life should be Bits. Grabbing a bite to eat and some drinks with the party at the local inn. That costs Bits. Buying a round and plying a patron for information. That's going to cost a Coin or Two. A dress to get you into the royal ball. That's going to be more Coin.",
             type: "RULE",
           },
         ],
@@ -1227,7 +1256,7 @@ const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "Bludgeoning, piercing, slashing, fire, cold, lightning, rot, radiant, & psychic",
+            text: "Bludgeoning, Cold, Fire, Lightning, Piercing, Psychic, Radiant, Rot, & Slashing",
             type: "RULE",
           },
         ],
@@ -1242,7 +1271,7 @@ const generalRules: GenericRule[] = [
             slug: "BLIND-STATUS",
             text: [
               {
-                text: "You cannot see. All attacks have misfortune and attacks against you gain fortune's favor.",
+                text: "You cannot see. Your Attacks have Misfortune and Attacks against you gain Fortune's Favor.",
                 type: "RULE",
               },
             ],
@@ -1262,7 +1291,7 @@ const generalRules: GenericRule[] = [
             slug: "DEAF-STATUS",
             text: [
               {
-                text: "You cannot hear. You have Misfortune on all tests to stealth or notice something sneaking up on you.",
+                text: "You cannot hear. You have Misfortune on all Tests to stealth or notice something sneaking up on you.",
                 type: "RULE",
               },
             ],
@@ -1292,7 +1321,7 @@ const generalRules: GenericRule[] = [
             slug: "ENTANGLED-STATUS",
             text: [
               {
-                text: "Your speed is reduced to 0.",
+                text: "Your Speed is reduced to 0.",
                 type: "RULE",
               },
             ],
@@ -1322,7 +1351,7 @@ const generalRules: GenericRule[] = [
             slug: "INCAPACITATED-STATUS",
             text: [
               {
-                text: "You cannot take actions or move and are unaware of your surroundings.",
+                text: "You cannot take Actions or move and are unaware of your surroundings.",
                 type: "RULE",
               },
             ],
@@ -1332,7 +1361,7 @@ const generalRules: GenericRule[] = [
             slug: "PINNED-STATUS",
             text: [
               {
-                text: "Your speed is reduced to 0, you have Misfortune on all attacks and spellcasting Tests.",
+                text: "Your Speed is reduced to 0, you have Misfortune on all Actions.",
                 type: "RULE",
               },
             ],
@@ -1342,7 +1371,7 @@ const generalRules: GenericRule[] = [
             slug: "PRONE-STATUS",
             text: [
               {
-                text: "Your speed is reduced by 20 ft. to a minimum of 5 ft. Ranged attacks against you have Misfortune while melee attacks have Fortune's Favor.",
+                text: "Your Speed is reduced by 20 ft. to a minimum of 5 ft. Ranged Attacks against you have Misfortune while Melee Attacks have Fortune's Favor.",
                 type: "RULE",
               },
             ],
@@ -1352,7 +1381,7 @@ const generalRules: GenericRule[] = [
             slug: "SLOWED-STATUS",
             text: [
               {
-                text: "Your speed is halved.",
+                text: "Your Speed is halved.",
                 type: "RULE",
               },
             ],
@@ -1364,7 +1393,7 @@ const generalRules: GenericRule[] = [
         slug: "SIZES",
         ruleType: "LISTCOMPACT",
         list: [
-          "Miniscule(>6in)",
+          "Miniscule (>6in)",
           "Tiny (~6in - 2ft)",
           "Small (~2ft - 4ft)",
           "Medium (~4ft - 7ft)",
@@ -1372,25 +1401,6 @@ const generalRules: GenericRule[] = [
           "Gigantic (~10ft - 20ft)",
           "Titanic (~20ft-50ft)",
           "Colossal (<50ft)",
-        ],
-      },
-      {
-        title: "Currency",
-        slug: "CURRENCY",
-        ruleType: "RULE",
-        text: [
-          {
-            text: "Coin: The universal currency. Different places might have different versions, but everyone trades in Coin.",
-            type: "RULE",
-          },
-          {
-            text: "Bits: Something that costs Bits isn't expensive enough to be worth worrying about.",
-            type: "RULE",
-          },
-          {
-            text: "Whether something is worth Coin or Bits comes down to the GMs discretion. Generally something that is going to help the player or they should feel the cost should cost Coin. But something that's just flavor, or part of normal everyday life should be Bits. Grabbing a bite to eat and some drinks with the party at the local inn. That costs Bits. Buying a round and plying a patron for information. That's going to cost a Coin or Two. A dress to get you into the royal ball. That's going to be more Coin.",
-            type: "RULE",
-          },
         ],
       },
     ],
