@@ -48,6 +48,7 @@ const generalRules: GenericRule[] = [
   {
     title: "What Makes Up a Character",
     slug: "WHAT-MAKES-UP-A-CHARACTER",
+    shortTitle: "Parts of a Character",
     ruleType: "RULE",
     text: [
       {
@@ -668,6 +669,7 @@ const generalRules: GenericRule[] = [
   {
     title: "Weapons, Shields, Armor & Equipment",
     slug: "EQUIPMENT",
+    shortTitle: "Equipment",
     ruleType: "RULE",
     subRules: [
       {
@@ -843,6 +845,7 @@ const generalRules: GenericRule[] = [
   {
     title: "Exhausted, Dying, & Last Stand",
     slug: "EDL",
+    shortTitle: "Dying & Last Stand",
     ruleType: "RULE",
     text: [
       {
