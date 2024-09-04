@@ -4,6 +4,7 @@ const generalRules: GenericRule[] = [
   {
     title: "Building a New Character",
     slug: "BUILDING-A-PC",
+    shortTitle: "Building a Character",
     ruleType: "RULE",
     text: [
       {
