@@ -24,7 +24,7 @@ const generalRules: GenericRule[] = [
         type: "RULE",
       },
       {
-        text: "Pick a [Novice Feature](rules/generic_features/novice_features).",
+        text: "Pick a [Novice Feature](/rules/generic_features/novice_features).",
         type: "RULE",
       },
       {

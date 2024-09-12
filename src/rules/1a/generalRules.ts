@@ -17,7 +17,7 @@ const generalRules: GenericRule[] = [
         text: "Higher numbers are better. Your class will have at least 1 primary stat. It's a good idea to have that be your highest number.",
       },
       {
-        text: "Pick a (Novice Feature)[rules/generic_features/novice_features].",
+        text: "Pick a [Novice Feature](/rules/generic_features/novice_features).",
       },
       { text: "(Optional) Write a backstory for your character." },
     ],
