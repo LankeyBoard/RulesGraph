@@ -23,9 +23,9 @@ export type Action =
 
 export type CharacterClass = Rule & {
   __typename?: 'CharacterClass';
-  attackStat?: Maybe<Array<Stat>>;
+  attackStat?: Maybe<Array<StatOptions>>;
   complexity?: Maybe<Complexity>;
-  damage: Damage;
+  damage?: Maybe<Damage>;
   description: Array<Maybe<Scalars['String']['output']>>;
   extra?: Maybe<ShifterForms>;
   features: Array<Maybe<CharacterClassFeature>>;
@@ -37,7 +37,7 @@ export type CharacterClass = Rule & {
   slug: Scalars['String']['output'];
   stamina: Scalars['Int']['output'];
   staminaOnLevel: Scalars['Int']['output'];
-  staminaStat: Stat;
+  staminaStat: StatOptions;
   title: Scalars['String']['output'];
   training: Training;
 };
@@ -81,7 +81,7 @@ export type Damage = {
   __typename?: 'Damage';
   count: Scalars['Int']['output'];
   dice: Scalars['Int']['output'];
-  stat?: Maybe<Stat>;
+  stat?: Maybe<Array<StatOptions>>;
   type?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
 };
 
@@ -262,7 +262,7 @@ export type SearchResultSource =
 export type ShifterForm = Rule & {
   __typename?: 'ShifterForm';
   armor?: Maybe<shifterArmor>;
-  attackStat: Stat;
+  attackStat: StatOptions;
   damage: Array<Maybe<Damage>>;
   features?: Maybe<Array<Maybe<shifterFeature>>>;
   href?: Maybe<Scalars['String']['output']>;
@@ -304,7 +304,7 @@ export type SpeedTypes =
   | 'ground'
   | 'swimming';
 
-export type Stat =
+export type StatOptions =
   | 'AGILITY'
   | 'HEART'
   | 'INTELLECT'
@@ -338,7 +338,7 @@ export type Weapons = {
 export type shifterArmor = {
   __typename?: 'shifterArmor';
   baseArmor: Scalars['Int']['output'];
-  stat?: Maybe<Stat>;
+  stat?: Maybe<StatOptions>;
 };
 
 export type shifterFeature = {
@@ -456,7 +456,7 @@ export type ResolversTypes = {
   SlugDict: ResolverTypeWrapper<SlugDict>;
   Speed: ResolverTypeWrapper<Speed>;
   SpeedTypes: SpeedTypes;
-  Stat: Stat;
+  StatOptions: StatOptions;
   Training: ResolverTypeWrapper<Training>;
   TrainingOptions: ResolverTypeWrapper<TrainingOptions>;
   VERSIONS: VERSIONS;
@@ -497,9 +497,9 @@ export type ResolversParentTypes = {
 };
 
 export type CharacterClassResolvers<ContextType = any, ParentType extends ResolversParentTypes['CharacterClass'] = ResolversParentTypes['CharacterClass']> = {
-  attackStat?: Resolver<Maybe<Array<ResolversTypes['Stat']>>, ParentType, ContextType>;
+  attackStat?: Resolver<Maybe<Array<ResolversTypes['StatOptions']>>, ParentType, ContextType>;
   complexity?: Resolver<Maybe<ResolversTypes['Complexity']>, ParentType, ContextType>;
-  damage?: Resolver<ResolversTypes['Damage'], ParentType, ContextType>;
+  damage?: Resolver<Maybe<ResolversTypes['Damage']>, ParentType, ContextType>;
   description?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   extra?: Resolver<Maybe<ResolversTypes['ShifterForms']>, ParentType, ContextType>;
   features?: Resolver<Array<Maybe<ResolversTypes['CharacterClassFeature']>>, ParentType, ContextType>;
@@ -511,7 +511,7 @@ export type CharacterClassResolvers<ContextType = any, ParentType extends Resolv
   slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   stamina?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   staminaOnLevel?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  staminaStat?: Resolver<ResolversTypes['Stat'], ParentType, ContextType>;
+  staminaStat?: Resolver<ResolversTypes['StatOptions'], ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   training?: Resolver<ResolversTypes['Training'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
@@ -550,7 +550,7 @@ export type CultureResolvers<ContextType = any, ParentType extends ResolversPare
 export type DamageResolvers<ContextType = any, ParentType extends ResolversParentTypes['Damage'] = ResolversParentTypes['Damage']> = {
   count?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   dice?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  stat?: Resolver<Maybe<ResolversTypes['Stat']>, ParentType, ContextType>;
+  stat?: Resolver<Maybe<Array<ResolversTypes['StatOptions']>>, ParentType, ContextType>;
   type?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
@@ -676,7 +676,7 @@ export type SearchResultResolvers<ContextType = any, ParentType extends Resolver
 
 export type ShifterFormResolvers<ContextType = any, ParentType extends ResolversParentTypes['ShifterForm'] = ResolversParentTypes['ShifterForm']> = {
   armor?: Resolver<Maybe<ResolversTypes['shifterArmor']>, ParentType, ContextType>;
-  attackStat?: Resolver<ResolversTypes['Stat'], ParentType, ContextType>;
+  attackStat?: Resolver<ResolversTypes['StatOptions'], ParentType, ContextType>;
   damage?: Resolver<Array<Maybe<ResolversTypes['Damage']>>, ParentType, ContextType>;
   features?: Resolver<Maybe<Array<Maybe<ResolversTypes['shifterFeature']>>>, ParentType, ContextType>;
   href?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
@@ -728,7 +728,7 @@ export type WeaponsResolvers<ContextType = any, ParentType extends ResolversPare
 
 export type shifterArmorResolvers<ContextType = any, ParentType extends ResolversParentTypes['shifterArmor'] = ResolversParentTypes['shifterArmor']> = {
   baseArmor?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  stat?: Resolver<Maybe<ResolversTypes['Stat']>, ParentType, ContextType>;
+  stat?: Resolver<Maybe<ResolversTypes['StatOptions']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
