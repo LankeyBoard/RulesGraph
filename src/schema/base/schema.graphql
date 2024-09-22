@@ -48,7 +48,7 @@ enum RuleType {
   ATTACK
 }
 
-enum Stat {
+enum StatOptions {
   METTLE
   AGILITY
   INTELLECT
@@ -80,6 +80,8 @@ enum SpeedTypes {
   flying
   swimming
 }
+
+union FeatureChoices = RuleText | FeatureWithoutChoices
 
 interface Rule {
   title: String!
@@ -157,8 +159,6 @@ type GenericRule implements Rule {
   shortText: String
 }
 
-union FeatureChoices = RuleText | FeatureWithoutChoices
-
 type GenericFeature implements Feature {
   title: String!
   slug: String!
@@ -222,10 +222,9 @@ type Range {
 type Damage {
   dice: Int!
   count: Int!
-  stat: Stat
+  stat: [StatOptions!]
   type: [String]
 }
-
 type CharacterClassFeature implements Feature {
   title: String!
   slug: String!
@@ -254,11 +253,11 @@ type CharacterClass implements Rule {
   healthOnLevel: Int!
   stamina: Int!
   staminaOnLevel: Int!
-  staminaStat: Stat!
+  staminaStat: StatOptions!
   training: Training!
-  attackStat: [Stat!]
+  attackStat: [StatOptions!]
   range: Range!
-  damage: Damage!
+  damage: Damage
   features: [CharacterClassFeature]!
   extra: ShifterForms
 }
@@ -273,14 +272,14 @@ type ShifterForm implements Rule {
   href: String
   shortTitle: String
   size: Size!
-  attackStat: Stat!
+  attackStat: StatOptions!
   damage: [Damage]!
   armor: shifterArmor
   features: [shifterFeature]
 }
 
 type shifterArmor {
-  stat: Stat
+  stat: StatOptions
   baseArmor: Int!
 }
 

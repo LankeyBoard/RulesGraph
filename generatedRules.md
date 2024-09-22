@@ -780,7 +780,7 @@ slug: DYING-STATUS
 
 slug: ENGAGED-STATUS
 
-You were attacked by an enemy. Reduce your Base Speed by half.
+Gained when you are attacked by an enemy. You are Slowed.
 
 ### Entangled
 

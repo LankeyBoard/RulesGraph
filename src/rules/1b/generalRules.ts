@@ -1315,7 +1315,7 @@ const generalRules: GenericRule[] = [
             slug: "ENGAGED-STATUS",
             text: [
               {
-                text: "You were attacked by an enemy. Reduce your Base Speed by half.",
+                text: "Gained when you are attacked by an enemy. You are Slowed.",
                 type: "RULE",
               },
             ],
