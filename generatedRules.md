@@ -7,7 +7,7 @@ Your GM should tell you the level you are starting at. If you are starting highe
 Pick a Lineage, Culture and Class.\
 Assign stats - You have a set of 3,2,0,-2. Use each number once, placing them in your 4 stats. Then add your stat bonuses from your Lineage and your Culture. These cannot both go to the same Stat.\
 Higher numbers are better. Your class will have at least 1 primary stat. It's a good idea to have that be your highest number.\
-Pick a [Novice Feature](rules/generic_features/novice_features).\
+Pick a [Novice Feature](/rules/generic_features/novice_features).\
 (Optional) Write a backstory for your character.
 
 ## Leveling Up
@@ -118,8 +118,8 @@ If you spend Stamina or engage in strenuous activities while resting, the rest e
 slug: CATCH-YOUR-BREATH
 
 ruleType: RULE\
-When you have a moment, you can Catch Your Breath, tending to your wounds, wiping down your weapons, and centering yourself. To Catch Your Breath, spend 10 minutes resting and performing light activities.
-At the end of the rest, you regain all missing Stamina.
+When you have a moment, you can Catch Your Breath, tending to your wounds, wiping down your weapons, and centering yourself. To Catch Your Breath, spend 10 minutes resting and performing light activities.\
+At the end of the rest, you regain all missing Stamina.\
 If you are at 0 Health, you gain 1 Health. Some classes may also have features that refresh when you Catch Your Breath.
 
 ### A Night's Rest
@@ -127,7 +127,7 @@ If you are at 0 Health, you gain 1 Health. Some classes may also have features t
 slug: NIGHTS-REST
 
 ruleType: RULE\
-A good Night's Rest is still important to an adventurer. To complete a night's rest, spend a minimum of 6 hours sleeping. This gives surface level wounds a chance to heal and prepare yourself for the next day. When you finish a Night's Rest, return your Stamina to full, and gain Fortune's Favor. If you are above half Health, return to full Health. If you are at or below half Health, return to half Health.
+A good Night's Rest is still important to an adventurer. To complete a night's rest, spend a minimum of 6 hours sleeping. This gives surface level wounds a chance to heal and prepare yourself for the next day. When you finish a Night's Rest, return your Stamina to full, and gain Fortune's Favor. If you are above half Health, return to full Health. If you are at or below half Health, return to half Health.\
 If you are awake for more than 24 hours in a row, Test your Mettle each hour. The difficulty of this test increases by 1 for each hour beyond 24 hours. Pass (15+): You suffer no ill effects. Mixed (10-14): Reduce your current and maximum stamina by 3. Fail (9-): Reduce your current and maximum stamina by 10. If you are reduced to 0 stamina in this way you become unconscious. You must complete a Night's Rest to remove these effects.
 
 ### Rest and Relax
@@ -143,7 +143,7 @@ After successful Rest and Relaxation, regain all lost Health and Stamina. You al
 slug: TESTS
 
 ruleType: RULE\
-Tests are how you determine the outcome of uncertain events, can you smash open a door (Mettle), talk a guard into looking the other way (Heart), dodging a tomato hurled at your head (Agility).
+Tests are how you determine the outcome of uncertain events, can you smash open a door (Mettle), talk a guard into looking the other way (Heart), dodging a tomato hurled at your head (Agility).\
 First the Success and Failure points of the test are set by the GM (Game Master) and the general outcome of success and failure are announced if it is reasonable for the player characters to know them. The player then rolls 1d20 and adds any relevant bonuses to the result. If the result is at least equal to the Success point, they pass the test and have a beneficial outcome. If the result is greater than or equal to the Failure point but worse than the Success, then the result is Mixed. The GM can offer Success with a Cost or Mixed Success on a Mixed result. If the results are less than the Failure point, the result is a failure. In general the Failure point is five less than the Success point.
 
 ## Success
@@ -206,7 +206,8 @@ Eg: Bill the Brawler is trying to open a big heavy stone door. His party is help
 ## Luck Test
 
 slug: LUCK-TEST
-A Luck Test is a special kind of Test without any Stat attached and cannot be helped on. It's just a Test to see if the player is lucky.
+
+A Luck Test is a special kind of Test without any Stat attached and cannot be helped on. It's just a Test to see if the player is lucky.\
 Eg: Smee the Shapeshifter wants to know what the smartest animals are around to communicate with. They aren't willing to track or spend time looking around for a smart animal so this wouldn't be a Test of their Heart or Intellect, instead it will be a Test of Luck.
 
 ## 1s and 20s
@@ -263,7 +264,14 @@ When a character attacks or casts an offensive spell at another creature or crea
 slug: AOE-EXCHANGES
 
 ruleType: RULE\
-When your Attack targets multiple enemies, roll a single attack test, and compare to each enemy's defenses. If the roll would be a Clash or Counter, the GM chooses which creature will get to take a Counter Action.
+When your Attack targets multiple enemies, roll a single Attack Test, and compare to each enemy's defenses. If the roll would be a Clash or Counter, the GM chooses which creature will get to take a Counter Action.
+
+### Engaging an Enemy
+
+slug: ENGAGING-ENEMIES
+
+ruleType: RULE\
+When you attempt to attack an enemy, they are [Engaged](/rules/player_rules#ENGAGED). Engaged Minions cannot take an Action on their turn, Non-boss monsters damage dice go down by 1 step, and bosses lose access to their most potent abilities.
 
 ## Key Comat Information
 
@@ -288,7 +296,7 @@ How far away you can Attack. Your class range shows the minimum and maximum dist
 
 slug: BASIC-SPEED
 
-Your Speed determines how far you can move and comes from your lineage. If you have more than one Speed, you can use any combination of them when you move. If you use a combination of Speeds, any movement counts against the total distance you can travel with all of them.
+Your Speed determines how far you can move and comes from your lineage. If you have more than one Speed, you can use any combination of them when you move. If you use a combination of Speeds, any movement counts against the total distance you can travel with all of them.\
 Eg: You have a 30 ft. Base Speed and a 20 ft. Fly Speed. You could fly 10 ft. and then run 20 ft. or run 10 ft. and then Fly 10 ft. But you could not run 20 ft. and then fly 10 ft.
 
 ### Armor
@@ -320,7 +328,7 @@ Attack with one of your proficient weapons or magic. You deal your Base Damage.
 
 slug: CAREFUL-ATTACK
 
-Attack with one of your proficient weapons or magic. You deal your Base Damage.
+Attack with one of your proficient weapons or magic. You deal half your Base Damage. A Miss or Clash does not trigger a Counter from the enemy.
 
 ### Defend
 
@@ -351,7 +359,8 @@ These Counters are available to all players all the time.
 
 slug: COUNTER-ATTACK
 
-Attack the target with your currently equipped weapon or magic. The Attack deals half your Base Damage rounded down.
+Attack the target with your currently equipped weapon or magic. The Attack deals half your Base Damage rounded down. The first time you make a Counter Attack in a round you can pick which weapon you have equipped.
+EG: You attack a goblin with your sword. You get an 11 on the Attack causing a Clash. You choose to trade damage, the goblin draws their daggers to make the Counter Attack. Now Ryle the Ranger makes a ranged Attack against the same goblin. They also roll an 11 and choose to trade damage, but because the goblin already has their daggers out, they cannot use the Counter Attack as their Counter Action.
 
 ### Dive Roll
 
@@ -366,6 +375,13 @@ slug: MOVING-COMBAT
 ruleType: RULE\
 In addition to an Action, you can move during your turn in combat, moving up to your Speed in any direction. You can move at any point during your turn, and can split your move before and after your action.\
 Eg: You move 10 ft. Make an Attack and then move another 20 ft. If you move away from an enemy, they get a chance to make a counter attack against you as you try to slip by.
+
+### Getting Down and Standing Up
+
+slug: MOVEMENT-DOWN-UP
+
+ruleType: RULE\
+Dropping [prone](/rules/player_rules#PRONE) is a free action. Standing up from [prone](/rules/player_rules#PRONE) takes either 10 ft. of Movement or an Action. If you have magical flight, it only takes 5ft. of Movement.
 
 ## Taking Damage
 
@@ -440,7 +456,7 @@ Some effects cause your Base Damage to go up or down by one or more steps. Follo
 slug: SHIELDS
 
 ruleType: LIST\
-Shields come in three sizes, light (bucklers and dueling shields), medium (kite shields), and heavy (tower shields) and require a free hand to wield effectively.\
+Shields come in three sizes, light (bucklers and dueling shields), medium (kite shields), and heavy (tower shields) and require a free hand to wield effectively.
 
 ### Light Shields
 
@@ -545,7 +561,7 @@ If an ally is at 0 Health, you can use an Action to attempt to heal them. Make a
 slug: HEALING-WHEN-CATCHING-YOUR-BREATH
 
 ruleType: RULE\
-When you Catch Your Breath, you patch up and tend to any non life threatening injuries.
+When you Catch Your Breath, you patch up and tend to any non life threatening injuries.\
 If you Catch Your Breath and are at 0 Health, you regain 1 Health.
 
 ## Healing during a Night's Rest
@@ -780,7 +796,7 @@ slug: DYING-STATUS
 
 slug: ENGAGED-STATUS
 
-Gained when you are attacked by an enemy. You are Slowed.
+Gained when you are attacked by an enemy.
 
 ### Entangled
 

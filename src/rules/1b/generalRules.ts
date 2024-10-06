@@ -2,9 +2,8 @@ import { GenericRule } from "../../schema/types.generated";
 
 const generalRules: GenericRule[] = [
   {
-    title: "Building a New Character",
+    title: "Building a Character",
     slug: "BUILDING-A-PC",
-    shortTitle: "Building a Character",
     ruleType: "RULE",
     text: [
       {
@@ -49,7 +48,6 @@ const generalRules: GenericRule[] = [
   {
     title: "What Makes Up a Character",
     slug: "WHAT-MAKES-UP-A-CHARACTER",
-    shortTitle: "Parts of a Character",
     ruleType: "RULE",
     text: [
       {
@@ -469,7 +467,18 @@ const generalRules: GenericRule[] = [
             ruleType: "RULE",
             text: [
               {
-                text: "When your Attack targets multiple enemies, roll a single attack test, and compare to each enemy's defenses. If the roll would be a Clash or Counter, the GM chooses which creature will get to take a Counter Action.",
+                text: "When your Attack targets multiple enemies, roll a single Attack Test, and compare to each enemy's defenses. If the roll would be a Clash or Counter, the GM chooses which creature will get to take a Counter Action.",
+                type: "RULE",
+              },
+            ],
+          },
+          {
+            title: "Engaging an Enemy",
+            slug: "ENGAGING-ENEMIES",
+            ruleType: "RULE",
+            text: [
+              {
+                text: "When you attempt to attack an enemy, they are [Engaged](/rules/player_rules#ENGAGED). Engaged Minions cannot take an Action on their turn, Non-boss monsters damage dice go down by 1 step, and bosses lose access to their most potent abilities.",
                 type: "RULE",
               },
             ],
@@ -569,7 +578,7 @@ const generalRules: GenericRule[] = [
             slug: "CAREFUL-ATTACK",
             text: [
               {
-                text: "Attack with one of your proficient weapons or magic. You deal your Base Damage.",
+                text: "Attack with one of your proficient weapons or magic. You deal half your Base Damage. A Miss or Clash does not trigger a Counter from the enemy.",
                 type: "RULE",
               },
             ],
@@ -622,7 +631,11 @@ const generalRules: GenericRule[] = [
             slug: "COUNTER-ATTACK",
             text: [
               {
-                text: "Attack the target with your currently equipped weapon or magic. The Attack deals half your Base Damage rounded down.",
+                text: "Attack the target with your currently equipped weapon or magic. The Attack deals half your Base Damage rounded down. The first time you make a Counter Attack in a round you can pick which weapon you have equipped.",
+                type: "RULE",
+              },
+              {
+                text: "EG: You attack a goblin with your sword. You get an 11 on the Attack causing a Clash. You choose to trade damage, the goblin draws their daggers to make the Counter Attack. Now Ryle the Ranger makes a ranged Attack against the same goblin. They also roll an 11 and choose to trade damage, but because the goblin already has their daggers out, they cannot use the Counter Attack as their Counter Action.",
                 type: "RULE",
               },
             ],
@@ -653,6 +666,19 @@ const generalRules: GenericRule[] = [
             type: "RULE",
           },
         ],
+        subRules: [
+          {
+            title: "Getting Down and Standing Up",
+            slug: "MOVEMENT-DOWN-UP",
+            ruleType: "RULE",
+            text: [
+              {
+                text: "Dropping [prone](/rules/player_rules#PRONE) is a free action. Standing up from [prone](/rules/player_rules#PRONE) takes either 10 ft. of Movement or an Action. If you have magical flight, it only takes 5ft. of Movement.",
+                type: "RULE",
+              },
+            ],
+          },
+        ],
       },
       {
         title: "Taking Damage",
@@ -670,7 +696,6 @@ const generalRules: GenericRule[] = [
   {
     title: "Weapons, Shields, Armor & Equipment",
     slug: "EQUIPMENT",
-    shortTitle: "Equipment",
     ruleType: "RULE",
     subRules: [
       {
@@ -751,7 +776,7 @@ const generalRules: GenericRule[] = [
         ruleType: "LIST",
         text: [
           {
-            text: "Shields come in three sizes, light (bucklers and dueling shields), medium (kite shields), and heavy (tower shields) and require a free hand to wield effectively.",
+            text: "Shields come in three sizes, light (bucklers and dueling shields), medium (kite shields), and heavy (tower shields) and require a free hand to wield effectively. Because a free hand is required, your base damage is reduced by 1 step when the shield is equipped.",
             type: "RULE",
           },
         ],
@@ -846,7 +871,6 @@ const generalRules: GenericRule[] = [
   {
     title: "Exhausted, Dying, & Last Stand",
     slug: "EDL",
-    shortTitle: "Dying & Last Stand",
     ruleType: "RULE",
     text: [
       {
@@ -1315,7 +1339,7 @@ const generalRules: GenericRule[] = [
             slug: "ENGAGED-STATUS",
             text: [
               {
-                text: "Gained when you are attacked by an enemy. You are Slowed.",
+                text: "Gained by enemies when attacked.",
                 type: "RULE",
               },
             ],

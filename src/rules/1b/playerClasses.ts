@@ -1274,15 +1274,27 @@ const playerClasses: CharacterClass[] = [
       armor: ["Light"],
       shields: null,
       weapons: {
-        melee: { pick: 1, options: ["melee weapon class"] },
-        ranged: { pick: 2, options: ["ranged weapon class"] },
+        melee: {
+          pick: 1,
+          options: [
+            "Hammers & Clubs",
+            "Slashing Swords",
+            "Piercing Swords & Daggers",
+            "Axes",
+            "Flails",
+          ],
+        },
+        ranged: {
+          pick: 1,
+          options: ["Heavy Throwing", "Light Throwing", "Bows", "Crossbows"],
+        },
         special: null,
       },
       magic: null,
     },
     attackStat: ["HEART"],
-    range: { min: 0, max: 0 },
-    damage: { dice: 8, count: 1, stat: ["HEART"] },
+    range: { min: 0, max: 60 },
+    damage: { dice: 6, count: 1, stat: ["HEART"] },
     features: [
       {
         level: 1,
@@ -1293,7 +1305,7 @@ const playerClasses: CharacterClass[] = [
         text: [
           {
             type: "RULE",
-            text: "When you take your first level, pick your form from the list at the end. The exact form is up to you and your GM, the forms provide templates for general classes of animal. While transformed, you can replace your forms attack stat with your Heart.. The form lasts until you Catch Your Breath or you are reduced to 0 Health. You can also end the form early at any time.",
+            text: "When you take your first level, pick your form from the list at the end. The exact form is up to you and your GM, the forms provide templates for general classes of animal. While transformed, you can replace your forms Attack Stat with your Heart. The form lasts until you Catch Your Breath or you are reduced to 0 Health. You can also end the form early at any time.",
           },
         ],
       },
@@ -1454,7 +1466,7 @@ const playerClasses: CharacterClass[] = [
             },
           ],
           armor: {
-            baseArmor: 10,
+            baseArmor: 12,
             stat: "METTLE",
           },
           features: [
@@ -1466,7 +1478,7 @@ const playerClasses: CharacterClass[] = [
             },
             {
               title: "Heavy Blows",
-              text: "When you deal damage to a medium or smaller creature you can spend 2 stamina to try and also knock them down. Make a contested Mettle test, on a Success, you knock them prone, or shove them 5ft. On a Mixed Result you reduce their speed by half.",
+              text: "When you deal damage to a Medium or smaller creature you can spend 2 Stamina to try and also knock them down. Make a contested Mettle Test, on a Success, you knock them Prone, or shove them 5 ft. away from you. On a Mixed Result you reduce their speed by Half.",
             },
           ],
         },
@@ -1484,19 +1496,19 @@ const playerClasses: CharacterClass[] = [
             },
           ],
           armor: {
-            baseArmor: 10,
+            baseArmor: 12,
             stat: "AGILITY",
           },
           features: [
             {
-              text: "	+10 to Speed",
+              text: "+10 to Speed",
             },
             {
               text: "Add your Agility to your jump distance, and to Tests to navigate difficult terrain.",
             },
             {
-              title: "Distracting Strike",
-              text: "When an ally is going to attack an enemy within your melee range, you can spend Fortune's Favor to grant an ally a bonus to their attack equal to your Heart.",
+              title: "Menacing Strike",
+              text: "When you Attack an enemy within 5 ft. of you, you can spend 2 Stamina to grant the next Ally to Attack the enemy a bonus to their damage equal to your Heart.",
             },
           ],
         },
@@ -1512,7 +1524,7 @@ const playerClasses: CharacterClass[] = [
               type: ["Piercing"],
             },
             {
-              dice: 6,
+              dice: 4,
               count: 1,
               stat: ["HEART"],
               type: ["Rot"],
@@ -1524,14 +1536,18 @@ const playerClasses: CharacterClass[] = [
           },
           features: [
             {
-              text: "	+10 to Speed",
+              text: "-10 to Speed",
             },
             {
               text: "Add your Agility to your jump distance, and to Tests to navigate difficult terrain.",
             },
             {
-              title: "Distracting Strike",
-              text: "When an ally is going to attack an enemy within your melee range, you can spend Fortune's Favor to grant an ally a bonus to their attack equal to your Heart.",
+              title: "Sneaky",
+              text: "Gain a +5 on Agility Tests to move stealthily and hide.",
+            },
+            {
+              title: "Venomous Strike",
+              text: "When you hit an enemy with a Melee Attack, spend 2 Stamina to increase your Rot Damage by 1 Dice Step. If you also used this ability last Round, increase the Rot Damage by an additional Step.",
             },
           ],
         },
