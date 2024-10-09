@@ -1305,7 +1305,7 @@ const playerClasses: CharacterClass[] = [
         text: [
           {
             type: "RULE",
-            text: "When you take your first level, pick your form from the list at the end. The exact form is up to you and your GM, the forms provide templates for general classes of animal. While transformed, you can replace your forms Attack Stat with your Heart. The form lasts until you Catch Your Breath or you are reduced to 0 Health. You can also end the form early at any time.",
+            text: "When you take your first level, pick your form from the list at the end. The exact form is up to you and your GM, the forms provide templates for general classes of animal. While transformed, you can replace your forms Attack Stat with your Heart, and you lose any non-magical non-base Speeds you may have. The form lasts until you Catch Your Breath or you are reduced to 0 Health. You can also end the form early at any time.",
           },
         ],
       },
@@ -1319,7 +1319,7 @@ const playerClasses: CharacterClass[] = [
         text: [
           {
             type: "RULE",
-            text: "Spend 1 Stamina to transform. You can transform as an Action or as part of your Basic Attack Action.",
+            text: "Spend 1 Stamina to transform into your chosen form. You can transform as an Action or as part of your Basic Attack Action.",
           },
         ],
       },
@@ -1332,11 +1332,11 @@ const playerClasses: CharacterClass[] = [
         text: [
           {
             type: "RULE",
-            text: "You can understand and communicate with animals, you gain a +3 on tests when interacting with animals that closely resemble your chosen form.",
+            text: "You can understand and communicate with animals, you gain a +3 on Tests when interacting with animals that closely resemble your chosen form.",
           },
           {
             type: "EG",
-            text: " All bears if your form is a grizzly bear, or all snakes if your form is a cobra.",
+            text: "All bears if your form is a grizzly bear, or all snakes if your form is a cobra.",
           },
         ],
       },
@@ -1344,17 +1344,17 @@ const playerClasses: CharacterClass[] = [
         level: 3,
         title: "Reinvigorate",
         slug: "SHIFTER-REINVIGORATE",
-        staminaCost: 3,
-        costsFortunesFavor: false,
+        staminaCost: 0,
+        costsFortunesFavor: true,
         actionType: "ACTION",
         text: [
           {
             type: "FLAVOR",
-            text: "The spirit of nature fills your body, stitching your body back together.",
+            text: "The spirit of nature fills your body, hardening your flesh against attack.",
           },
           {
             type: "RULE",
-            text: "As an action, you regain 1d8+heart health and add your Heart to your Armor until the end of your next turn. You can do this 3 times per day.",
+            text: "As an Action, spend Fortune's Favor to add your Heart to your Armor until the end of your next turn.",
           },
         ],
       },
@@ -1384,7 +1384,7 @@ const playerClasses: CharacterClass[] = [
         text: [
           {
             type: "CHOICE",
-            text: "When you shapeshift you can spend 2 stamina to gain an extra form of movement from the list below.",
+            text: "When you Shapeshift you can spend 2 Stamina to gain an extra form of movement from the list below.",
             choices: ["30 ft. fly", "20 ft. swim", "20 ft. burrow"],
           },
         ],
@@ -1398,7 +1398,7 @@ const playerClasses: CharacterClass[] = [
         text: [
           {
             type: "RULE",
-            text: "When you make your Last Stand, add 2d6 rot damage to all attacks and you can immediately transform into your animal form.",
+            text: "When you make your Last Stand, add 2d6 Rot damage to all Attacks and you can immediately Shift.",
           },
         ],
       },
@@ -1411,7 +1411,7 @@ const playerClasses: CharacterClass[] = [
         text: [
           {
             type: "RULE",
-            text: "Gain +5 on tests to track an enemy you've dealt damage to in the last hour.",
+            text: "Gain +5 on Tests to track an enemy you've dealt damage to in the last hour.",
           },
         ],
       },
