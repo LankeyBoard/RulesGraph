@@ -51,7 +51,6 @@ const fileContentsToJsonStr = (contents: Maybe<GenericRule>[]): string => {
   let result = "[";
   contents.forEach((rule) => {
     if (!rule) return;
-    console.log("rule - ", rule.title, rule.ruleType, rule.list);
     const text = rule.text ? ruleTextToStr(rule.text) : "";
     const list = rule.list ? ruleListToStr(rule.list) : "";
     const subRules = rule.subRules ? fileContentsToJsonStr(rule.subRules) : "";
@@ -123,7 +122,11 @@ const lineProcesser = (line: string): string => {
     processingLine = processingLine.substring(1);
   }
   while (badEndingChar(processingLine.at(-1)) && line.length > 0) {
-    processingLine = processingLine.substring(0, -1);
+    processingLine = processingLine.substring(0, -2);
+  }
+  // if the line ends in an extra \r, remove it
+  if(processingLine.indexOf('\r') === processingLine.length - 1){
+    processingLine = processingLine.slice(0,-1)
   }
   processedLine = processingLine;
   return processedLine;
@@ -131,7 +134,6 @@ const lineProcesser = (line: string): string => {
 
 const strToRuleType = (str: string): RuleType | null => {
   str = str.substring("ruleType: ".length, str.length - 1);
-  console.log(str);
   if (
     str === "EG" ||
     str === "FLAVOR" ||
@@ -163,7 +165,7 @@ const ruleArrayToRule = (rulesArray: string[], level: number) => {
         : ruleArrayToRule(splitRule.slice(1), level + 1);
     // need to split out list text from text blocks
     const title = lineProcesser(baseRule[0]);
-    const slug = baseRule[2].slice(6);
+    const slug = lineProcesser(baseRule[2].slice(6));
     const list: string[] = [];
     const unprocessedText: string[] = [];
     let ruleType: RuleType | null = null;
@@ -171,12 +173,10 @@ const ruleArrayToRule = (rulesArray: string[], level: number) => {
     baseRule.slice(3).forEach((line) => {
       if (typeof line === "string") {
         if (line.includes("ruleType")) ruleType = strToRuleType(line);
-        else if (line[0] === "-") list.push(line.slice(2));
-        else unprocessedText.push(line);
+        else if (line[0] === "-") list.push(lineProcesser(line.slice(2)));
+        else unprocessedText.push(lineProcesser(line));
       }
     });
-    console.log(title, "list: ", list);
-
     const text = textMaker(unprocessedText);
 
     if (baseRule.length > 1) {
@@ -189,6 +189,7 @@ const ruleArrayToRule = (rulesArray: string[], level: number) => {
       rules.push(ruleBuilder);
     }
   });
+  console.log(rules)
   return rules;
 };
 
@@ -197,7 +198,7 @@ const rulesStringToObj = (fileContents: string): GenericRule[] | undefined => {
 };
 
 function main() {
-  const fileContentsStr = readFile("generatedRules.md");
+  const fileContentsStr = readFile("generalRules.md");
   const rules = rulesStringToObj(fileContentsStr);
   if (rules) writeToFile(rules, "generatedRules.ts");
 }
