@@ -26,6 +26,7 @@ export type CharacterClass = Rule & {
   attackStat?: Maybe<Array<StatOptions>>;
   complexity?: Maybe<Complexity>;
   damage?: Maybe<Damage>;
+  deflect?: Maybe<Array<Maybe<Deflect>>>;
   description: Array<Maybe<Scalars['String']['output']>>;
   extra?: Maybe<ShifterForms>;
   features: Array<Maybe<CharacterClassFeature>>;
@@ -83,6 +84,13 @@ export type Damage = {
   dice: Scalars['Int']['output'];
   stat?: Maybe<Array<StatOptions>>;
   type?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+export type Deflect = {
+  __typename?: 'Deflect';
+  count: Scalars['Int']['output'];
+  dice: Scalars['Int']['output'];
+  level: Scalars['Int']['output'];
 };
 
 export type Feature = {
@@ -436,6 +444,7 @@ export type ResolversTypes = {
   Complexity: Complexity;
   Culture: ResolverTypeWrapper<Culture>;
   Damage: ResolverTypeWrapper<Damage>;
+  Deflect: ResolverTypeWrapper<Deflect>;
   Feature: ResolverTypeWrapper<ResolversInterfaceTypes<ResolversTypes>['Feature']>;
   FeatureChoices: ResolverTypeWrapper<ResolversUnionTypes<ResolversTypes>['FeatureChoices']>;
   FeatureType: FeatureType;
@@ -474,6 +483,7 @@ export type ResolversParentTypes = {
   Boolean: Scalars['Boolean']['output'];
   Culture: Culture;
   Damage: Damage;
+  Deflect: Deflect;
   Feature: ResolversInterfaceTypes<ResolversParentTypes>['Feature'];
   FeatureChoices: ResolversUnionTypes<ResolversParentTypes>['FeatureChoices'];
   FeatureWithoutChoices: FeatureWithoutChoices;
@@ -500,6 +510,7 @@ export type CharacterClassResolvers<ContextType = any, ParentType extends Resolv
   attackStat?: Resolver<Maybe<Array<ResolversTypes['StatOptions']>>, ParentType, ContextType>;
   complexity?: Resolver<Maybe<ResolversTypes['Complexity']>, ParentType, ContextType>;
   damage?: Resolver<Maybe<ResolversTypes['Damage']>, ParentType, ContextType>;
+  deflect?: Resolver<Maybe<Array<Maybe<ResolversTypes['Deflect']>>>, ParentType, ContextType>;
   description?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   extra?: Resolver<Maybe<ResolversTypes['ShifterForms']>, ParentType, ContextType>;
   features?: Resolver<Array<Maybe<ResolversTypes['CharacterClassFeature']>>, ParentType, ContextType>;
@@ -552,6 +563,13 @@ export type DamageResolvers<ContextType = any, ParentType extends ResolversParen
   dice?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   stat?: Resolver<Maybe<Array<ResolversTypes['StatOptions']>>, ParentType, ContextType>;
   type?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type DeflectResolvers<ContextType = any, ParentType extends ResolversParentTypes['Deflect'] = ResolversParentTypes['Deflect']> = {
+  count?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  dice?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  level?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -743,6 +761,7 @@ export type Resolvers<ContextType = any> = {
   CharacterClassFeature?: CharacterClassFeatureResolvers<ContextType>;
   Culture?: CultureResolvers<ContextType>;
   Damage?: DamageResolvers<ContextType>;
+  Deflect?: DeflectResolvers<ContextType>;
   Feature?: FeatureResolvers<ContextType>;
   FeatureChoices?: FeatureChoicesResolvers<ContextType>;
   FeatureWithoutChoices?: FeatureWithoutChoicesResolvers<ContextType>;

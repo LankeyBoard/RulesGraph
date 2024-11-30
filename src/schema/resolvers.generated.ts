@@ -4,6 +4,7 @@
 import    { CharacterClassFeature } from './base/resolvers/CharacterClassFeature';
 import    { Culture } from './base/resolvers/Culture';
 import    { Damage } from './base/resolvers/Damage';
+import    { Deflect } from './base/resolvers/Deflect';
 import    { FeatureWithoutChoices } from './base/resolvers/FeatureWithoutChoices';
 import    { GenericFeature } from './base/resolvers/GenericFeature';
 import    { GenericRule } from './base/resolvers/GenericRule';
@@ -35,6 +36,7 @@ import    { shifterFeature } from './base/resolvers/shifterFeature';
 CharacterClassFeature: CharacterClassFeature,
 Culture: Culture,
 Damage: Damage,
+Deflect: Deflect,
 FeatureWithoutChoices: FeatureWithoutChoices,
 GenericFeature: GenericFeature,
 GenericRule: GenericRule,

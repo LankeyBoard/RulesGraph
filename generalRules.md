@@ -397,8 +397,8 @@ slug: DEFLECT-DICE
 ruleType: RULE\
 When you would take damage and you are not Surprised, Unconscious or otherwise unaware of the damage, you can attempt to reduce the damage by spending 2 Stamina to roll your Deflect Dice, reducing the damage taken by the amount rolled.\
 _Depending on the source of the damage this might represent a last second dodge to reduce the effect of the blow or gritting your teeth through the damage to reduce the effect._\
-At level 1 your Deflect Dice is 1d4. Different classes increase their Deflect at different rates.\
 Eg: A goblin swings at you with a rusted short sword. They hit, and would deal 3 damage to you. You decide to Deflect, spending 2 Stamina and rolling your 1d4 dice. You get a 2, reducing the Slashing damage to 1. Your GM narrates how you throw yourself back at the last second, avoiding the worst of the attack, but still getting caught by the tip of the blade.
+Different classes increase their Deflect at different rates.
 
 # Weapons, Shields, Armor & Equipment
 
@@ -413,6 +413,7 @@ slug: WEAPONS
 ruleType: RULE\
 Characters can be proficient in different groups of weapons and magic. It is up to your GMs discretion what category a weapon falls into, or if it is a unique weapon that requires its own training.\
 Weapons can require one or two hands to wield. If you leave one hand free to wield a Shield or some other item, your Base Damage is reduced by one step.
+Using a ranged weapon in melee range causes Misfortune on the Attack Test.
 
 ### Melee
 
