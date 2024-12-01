@@ -90,6 +90,7 @@ export type Deflect = {
   __typename?: 'Deflect';
   count: Scalars['Int']['output'];
   dice: Scalars['Int']['output'];
+  flat?: Maybe<Scalars['Int']['output']>;
   level: Scalars['Int']['output'];
 };
 
@@ -569,6 +570,7 @@ export type DamageResolvers<ContextType = any, ParentType extends ResolversParen
 export type DeflectResolvers<ContextType = any, ParentType extends ResolversParentTypes['Deflect'] = ResolversParentTypes['Deflect']> = {
   count?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   dice?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  flat?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   level?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };

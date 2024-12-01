@@ -125,8 +125,8 @@ const lineProcesser = (line: string): string => {
     processingLine = processingLine.substring(0, -2);
   }
   // if the line ends in an extra \r, remove it
-  if(processingLine.indexOf('\r') === processingLine.length - 1){
-    processingLine = processingLine.slice(0,-1)
+  if (processingLine.indexOf("\r") === processingLine.length - 1) {
+    processingLine = processingLine.slice(0, -1);
   }
   processedLine = processingLine;
   return processedLine;
@@ -165,7 +165,7 @@ const ruleArrayToRule = (rulesArray: string[], level: number) => {
         : ruleArrayToRule(splitRule.slice(1), level + 1);
     // need to split out list text from text blocks
     const title = lineProcesser(baseRule[0]);
-    const slug = lineProcesser(baseRule[2].slice(6));
+    const slug = baseRule[2] ? lineProcesser(baseRule[2].slice(6)) : "ERROR";
     const list: string[] = [];
     const unprocessedText: string[] = [];
     let ruleType: RuleType | null = null;
@@ -189,7 +189,7 @@ const ruleArrayToRule = (rulesArray: string[], level: number) => {
       rules.push(ruleBuilder);
     }
   });
-  console.log(rules)
+  console.log(rules);
   return rules;
 };
 

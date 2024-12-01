@@ -230,6 +230,7 @@ type Deflect {
   dice: Int!
   count: Int!
   level: Int!
+  flat: Int
 }
 
 type CharacterClassFeature implements Feature {
