@@ -25,8 +25,8 @@ export type CharacterClass = Rule & {
   __typename?: 'CharacterClass';
   attackStat?: Maybe<Array<StatOptions>>;
   complexity?: Maybe<Complexity>;
-  damage?: Maybe<Damage>;
-  deflect?: Maybe<Array<Maybe<Deflect>>>;
+  damage: Damage;
+  deflect: Deflect;
   description: Array<Maybe<Scalars['String']['output']>>;
   extra?: Maybe<ShifterForms>;
   features: Array<Maybe<CharacterClassFeature>>;
@@ -91,7 +91,6 @@ export type Deflect = {
   count: Scalars['Int']['output'];
   dice: Scalars['Int']['output'];
   flat?: Maybe<Scalars['Int']['output']>;
-  level: Scalars['Int']['output'];
 };
 
 export type Feature = {
@@ -510,8 +509,8 @@ export type ResolversParentTypes = {
 export type CharacterClassResolvers<ContextType = any, ParentType extends ResolversParentTypes['CharacterClass'] = ResolversParentTypes['CharacterClass']> = {
   attackStat?: Resolver<Maybe<Array<ResolversTypes['StatOptions']>>, ParentType, ContextType>;
   complexity?: Resolver<Maybe<ResolversTypes['Complexity']>, ParentType, ContextType>;
-  damage?: Resolver<Maybe<ResolversTypes['Damage']>, ParentType, ContextType>;
-  deflect?: Resolver<Maybe<Array<Maybe<ResolversTypes['Deflect']>>>, ParentType, ContextType>;
+  damage?: Resolver<ResolversTypes['Damage'], ParentType, ContextType>;
+  deflect?: Resolver<ResolversTypes['Deflect'], ParentType, ContextType>;
   description?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   extra?: Resolver<Maybe<ResolversTypes['ShifterForms']>, ParentType, ContextType>;
   features?: Resolver<Array<Maybe<ResolversTypes['CharacterClassFeature']>>, ParentType, ContextType>;
@@ -571,7 +570,6 @@ export type DeflectResolvers<ContextType = any, ParentType extends ResolversPare
   count?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   dice?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   flat?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
-  level?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 

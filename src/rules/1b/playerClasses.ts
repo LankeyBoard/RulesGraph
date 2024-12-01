@@ -26,11 +26,7 @@ const playerClasses: CharacterClass[] = [
     attackStat: ["METTLE", "AGILITY"],
     range: { min: 0, max: 40 },
     damage: { dice: 10, count: 1, stat: ["METTLE", "AGILITY"] },
-    deflect: [
-      { dice: 4, count: 1, level: 1 },
-      { dice: 6, count: 1, level: 5 },
-      { dice: 4, count: 2, level: 8 },
-    ],
+    deflect: { dice: 4, count: 1, flat: 2 },
     features: [
       {
         level: 1,
@@ -290,11 +286,7 @@ const playerClasses: CharacterClass[] = [
     attackStat: ["HEART"],
     range: { min: 0, max: 60 },
     damage: { dice: 6, count: 1, stat: ["HEART"] },
-    deflect: [
-      { dice: 4, count: 1, level: 1 },
-      { dice: 6, count: 1, level: 5 },
-      { dice: 4, count: 2, level: 8 },
-    ],
+    deflect: { dice: 4, count: 1 },
     features: [
       {
         level: 1,
@@ -493,11 +485,7 @@ const playerClasses: CharacterClass[] = [
     attackStat: ["INTELLECT"],
     range: { min: 0, max: 80 },
     damage: { dice: 6, count: 1, stat: ["INTELLECT"] },
-    deflect: [
-      { dice: 4, count: 1, level: 1 },
-      { dice: 6, count: 1, level: 5 },
-      { dice: 4, count: 2, level: 8 },
-    ],
+    deflect: { dice: 4, count: 1 },
     features: [
       {
         level: 1,
@@ -716,11 +704,7 @@ const playerClasses: CharacterClass[] = [
     attackStat: ["METTLE"],
     range: { min: 0, max: 120 },
     damage: { dice: 10, count: 1, stat: ["METTLE"] },
-    deflect: [
-      { dice: 4, count: 1, level: 1 },
-      { dice: 6, count: 1, level: 5 },
-      { dice: 4, count: 2, level: 8 },
-    ],
+    deflect: { dice: 6, count: 1 },
     features: [
       {
         level: 1,
@@ -922,11 +906,7 @@ const playerClasses: CharacterClass[] = [
       count: 1,
       stat: ["AGILITY"],
     },
-    deflect: [
-      { dice: 4, count: 1, level: 1 },
-      { dice: 6, count: 1, level: 5 },
-      { dice: 8, count: 1, level: 8 },
-    ],
+    deflect: { dice: 6, count: 1 },
     features: [
       {
         level: 1,
@@ -1122,11 +1102,7 @@ const playerClasses: CharacterClass[] = [
     attackStat: ["AGILITY"],
     range: { min: 0, max: 120 },
     damage: { dice: 8, count: 1, stat: ["AGILITY"] },
-    deflect: [
-      { dice: 4, count: 1, level: 1 },
-      { dice: 6, count: 1, level: 5 },
-      { dice: 4, count: 2, level: 8 },
-    ],
+    deflect: { dice: 4, count: 1 },
     features: [
       {
         level: 1,
@@ -1325,11 +1301,7 @@ const playerClasses: CharacterClass[] = [
     attackStat: ["HEART"],
     range: { min: 0, max: 60 },
     damage: { dice: 6, count: 1, stat: ["HEART"] },
-    deflect: [
-      { dice: 4, count: 1, level: 1 },
-      { dice: 6, count: 1, level: 5 },
-      { dice: 4, count: 2, level: 8 },
-    ],
+    deflect: { dice: 4, count: 1 },
     features: [
       {
         level: 1,
@@ -1626,11 +1598,7 @@ const playerClasses: CharacterClass[] = [
     attackStat: ["METTLE", "AGILITY"],
     range: { min: 0, max: 80 },
     damage: { dice: 8, count: 1, stat: ["METTLE", "AGILITY"] },
-    deflect: [
-      { dice: 4, count: 1, level: 1 },
-      { dice: 6, count: 1, level: 5 },
-      { dice: 4, count: 2, level: 8 },
-    ],
+    deflect: { dice: 4, count: 1 },
     features: [
       {
         level: 1,
