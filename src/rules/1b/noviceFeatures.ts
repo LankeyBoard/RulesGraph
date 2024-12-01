@@ -13,7 +13,7 @@ const NoviceFeatures: GenericFeature[] = [
   {
     title: "Aid",
     slug: "AID",
-    text: [{ text: "Add an additional +2 to tests when helping an ally." }],
+    text: [{ text: "Add an additional +2 to Tests when helping an ally." }],
   },
   {
     title: "Artisan",
@@ -29,7 +29,7 @@ const NoviceFeatures: GenericFeature[] = [
     title: "Athletic",
     slug: "ATHLETIC",
     text: [
-      { text: "Add +3 to mettle tests for feats of strength or endurance." },
+      { text: "Add +3 to mettle Tests for feats of strength or endurance." },
     ],
   },
   {
@@ -37,7 +37,7 @@ const NoviceFeatures: GenericFeature[] = [
     slug: "DARING",
     text: [
       {
-        text: "On 3 tests per R&R, instead of rolling dice, flip a coin. If you win the flip, you pass the test. Otherwise, you fail.",
+        text: "On 3 Tests per R&R, instead of rolling dice, flip a coin. If you win the flip, you pass the Test. Otherwise, you fail.",
       },
     ],
   },
@@ -45,7 +45,7 @@ const NoviceFeatures: GenericFeature[] = [
     title: "Disguise Master",
     slug: "DISGUISE-MASTER",
     text: [
-      { text: "Add +3 to tests to disguise yourself as another humanoid." },
+      { text: "Add +3 to Tests to disguise yourself as another humanoid." },
     ],
   },
   {
@@ -53,7 +53,7 @@ const NoviceFeatures: GenericFeature[] = [
     slug: "IMITATOR",
     text: [
       {
-        text: "Add +3 to tests when trying to imitate another humanoid's speech.",
+        text: "Add +3 to Tests when trying to imitate another humanoid's speech.",
       },
     ],
   },
@@ -62,21 +62,21 @@ const NoviceFeatures: GenericFeature[] = [
     slug: "INDEPENDENT",
     text: [
       {
-        text: "Once per day, when you make a non-combat test without help, add +3 to the results.",
+        text: "Once per day, when you make a non-combat Test without help, add +3 to the results.",
       },
     ],
   },
   {
     title: "Infiltrator",
     slug: "INFILTRATOR",
-    text: [{ text: "Add +3 to stealth tests." }],
+    text: [{ text: "Add +3 to stealth Tests." }],
   },
   {
     title: "Insightful",
     slug: "INSIGHTFUL",
     text: [
       {
-        text: "Add +3 to heart tests to determine if someone is lying to you or to determine their intentions.",
+        text: "Add +3 to heart Tests to determine if someone is lying to you or to determine their intentions.",
       },
     ],
   },
@@ -84,7 +84,7 @@ const NoviceFeatures: GenericFeature[] = [
     title: "Keen Eyed",
     slug: "KEEN-EYED",
     text: [
-      { text: "Add +3 to heart tests to spot hidden objects and creatures." },
+      { text: "Add +3 to heart Tests to spot hidden objects and creatures." },
     ],
   },
   {
@@ -110,7 +110,7 @@ const NoviceFeatures: GenericFeature[] = [
     slug: "LINGUIST",
     text: [
       {
-        text: "Learn another language. Add a +3 to intellect tests to decipher languages and codes you don't already know.",
+        text: "Learn another language. Add a +3 to intellect Tests to decipher languages and codes you don't already know.",
       },
     ],
   },
@@ -133,7 +133,7 @@ const NoviceFeatures: GenericFeature[] = [
     slug: "PERFORMER",
     text: [
       {
-        text: "Add +3 to tests to determine the quality of your performance art. Gain training in one performance art of your choice (1 musical instrument, dance, acrobatics, etc.)",
+        text: "Add +3 to Tests to determine the quality of your performance art. Gain training in one performance art of your choice (1 musical instrument, dance, acrobatics, etc.)",
       },
     ],
   },
@@ -142,7 +142,7 @@ const NoviceFeatures: GenericFeature[] = [
     slug: "RELIABLE-SKILL",
     text: [
       {
-        text: "When you make a non-combat test, before you roll, you can choose to treat the test as though you rolled a 12. You can do this 3 times per R&R.",
+        text: "When you make a non-combat Test, before you roll, you can choose to treat the Test as though you rolled a 12. You can do this 3 times per R&R.",
       },
     ],
   },
@@ -151,7 +151,7 @@ const NoviceFeatures: GenericFeature[] = [
     slug: "SILVER-TONGUED",
     text: [
       {
-        text: "When you make a heart test to convince others with emotional appeal, add a +3 to the test.",
+        text: "When you make a heart Test to convince others with emotional appeal, add a +3 to the Test.",
       },
     ],
   },

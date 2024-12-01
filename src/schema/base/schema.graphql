@@ -225,6 +225,13 @@ type Damage {
   stat: [StatOptions!]
   type: [String]
 }
+
+type Deflect {
+  dice: Int!
+  count: Int!
+  flat: Int
+}
+
 type CharacterClassFeature implements Feature {
   title: String!
   slug: String!
@@ -257,7 +264,8 @@ type CharacterClass implements Rule {
   training: Training!
   attackStat: [StatOptions!]
   range: Range!
-  damage: Damage
+  damage: Damage!
+  deflect: Deflect!
   features: [CharacterClassFeature]!
   extra: ShifterForms
 }
