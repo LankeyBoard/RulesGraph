@@ -383,14 +383,14 @@ slug: MOVEMENT-DOWN-UP
 ruleType: RULE\
 Dropping [prone](/rules/player_rules#PRONE) is a free action. Standing up from [prone](/rules/player_rules#PRONE) takes either 10 ft. of Movement or an Action. If you have magical flight, it only takes 5ft. of Movement.
 
-## Taking Damage
+# Taking Damage
 
 slug: TAKING-DMG
 
 ruleType: RULE\
 When you take damage, your Health is reduced by the damage amount. You can spent Stamina to reduce your damage taken by using your Deflect Dice. See the [rules on dying](/rules/player_rules#EDL) for what happens when you go to 0 Health and/or 0 Stamina.
 
-### Deflect Dice
+## Deflect Dice
 
 slug: DEFLECT-DICE
 

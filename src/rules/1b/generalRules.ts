@@ -639,37 +639,37 @@ const generalRules: GenericRule[] = [
           },
         ],
       },
+    ],
+  },
+  {
+    title: "Taking Damage",
+    slug: "TAKING-DMG",
+    text: [
       {
-        title: "Taking Damage",
-        slug: "TAKING-DMG",
+        text: "When you take damage, your Health is reduced by the damage amount. You can spent Stamina to reduce your damage taken by using your Deflect Dice. See the [rules on dying](/rules/player_rules#EDL) for what happens when you go to 0 Health and/or 0 Stamina.",
+        type: "RULE",
+      },
+    ],
+    subRules: [
+      {
+        title: "Deflect Dice",
+        slug: "DEFLECT-DICE",
         text: [
           {
-            text: "When you take damage, your Health is reduced by the damage amount. You can spent Stamina to reduce your damage taken by using your Deflect Dice. See the [rules on dying](/rules/player_rules#EDL) for what happens when you go to 0 Health and/or 0 Stamina.",
+            text: "When you would take damage and you are not Surprised, Unconscious or otherwise unaware of the damage, you can attempt to reduce the damage by spending 2 Stamina per die to roll Deflect Dice, reducing the damage taken by the amount rolled. You can roll Deflect Dice equal to half your level rounded down and you must decide and roll all dice at once.",
             type: "RULE",
           },
-        ],
-        subRules: [
           {
-            title: "Deflect Dice",
-            slug: "DEFLECT-DICE",
-            text: [
-              {
-                text: "When you would take damage and you are not Surprised, Unconscious or otherwise unaware of the damage, you can attempt to reduce the damage by spending 2 Stamina per die to roll Deflect Dice, reducing the damage taken by the amount rolled. You can roll Deflect Dice equal to half your level rounded down and you must decide and roll all dice at once.",
-                type: "RULE",
-              },
-              {
-                text: "Any flat deflect bonuses only apply once regardless of how many dice you roll.",
-                type: "RULE",
-              },
-              {
-                text: "Depending on the source of the damage this might represent a last second dodge to reduce the effect of the blow or gritting your teeth through the damage to reduce the effect.",
-                type: "RULE",
-              },
-              {
-                text: "Eg: A goblin swings at you with a rusted short sword. They hit, and would deal 3 damage to you. You decide to Deflect, spending 2 Stamina and rolling your 1d4 dice. You get a 2, reducing the Slashing damage to 1. Your GM narrates how you throw yourself back at the last second, avoiding the worst of the attack, but still getting caught by the tip of the blade.",
-                type: "RULE",
-              },
-            ],
+            text: "Any flat deflect bonuses only apply once regardless of how many dice you roll.",
+            type: "RULE",
+          },
+          {
+            text: "Depending on the source of the damage this might represent a last second dodge to reduce the effect of the blow or gritting your teeth through the damage to reduce the effect.",
+            type: "RULE",
+          },
+          {
+            text: "Eg: A goblin swings at you with a rusted short sword. They hit, and would deal 3 damage to you. You decide to Deflect, spending 2 Stamina and rolling your 1d4 dice. You get a 2, reducing the Slashing damage to 1. Your GM narrates how you throw yourself back at the last second, avoiding the worst of the attack, but still getting caught by the tip of the blade.",
+            type: "RULE",
           },
         ],
       },
