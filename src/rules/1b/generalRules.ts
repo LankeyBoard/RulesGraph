@@ -198,11 +198,11 @@ const generalRules: GenericRule[] = [
             slug: "NIGHTS-REST",
             text: [
               {
-                text: "A good Night's Rest is still important to an adventurer. To complete a night's rest, spend a minimum of 6 hours sleeping. This gives surface level wounds a chance to heal and prepare yourself for the next day. When you finish a Night's Rest, return your Stamina to full, and gain Fortune's Favor. If you are above half Health, return to full Health. If you are at or below half Health, return to half Health.",
+                text: "A good Night's Rest is still important to an adventurer. To complete a Night's Rest, spend a minimum of 6 hours sleeping. This gives surface level wounds a chance to heal and prepare yourself for the next day. When you finish a Night's Rest, return your Stamina to full, regain Health equal to your level + 1, and gain Fortune's Favor.",
                 type: "RULE",
               },
               {
-                text: "If you are awake for more than 24 hours in a row, Test your Mettle each hour. The difficulty of this test increases by 1 for each hour beyond 24 hours. Pass (15+): You suffer no ill effects. Mixed (10-14): Reduce your current and maximum stamina by 3. Fail (9-): Reduce your current and maximum stamina by 10. If you are reduced to 0 stamina in this way you become unconscious. You must complete a Night's Rest to remove these effects.",
+                text: "If you are awake for more than 24 hours in a row, Test your Mettle each hour. The difficulty of this test increases by 1 for each hour beyond 24 hours. Pass (15+): You suffer no ill effects. Mixed (10-14): Reduce your current and maximum Stamina by 3. Fail (9-): Reduce your current and maximum Stamina by 7. If you are reduced to 0 stamina in this way you become unconscious. You must complete a Night's Rest to remove these effects.",
                 type: "RULE",
               },
             ],
@@ -212,7 +212,19 @@ const generalRules: GenericRule[] = [
             slug: "REST-RELAX",
             text: [
               {
-                text: "In-between adventures you have a chance to rest, relax and prepare yourself for the next call to action. To gain the benefits of Resting and Relaxing (R&R) you must spend 5 nights in a safe and relatively comfortable shelter while only engaging in light activity. Eg. At home or in an inn. Or spend 14 days & nights in less than ideal conditions with no more than light activity. Eg. Sleeping in a tent in the woods.",
+                text: "In-between adventures you have a chance to rest, relax and prepare yourself for the next call to action. To gain the benefits of Resting and Relaxing (R&R) you must spend 5 nights in a safe and relatively comfortable shelter while only engaging in light activity.",
+                type: "RULE",
+              },
+              {
+                text: "Eg. At home or in an inn.",
+                type: "RULE",
+              },
+              {
+                text: "Or spend 14 days & nights in less than ideal conditions with no more than light activity.",
+                type: "RULE",
+              },
+              {
+                text: "Eg. Sleeping in a tent in the woods.",
                 type: "RULE",
               },
               {
@@ -940,7 +952,7 @@ const generalRules: GenericRule[] = [
         slug: "HEALING-NIGHTS-REST",
         text: [
           {
-            text: "When you finish a Night's Rest, if you have more than half your Health, return to full health, otherwise return to half your Health.",
+            text: "When you finish a [Night's Rest](/rules/player_rules#nights-rest), regain Health equal to your current level + 1.",
             type: "RULE",
           },
         ],
