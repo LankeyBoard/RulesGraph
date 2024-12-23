@@ -325,7 +325,7 @@ const playerClasses: CharacterClass[] = [
       {
         level: 1,
         title: "I've Studied the Word",
-        slug: "DEVOTED-SW",
+        slug: "DEVOTED-STW",
         staminaCost: 0,
         costsFortunesFavor: false,
         text: [
@@ -398,7 +398,7 @@ const playerClasses: CharacterClass[] = [
       {
         level: 5,
         title: "Shepherd of the Word",
-        slug: "DEVOTED-SW",
+        slug: "DEVOTED-SOTW",
         staminaCost: 0,
         costsFortunesFavor: false,
         text: [
