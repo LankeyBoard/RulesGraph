@@ -7,21 +7,21 @@ import playerClasses from "./rules/1b/playerClasses";
 import { Feature, GenericRule, SlugDict } from "./schema/types.generated";
 
 export enum baseUrls {
-  generalRules = "player_rules",
-  cultures = "cultures",
-  noviceFeatures = "generic_features/novice_features",
-  veteranFeatures = "generic_features/veteran_features",
-  lineages = "lineages",
-  classes = "classes",
+  generalRules = "rules/player_rules",
+  cultures = "rules/cultures",
+  noviceFeatures = "rules/generic_features/novice_features",
+  veteranFeatures = "rules/generic_features/veteran_features",
+  lineages = "rules/lineages",
+  classes = "rules/classes",
 }
 
 export const hrefer = (
   baseUrl: baseUrls | string,
   slug: string,
-  isAnchor: boolean
+  isAnchor: boolean,
 ): string => {
   if (baseUrl.includes("#")) return baseUrl;
-  if (!isAnchor) return `/rules/${baseUrl}/${slug}`;
+  if (!isAnchor) return `${baseUrl}/${slug}`;
   else return `${baseUrl}#${slug}`;
 };
 
@@ -31,7 +31,7 @@ const SlugMapper = () => {
   const subRuleMapper = (
     rule: GenericRule | Feature,
     slugStr: string,
-    dict: SlugDict[]
+    dict: SlugDict[],
   ) => {
     dict.push({
       slug: rule.slug,
