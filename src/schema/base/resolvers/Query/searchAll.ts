@@ -18,9 +18,9 @@ import type {
   Lineage,
 } from "./../../../types.generated";
 
-export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (
+export const searchAll: NonNullable<QueryResolvers["searchAll"]> = async (
   _parent,
-  _arg
+  _arg,
 ) => {
   let currentClasses: CharacterClass[] = playerClasses;
   let currentLineages: Lineage[] = lineagesData;
@@ -33,7 +33,7 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (
     import(`../../../../rules/${_arg.version.slice(1)}/playerClasses`).then(
       (classes) => {
         currentClasses = classes;
-      }
+      },
     );
   }
 
@@ -41,12 +41,12 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (
     import(`../../../../rules/${_arg.version.slice(1)}/noviceFeatures`).then(
       (f) => {
         currentNoviceFeatures = f;
-      }
+      },
     );
     import(`../../../../rules/${_arg.version.slice(1)}/veteranFeatures`).then(
       (f) => {
         currentVeteranFeatures = f;
-      }
+      },
     );
   }
 
@@ -60,7 +60,7 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (
     import(`../../../../rules/${_arg.version.slice(1)}/generalRules`).then(
       (r) => {
         currentRules = r;
-      }
+      },
     );
   }
 
@@ -72,17 +72,32 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (
 
   const searchPhrase = _arg.phrase.toLocaleLowerCase();
   console.log(_arg.phrase);
-  const found: SearchResult[] = [];
+  const found = new Set<SearchResult>();
+  const foundTitles = new Set<string>();
+
+  const uniqueAddToFound = ({
+    title,
+    slug,
+    text,
+    type,
+    page,
+  }: SearchResult) => {
+    console.log(title, foundTitles);
+    if (!foundTitles.has(title)) {
+      found.add({ title, slug, text, type, page });
+      foundTitles.add(title);
+    } else console.log("duplicate title", title);
+  };
   const searchRule = (
     rule: GenericRule,
     parentPage: string,
-    type: SearchResultSource = "rule"
+    type: SearchResultSource = "rule",
   ) => {
     if (
       rule.title.toLocaleLowerCase().includes(searchPhrase) ||
       rule.shortText?.toLocaleLowerCase().includes(searchPhrase)
     ) {
-      found.push({
+      uniqueAddToFound({
         title: rule.title,
         slug: rule.slug,
         text: rule.text,
@@ -92,7 +107,7 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (
     }
     rule.text?.forEach((t) => {
       if (t?.text.includes(searchPhrase) || t?.choices?.toLocaleString())
-        found.push({
+        uniqueAddToFound({
           title: rule.title,
           slug: rule.slug,
           text: rule.text,
@@ -102,7 +117,7 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (
     });
     rule.list?.forEach((l) => {
       if (l?.includes(searchPhrase))
-        found.push({
+        uniqueAddToFound({
           title: rule.title,
           slug: rule.slug,
           text: rule.text,
@@ -117,10 +132,10 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (
 
   const searchClassFeature = (
     feature: CharacterClassFeature,
-    parentPage: string
+    parentPage: string,
   ) => {
     if (feature.title.toLocaleLowerCase().includes(searchPhrase)) {
-      found.push({
+      uniqueAddToFound({
         title: feature.title,
         slug: feature.slug,
         text: feature.text,
@@ -129,39 +144,44 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (
       });
     }
     feature.text?.forEach((t) => {
-      if (t?.text.includes(searchPhrase) || t?.choices?.toLocaleString())
-        found.push({
+      if (
+        t?.text.includes(searchPhrase) ||
+        t?.choices?.toLocaleString().includes(searchPhrase)
+      ) {
+        uniqueAddToFound({
           title: feature.title,
           slug: feature.slug,
           text: feature.text,
           page: parentPage,
           type: "characterClass",
         });
+      }
     });
     feature.choices?.forEach((choice) => {
       if ("slug" in choice)
         searchGenericFeature(choice, parentPage, "characterClass");
-      else if (choice.text.toLocaleLowerCase().includes(searchPhrase))
-        found.push({
+      else if (choice.text.toLocaleLowerCase().includes(searchPhrase)) {
+        uniqueAddToFound({
           title: feature.title,
           slug: feature.slug,
           text: [choice],
           page: parentPage,
           type: "characterClass",
         });
+      }
     });
   };
   type featureTypes = GenericFeature | FeatureWithoutChoices;
   const searchGenericFeature = (
     feature: featureTypes,
     parentPage: string,
-    type: SearchResultSource
+    type: SearchResultSource,
   ) => {
     if (
       feature.title.toLocaleLowerCase().includes(searchPhrase) ||
       feature.shortText?.toLocaleLowerCase().includes(searchPhrase)
     ) {
-      found.push({
+      uniqueAddToFound({
         title: feature.title,
         slug: feature.slug,
         text: feature.text,
@@ -171,7 +191,7 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (
     } else {
       feature.text?.forEach((txt) => {
         if (txt?.text.toLocaleLowerCase().includes(searchPhrase)) {
-          found.push({
+          uniqueAddToFound({
             title: feature.title,
             slug: feature.slug,
             text: feature.text,
@@ -186,7 +206,7 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (
             choice?.__typename === "RuleText" &&
             choice.text?.toLocaleLowerCase().includes(searchPhrase)
           ) {
-            found.push({
+            uniqueAddToFound({
               title: feature.title,
               slug: feature.slug,
               text: feature.text,
@@ -213,7 +233,7 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (
       culture.languages?.toLocaleLowerCase().includes(searchPhrase) ||
       culture.stat?.toLocaleLowerCase().includes(searchPhrase)
     ) {
-      found.push({
+      uniqueAddToFound({
         title: culture.title,
         slug: culture.slug,
         text: [{ text: culture.description?.toLocaleString() || "" }],
@@ -226,8 +246,8 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (
         trait?.title.toLocaleLowerCase().includes(searchPhrase) ||
         trait?.shortText?.toLocaleLowerCase().includes(searchPhrase)
       ) {
-        found.push({
-          title: `${culture.title} - ${trait.title}`,
+        uniqueAddToFound({
+          title: trait.title,
           slug: trait.slug,
           text: trait.text,
           page: culture.title,
@@ -239,8 +259,8 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (
           t?.text.includes(searchPhrase) ||
           t?.choices?.toLocaleString().includes(searchPhrase)
         )
-          found.push({
-            title: `${culture.title} - ${trait.title}`,
+          uniqueAddToFound({
+            title: trait.title,
             slug: trait.slug,
             text: trait.text,
             page: culture.title,
@@ -262,7 +282,7 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (
         .includes(searchPhrase) ||
       lineage.stat?.toLocaleLowerCase().includes(searchPhrase)
     ) {
-      found.push({
+      uniqueAddToFound({
         title: lineage.title,
         slug: lineage.slug,
         text: [{ text: lineage.description?.toLocaleString() || "" }],
@@ -311,7 +331,7 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (
         .toLocaleLowerCase()
         .includes(searchPhrase)
     ) {
-      found.push({
+      uniqueAddToFound({
         title: playerClass.title,
         slug: playerClass.slug,
         text: [{ text: playerClass.description.toLocaleString() }],
@@ -332,5 +352,5 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (
     searchGenericFeature(feature, feature.title, "veteranFeature");
   });
 
-  return found;
+  return [...found];
 };
