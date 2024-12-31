@@ -7,12 +7,12 @@ import playerClasses from "./rules/1b/playerClasses";
 import { Feature, GenericRule, SlugDict } from "./schema/types.generated";
 
 export enum baseUrls {
-  generalRules = "rules/player_rules",
-  cultures = "rules/cultures",
-  noviceFeatures = "rules/generic_features/novice_features",
-  veteranFeatures = "rules/generic_features/veteran_features",
-  lineages = "rules/lineages",
-  classes = "rules/classes",
+  generalRules = "/rules/player_rules",
+  cultures = "/rules/cultures",
+  noviceFeatures = "/rules/generic_features/novice_features",
+  veteranFeatures = "/rules/generic_features/veteran_features",
+  lineages = "/rules/lineages",
+  classes = "/rules/classes",
 }
 
 export const hrefer = (
