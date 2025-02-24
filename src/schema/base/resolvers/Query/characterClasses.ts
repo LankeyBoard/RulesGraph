@@ -5,13 +5,15 @@ import type {
 } from "./../../../types.generated";
 import { GraphQLError } from "graphql";
 
-export const characterClasses: NonNullable<QueryResolvers['characterClasses']> = async (_parent, _arg) => {
+export const characterClasses: NonNullable<
+  QueryResolvers["characterClasses"]
+> = async (_parent, _arg) => {
   let currentClasses: CharacterClass[] = playerClasses;
   if (_arg.version) {
     import(`../../../../rules/${_arg.version.slice(1)}/playerClasses`).then(
       (classes) => {
         currentClasses = classes;
-      }
+      },
     );
   }
   const searchSlug = _arg.slug?.toLocaleLowerCase();
@@ -23,7 +25,7 @@ export const characterClasses: NonNullable<QueryResolvers['characterClasses']> =
     if (result) return [result];
     else
       throw new GraphQLError(
-        `Slug ${_arg.slug} not found in the player classes`
+        `Slug ${_arg.slug} not found in the player classes`,
       );
   } else return [...currentClasses];
 };

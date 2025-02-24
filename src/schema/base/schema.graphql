@@ -16,7 +16,23 @@ type Query {
   searchAll(phrase: String!, version: VERSIONS): [SearchResult]!
 
   slugMap: [SlugDict]
+
+  user(id: ID!): User
+
+  users: [User]!
+
+  me: User
 }
+
+type Mutation {
+  createUser(name: String, email: String!, password: String!): AuthPayload
+  login(email: String!, password: String!): AuthPayload
+  createCharacter(input: CharacterInput): Character
+}
+
+#########
+# ENUMS #
+#########
 
 enum VERSIONS {
   _1a
@@ -81,7 +97,15 @@ enum SpeedTypes {
   swimming
 }
 
+#########
+# union #
+#########
+
 union FeatureChoices = RuleText | FeatureWithoutChoices
+
+#########
+# TYPES #
+#########
 
 interface Rule {
   title: String!
@@ -294,4 +318,114 @@ type shifterArmor {
 type shifterFeature {
   title: String
   text: String!
+}
+
+type User {
+  id: ID!
+  name: String
+  email: String!
+}
+
+type AuthPayload {
+  token: String
+  user: User
+}
+
+type Character {
+  name: String!
+  createdBy: User!
+  items: [Item]!
+  level: Int!
+  mettle: Int!
+  agility: Int!
+  heart: Int!
+  intellect: Int!
+  coin: Int!
+  languages: [String]!
+  characterClass: CharacterClass!
+  characterLineage: Lineage!
+  characterCulture: Culture!
+  currentHealth: Int
+  currentStamina: Int
+  maxHealth: Int!
+  maxStamina: Int!
+  armorName: String!
+  shieldName: String!
+  counter: Int!
+  baseDamage: Int!
+  rangeMin: Int!
+  rangeMax: Int!
+  featureChoiceSlugs: [String]
+}
+
+input CharacterInput {
+  name: String!
+  items: [ItemInput]
+  level: Int!
+  mettle: Int!
+  agility: Int!
+  heart: Int!
+  intellect: Int!
+  coin: Int!
+  languages: [String]!
+  characterClass: String!
+  characterLineage: String!
+  characterCulture: String!
+  currentHealth: Int
+  currentStamina: Int
+  maxHealth: Int!
+  maxStamina: Int!
+  armorName: String!
+  shieldName: String!
+  counter: Int!
+  baseDamage: Int!
+  rangeMin: Int!
+  rangeMax: Int!
+  featureChoiceSlugs: [String]
+}
+
+type Item {
+  id: ID!
+  title: String!
+  heldBy: [Character]!
+  type: String!
+  isMagic: Boolean!
+  rarity: Rarity!
+  effects: [Effect]!
+  text: [RuleText]!
+}
+
+input ItemInput {
+  title: String!
+  type: String!
+  isMagic: Boolean!
+  rarity: Rarity!
+  effects: [EffectInput]!
+  text: [RuleTextInput]!
+}
+
+type Effect {
+  id: ID!
+  target: String!
+  calculation: String!
+  itemsWithEffect: [Item]!
+}
+
+input EffectInput {
+  target: String!
+  calculation: String!
+}
+
+input RuleTextInput {
+  text: String!
+  type: String
+  choices: [String]
+}
+
+enum Rarity {
+  COMMON
+  UNCOMMON
+  RARE
+  LEGENDARY
+  UNIQUE
 }

@@ -1,0 +1,81 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id         Int         @id @default(autoincrement())
+  name       String?     @db.VarChar(255)
+  email      String      @unique @db.VarChar(255)
+  password   String
+  characters Character[]
+}
+
+model Character {
+  id                 Int      @id @default(autoincrement())
+  name               String   @db.VarChar(255)
+  createdBy          User     @relation(fields: [userId], references: [id])
+  userId             Int
+  items              Item[]
+  level              Int      @default(1)
+  mettle             Int      @default(0)
+  agility            Int      @default(0)
+  heart              Int      @default(0)
+  intellect          Int      @default(0)
+  coin               Int      @default(5)
+  languages          String[] @default(["allspeak"])
+  characterClass     String
+  characterLineage   String
+  characterCulture   String
+  currentHealth      Int      @default(0)
+  currentStamina     Int      @default(0)
+  maxHealth          Int      @default(0)
+  maxStamina         Int      @default(0)
+  armorName          String   @default("None")
+  shieldName         String   @default("None")
+  counter            Int
+  baseDamage         Int      @default(0)
+  rangeMin           Int      @default(0)
+  rangeMax           Int      @default(0)
+  featureChoiceSlugs String[]
+}
+
+model Item {
+  id      Int         @id @default(autoincrement())
+  title   String      @db.VarChar(255)
+  heldBy  Character[]
+  type    String
+  isMagic Boolean
+  rarity  Rarity
+  effects Effect[]
+  text    RuleText[]
+}
+
+model RuleText {
+  id     Int      @id @default(autoincrement())
+  text   String
+  type   String?
+  choice String[]
+  Item   Item?    @relation(fields: [itemId], references: [id])
+  itemId Int?
+}
+
+model Effect {
+  id              Int    @id @default(autoincrement())
+  target          String
+  calculation     String
+  itemsWithEffect Item[]
+}
+
+enum Rarity {
+  COMMON
+  UNCOMMON
+  RARE
+  LEGENDARY
+  UNIQUE
+}
