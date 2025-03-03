@@ -9,8 +9,11 @@ export async function authenticateUser(
   request: Request,
 ): Promise<User | null> {
   const header = request.headers.get("authorization");
-  if (header !== null) {
+  if (header !== null && header.startsWith("Bearer ")) {
     const token = header.split(" ")[1];
+    if (!token) {
+      throw new Error("JWT must be provided");
+    }
     const tokenPayload = verify(token, AUTH_SIGNING_SECRET) as JwtPayload;
     const userId = tokenPayload.userId;
     return await prisma.user.findUnique({ where: { id: userId } });

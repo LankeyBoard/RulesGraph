@@ -10,11 +10,10 @@ export const characterClasses: NonNullable<
 > = async (_parent, _arg) => {
   let currentClasses: CharacterClass[] = playerClasses;
   if (_arg.version) {
-    import(`../../../../rules/${_arg.version.slice(1)}/playerClasses`).then(
-      (classes) => {
-        currentClasses = classes;
-      },
+    const classes = await import(
+      `../../../../rules/${_arg.version.slice(1)}/playerClasses`
     );
+    currentClasses = classes.default;
   }
   const searchSlug = _arg.slug?.toLocaleLowerCase();
   if (searchSlug) {
@@ -27,5 +26,5 @@ export const characterClasses: NonNullable<
       throw new GraphQLError(
         `Slug ${_arg.slug} not found in the player classes`,
       );
-  } else return [...currentClasses];
+  } else return currentClasses;
 };
