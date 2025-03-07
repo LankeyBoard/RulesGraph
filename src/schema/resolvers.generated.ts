@@ -15,7 +15,10 @@ import    { Item } from './base/resolvers/Item';
 import    { Lineage } from './base/resolvers/Lineage';
 import    { createCharacter as Mutation_createCharacter } from './base/resolvers/Mutation/createCharacter';
 import    { createUser as Mutation_createUser } from './base/resolvers/Mutation/createUser';
+import    { deleteCharacter as Mutation_deleteCharacter } from './base/resolvers/Mutation/deleteCharacter';
 import    { login as Mutation_login } from './base/resolvers/Mutation/login';
+import    { updateCharacter as Mutation_updateCharacter } from './base/resolvers/Mutation/updateCharacter';
+import    { character as Query_character } from './base/resolvers/Query/character';
 import    { characterClasses as Query_characterClasses } from './base/resolvers/Query/characterClasses';
 import    { cultures as Query_cultures } from './base/resolvers/Query/cultures';
 import    { genericRules as Query_genericRules } from './base/resolvers/Query/genericRules';
@@ -40,8 +43,8 @@ import    { Weapons } from './base/resolvers/Weapons';
 import    { shifterArmor } from './base/resolvers/shifterArmor';
 import    { shifterFeature } from './base/resolvers/shifterFeature';
     export const resolvers: Resolvers = {
-      Query: { characterClasses: Query_characterClasses,cultures: Query_cultures,genericRules: Query_genericRules,lineages: Query_lineages,me: Query_me,searchAll: Query_searchAll,slugMap: Query_slugMap,universalFeatures: Query_universalFeatures,user: Query_user,users: Query_users },
-      Mutation: { createCharacter: Mutation_createCharacter,createUser: Mutation_createUser,login: Mutation_login },
+      Query: { character: Query_character,characterClasses: Query_characterClasses,cultures: Query_cultures,genericRules: Query_genericRules,lineages: Query_lineages,me: Query_me,searchAll: Query_searchAll,slugMap: Query_slugMap,universalFeatures: Query_universalFeatures,user: Query_user,users: Query_users },
+      Mutation: { createCharacter: Mutation_createCharacter,createUser: Mutation_createUser,deleteCharacter: Mutation_deleteCharacter,login: Mutation_login,updateCharacter: Mutation_updateCharacter },
       
       AuthPayload: AuthPayload,
 Character: Character,

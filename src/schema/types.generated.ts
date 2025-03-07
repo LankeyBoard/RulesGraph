@@ -42,6 +42,7 @@ export type Character = {
   currentStamina?: Maybe<Scalars['Int']['output']>;
   featureChoiceSlugs?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   heart: Scalars['Int']['output'];
+  id: Scalars['ID']['output'];
   intellect: Scalars['Int']['output'];
   items: Array<Maybe<Item>>;
   languages: Array<Maybe<Scalars['String']['output']>>;
@@ -269,7 +270,9 @@ export type Mutation = {
   __typename?: 'Mutation';
   createCharacter?: Maybe<Character>;
   createUser?: Maybe<AuthPayload>;
+  deleteCharacter?: Maybe<Scalars['Boolean']['output']>;
   login?: Maybe<AuthPayload>;
+  updateCharacter?: Maybe<Character>;
 };
 
 
@@ -285,13 +288,25 @@ export type MutationcreateUserArgs = {
 };
 
 
+export type MutationdeleteCharacterArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
 export type MutationloginArgs = {
   email: Scalars['String']['input'];
   password: Scalars['String']['input'];
 };
 
+
+export type MutationupdateCharacterArgs = {
+  id: Scalars['ID']['input'];
+  input?: InputMaybe<CharacterInput>;
+};
+
 export type Query = {
   __typename?: 'Query';
+  character?: Maybe<Character>;
   characterClasses: Array<Maybe<CharacterClass>>;
   cultures: Array<Maybe<Culture>>;
   genericRules: Array<Maybe<GenericRule>>;
@@ -302,6 +317,11 @@ export type Query = {
   universalFeatures: Array<Maybe<GenericFeature>>;
   user?: Maybe<User>;
   users: Array<Maybe<User>>;
+};
+
+
+export type QuerycharacterArgs = {
+  id: Scalars['ID']['input'];
 };
 
 
@@ -474,6 +494,7 @@ export type TrainingOptions = {
 
 export type User = {
   __typename?: 'User';
+  characters?: Maybe<Array<Maybe<Character>>>;
   email: Scalars['String']['output'];
   id: Scalars['ID']['output'];
   name?: Maybe<Scalars['String']['output']>;
@@ -583,10 +604,11 @@ export type ResolversInterfaceTypes<_RefType extends Record<string, unknown>> = 
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
   Action: Action;
-  AuthPayload: ResolverTypeWrapper<AuthPayload>;
+  AuthPayload: ResolverTypeWrapper<Omit<AuthPayload, 'user'> & { user?: Maybe<ResolversTypes['User']> }>;
   String: ResolverTypeWrapper<Scalars['String']['output']>;
-  Character: ResolverTypeWrapper<Omit<Character, 'characterClass' | 'characterCulture' | 'characterLineage' | 'items'> & { characterClass: ResolversTypes['CharacterClass'], characterCulture: ResolversTypes['Culture'], characterLineage: ResolversTypes['Lineage'], items: Array<Maybe<ResolversTypes['Item']>> }>;
+  Character: ResolverTypeWrapper<Omit<Character, 'characterClass' | 'characterCulture' | 'characterLineage' | 'createdBy' | 'items'> & { characterClass: ResolversTypes['CharacterClass'], characterCulture: ResolversTypes['Culture'], characterLineage: ResolversTypes['Lineage'], createdBy: ResolversTypes['User'], items: Array<Maybe<ResolversTypes['Item']>> }>;
   Int: ResolverTypeWrapper<Scalars['Int']['output']>;
+  ID: ResolverTypeWrapper<Scalars['ID']['output']>;
   CharacterClass: ResolverTypeWrapper<Omit<CharacterClass, 'damage' | 'features'> & { damage: ResolversTypes['Damage'], features: Array<Maybe<ResolversTypes['CharacterClassFeature']>> }>;
   CharacterClassFeature: ResolverTypeWrapper<Omit<CharacterClassFeature, 'choices'> & { choices?: Maybe<Array<ResolversTypes['FeatureChoices']>> }>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']['output']>;
@@ -596,7 +618,6 @@ export type ResolversTypes = {
   Damage: ResolverTypeWrapper<Damage>;
   Deflect: ResolverTypeWrapper<Deflect>;
   Effect: ResolverTypeWrapper<Omit<Effect, 'itemsWithEffect'> & { itemsWithEffect: Array<Maybe<ResolversTypes['Item']>> }>;
-  ID: ResolverTypeWrapper<Scalars['ID']['output']>;
   EffectInput: EffectInput;
   Feature: ResolverTypeWrapper<ResolversInterfaceTypes<ResolversTypes>['Feature']>;
   FeatureChoices: ResolverTypeWrapper<ResolversUnionTypes<ResolversTypes>['FeatureChoices']>;
@@ -626,7 +647,7 @@ export type ResolversTypes = {
   StatOptions: StatOptions;
   Training: ResolverTypeWrapper<Training>;
   TrainingOptions: ResolverTypeWrapper<TrainingOptions>;
-  User: ResolverTypeWrapper<User>;
+  User: ResolverTypeWrapper<Omit<User, 'characters'> & { characters?: Maybe<Array<Maybe<ResolversTypes['Character']>>> }>;
   VERSIONS: VERSIONS;
   Weapons: ResolverTypeWrapper<Weapons>;
   shifterArmor: ResolverTypeWrapper<shifterArmor>;
@@ -635,10 +656,11 @@ export type ResolversTypes = {
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
-  AuthPayload: AuthPayload;
+  AuthPayload: Omit<AuthPayload, 'user'> & { user?: Maybe<ResolversParentTypes['User']> };
   String: Scalars['String']['output'];
-  Character: Omit<Character, 'characterClass' | 'characterCulture' | 'characterLineage' | 'items'> & { characterClass: ResolversParentTypes['CharacterClass'], characterCulture: ResolversParentTypes['Culture'], characterLineage: ResolversParentTypes['Lineage'], items: Array<Maybe<ResolversParentTypes['Item']>> };
+  Character: Omit<Character, 'characterClass' | 'characterCulture' | 'characterLineage' | 'createdBy' | 'items'> & { characterClass: ResolversParentTypes['CharacterClass'], characterCulture: ResolversParentTypes['Culture'], characterLineage: ResolversParentTypes['Lineage'], createdBy: ResolversParentTypes['User'], items: Array<Maybe<ResolversParentTypes['Item']>> };
   Int: Scalars['Int']['output'];
+  ID: Scalars['ID']['output'];
   CharacterClass: Omit<CharacterClass, 'damage' | 'features'> & { damage: ResolversParentTypes['Damage'], features: Array<Maybe<ResolversParentTypes['CharacterClassFeature']>> };
   CharacterClassFeature: Omit<CharacterClassFeature, 'choices'> & { choices?: Maybe<Array<ResolversParentTypes['FeatureChoices']>> };
   Boolean: Scalars['Boolean']['output'];
@@ -647,7 +669,6 @@ export type ResolversParentTypes = {
   Damage: Damage;
   Deflect: Deflect;
   Effect: Omit<Effect, 'itemsWithEffect'> & { itemsWithEffect: Array<Maybe<ResolversParentTypes['Item']>> };
-  ID: Scalars['ID']['output'];
   EffectInput: EffectInput;
   Feature: ResolversInterfaceTypes<ResolversParentTypes>['Feature'];
   FeatureChoices: ResolversUnionTypes<ResolversParentTypes>['FeatureChoices'];
@@ -670,7 +691,7 @@ export type ResolversParentTypes = {
   Speed: Speed;
   Training: Training;
   TrainingOptions: TrainingOptions;
-  User: User;
+  User: Omit<User, 'characters'> & { characters?: Maybe<Array<Maybe<ResolversParentTypes['Character']>>> };
   Weapons: Weapons;
   shifterArmor: shifterArmor;
   shifterFeature: shifterFeature;
@@ -696,6 +717,7 @@ export type CharacterResolvers<ContextType = any, ParentType extends ResolversPa
   currentStamina?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   featureChoiceSlugs?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
   heart?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   intellect?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   items?: Resolver<Array<Maybe<ResolversTypes['Item']>>, ParentType, ContextType>;
   languages?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
@@ -877,10 +899,13 @@ export type LineageResolvers<ContextType = any, ParentType extends ResolversPare
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
   createCharacter?: Resolver<Maybe<ResolversTypes['Character']>, ParentType, ContextType, Partial<MutationcreateCharacterArgs>>;
   createUser?: Resolver<Maybe<ResolversTypes['AuthPayload']>, ParentType, ContextType, RequireFields<MutationcreateUserArgs, 'email' | 'password'>>;
+  deleteCharacter?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType, RequireFields<MutationdeleteCharacterArgs, 'id'>>;
   login?: Resolver<Maybe<ResolversTypes['AuthPayload']>, ParentType, ContextType, RequireFields<MutationloginArgs, 'email' | 'password'>>;
+  updateCharacter?: Resolver<Maybe<ResolversTypes['Character']>, ParentType, ContextType, RequireFields<MutationupdateCharacterArgs, 'id'>>;
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
+  character?: Resolver<Maybe<ResolversTypes['Character']>, ParentType, ContextType, RequireFields<QuerycharacterArgs, 'id'>>;
   characterClasses?: Resolver<Array<Maybe<ResolversTypes['CharacterClass']>>, ParentType, ContextType, Partial<QuerycharacterClassesArgs>>;
   cultures?: Resolver<Array<Maybe<ResolversTypes['Culture']>>, ParentType, ContextType, Partial<QueryculturesArgs>>;
   genericRules?: Resolver<Array<Maybe<ResolversTypes['GenericRule']>>, ParentType, ContextType, Partial<QuerygenericRulesArgs>>;
@@ -971,6 +996,7 @@ export type TrainingOptionsResolvers<ContextType = any, ParentType extends Resol
 };
 
 export type UserResolvers<ContextType = any, ParentType extends ResolversParentTypes['User'] = ResolversParentTypes['User']> = {
+  characters?: Resolver<Maybe<Array<Maybe<ResolversTypes['Character']>>>, ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;

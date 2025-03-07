@@ -22,12 +22,16 @@ type Query {
   users: [User]!
 
   me: User
+
+  character(id: ID!): Character
 }
 
 type Mutation {
   createUser(name: String, email: String!, password: String!): AuthPayload
   login(email: String!, password: String!): AuthPayload
   createCharacter(input: CharacterInput): Character
+  updateCharacter(id: ID!, input: CharacterInput): Character
+  deleteCharacter(id: ID!): Boolean
 }
 
 #########
@@ -324,6 +328,7 @@ type User {
   id: ID!
   name: String
   email: String!
+  characters: [Character]
 }
 
 type AuthPayload {
@@ -332,6 +337,7 @@ type AuthPayload {
 }
 
 type Character {
+  id: ID!
   name: String!
   createdBy: User!
   items: [Item]!
