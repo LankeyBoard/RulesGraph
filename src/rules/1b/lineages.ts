@@ -121,7 +121,7 @@ const lineagesData: Lineage[] = [
       },
       {
         title: "Fae Origins",
-        slug: "FAERY-WINGS",
+        slug: "FAERY-ORIGIN",
         text: [
           {
             text: "Your fae origins help you to resist the effects that would charm you. You have Fortune's Favor on tests to resist the effects of charm spells.",

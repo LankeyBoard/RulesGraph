@@ -377,8 +377,6 @@ input CharacterInput {
   characterClass: String!
   characterLineage: String!
   characterCulture: String!
-  currentHealth: Int
-  currentStamina: Int
   maxHealth: Int!
   maxStamina: Int!
   armorName: String!
@@ -388,6 +386,8 @@ input CharacterInput {
   rangeMin: Int!
   rangeMax: Int!
   featureChoiceSlugs: [String]
+  currentHealth: Int
+  currentStamina: Int
 }
 
 type Item {
