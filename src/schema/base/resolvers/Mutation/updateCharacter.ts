@@ -2,9 +2,7 @@ import culturesData from "../../../../rules/1b/cultures";
 import lineagesData from "../../../../rules/1b/lineages";
 import playerClasses from "../../../../rules/1b/playerClasses";
 import type { MutationResolvers } from "./../../../types.generated";
-export const updateCharacter: NonNullable<
-  MutationResolvers["updateCharacter"]
-> = async (_parent, _arg, _ctx) => {
+export const updateCharacter: NonNullable<MutationResolvers['updateCharacter']> = async (_parent, _arg, _ctx) => {
   if (!_ctx.currentUser) {
     throw new Error("You must be logged in to create a character");
   }
