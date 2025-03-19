@@ -5,7 +5,7 @@ const playerClasses: CharacterClass[] = [
     title: "Brawler",
     slug: "BRAWLER",
     description: [
-      "The brawler is a master of close-quarters combat, relying on unmatched agility, mettle, and strategic counterattacks to prevail in the heat of battle.",
+      "The brawler is a master of close-quarters combat, relying on unmatched agility, mettle, and strategic counter attacks to prevail in the heat of battle.",
     ],
     complexity: "STANDARD",
     health: 20,
