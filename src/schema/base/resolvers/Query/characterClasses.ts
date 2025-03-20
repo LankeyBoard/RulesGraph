@@ -7,9 +7,7 @@ import { GraphQLError } from "graphql";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Suppress TS2322 error for type mismatch
-export const characterClasses: NonNullable<
-  QueryResolvers["characterClasses"]
-> = async (_parent, _arg) => {
+export const characterClasses: NonNullable<QueryResolvers['characterClasses']> = async (_parent, _arg) => {
   let currentClasses: CharacterClass[] = playerClasses;
   if (_arg.version) {
     const classes = await import(
