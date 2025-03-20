@@ -7,6 +7,15 @@ function main() {
   const yoga = createYoga({
     schema: schema,
     context: createContext,
+    cors: {
+      origin: [
+        "http://localhost:3000",
+        "https://fortunes-favor-alpha.netlify.app",
+      ],
+      credentials: true,
+      allowedHeaders: ["X-Custom-Header", "authorization", "content-type"],
+      methods: ["POST"],
+    },
   });
   const server = createServer(yoga);
   server.listen(4000, () => {

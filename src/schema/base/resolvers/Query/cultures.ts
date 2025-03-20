@@ -4,7 +4,7 @@ import type { Culture, QueryResolvers } from "./../../../types.generated";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Suppress TS2322 error for type mismatch
-export const cultures: NonNullable<QueryResolvers["cultures"]> = async (
+export const cultures: NonNullable<QueryResolvers['cultures']> = async (
   _parent,
   _arg,
 ) => {

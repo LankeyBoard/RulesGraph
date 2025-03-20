@@ -4,7 +4,7 @@ import type { Lineage, QueryResolvers } from "./../../../types.generated";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Suppress TS2322 error for type mismatch
-export const lineages: NonNullable<QueryResolvers["lineages"]> = async (
+export const lineages: NonNullable<QueryResolvers['lineages']> = async (
   _parent,
   _arg,
 ) => {
