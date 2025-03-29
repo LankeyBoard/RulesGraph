@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import {
   GenericRule,
+  List,
   Maybe,
   RuleText,
   RuleType,
@@ -34,16 +35,33 @@ const ruleTextToStr = (contents: Maybe<RuleText>[]): string => {
   result += "]";
   return result;
 };
-const ruleListToStr = (contents: Maybe<string>[]): string => {
-  if (contents.length < 1) return "";
+
+const ruleListsToStr = (contents: Maybe<Maybe<List>[]>): string => {
+  if (!contents || contents.length < 1) return "";
   let result = `[`;
   contents.forEach((li) => {
     if (!li) return;
-    result += `"${li}", `;
+
+    result += `{
+    label: "${li.label}",
+    items: ${listItemsToStr(li.items)}
+  },`;
   });
-  result = result.slice(0, -2);
+  if (result.at(-1) === ",") {
+    result = result.slice(0, -1);
+  }
   result += "]";
   return result;
+};
+
+const listItemsToStr = (listItems: Maybe<Maybe<string>[]>): string => {
+  if (!listItems || listItems.length < 1) return "";
+  let result = `[`;
+  listItems.forEach((li) => {
+    if (!li) return;
+    result += `'${li}', `;
+  });
+  return result + "]";
 };
 
 const fileContentsToJsonStr = (contents: Maybe<GenericRule>[]): string => {
@@ -52,7 +70,7 @@ const fileContentsToJsonStr = (contents: Maybe<GenericRule>[]): string => {
   contents.forEach((rule) => {
     if (!rule) return;
     const text = rule.text ? ruleTextToStr(rule.text) : "";
-    const list = rule.list ? ruleListToStr(rule.list) : "";
+    const lists = ruleListsToStr(rule.lists);
     const subRules = rule.subRules ? fileContentsToJsonStr(rule.subRules) : "";
     result += `
     {
@@ -60,7 +78,7 @@ const fileContentsToJsonStr = (contents: Maybe<GenericRule>[]): string => {
     slug: "${rule.slug}",`;
     if (rule.ruleType) result += `ruleType: "${rule.ruleType}",`;
     if (rule.text) result += `text: ${text},`;
-    if (rule.list) result += `list: ${list},`;
+    if (rule.lists) result += `lists: ${lists},`;
     if (rule.subRules) result += `subRules: ${subRules}`;
     result += `},`;
   });
@@ -71,8 +89,10 @@ const fileContentsToJsonStr = (contents: Maybe<GenericRule>[]): string => {
 const writeToFile = (contents: GenericRule[], filename: string) => {
   const rules = fileContentsToJsonStr(contents);
   const write =
-    `import { GenericRule } from "./src/schema/types.generated";
-export const generatedRules: GenericRule[] = ` + rules;
+    `import { GenericRule } from "../../schema/types.generated";
+const generalRules: GenericRule[] = ` +
+    rules +
+    "\nexport default generalRules;";
   fs.writeFile(filename, write, (err: unknown) => {
     // In case of a error throw err.
     if (err) throw err;
@@ -104,6 +124,29 @@ const textMaker = (textArray: string[]): RuleText[] => {
   return text;
 };
 
+const listMaker = (listArray: string[]): List[] => {
+  const lists: List[] = [];
+  let currentList: List | undefined = undefined;
+  listArray.forEach((line) => {
+    if (line !== "") {
+      if (line[0] === "-") {
+        if (!currentList) {
+          currentList = { label: "", items: [line.slice(2)] };
+        } else currentList.items?.push(line.slice(2));
+      } else if (line.includes("label: ")) {
+        if (currentList) {
+          lists.push(currentList);
+        }
+        currentList = { label: line.slice(7), items: [] };
+      }
+    }
+  });
+  if (currentList) {
+    lists.push(currentList);
+  }
+  return lists;
+};
+
 const badStartingChar = (c: string | undefined): boolean => {
   if (!c) return false;
   if (c.includes("#") || c.includes(" ")) return true;
@@ -115,7 +158,7 @@ const badEndingChar = (c: string | undefined): boolean => {
   return false;
 };
 
-const lineProcesser = (line: string): string => {
+const lineProcessor = (line: string): string => {
   let processingLine = line;
   let processedLine = "";
   while (badStartingChar(processingLine.at(0)) && line.length > 0) {
@@ -133,7 +176,9 @@ const lineProcesser = (line: string): string => {
 };
 
 const strToRuleType = (str: string): RuleType | null => {
+  str = lineProcessor(str);
   str = str.substring("ruleType: ".length, str.length - 1);
+  console.log(str);
   if (
     str === "EG" ||
     str === "FLAVOR" ||
@@ -164,32 +209,34 @@ const ruleArrayToRule = (rulesArray: string[], level: number) => {
         ? []
         : ruleArrayToRule(splitRule.slice(1), level + 1);
     // need to split out list text from text blocks
-    const title = lineProcesser(baseRule[0]);
-    const slug = baseRule[2] ? lineProcesser(baseRule[2].slice(6)) : "ERROR";
-    const list: string[] = [];
+    const title = lineProcessor(baseRule[0]);
+    const slug = baseRule[2] ? lineProcessor(baseRule[2].slice(6)) : "ERROR";
     const unprocessedText: string[] = [];
+    const unprocessedListText: string[] = [];
+
     let ruleType: RuleType | null = null;
 
     baseRule.slice(3).forEach((line) => {
       if (typeof line === "string") {
         if (line.includes("ruleType")) ruleType = strToRuleType(line);
-        else if (line[0] === "-") list.push(lineProcesser(line.slice(2)));
-        else unprocessedText.push(lineProcesser(line));
+        else if (line[0] !== "-" && !line.includes("label: "))
+          unprocessedText.push(lineProcessor(line));
+        else unprocessedListText.push(lineProcessor(line));
       }
     });
     const text = textMaker(unprocessedText);
+    const lists: List[] = listMaker(unprocessedListText);
 
     if (baseRule.length > 1) {
       const ruleBuilder: { title: string; slug: string; [k: string]: unknown } =
         { title: title, slug: slug };
       if (ruleType) ruleBuilder.ruleType = ruleType;
       if (text.length > 0) ruleBuilder.text = text;
-      if (list.length > 0) ruleBuilder.list = list;
+      if (lists.length > 0) ruleBuilder.lists = lists;
       if (subRules && subRules?.length > 0) ruleBuilder.subRules = subRules;
       rules.push(ruleBuilder);
     }
   });
-  console.log(rules);
   return rules;
 };
 

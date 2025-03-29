@@ -10,6 +10,7 @@ function main() {
     cors: {
       origin: [
         "http://localhost:3000",
+        "http://192.168.4.27:3000",
         "https://fortunes-favor-alpha.netlify.app",
       ],
       credentials: true,

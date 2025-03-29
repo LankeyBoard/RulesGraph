@@ -1,7 +1,5 @@
 import type { MutationResolvers } from "./../../../types.generated";
-export const deleteCharacter: NonNullable<
-  MutationResolvers["deleteCharacter"]
-> = async (_parent, _arg, _ctx) => {
+export const deleteCharacter: NonNullable<MutationResolvers['deleteCharacter']> = async (_parent, _arg, _ctx) => {
   if (!_ctx.currentUser) {
     throw new Error("You must be logged in to create a character");
   }

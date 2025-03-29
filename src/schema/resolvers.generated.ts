@@ -13,6 +13,7 @@ import    { GenericFeature } from './base/resolvers/GenericFeature';
 import    { GenericRule } from './base/resolvers/GenericRule';
 import    { Item } from './base/resolvers/Item';
 import    { Lineage } from './base/resolvers/Lineage';
+import    { List } from './base/resolvers/List';
 import    { createCharacter as Mutation_createCharacter } from './base/resolvers/Mutation/createCharacter';
 import    { createUser as Mutation_createUser } from './base/resolvers/Mutation/createUser';
 import    { deleteCharacter as Mutation_deleteCharacter } from './base/resolvers/Mutation/deleteCharacter';
@@ -59,6 +60,7 @@ GenericFeature: GenericFeature,
 GenericRule: GenericRule,
 Item: Item,
 Lineage: Lineage,
+List: List,
 Range: Range,
 RuleText: RuleText,
 SearchResult: SearchResult,
