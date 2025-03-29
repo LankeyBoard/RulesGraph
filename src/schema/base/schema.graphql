@@ -183,8 +183,13 @@ type GenericRule implements Rule {
   ruleType: RuleType
   text: [RuleText]
   subRules: [GenericRule]
-  list: [String]
+  lists: [List]
   shortText: String
+}
+
+type List {
+  label: String
+  items!: [String]
 }
 
 type GenericFeature implements Feature {

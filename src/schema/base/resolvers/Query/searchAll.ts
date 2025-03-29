@@ -18,7 +18,7 @@ import type {
   Lineage,
 } from "./../../../types.generated";
 
-export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (
+export const searchAll: NonNullable<QueryResolvers["searchAll"]> = async (
   _parent,
   _arg,
 ) => {
@@ -115,8 +115,8 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (
           page: parentPage,
         });
     });
-    rule.list?.forEach((l) => {
-      if (l?.includes(searchPhrase))
+    rule.lists?.forEach((l) => {
+      if (l?.label?.includes(searchPhrase))
         uniqueAddToFound({
           title: rule.title,
           slug: rule.slug,
@@ -124,6 +124,15 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (
           type: type,
           page: parentPage,
         });
+      else if (l?.items?.toLocaleString().includes(searchPhrase)) {
+        uniqueAddToFound({
+          title: rule.title,
+          slug: rule.slug,
+          text: rule.text,
+          type: type,
+          page: parentPage,
+        });
+      }
     });
     rule.subRules?.forEach((r) => {
       if (r) searchRule(r, parentPage, type);

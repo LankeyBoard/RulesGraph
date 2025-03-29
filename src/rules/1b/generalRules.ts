@@ -1,9 +1,9 @@
 import { GenericRule } from "../../schema/types.generated";
-
 const generalRules: GenericRule[] = [
   {
     title: "Building a New Character",
     slug: "BUILDING-A-PC",
+    ruleType: "RULE",
     text: [
       {
         text: "Your GM should tell you the level you are starting at. If you are starting higher than first level, follow the rules for leveling up after building your character at first level.",
@@ -34,6 +34,7 @@ const generalRules: GenericRule[] = [
       {
         title: "Leveling Up",
         slug: "LEVELING-UP",
+        ruleType: "RULE",
         text: [
           {
             text: "Your GM will tell you when you level up. Parties should generally be kept at the same level and should level up at the same time when Recuperating. When you level up, your Health & Stamina increase and you gain new features based on your Class.",
@@ -46,6 +47,7 @@ const generalRules: GenericRule[] = [
   {
     title: "What Makes Up a Character",
     slug: "WHAT-MAKES-UP-A-CHARACTER",
+    ruleType: "RULE",
     text: [
       {
         text: "Level, Lineage, Culture, Class, and Stats",
@@ -56,6 +58,7 @@ const generalRules: GenericRule[] = [
       {
         title: "Level",
         slug: "LEVEL-RULE-DESC",
+        ruleType: "RULE",
         text: [
           {
             text: "As your character grows more powerful and experienced you gain levels, unlocking new abilities based on your class. The current rules go from level 1-8.",
@@ -66,6 +69,7 @@ const generalRules: GenericRule[] = [
       {
         title: "Lineage",
         slug: "LINEAGE-RULE-DESC",
+        ruleType: "RULE",
         text: [
           {
             text: "Your character's physiology. Visit the [lineage section](/rules/lineages) for a list of options.",
@@ -76,6 +80,7 @@ const generalRules: GenericRule[] = [
       {
         title: "Culture",
         slug: "CULTURE-RULE-DESC",
+        ruleType: "RULE",
         text: [
           {
             text: "Where your character grew up. Visit the [culture section](/rules/cultures) for a list of options.",
@@ -86,6 +91,7 @@ const generalRules: GenericRule[] = [
       {
         title: "Class",
         slug: "CLASS-RULES-DESC",
+        ruleType: "RULE",
         text: [
           {
             text: "What your character does. This is their main skill set and how they contribute as adventurers. Visit the [classes section](/rules/classes) for a list of options.",
@@ -96,10 +102,12 @@ const generalRules: GenericRule[] = [
       {
         title: "Stats",
         slug: "STATS",
+        ruleType: "LISTCOMPACT",
         subRules: [
           {
             title: "Mettle",
             slug: "METTLE",
+            ruleType: "RULE",
             text: [
               {
                 text: "Physical strength and toughness.",
@@ -110,6 +118,7 @@ const generalRules: GenericRule[] = [
           {
             title: "Agility",
             slug: "AGILITY",
+            ruleType: "RULE",
             text: [
               {
                 text: "Physical accuracy, body control and balance..",
@@ -120,6 +129,7 @@ const generalRules: GenericRule[] = [
           {
             title: "Intellect",
             slug: "INTELLECT",
+            ruleType: "RULE",
             text: [
               {
                 text: "The ability to gather and retain information.",
@@ -130,6 +140,7 @@ const generalRules: GenericRule[] = [
           {
             title: "Heart",
             slug: "HEART",
+            ruleType: "RULE",
             text: [
               {
                 text: "Emotional engagement, presence, and determination.",
@@ -144,10 +155,12 @@ const generalRules: GenericRule[] = [
   {
     title: "Character Resources",
     slug: "CHAR-RESOURCES",
+    ruleType: "RULE",
     subRules: [
       {
         title: "Stamina",
         slug: "STAMINA",
+        ruleType: "RULE",
         text: [
           {
             text: "Stamina is the characters wellspring of energy. It is relatively quick to go down, and easy to get back. The exact amount of Stamina a character has is determined by their Class and stat block. Stamina can be used for Class abilities and to avoid taking damage. See [Exhausted, Dying, Last Stand & Healing](/rules/player_rules#EDL) for what happens at 0 Stamina.",
@@ -158,6 +171,7 @@ const generalRules: GenericRule[] = [
       {
         title: "Health",
         slug: "HEALTH",
+        ruleType: "RULE",
         text: [
           {
             text: "Health represents the life force of your character. It is slow to get back and in limited supply. See [Exhausted, Dying, Last Stand & Healing](/rules/player_rules#EDL) for what happens at 0 Health.",
@@ -168,6 +182,7 @@ const generalRules: GenericRule[] = [
       {
         title: "Resting",
         slug: "REST",
+        ruleType: "RULE",
         text: [
           {
             text: "If you spend Stamina or engage in strenuous activities while resting, the rest ends immediately and you gain no benefits from it.",
@@ -178,6 +193,7 @@ const generalRules: GenericRule[] = [
           {
             title: "Catch Your Breath",
             slug: "CATCH-YOUR-BREATH",
+            ruleType: "RULE",
             text: [
               {
                 text: "When you have a moment, you can Catch Your Breath, tending to your wounds, wiping down your weapons, and centering yourself. To Catch Your Breath, spend 10 minutes resting and performing light activities.",
@@ -196,6 +212,7 @@ const generalRules: GenericRule[] = [
           {
             title: "A Night's Rest",
             slug: "NIGHTS-REST",
+            ruleType: "RULE",
             text: [
               {
                 text: "A good Night's Rest is still important to an adventurer. To complete a Night's Rest, spend a minimum of 6 hours sleeping. This gives surface level wounds a chance to heal and prepare yourself for the next day. When you finish a Night's Rest, return your Stamina to full, regain Health equal to your level + 1, and gain Fortune's Favor.",
@@ -210,6 +227,7 @@ const generalRules: GenericRule[] = [
           {
             title: "Rest and Relax",
             slug: "REST-RELAX",
+            ruleType: "RULE",
             text: [
               {
                 text: "In-between adventures you have a chance to rest, relax and prepare yourself for the next call to action. To gain the benefits of Resting and Relaxing (R&R) you must spend 5 nights in a safe and relatively comfortable shelter while only engaging in light activity.",
@@ -240,6 +258,7 @@ const generalRules: GenericRule[] = [
   {
     title: "Tests",
     slug: "TESTS",
+    ruleType: "RULE",
     text: [
       {
         text: "Tests are how you determine the outcome of uncertain events, can you smash open a door (Mettle), talk a guard into looking the other way (Heart), dodging a tomato hurled at your head (Agility).",
@@ -254,6 +273,7 @@ const generalRules: GenericRule[] = [
       {
         title: "Success",
         slug: "SUCCESS",
+        ruleType: "RULE",
         text: [
           {
             text: "Success on a test doesn't always mean getting exactly what you want, but it does mean a favorable outcome for you. To achieve Success, you have to roll at least the Success point for the Test.",
@@ -268,6 +288,7 @@ const generalRules: GenericRule[] = [
       {
         title: "Success With a Cost",
         slug: "SUCCESS-WITH-COST",
+        ruleType: "RULE",
         text: [
           {
             text: "Success with a Cost is one possible Mixed Result where the GM offers a consequence and the player chooses if they want to accept the consequences or fail the test.",
@@ -282,6 +303,7 @@ const generalRules: GenericRule[] = [
       {
         title: "Mixed Success",
         slug: "MIXED-SUCCESS",
+        ruleType: "RULE",
         text: [
           {
             text: "A Mixed Ssuccess is another possible Mixed Result when you are partially successful in your endeavor. You achieve some of the outcome you want, but there are some complications or downsides.",
@@ -296,6 +318,7 @@ const generalRules: GenericRule[] = [
       {
         title: "Failure",
         slug: "FAILURE",
+        ruleType: "RULE",
         text: [
           {
             text: "A Failure occurs when you cannot achieve your desired outcome. This may mean the situation was harder than you initially believed or because you couldn't do it as well as you hoped or any other reason you and the GM think is reasonable. Sometimes the consequences of failure are direct, such as taking damage, other times they can simply be a complication for the story, this is determined by the GM.",
@@ -314,6 +337,7 @@ const generalRules: GenericRule[] = [
       {
         title: "Contests",
         slug: "CONTESTS",
+        ruleType: "RULE",
         text: [
           {
             text: "When two or more characters are directly challenging each other the GM might call for a contested roll. A Contest is like any other test except the difficulty is set by comparing the competing dice. If one side is more than 5 higher than the other, then that side Succeeds on the Test and the other side Fails. If both sides are within 5, then the result is Mixed.",
@@ -328,6 +352,7 @@ const generalRules: GenericRule[] = [
       {
         title: "Group Tests",
         slug: "GROUP-TESTS",
+        ruleType: "RULE",
         text: [
           {
             text: "Sometimes a group of characters are performing an action where the success depends on the group's overall performance, not one individual. One common case is sneaking around a dungeon. When taking a Group Test, each character rolls against the Test, counting the number of Success, Mixed, and Failures. The average of the result is the group's result. An easy way to find the average is to subtract the larger of successes or failures from the other. If that new number is higher than the Mixed, that's the result, otherwise the result is Mixed.",
@@ -342,6 +367,7 @@ const generalRules: GenericRule[] = [
       {
         title: "Helping on a Test",
         slug: "HELP",
+        ruleType: "RULE",
         text: [
           {
             text: "If a character is taking a Test and others are providing aid, if the character is not already rolling with Fortune's Favor, they can roll with Fortune's Favor. Otherwise add a +3 to the result of the test. No matter how many people are helping, you can only gain each bonus once.",
@@ -370,10 +396,12 @@ const generalRules: GenericRule[] = [
       {
         title: "1s and 20s",
         slug: "1-20",
+        ruleType: "RULE",
         subRules: [
           {
             title: "1 - Critical Failure",
             slug: "1s",
+            ruleType: "RULE",
             text: [
               {
                 text: "Rolling a 1 is the worst a character could do. Tests always fail.",
@@ -384,6 +412,7 @@ const generalRules: GenericRule[] = [
           {
             title: "20 - Critical Success",
             slug: "20s",
+            ruleType: "RULE",
             text: [
               {
                 text: "Rolling a 20 is the best a character could do. Tests always pass and when you roll a Critical Success on an attack, you deal double damage on the attack.",
@@ -396,6 +425,7 @@ const generalRules: GenericRule[] = [
       {
         title: "Fortune's Favor",
         slug: "FORTUNES-FAVOR",
+        ruleType: "RULE",
         text: [
           {
             text: "When you Fail a Test, you gain Fortune's Favor.",
@@ -410,6 +440,7 @@ const generalRules: GenericRule[] = [
       {
         title: "Misfortune",
         slug: "MISFORTUNE",
+        ruleType: "RULE",
         text: [
           {
             text: "Circumstances may cause misfortune as well. When the GM calls for a roll with Misfortune, you roll a second d20 and take the lower of the two rolls. If you have Fortune's Favor, before you roll you can chose to give it up to cancel out the Misfortune and roll the test normally.",
@@ -422,6 +453,7 @@ const generalRules: GenericRule[] = [
   {
     title: "Combat",
     slug: "COMBAT",
+    ruleType: "RULE",
     text: [
       {
         text: "Each round of combat is split into 3 parts, 1st, Environmental effects, 2nd, Players take their turn, 3rd, Enemies take their turn. During the player's turn, each player makes one Action and can move up to their speed. During the enemies turn enemies with actions can take one action and move. Enemies with only counters can only move unless they are not engaged, in which case they can use a counter as an action.",
@@ -432,6 +464,7 @@ const generalRules: GenericRule[] = [
       {
         title: "Exchanges",
         slug: "EXCHANGES",
+        ruleType: "RULE",
         text: [
           {
             text: "When a character attacks or casts an offensive spell at another creature or creatures an exchange begins. To start the exchange, Test your Attack, adding your Base Attack Bonus. The defenders Armor and Counter become the Success and Failure points of the Test. If you Succeed on the Test then the hit is clean and there is no room for retaliation. If the result is Mixed then you Clash. You can either choose to deal no damage or strike but leave yourself open to counter attack. Your Attack is resolved first, and then the target can use one of their Counter Actions. If you Fail the Test, your Attack is countered, with no effect and the target can use one of their counter moves.",
@@ -442,6 +475,7 @@ const generalRules: GenericRule[] = [
           {
             title: "AOE Exchanges",
             slug: "AOE-EXCHANGES",
+            ruleType: "RULE",
             text: [
               {
                 text: "When your Attack targets multiple enemies, roll a single Attack Test, and compare to each enemy's defenses. If the roll would be a Clash or Counter, the GM chooses which creature will get to take a Counter Action.",
@@ -452,9 +486,10 @@ const generalRules: GenericRule[] = [
           {
             title: "Engaging an Enemy",
             slug: "ENGAGING-ENEMIES",
+            ruleType: "RULE",
             text: [
               {
-                text: "When you attempt to attack an enemy, they are [Engaged](/rules/player_rules#ENGAGED-STATUS). Engaged Minions cannot take an Action on their turn, Non-boss monsters damage dice go down by 1 step, and bosses lose access to their most potent abilities.",
+                text: "When you attempt to attack an enemy, they are [Engaged](/rules/player_rules#ENGAGED). Engaged Minions cannot take an Action on their turn, Non-boss monsters damage dice go down by 1 step, and bosses lose access to their most potent abilities.",
                 type: "RULE",
               },
             ],
@@ -464,6 +499,7 @@ const generalRules: GenericRule[] = [
       {
         title: "Key Comat Information",
         slug: "COMBAT-NUMBERS",
+        ruleType: "LISTCOMPACT",
         text: [
           {
             text: "These are the key fields for most combat Exchanges",
@@ -530,6 +566,7 @@ const generalRules: GenericRule[] = [
       {
         title: "Basic Actions",
         slug: "BASIC-ACTIONS",
+        ruleType: "LISTCOMPACT",
         text: [
           {
             text: "These Actions are available to all players all the time.",
@@ -592,6 +629,7 @@ const generalRules: GenericRule[] = [
       {
         title: "Basic Counters",
         slug: "BASIC-COUNTERS",
+        ruleType: "LISTCOMPACT",
         text: [
           {
             text: "These Counters are available to all players all the time.",
@@ -628,6 +666,7 @@ const generalRules: GenericRule[] = [
       {
         title: "Moving in Combat",
         slug: "MOVING-COMBAT",
+        ruleType: "RULE",
         text: [
           {
             text: "In addition to an Action, you can move during your turn in combat, moving up to your Speed in any direction. You can move at any point during your turn, and can split your move before and after your action.",
@@ -642,6 +681,7 @@ const generalRules: GenericRule[] = [
           {
             title: "Getting Down and Standing Up",
             slug: "MOVEMENT-DOWN-UP",
+            ruleType: "RULE",
             text: [
               {
                 text: "Dropping [prone](/rules/player_rules#PRONE) is a free action. Standing up from [prone](/rules/player_rules#PRONE) takes either 10 ft. of Movement or an Action. If you have magical flight, it only takes 5ft. of Movement.",
@@ -656,6 +696,7 @@ const generalRules: GenericRule[] = [
   {
     title: "Taking Damage",
     slug: "TAKING-DMG",
+    ruleType: "RULE",
     text: [
       {
         text: "When you take damage, your Health is reduced by the damage amount. You can spent Stamina to reduce your damage taken by using your Deflect Dice. See the [rules on dying](/rules/player_rules#EDL) for what happens when you go to 0 Health and/or 0 Stamina.",
@@ -666,9 +707,10 @@ const generalRules: GenericRule[] = [
       {
         title: "Deflect Dice",
         slug: "DEFLECT-DICE",
+        ruleType: "RULE",
         text: [
           {
-            text: "When you would take damage and you are not Surprised, Unconscious or otherwise unaware of the damage, you can attempt to reduce the damage by spending 2 Stamina per die to roll Deflect Dice, reducing the damage taken by the amount rolled. You can roll Deflect Dice equal to half your level rounded down and you must decide and roll all dice at once.",
+            text: "When you would take damage and you are not Surprised, Unconscious or otherwise unaware of the damage, you can attempt to reduce the damage by spending 2 Stamina per die to roll Deflect Dice, reducing the damage taken by the amount rolled. You can roll Deflect Dice equal to 1 + half your level rounded down and you must decide and roll all dice at once.",
             type: "RULE",
           },
           {
@@ -690,10 +732,12 @@ const generalRules: GenericRule[] = [
   {
     title: "Weapons, Shields, Armor & Equipment",
     slug: "EQUIPMENT",
+    ruleType: "RULE",
     subRules: [
       {
         title: "Weapons",
         slug: "WEAPONS",
+        ruleType: "RULE",
         text: [
           {
             text: "Characters can be proficient in different groups of weapons and magic. It is up to your GMs discretion what category a weapon falls into, or if it is a unique weapon that requires its own training.",
@@ -712,32 +756,54 @@ const generalRules: GenericRule[] = [
           {
             title: "Melee",
             slug: "MELEE-WEAPONS",
-            list: [
-              "Hammers & Clubs",
-              "Slashing Swords",
-              "Piercing Swords & Daggers",
-              "Axes",
-              "Flails, Ball & Chain, etc.",
+            ruleType: "LIST",
+            lists: [
+              {
+                label: "",
+                items: [
+                  "Hammers & Clubs",
+                  "Slashing Swords",
+                  "Piercing Swords & Daggers",
+                  "Axes",
+                  "Flails, Ball & Chain, etc.",
+                ],
+              },
             ],
           },
           {
             title: "Ranged",
             slug: "RANGED-WEAPONS",
-            list: [
-              "Bows",
-              "Crossbows",
-              "Light Throwing weapons (Dart, Throwing Dagger)",
-              "Heavy Throwing weapons (Shot Put, Heavy Spear)",
+            ruleType: "LIST",
+            lists: [
+              {
+                label: "",
+                items: [
+                  "Bows",
+                  "Crossbows",
+                  "Light Throwing weapons (Dart, Throwing Dagger)",
+                  "Heavy Throwing weapons (Shot Put, Heavy Spear)",
+                ],
+              },
             ],
           },
           {
             title: "Special Weapons",
             slug: "SPECIAL-WEAPONS",
-            list: ["Whips: Range: 10-20ft", "Pole Weapons: Range: Melee-10ft"],
+            ruleType: "LIST",
+            lists: [
+              {
+                label: "",
+                items: [
+                  "Whips: Range: 10-20ft",
+                  "Pole Weapons: Range: Melee-10ft",
+                ],
+              },
+            ],
           },
           {
             title: "Magic",
             slug: "MAGIC-TRAINING",
+            ruleType: "RULE",
             text: [
               {
                 text: "How a characters magic training manifests is up to the player. The player determines what is required to cast. A wand, staff, talisman or other focus is typical, but chanting and hand movements or other ideas are also valid. Note that the one and two hand rules for weapons applies to magic attacks as well.",
@@ -750,6 +816,7 @@ const generalRules: GenericRule[] = [
       {
         title: "Damage Dice",
         slug: "DAMAGE-DICE",
+        ruleType: "RULE",
         text: [
           {
             text: "Some effects cause your Base Damage to go up or down by one or more steps. Follow the pattern below to determine the new Base Damage dice.",
@@ -764,6 +831,7 @@ const generalRules: GenericRule[] = [
       {
         title: "Shields",
         slug: "SHIELDS",
+        ruleType: "LIST",
         text: [
           {
             text: "Shields come in three sizes, light (bucklers and dueling shields), medium (kite shields), and heavy (tower shields).",
@@ -810,6 +878,7 @@ const generalRules: GenericRule[] = [
       {
         title: "Armor",
         slug: "ARMOR",
+        ruleType: "LISTCOMPACT",
         text: [
           {
             text: "You can wear armor from any class you are trained in that you are trained in. Armors have different requirements based on how hard they are to move in and how much protection they provide. Each armor indicates how to calculate your armor while wearing it.",
@@ -864,6 +933,7 @@ const generalRules: GenericRule[] = [
   {
     title: "Exhausted, Dying, & Last Stand",
     slug: "EDL",
+    ruleType: "RULE",
     text: [
       {
         text: "If you would be reduced to below 0 Stamina or 0 Health, you are reduced to 0 instead.",
@@ -874,6 +944,7 @@ const generalRules: GenericRule[] = [
       {
         title: "Exhausted",
         slug: "EXHAUSTED",
+        ruleType: "RULE",
         text: [
           {
             text: "When your Stamina is reduced to 0 you are [Exhausted](/rules/player_rules#STATUSES).",
@@ -884,6 +955,7 @@ const generalRules: GenericRule[] = [
       {
         title: "Dying",
         slug: "DYING",
+        ruleType: "RULE",
         text: [
           {
             text: "When your Health is reduced to 0, you have been mortally wounded and are Dying. Taking an Action or moving more than half your Speed costs 1 stamina. An ally can use the Help Action to aid you, removing the Stamina cost as long as they stay within 5ft of you.",
@@ -894,9 +966,10 @@ const generalRules: GenericRule[] = [
       {
         title: "Last Stand",
         slug: "LAST-STAND",
+        ruleType: "RULE",
         text: [
           {
-            text: "While you have below half your maximum Health, you can opt to make a Last Stand, pushing yourself to the absolute limit, knowing these will be your final moments. For the next minute, You immediately and the start of each round of combat regain all of your Health & Stamina. If you are reduced to 0 Stamina or at the end of the 1 minute, you die.",
+            text: "When you are reduced to 0 Health and are not unconscious, you can opt to make a Last Stand, pushing yourself to the absolute limit, knowing these will be your final moments. You immediately and the start of each round of combat regain all of your Health & Stamina. If you are reduced to 0 Stamina or at the end of the 1 minute, you die.",
             type: "RULE",
           },
         ],
@@ -904,6 +977,7 @@ const generalRules: GenericRule[] = [
       {
         title: "Death",
         slug: "DEATH",
+        ruleType: "RULE",
         text: [
           {
             text: "When you have 0 Health & 0 Stamina you are dead and your soul begins to leave your body, making the long journey to The Tribunal and the lands beyond. Only magical resuscitation can bring you back.",
@@ -916,6 +990,7 @@ const generalRules: GenericRule[] = [
   {
     title: "Healing",
     slug: "NON-MAGICAL-HEALING",
+    ruleType: "RULE",
     text: [
       {
         text: "Healing cannot affect dead creatures.",
@@ -926,6 +1001,7 @@ const generalRules: GenericRule[] = [
       {
         title: "Healing a Dying Ally",
         slug: "HEALING-DYING-ALLY",
+        ruleType: "RULE",
         text: [
           {
             text: "If an ally is at 0 Health, you can use an Action to attempt to heal them. Make an Intellect Test, Pass: 15, Fail: 10. On a pass they regain 1 Health, on a fail they lose 1 Stamina.",
@@ -936,6 +1012,7 @@ const generalRules: GenericRule[] = [
       {
         title: "Healing when Catching Your Breath",
         slug: "HEALING-WHEN-CATCHING-YOUR-BREATH",
+        ruleType: "RULE",
         text: [
           {
             text: "When you Catch Your Breath, you patch up and tend to any non life threatening injuries.",
@@ -950,9 +1027,10 @@ const generalRules: GenericRule[] = [
       {
         title: "Healing during a Night's Rest",
         slug: "HEALING-NIGHTS-REST",
+        ruleType: "RULE",
         text: [
           {
-            text: "When you finish a [Night's Rest](/rules/player_rules#NIGHTS-REST), regain Health equal to your current level + 1.",
+            text: "When you finish a [Night's Rest](/rules/player_rules#nights-rest), regain Health equal to your current level + 1.",
             type: "RULE",
           },
         ],
@@ -962,10 +1040,12 @@ const generalRules: GenericRule[] = [
   {
     title: "Movement",
     slug: "MOVEMENT",
+    ruleType: "RULE",
     subRules: [
       {
         title: "Overland Travel",
         slug: "OVERLAND-TRAVEL",
+        ruleType: "RULE",
         text: [
           {
             text: "A full day's march assumes 8 hours of marching.",
@@ -976,6 +1056,7 @@ const generalRules: GenericRule[] = [
           {
             title: "Comfortable Marching Pace",
             slug: "COMFORTABLE-MARCH",
+            ruleType: "RULE",
             text: [
               {
                 text: "15 + Mettle miles per day along an established road. The speed is halved when traveling without a road.",
@@ -986,6 +1067,7 @@ const generalRules: GenericRule[] = [
           {
             title: "Pushing the Pace",
             slug: "PUSHING-PACE",
+            ruleType: "RULE",
             text: [
               {
                 text: "You can push the pace of march. Spend 1 stamina to travel 1 additional mile that day.",
@@ -996,6 +1078,7 @@ const generalRules: GenericRule[] = [
           {
             title: "Treacherous Terrain",
             slug: "TREACHEROUS-TERRAIN",
+            ruleType: "RULE",
             text: [
               {
                 text: "Difficult terrain takes extra energy to traverse. For each hour navigating treacherous terrain make a Mettle test. Pass - 13, Fail - 8. On a Fail, lose 2 stamina, on a mixed, lose 1.",
@@ -1008,6 +1091,7 @@ const generalRules: GenericRule[] = [
       {
         title: "Jumping",
         slug: "JUMP",
+        ruleType: "LIST",
         text: [
           {
             text: "When jumping, use these formulas to calculate the minimum distances you can go. If you are trying to jump further, Test your Mettle. The difficulty is equal to 10+1 per foot beyond your standard jump range. If you roll below a Success, you can spend Stamina to increase your roll up to the point of a Success if you have the Stamina to spend.",
@@ -1018,6 +1102,7 @@ const generalRules: GenericRule[] = [
           {
             title: "Running Leap",
             slug: "RUNNING-LEAP",
+            ruleType: "RULE",
             text: [
               {
                 text: "If you move up to 10 ft. before jumping: (4 + 2*Mettle) ft. horizontally (Min 2 ft.)",
@@ -1028,6 +1113,7 @@ const generalRules: GenericRule[] = [
           {
             title: "Standing Leap",
             slug: "STANDING-LEAP",
+            ruleType: "RULE",
             text: [
               {
                 text: "(3 + Mettle) ft. horizontally (Min 1 ft.)",
@@ -1038,6 +1124,7 @@ const generalRules: GenericRule[] = [
           {
             title: "High Jump",
             slug: "HIGH-JUMP",
+            ruleType: "RULE",
             text: [
               {
                 text: "(1 + Mettle) ft. vertically (Min 1 ft.)",
@@ -1050,6 +1137,7 @@ const generalRules: GenericRule[] = [
       {
         title: "Falling",
         slug: "FALL",
+        ruleType: "RULE",
         text: [
           {
             text: "When you fall from a height greater than 10 ft. Make an Agility Test. Pass: 12, Fail: 7. For every 5 ft. past 10 ft. the difficulty increases by 2. On a Pass you take no damage. On a fail you take 1d10 bludgeoning damage per 5 ft. On a Mixed you take half damage.",
@@ -1062,6 +1150,7 @@ const generalRules: GenericRule[] = [
   {
     title: "Lift, Drag, & Pack",
     slug: "LIFT-DRAG-PACK",
+    ruleType: "RULE",
     text: [
       {
         text: "Your Lift, Drag & Pack (how much you can carry in your backpack and on your person) are all affected by your size. For each size below Medium, amounts are halved, and for each size above Medium they are doubled.",
@@ -1086,33 +1175,69 @@ const generalRules: GenericRule[] = [
     slug: "GEAR",
     subRules: [
       {
-        title: "Supplies",
-        slug: "SUPPLIES",
+        title: "Basic Supplies",
+        slug: "BASIC-SUPPLIES",
+        ruleType: "RULE",
         text: [
           {
-            text: "While traveling, it's assumed your pack has all the items you need to get through a normal day. This might include a bed roll, some rope, flint and tinder, etc. For more uncommon gear, if you haven't already established that you have the item, you can Test your Luck. The pass/fail are determined by the GMs judgment of the likelihood of you having the item. A mixed result might mean an item that is similar enough to be used in this instance, like a bed sheet instead of rope, or inferior to what you want, a small hatchet instead of a wood splitting ax.",
+            text: "Your pack contains everyday essentials like rope, a bedroll, and flint & tinder—enough to handle routine travel needs.",
             type: "RULE",
           },
         ],
-        list: [
-          "Likely - Pass (10), Fail (5)",
-          "Unlikely - Pass (15), Fail (10)",
-          "Very Unlikely - Pass (18), Fail (13)",
-        ],
       },
       {
-        title: "Notable Items",
-        slug: "NOTABLE-ITEMS",
+        title: "Gear Slots",
+        slug: "GEAR-SLOTS",
+        ruleType: "RULE",
         text: [
           {
-            text: "A notable item is an item that is valuable and worth keeping track of. Some items will be obviously notable, like The Great Sword of the Duck Lord, but some items will depend on your GM. If you are playing a very resource limited, survival focused game, maybe your arrows are notable items, but if you're playing a heroic fantasy story, then maybe they aren't. This should be covered by your GM as part of the Intro session.",
+            text: "You have 7 + half your level (rounded down) Gear Slots. These can be used in two ways:",
             type: "RULE",
+          },
+        ],
+        subRules: [
+          {
+            title: "Quick Retrieval",
+            slug: "QUICK-RETRIEVAL",
+            ruleType: "RULE",
+            text: [
+              {
+                text: "Spend 2 Gear Slots to attempt a Luck Test and see if you have a needed item. The GM determines the likelihood using the table below. If successful, you have the item until your next Rest & Recovery (R&R).",
+                type: "RULE",
+              },
+            ],
+            lists: [
+              {
+                label: "Likelihood",
+                items: ["Likely 10/5", "Unlikely 15/10", "Very Unlikely 18/13"],
+              },
+              {
+                label: "Results",
+                items: [
+                  "Pass → You have the item.",
+                  "Mixed → You have something similar.",
+                  "Fail → You don’t have anything useful.",
+                ],
+              },
+            ],
+          },
+          {
+            title: "Notable Items",
+            slug: "NOTABLE-ITEMS",
+            ruleType: "RULE",
+            text: [
+              {
+                text: "Notable or valuable items take up 1 Gear Slot each, unless particularly bulky, in which case they take more.",
+                type: "RULE",
+              },
+            ],
           },
         ],
       },
       {
         title: "Currency",
         slug: "CURRENCY",
+        ruleType: "RULE",
         text: [
           {
             text: "Coin: The universal currency. Different places might have different versions, but everyone trades in Coin.",
@@ -1159,10 +1284,12 @@ const generalRules: GenericRule[] = [
   {
     title: "Reference",
     slug: "REFERENCE",
+    ruleType: "RULE",
     subRules: [
       {
         title: "Languages",
         slug: "LANGUAGES",
+        ruleType: "LISTCOMPACT",
         subRules: [
           {
             title: "Allspeak",
@@ -1249,6 +1376,7 @@ const generalRules: GenericRule[] = [
       {
         title: "Damage Types",
         slug: "DAMAGE-TYPES",
+        ruleType: "RULE",
         text: [
           {
             text: "Bludgeoning, Cold, Fire, Lightning, Piercing, Psychic, Radiant, Rot, & Slashing",
@@ -1259,6 +1387,7 @@ const generalRules: GenericRule[] = [
       {
         title: "Statuses",
         slug: "STATUSES",
+        ruleType: "LISTCOMPACT",
         subRules: [
           {
             title: "Blind",
@@ -1385,19 +1514,24 @@ const generalRules: GenericRule[] = [
       {
         title: "Creature Sizes",
         slug: "SIZES",
-        list: [
-          "Miniscule (>6in)",
-          "Tiny (~6in - 2ft)",
-          "Small (~2ft - 4ft)",
-          "Medium (~4ft - 7ft)",
-          "Large (~7ft- 10ft)",
-          "Gigantic (~10ft - 20ft)",
-          "Titanic (~20ft-50ft)",
-          "Colossal (<50ft)",
+        ruleType: "LISTCOMPACT",
+        lists: [
+          {
+            label: "",
+            items: [
+              "Miniscule (>6in)",
+              "Tiny (~6in - 2ft)",
+              "Small (~2ft - 4ft)",
+              "Medium (~4ft - 7ft)",
+              "Large (~7ft- 10ft)",
+              "Gigantic (~10ft - 20ft)",
+              "Titanic (~20ft-50ft)",
+              "Colossal (<50ft)",
+            ],
+          },
         ],
       },
     ],
   },
 ];
-
 export default generalRules;

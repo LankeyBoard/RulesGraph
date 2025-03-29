@@ -398,7 +398,7 @@ When you take damage, your Health is reduced by the damage amount. You can spent
 slug: DEFLECT-DICE
 
 ruleType: RULE\
-When you would take damage and you are not Surprised, Unconscious or otherwise unaware of the damage, you can attempt to reduce the damage by spending 2 Stamina per die to roll Deflect Dice, reducing the damage taken by the amount rolled. You can roll Deflect Dice equal to half your level rounded down and you must decide and roll all dice at once.\
+When you would take damage and you are not Surprised, Unconscious or otherwise unaware of the damage, you can attempt to reduce the damage by spending 2 Stamina per die to roll Deflect Dice, reducing the damage taken by the amount rolled. You can roll Deflect Dice equal to 1 + half your level rounded down and you must decide and roll all dice at once.\
 Any flat deflect bonuses only apply once regardless of how many dice you roll.\
 Depending on the source of the damage this might represent a last second dodge to reduce the effect of the blow or gritting your teeth through the damage to reduce the effect.\
 Eg: A goblin swings at you with a rusted short sword. They hit, and would deal 3 damage to you. You decide to Deflect, spending 2 Stamina and rolling your 1d4 dice. You get a 2, reducing the Slashing damage to 1. Your GM narrates how you throw yourself back at the last second, avoiding the worst of the attack, but still getting caught by the tip of the blade.
@@ -669,24 +669,45 @@ You can pack up to 30+5x your Mettle pounds.
 
 slug: GEAR
 
+## Basic Supplies
+
+slug: BASIC-SUPPLIES
+
 ruleType: RULE\
+Your pack contains everyday essentials like rope, a bedroll, and flint & tinder—enough to handle routine travel needs.
 
-## Supplies
+## Gear Slots
 
-slug: SUPPLIES
+slug: GEAR-SLOTS
 
-While traveling, it's assumed your pack has all the items you need to get through a normal day. This might include a bed roll, some rope, flint and tinder, etc. For more uncommon gear, if you haven't already established that you have the item, you can Test your Luck. The pass/fail are determined by the GMs judgment of the likelihood of you having the item. A mixed result might mean an item that is similar enough to be used in this instance, like a bed sheet instead of rope, or inferior to what you want, a small hatchet instead of a wood splitting ax.
+ruleType: RULE\
+You have 7 + half your level (rounded down) Gear Slots. These can be used in two ways:
 
-- Likely - Pass (10), Fail (5)
-- Unlikely - Pass (15), Fail (10)
-- Very Unlikely - Pass (18), Fail (13)
+### Quick Retrieval
 
-## Notable Items
+slug: QUICK-RETRIEVAL
+
+ruleType: RULE\
+Spend 2 Gear Slots to attempt a Luck Test and see if you have a needed item. The GM determines the likelihood using the table below. If successful, you have the item until your next Rest & Recovery (R&R).
+
+label: Likelihood
+
+- Likely 10/5
+- Unlikely 15/10
+- Very Unlikely 18/13
+
+label: Results
+
+- Pass → You have the item.
+- Mixed → You have something similar.
+- Fail → You don’t have anything useful.
+
+### Notable Items
 
 slug: NOTABLE-ITEMS
 
 ruleType: RULE\
-A notable item is an item that is valuable and worth keeping track of. Some items will be obviously notable, like The Great Sword of the Duck Lord, but some items will depend on your GM. If you are playing a very resource limited, survival focused game, maybe your arrows are notable items, but if you're playing a heroic fantasy story, then maybe they aren't. This should be covered by your GM as part of the Intro session.
+Notable or valuable items take up 1 Gear Slot each, unless particularly bulky, in which case they take more.
 
 ## Currency
 

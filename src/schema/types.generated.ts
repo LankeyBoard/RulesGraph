@@ -222,7 +222,7 @@ export type GenericFeature = Feature & {
 export type GenericRule = Rule & {
   __typename?: 'GenericRule';
   href?: Maybe<Scalars['String']['output']>;
-  list?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  lists?: Maybe<Array<Maybe<List>>>;
   ruleType?: Maybe<RuleType>;
   shortText?: Maybe<Scalars['String']['output']>;
   shortTitle?: Maybe<Scalars['String']['output']>;
@@ -264,6 +264,12 @@ export type Lineage = Rule & {
   stat?: Maybe<Scalars['String']['output']>;
   title: Scalars['String']['output'];
   traits?: Maybe<Array<GenericFeature>>;
+};
+
+export type List = {
+  __typename?: 'List';
+  items?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  label?: Maybe<Scalars['String']['output']>;
 };
 
 export type Mutation = {
@@ -628,6 +634,7 @@ export type ResolversTypes = {
   Item: ResolverTypeWrapper<Omit<Item, 'effects' | 'heldBy'> & { effects: Array<Maybe<ResolversTypes['Effect']>>, heldBy: Array<Maybe<ResolversTypes['Character']>> }>;
   ItemInput: ItemInput;
   Lineage: ResolverTypeWrapper<Omit<Lineage, 'speeds' | 'traits'> & { speeds?: Maybe<Array<Maybe<ResolversTypes['Speed']>>>, traits?: Maybe<Array<ResolversTypes['GenericFeature']>> }>;
+  List: ResolverTypeWrapper<List>;
   Mutation: ResolverTypeWrapper<{}>;
   Query: ResolverTypeWrapper<{}>;
   Range: ResolverTypeWrapper<Range>;
@@ -678,6 +685,7 @@ export type ResolversParentTypes = {
   Item: Omit<Item, 'effects' | 'heldBy'> & { effects: Array<Maybe<ResolversParentTypes['Effect']>>, heldBy: Array<Maybe<ResolversParentTypes['Character']>> };
   ItemInput: ItemInput;
   Lineage: Omit<Lineage, 'speeds' | 'traits'> & { speeds?: Maybe<Array<Maybe<ResolversParentTypes['Speed']>>>, traits?: Maybe<Array<ResolversParentTypes['GenericFeature']>> };
+  List: List;
   Mutation: {};
   Query: {};
   Range: Range;
@@ -860,7 +868,7 @@ export type GenericFeatureResolvers<ContextType = any, ParentType extends Resolv
 
 export type GenericRuleResolvers<ContextType = any, ParentType extends ResolversParentTypes['GenericRule'] = ResolversParentTypes['GenericRule']> = {
   href?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  list?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
+  lists?: Resolver<Maybe<Array<Maybe<ResolversTypes['List']>>>, ParentType, ContextType>;
   ruleType?: Resolver<Maybe<ResolversTypes['RuleType']>, ParentType, ContextType>;
   shortText?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   shortTitle?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
@@ -893,6 +901,12 @@ export type LineageResolvers<ContextType = any, ParentType extends ResolversPare
   stat?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   traits?: Resolver<Maybe<Array<ResolversTypes['GenericFeature']>>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type ListResolvers<ContextType = any, ParentType extends ResolversParentTypes['List'] = ResolversParentTypes['List']> = {
+  items?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
+  label?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -1038,6 +1052,7 @@ export type Resolvers<ContextType = any> = {
   GenericRule?: GenericRuleResolvers<ContextType>;
   Item?: ItemResolvers<ContextType>;
   Lineage?: LineageResolvers<ContextType>;
+  List?: ListResolvers<ContextType>;
   Mutation?: MutationResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
   Range?: RangeResolvers<ContextType>;

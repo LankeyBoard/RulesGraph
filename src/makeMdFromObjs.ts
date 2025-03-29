@@ -1,5 +1,5 @@
 import generalRules from "./rules/1b/generalRules";
-import { GenericRule, Maybe, RuleText } from "./schema/types.generated";
+import { GenericRule, Maybe, RuleText, List } from "./schema/types.generated";
 
 const writeToFile = (contents: string, filename: string) => {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -36,10 +36,17 @@ const textAreaToText = (textArea: Maybe<RuleText>[]): string => {
   return text.slice(0, -2) + "\n";
 };
 
-const listToText = (list: Maybe<string>[]): string => {
+const listToText = (list: Maybe<List>): string => {
+  if (!list || list === undefined) return "";
+  let text = list.label ? `label: ${list.label}\n` : "";
+  list.items?.forEach((item) => (text += `- ${item}\n`));
+  return text;
+};
+
+const listsToText = (lists: Maybe<List>[]): string => {
   let text = "";
-  list.forEach((li) => {
-    text += `- ${li}\n`;
+  lists.forEach((list) => {
+    text += listToText(list);
   });
   return text;
 };
@@ -51,8 +58,8 @@ const ruleToText = (rule: Maybe<GenericRule>, depth: number): string => {
   if (rule.ruleType) text += "ruleType: " + rule.ruleType + `\\\n`;
   if (typeof rule.text !== "undefined" && rule.text !== null)
     text += textAreaToText(rule.text);
-  if (typeof rule.list !== "undefined" && rule.list !== null)
-    text += listToText(rule.list);
+  if (typeof rule.lists !== "undefined" && rule.lists !== null)
+    text += listsToText(rule.lists);
   if (rule.subRules)
     rule.subRules.forEach((r) => {
       text += ruleToText(r, depth + 1);
