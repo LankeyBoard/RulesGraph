@@ -189,7 +189,7 @@ type GenericRule implements Rule {
 
 type List {
   label: String
-  items!: [String]
+  items: [String]!
 }
 
 type GenericFeature implements Feature {

@@ -268,7 +268,7 @@ export type Lineage = Rule & {
 
 export type List = {
   __typename?: 'List';
-  items?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  items: Array<Maybe<Scalars['String']['output']>>;
   label?: Maybe<Scalars['String']['output']>;
 };
 
@@ -905,7 +905,7 @@ export type LineageResolvers<ContextType = any, ParentType extends ResolversPare
 };
 
 export type ListResolvers<ContextType = any, ParentType extends ResolversParentTypes['List'] = ResolversParentTypes['List']> = {
-  items?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
+  items?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   label?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
