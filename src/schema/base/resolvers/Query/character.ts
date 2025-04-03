@@ -41,6 +41,9 @@ export const character: NonNullable<QueryResolvers["character"]> = async (
       where: {
         heldBy: { every: { id: Number(character.id) } },
       },
+      orderBy: {
+        id: "asc",
+      },
       include: {
         text: true,
       },
