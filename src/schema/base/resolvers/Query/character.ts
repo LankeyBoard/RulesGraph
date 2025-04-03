@@ -2,7 +2,7 @@ import cultures from "../../../../rules/1b/cultures";
 import lineages from "../../../../rules/1b/lineages";
 import playerClasses from "../../../../rules/1b/playerClasses";
 import type { QueryResolvers } from "./../../../types.generated";
-export const character: NonNullable<QueryResolvers['character']> = async (
+export const character: NonNullable<QueryResolvers["character"]> = async (
   _parent,
   _arg,
   _ctx,
@@ -35,6 +35,23 @@ export const character: NonNullable<QueryResolvers['character']> = async (
       c.slug.toLocaleUpperCase() ===
       character.characterCulture.toLocaleUpperCase(),
   );
+
+  character.items =
+    (await _ctx.prisma.item.findMany({
+      where: {
+        heldBy: { every: { id: Number(character.id) } },
+      },
+      include: {
+        text: true,
+      },
+    })) || [];
+  character.items = character.items.map((item: { uses: object }) => {
+    return {
+      ...item,
+      uses:
+        item.uses && Object.keys(item.uses).length > 0 ? item.uses : undefined,
+    };
+  });
 
   return {
     ...character,

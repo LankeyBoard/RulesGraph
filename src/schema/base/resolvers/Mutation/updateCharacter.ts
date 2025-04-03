@@ -1,23 +1,60 @@
+import { Prisma } from "@prisma/client";
 import culturesData from "../../../../rules/1b/cultures";
 import lineagesData from "../../../../rules/1b/lineages";
 import playerClasses from "../../../../rules/1b/playerClasses";
 import type { MutationResolvers } from "./../../../types.generated";
-export const updateCharacter: NonNullable<MutationResolvers['updateCharacter']> = async (_parent, _arg, _ctx) => {
+export const updateCharacter: NonNullable<
+  MutationResolvers["updateCharacter"]
+> = async (_parent, _arg, _ctx) => {
   if (!_ctx.currentUser) {
     throw new Error("You must be logged in to create a character");
   }
   if (!_arg.input || _arg.input === undefined) {
     throw new Error("You must provide a character input");
   }
-  /* Implement Mutation.createCharacter resolver logic here */
+  console.log("updateCharacter inputs", _arg.input);
+  const updatedCharacterData: Prisma.CharacterUpdateInput = {
+    ..._arg.input,
+    currentHealth: _arg.input.currentHealth ?? undefined, // Ensure null is converted to undefined
+    currentStamina: _arg.input.currentStamina ?? undefined, // Ensure null is converted to undefined
+    items: {
+      create:
+        _arg.input.items
+          ?.filter((item) => item !== null && item !== undefined)
+          .filter((item) => item.id === undefined)
+          .map((item) => ({
+            title: item.title,
+            isMagic: item.isMagic,
+            rarity: item.rarity,
+            uses:
+              item.uses !== null
+                ? {
+                    used: item.uses?.used,
+                    max: item.uses?.max,
+                    rechargeOn: item.uses?.rechargeOn,
+                  }
+                : undefined,
+            text: {
+              create: item.text?.map((textItem) => ({
+                text: textItem?.text || "", // Ensure text is a non-optional string
+                type: textItem?.type,
+              })),
+            },
+          })) || [],
+    },
+    languages: _arg.input.languages?.filter(
+      (language) => language !== undefined,
+    ) as string[],
+    featureChoiceSlugs: _arg.input.featureChoiceSlugs?.filter(
+      (slug) => slug !== null && slug !== undefined,
+    ) as string[],
+    createdBy: { connect: { id: _ctx.currentUser.id } },
+  };
   const updatedCharacter = await _ctx.prisma.character.update({
     where: {
       id: Number(_arg.id),
     },
-    data: {
-      ..._arg.input,
-      createdBy: { connect: { id: _ctx.currentUser.id } },
-    },
+    data: updatedCharacterData,
   });
   updatedCharacter.createdBy = _ctx.currentUser;
   if (!updatedCharacter.items) updatedCharacter.items = [];
@@ -48,6 +85,12 @@ export const updateCharacter: NonNullable<MutationResolvers['updateCharacter']> 
     throw new Error(
       `Culture ${updatedCharacter.characterCulture} not found in the player cultures`,
     );
-  console.log("newCharacter", updatedCharacter);
+
+  updatedCharacter.items = await _ctx.prisma.item.findMany({
+    where: {
+      heldBy: { every: { id: Number(updatedCharacter.id) } },
+    },
+  });
+  console.log("updatedCharacter", updatedCharacter);
   return updatedCharacter;
 };

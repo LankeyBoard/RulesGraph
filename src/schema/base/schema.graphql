@@ -101,6 +101,21 @@ enum SpeedTypes {
   swimming
 }
 
+enum Rarity {
+  COMMON
+  UNCOMMON
+  RARE
+  LEGENDARY
+  UNIQUE
+}
+
+enum RechargeOn {
+  NONE
+  CATCH_BREATH
+  NIGHTS_REST
+  REST_AND_RECUPERATE
+}
+
 #########
 # union #
 #########
@@ -398,21 +413,33 @@ input CharacterInput {
 type Item {
   id: ID!
   title: String!
-  heldBy: [Character]!
-  type: String!
-  isMagic: Boolean!
-  rarity: Rarity!
-  effects: [Effect]!
   text: [RuleText]!
+  effects: [Effect]!
+  isMagic: Boolean!
+  rarity: Rarity
+  uses: Uses
+}
+
+type Uses {
+  used: Int!
+  max: Int!
+  rechargeOn: RechargeOn!
 }
 
 input ItemInput {
+  id: ID
   title: String!
-  type: String!
-  isMagic: Boolean!
-  rarity: Rarity!
-  effects: [EffectInput]!
   text: [RuleTextInput]!
+  effects: [EffectInput]!
+  isMagic: Boolean!
+  rarity: Rarity
+  uses: UsesInput
+}
+
+input UsesInput {
+  used: Int!
+  max: Int!
+  rechargeOn: RechargeOn!
 }
 
 type Effect {
@@ -431,12 +458,4 @@ input RuleTextInput {
   text: String!
   type: String
   choices: [String]
-}
-
-enum Rarity {
-  COMMON
-  UNCOMMON
-  RARE
-  LEGENDARY
-  UNIQUE
 }
