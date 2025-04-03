@@ -40,6 +40,7 @@ import    { Speed } from './base/resolvers/Speed';
 import    { Training } from './base/resolvers/Training';
 import    { TrainingOptions } from './base/resolvers/TrainingOptions';
 import    { User } from './base/resolvers/User';
+import    { Uses } from './base/resolvers/Uses';
 import    { Weapons } from './base/resolvers/Weapons';
 import    { shifterArmor } from './base/resolvers/shifterArmor';
 import    { shifterFeature } from './base/resolvers/shifterFeature';
@@ -71,6 +72,7 @@ Speed: Speed,
 Training: Training,
 TrainingOptions: TrainingOptions,
 User: User,
+Uses: Uses,
 Weapons: Weapons,
 shifterArmor: shifterArmor,
 shifterFeature: shifterFeature
