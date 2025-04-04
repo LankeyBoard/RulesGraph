@@ -118,7 +118,7 @@ const playerClasses: CharacterClass[] = [
         text: [
           {
             type: "RULE",
-            text: "If you are attacking an enemy you did not attack last turn you can spend Fortune's Favor before the attack to double your base damage if you hit.",
+            text: "If you are attacking an enemy you did not attack last turn you can spend Fortune's Favor before the attack to double your Base Damage if you hit.",
           },
           {
             type: "FLAVOR",
@@ -210,7 +210,7 @@ const playerClasses: CharacterClass[] = [
             text: [
               {
                 type: "RULE",
-                text: "When you counter an enemy, spend 1 stamina + 1 per size category the target is larger than you. If you do, you move the enemy up to 15 ft.",
+                text: "When you Counter an enemy, spend 1 Stamina + 1 per size category the target is larger than you. If you do, you move the enemy up to 15 ft.",
               },
             ],
           },
@@ -225,7 +225,7 @@ const playerClasses: CharacterClass[] = [
         text: [
           {
             type: "RULE",
-            text: "Spend Fortune's Favor, halve all damage taken until the start your next turn.",
+            text: "Spend Fortune's Favor, halve all damage taken until the start of the next round of combat.",
           },
           {
             type: "FLAVOR",
@@ -1034,7 +1034,7 @@ const playerClasses: CharacterClass[] = [
         text: [
           {
             type: "RULE",
-            text: "When you make your Last Stand, and at the start of each turn while in Last Stand, gain Fortune's Favor.",
+            text: "When you make your Last Stand, and at the start of each round while in Last Stand, gain Fortune's Favor.",
           },
           {
             type: "FLAVOR",
@@ -1241,7 +1241,7 @@ const playerClasses: CharacterClass[] = [
         text: [
           {
             type: "RULE",
-            text: "Reduce your speed to 0 to double your range until the start of your next turn.",
+            text: "Reduce your speed to 0 to double your range until the start of the next round.",
           },
         ],
       },
@@ -1642,7 +1642,7 @@ const playerClasses: CharacterClass[] = [
             slug: "INFUSION-BIND",
             text: [
               {
-                text: "Attempt to bind an enemy within 30 ft. of you to the ground. They make a Mettle Test, difficulty is equal to 10+Infusion Dice. Fail, they are Pinned until the start of the next Round. Mixed, they are Entangled until the start of the next Round.",
+                text: "Attempt to bind an enemy within 30 ft. of you to the ground. They make a Mettle Test, difficulty is equal to 10+Infusion Dice. Fail, they are Pinned until the start of the next round. Mixed, they are Entangled until the start of the next round.",
               },
             ],
           },
