@@ -1140,8 +1140,12 @@ const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "When you fall from a height greater than 10 ft. Make an Agility Test. Pass: 12, Fail: 7. For every 5 ft. past 10 ft. the difficulty increases by 2. On a Pass you take no damage. On a fail you take 1d10 bludgeoning damage per 5 ft. On a Mixed you take half damage.",
+            text: "When you fall from a height greater than 10 ft. Make an Agility Test. Pass: 12, Fail: 7. For every 10 ft. further you fall the difficulty increases by 2. On a Pass you take no damage. On a fail you take 1d10 Bludgeoning damage per 10 ft. you fell. On a Mixed you take half damage.",
             type: "RULE",
+          },
+          {
+            text: "You are traversing a rope 20 ft. above the ground. You lose your grip and fall. You make an Agility Test the difficulty is 14 and you would take 2d10 Bludgeoning Damage on a Failed Test.",
+            type: "EG",
           },
         ],
       },
