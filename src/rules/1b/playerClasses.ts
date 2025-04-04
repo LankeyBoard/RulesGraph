@@ -1575,7 +1575,7 @@ const playerClasses: CharacterClass[] = [
     staminaOnLevel: 2,
     training: {
       armor: ["Light", "Medium"],
-      shields: ["Light, Medium"],
+      shields: ["Light", "Medium"],
       weapons: {
         melee: {
           pick: 1,
