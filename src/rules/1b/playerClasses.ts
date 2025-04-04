@@ -1740,6 +1740,81 @@ const playerClasses: CharacterClass[] = [
             text: "Pick a third Infusion.",
           },
         ],
+        chooseNum: 1,
+        choices: [
+          {
+            title: "Absorb",
+            slug: "INFUSION-ABSORB",
+            text: [
+              {
+                text: "Requires a shield, when you or an ally within 30 ft. would take damage, reduce the damage taken by your infusion dice.",
+              },
+            ],
+          },
+          {
+            title: "Bind",
+            slug: "INFUSION-BIND",
+            text: [
+              {
+                text: "Attempt to bind an enemy within 30 ft. of you to the ground. They make a Mettle Test, difficulty is equal to 10+Infusion Dice. Fail, they are Pinned until the start of the next Round. Mixed, they are Entangled until the start of the next Round.",
+              },
+            ],
+          },
+          {
+            title: "Bolster",
+            slug: "INFUSION-BOLSTER",
+            text: [
+              {
+                text: "Add your Infusion Dice to your next Mettle or Agility Test within the next minute.",
+              },
+            ],
+          },
+          {
+            title: "Disrupt",
+            slug: "INFUSION-DISRUPT",
+            text: [
+              {
+                text: "When you or an ally within 30 ft. is Attacked, after the Attack is rolled, reduce the Attack Roll by your Infusion Dice. ",
+              },
+            ],
+          },
+          {
+            title: "Elemental Weapon",
+            slug: "INFUSION-WEAPON",
+            text: [
+              {
+                text: "Create an elemental weapon that lasts 1 minute  The weapon deals  elemental damage [Fire, Cold, or Lightning] equal to your Base Damage.",
+              },
+            ],
+          },
+          {
+            title: "Launch",
+            slug: "INFUSION-Launch",
+            text: [
+              {
+                text: "Use when you make a Ranged Attack. The Attacks Range doubles and deals extra damage equal to your Infusion Dice.",
+              },
+            ],
+          },
+          {
+            title: "Sight",
+            slug: "INFUSION-SIGHT",
+            text: [
+              {
+                text: "For the next 10 minutes you can see invisible creatures and objects. You can also see in dim light and complete darkness as though it was well lit.",
+              },
+            ],
+          },
+          {
+            title: "Veil",
+            slug: "INFUSION-VEIL",
+            text: [
+              {
+                text: "Add your Infusion Dice to any Tests to hide or stealth you make for the next minute.",
+              },
+            ],
+          },
+        ],
       },
       {
         level: 4,
