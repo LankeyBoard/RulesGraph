@@ -443,15 +443,17 @@ input UsesInput {
 }
 
 type Effect {
-  id: ID!
   target: String!
-  calculation: String!
-  itemsWithEffect: [Item]!
+  operation: String!
+  value: Int!
+  condition: String
 }
 
 input EffectInput {
   target: String!
-  calculation: String!
+  operation: String!
+  value: Int!
+  condition: String
 }
 
 input RuleTextInput {

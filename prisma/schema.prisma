@@ -53,7 +53,7 @@ model Item {
   uses Json?
   text    RuleText[]
   heldBy  Character[] @relation("CharacterToItem")
-  effects Effect[]    @relation("EffectToItem")
+  effects Json[]
 }
 
 model RuleText {
@@ -65,12 +65,6 @@ model RuleText {
   Item   Item?    @relation(fields: [itemId], references: [id])
 }
 
-model Effect {
-  id              Int    @id @default(autoincrement())
-  target          String
-  calculation     String
-  itemsWithEffect Item[] @relation("EffectToItem")
-}
 
 enum Rarity {
   COMMON

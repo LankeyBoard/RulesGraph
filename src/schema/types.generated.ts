@@ -156,15 +156,17 @@ export type Deflect = {
 
 export type Effect = {
   __typename?: 'Effect';
-  calculation: Scalars['String']['output'];
-  id: Scalars['ID']['output'];
-  itemsWithEffect: Array<Maybe<Item>>;
+  condition?: Maybe<Scalars['String']['output']>;
+  operation: Scalars['String']['output'];
   target: Scalars['String']['output'];
+  value: Scalars['Int']['output'];
 };
 
 export type EffectInput = {
-  calculation: Scalars['String']['input'];
+  condition?: InputMaybe<Scalars['String']['input']>;
+  operation: Scalars['String']['input'];
   target: Scalars['String']['input'];
+  value: Scalars['Int']['input'];
 };
 
 export type Feature = {
@@ -832,10 +834,10 @@ export type DeflectResolvers<ContextType = any, ParentType extends ResolversPare
 };
 
 export type EffectResolvers<ContextType = any, ParentType extends ResolversParentTypes['Effect'] = ResolversParentTypes['Effect']> = {
-  calculation?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
-  itemsWithEffect?: Resolver<Array<Maybe<ResolversTypes['Item']>>, ParentType, ContextType>;
+  condition?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  operation?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   target?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  value?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 

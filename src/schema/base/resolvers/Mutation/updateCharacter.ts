@@ -3,7 +3,9 @@ import culturesData from "../../../../rules/1b/cultures";
 import lineagesData from "../../../../rules/1b/lineages";
 import playerClasses from "../../../../rules/1b/playerClasses";
 import type { MutationResolvers } from "./../../../types.generated";
-export const updateCharacter: NonNullable<MutationResolvers['updateCharacter']> = async (_parent, _arg, _ctx) => {
+export const updateCharacter: NonNullable<
+  MutationResolvers["updateCharacter"]
+> = async (_parent, _arg, _ctx) => {
   if (!_ctx.currentUser) {
     throw new Error("You must be logged in to create a character");
   }
@@ -20,6 +22,16 @@ export const updateCharacter: NonNullable<MutationResolvers['updateCharacter']> 
         title: item.title,
         isMagic: item.isMagic,
         rarity: item.rarity,
+        effects: item.effects
+          ?.filter((effect) => effect !== undefined && effect !== null)
+          .map((effect) => {
+            return {
+              target: effect.target,
+              operation: effect.operation,
+              value: effect.value,
+              condition: effect.condition,
+            };
+          }) as Prisma.InputJsonObject[],
         uses:
           item.uses !== null
             ? {
@@ -48,11 +60,6 @@ export const updateCharacter: NonNullable<MutationResolvers['updateCharacter']> 
         heldBy: { every: { id: Number(_arg.id) } },
       },
     });
-    console.log(
-      savedItems.length,
-      _arg.input.items.length,
-      savedItems.length > _arg.input.items.length,
-    );
     if (savedItems.length > _arg.input.items.length) {
       // Find the ids that are present in savedItems and not input.items
       const inputItemIds = _arg.input.items
@@ -104,6 +111,16 @@ export const updateCharacter: NonNullable<MutationResolvers['updateCharacter']> 
                 type: textItem?.type,
               })),
             },
+            effects: item.effects
+              ?.filter((effect) => effect !== undefined && effect !== null)
+              .map((effect) => {
+                return {
+                  target: effect.target,
+                  operation: effect.operation,
+                  value: effect.value,
+                  condition: effect.condition,
+                };
+              }),
           })) || [],
     },
     languages: _arg.input.languages?.filter(
@@ -161,6 +178,6 @@ export const updateCharacter: NonNullable<MutationResolvers['updateCharacter']> 
   updatedCharacter.items.sort(
     (a: { id: number }, b: { id: number }) => a.id - b.id,
   );
-  console.log("updatedCharacter", updatedCharacter);
+  // console.log("updatedCharacter", updatedCharacter);
   return updatedCharacter;
 };
