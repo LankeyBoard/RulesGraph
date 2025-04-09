@@ -103,9 +103,9 @@ const textMaker = (textArray: string[]): RuleText[] => {
   const text: RuleText[] = [];
   textArray.forEach((line) => {
     if (line !== "" && line !== "#") {
-      if (line.substring(0, 3) === "Eg. ")
+      if (line.substring(0, 4) === "EG: ")
         text.push({
-          text: line.slice(3),
+          text: line.slice(4),
           type: "EG",
         });
       else if (line[0] === "*") {
