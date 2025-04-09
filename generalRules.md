@@ -155,7 +155,7 @@ slug: SUCCESS
 
 ruleType: RULE\
 Success on a test doesn't always mean getting exactly what you want, but it does mean a favorable outcome for you. To achieve Success, you have to roll at least the Success point for the Test.\
-Eg: You are talking to the innkeeper negotiating for a room. The GM calls for a Heart Test and tells you that you'll succeed on a 15, earning your party a good discount. Failure is a 5 and you get no discount and an undesirable room. You roll a 13 and add +2 for your Heart to get a total of 15, which means you succeed. You manage to negotiate a 20% discount!
+EG: You are talking to the innkeeper negotiating for a room. The GM calls for a Heart Test and tells you that you'll succeed on a 15, earning your party a good discount. Failure is a 5 and you get no discount and an undesirable room. You roll a 13 and add +2 for your Heart to get a total of 15, which means you succeed. You manage to negotiate a 20% discount!
 
 ## Success With a Cost
 
@@ -163,7 +163,7 @@ slug: SUCCESS-WITH-COST
 
 ruleType: RULE\
 Success with a Cost is one possible Mixed Result where the GM offers a consequence and the player chooses if they want to accept the consequences or fail the test.\
-Eg: You try and scale a difficult cliff, you roll a mixed result. The GM may offer that you try and fall the first time, taking 1d6 damage but make it up on the second try or you fail and realize it would be too risky to climb and can't make it up.
+EG: You try and scale a difficult cliff, you roll a mixed result. The GM may offer that you try and fall the first time, taking 1d6 damage but make it up on the second try or you fail and realize it would be too risky to climb and can't make it up.
 
 ## Mixed Success
 
@@ -171,7 +171,7 @@ slug: MIXED-SUCCESS
 
 ruleType: RULE\
 A Mixed Ssuccess is another possible Mixed Result when you are partially successful in your endeavor. You achieve some of the outcome you want, but there are some complications or downsides.\
-Eg: You are trying to trick a guard into letting you go after being caught breaking curfew. You told him you forgot your pass at home and got a Mixed Success on the Heart Test your GM called for. The guard believes you but insists on escorting you home to show him the pass.
+EG: You are trying to trick a guard into letting you go after being caught breaking curfew. You told him you forgot your pass at home and got a Mixed Success on the Heart Test your GM called for. The guard believes you but insists on escorting you home to show him the pass.
 
 ## Failure
 
@@ -180,7 +180,7 @@ slug: FAILURE
 ruleType: RULE\
 A Failure occurs when you cannot achieve your desired outcome. This may mean the situation was harder than you initially believed or because you couldn't do it as well as you hoped or any other reason you and the GM think is reasonable. Sometimes the consequences of failure are direct, such as taking damage, other times they can simply be a complication for the story, this is determined by the GM.\
 When you roll a Failure, you gain [Fortune's Favor](/rules/player_rules#FORTUNES-FAVOR)\
-Eg: You are scaling a castle wall, trying to get in without alerting the goblins keeping watch from the nearby tower. Your GM calls for an Agility Test, where Success is a 15 and means you get up without being noticed and a Failure is a 10 and means you get spotted. You roll your Agility Test, you get a 5 on the dice and add 2 from your Agility, giving you a total of 7. The goblins spot you half way up, they begin to shout something you can't understand and begin to run towards the wall you are climbing!
+EG: You are scaling a castle wall, trying to get in without alerting the goblins keeping watch from the nearby tower. Your GM calls for an Agility Test, where Success is a 15 and means you get up without being noticed and a Failure is a 10 and means you get spotted. You roll your Agility Test, you get a 5 on the dice and add 2 from your Agility, giving you a total of 7. The goblins spot you half way up, they begin to shout something you can't understand and begin to run towards the wall you are climbing!
 
 ## Contests
 
@@ -188,7 +188,7 @@ slug: CONTESTS
 
 ruleType: RULE\
 When two or more characters are directly challenging each other the GM might call for a contested roll. A Contest is like any other test except the difficulty is set by comparing the competing dice. If one side is more than 5 higher than the other, then that side Succeeds on the Test and the other side Fails. If both sides are within 5, then the result is Mixed.\
-Eg: You joined an arm wrestling competition. Your first competition you are against a stout dwarven woman. The GM calls for a Test of Mettle. You roll a 13 and add your Mettle of 3 or a total of 16. The GM rolls a 10 and adds the woman's Mettle of 2, giving them a result of 12. This makes it a Mixed Success so the GM narrates how you go back and forth, finally winning the best 2-3 rounds on the 3rd round.
+EG: You joined an arm wrestling competition. Your first competition you are against a stout dwarven woman. The GM calls for a Test of Mettle. You roll a 13 and add your Mettle of 3 or a total of 16. The GM rolls a 10 and adds the woman's Mettle of 2, giving them a result of 12. This makes it a Mixed Success so the GM narrates how you go back and forth, finally winning the best 2-3 rounds on the 3rd round.
 
 ## Group Tests
 
@@ -196,7 +196,7 @@ slug: GROUP-TESTS
 
 ruleType: RULE\
 Sometimes a group of characters are performing an action where the success depends on the group's overall performance, not one individual. One common case is sneaking around a dungeon. When taking a Group Test, each character rolls against the Test, counting the number of Success, Mixed, and Failures. The average of the result is the group's result. An easy way to find the average is to subtract the larger of successes or failures from the other. If that new number is higher than the Mixed, that's the result, otherwise the result is Mixed.\
-Eg: The GM calls for a Group Test for a group of 5, Pass is 13 and Fail is 8. If the group rolls 2 Passes, 2 Mixed and 1 Fail, then we subtract the 1 Fail from 2 Passes, leaving us with 1 Pass and 2 Mixed, so the result is Mixed. If instead there were 3 Passes and 1 Mixed, the result would have been a Pass.
+EG: The GM calls for a Group Test for a group of 5, Pass is 13 and Fail is 8. If the group rolls 2 Passes, 2 Mixed and 1 Fail, then we subtract the 1 Fail from 2 Passes, leaving us with 1 Pass and 2 Mixed, so the result is Mixed. If instead there were 3 Passes and 1 Mixed, the result would have been a Pass.
 
 ## Helping on a Test
 
@@ -204,14 +204,14 @@ slug: HELP
 
 ruleType: RULE\
 If a character is taking a Test and others are providing aid, if the character is not already rolling with Fortune's Favor, they can roll with Fortune's Favor. Otherwise add a +3 to the result of the test. No matter how many people are helping, you can only gain each bonus once.\
-Eg: Bill the Brawler is trying to open a big heavy stone door. His party is helping him by giving him a crowbar and helping to pull on the door. If Bill is not already using Fortune's Favor on this roll, he gets Fortune's Favor and adds +3 to the roll because there are two different ways the party is helping him.
+EG: Bill the Brawler is trying to open a big heavy stone door. His party is helping him by giving him a crowbar and helping to pull on the door. If Bill is not already using Fortune's Favor on this roll, he gets Fortune's Favor and adds +3 to the roll because there are two different ways the party is helping him.
 
 ## Luck Test
 
 slug: LUCK-TEST
 
 A Luck Test is a special kind of Test without any Stat attached and cannot be helped on. It's just a Test to see if the player is lucky.\
-Eg: Smee the Shapeshifter wants to know what the smartest animals are around to communicate with. They aren't willing to track or spend time looking around for a smart animal so this wouldn't be a Test of their Heart or Intellect, instead it will be a Test of Luck.
+EG: Smee the Shapeshifter wants to know what the smartest animals are around to communicate with. They aren't willing to track or spend time looking around for a smart animal so this wouldn't be a Test of their Heart or Intellect, instead it will be a Test of Luck.
 
 ## 1s and 20s
 
@@ -300,7 +300,7 @@ How far away you can Attack. Your class range shows the minimum and maximum dist
 slug: BASIC-SPEED
 
 Your Speed determines how far you can move and comes from your lineage. If you have more than one Speed, you can use any combination of them when you move. If you use a combination of Speeds, any movement counts against the total distance you can travel with all of them.\
-Eg: You have a 30 ft. Base Speed and a 20 ft. Fly Speed. You could fly 10 ft. and then run 20 ft. or run 10 ft. and then Fly 10 ft. But you could not run 20 ft. and then fly 10 ft.
+EG: You have a 30 ft. Base Speed and a 20 ft. Fly Speed. You could fly 10 ft. and then run 20 ft. or run 10 ft. and then Fly 10 ft. But you could not run 20 ft. and then fly 10 ft.
 
 ### Armor
 
@@ -377,7 +377,7 @@ slug: MOVING-COMBAT
 
 ruleType: RULE\
 In addition to an Action, you can move during your turn in combat, moving up to your Speed in any direction. You can move at any point during your turn, and can split your move before and after your action.\
-Eg: You move 10 ft. Make an Attack and then move another 20 ft. If you move away from an enemy, they get a chance to make a counter attack against you as you try to slip by.
+EG: You move 10 ft. Make an Attack and then move another 20 ft. If you move away from an enemy, they get a chance to make a counter attack against you as you try to slip by.
 
 ### Getting Down and Standing Up
 
@@ -401,7 +401,7 @@ ruleType: RULE\
 When you would take damage and you are not Surprised, Unconscious or otherwise unaware of the damage, you can attempt to reduce the damage by spending 2 Stamina per die to roll Deflect Dice, reducing the damage taken by the amount rolled. You can roll Deflect Dice equal to 1 + half your level rounded down and you must decide and roll all dice at once.\
 Any flat deflect bonuses only apply once regardless of how many dice you roll.\
 Depending on the source of the damage this might represent a last second dodge to reduce the effect of the blow or gritting your teeth through the damage to reduce the effect.\
-Eg: A goblin swings at you with a rusted short sword. They hit, and would deal 3 damage to you. You decide to Deflect, spending 2 Stamina and rolling your 1d4 dice. You get a 2, reducing the Slashing damage to 1. Your GM narrates how you throw yourself back at the last second, avoiding the worst of the attack, but still getting caught by the tip of the blade.
+EG: A goblin swings at you with a rusted short sword. They hit, and would deal 3 damage to you. You decide to Deflect, spending 2 Stamina and rolling your 1d4 dice. You get a 2, reducing the Slashing damage to 1. Your GM narrates how you throw yourself back at the last second, avoiding the worst of the attack, but still getting caught by the tip of the blade.
 
 # Weapons, Shields, Armor & Equipment
 

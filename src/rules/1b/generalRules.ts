@@ -280,8 +280,8 @@ const generalRules: GenericRule[] = [
             type: "RULE",
           },
           {
-            text: "Eg: You are talking to the innkeeper negotiating for a room. The GM calls for a Heart Test and tells you that you'll succeed on a 15, earning your party a good discount. Failure is a 5 and you get no discount and an undesirable room. You roll a 13 and add +2 for your Heart to get a total of 15, which means you succeed. You manage to negotiate a 20% discount!",
-            type: "RULE",
+            text: "You are talking to the innkeeper negotiating for a room. The GM calls for a Heart Test and tells you that you'll succeed on a 15, earning your party a good discount. Failure is a 5 and you get no discount and an undesirable room. You roll a 13 and add +2 for your Heart to get a total of 15, which means you succeed. You manage to negotiate a 20% discount!",
+            type: "EG",
           },
         ],
       },
@@ -295,8 +295,8 @@ const generalRules: GenericRule[] = [
             type: "RULE",
           },
           {
-            text: "Eg: You try and scale a difficult cliff, you roll a mixed result. The GM may offer that you try and fall the first time, taking 1d6 damage but make it up on the second try or you fail and realize it would be too risky to climb and can't make it up.",
-            type: "RULE",
+            text: "You try and scale a difficult cliff, you roll a mixed result. The GM may offer that you try and fall the first time, taking 1d6 damage but make it up on the second try or you fail and realize it would be too risky to climb and can't make it up.",
+            type: "EG",
           },
         ],
       },
@@ -310,8 +310,8 @@ const generalRules: GenericRule[] = [
             type: "RULE",
           },
           {
-            text: "Eg: You are trying to trick a guard into letting you go after being caught breaking curfew. You told him you forgot your pass at home and got a Mixed Success on the Heart Test your GM called for. The guard believes you but insists on escorting you home to show him the pass.",
-            type: "RULE",
+            text: "You are trying to trick a guard into letting you go after being caught breaking curfew. You told him you forgot your pass at home and got a Mixed Success on the Heart Test your GM called for. The guard believes you but insists on escorting you home to show him the pass.",
+            type: "EG",
           },
         ],
       },
@@ -329,8 +329,8 @@ const generalRules: GenericRule[] = [
             type: "RULE",
           },
           {
-            text: "Eg: You are scaling a castle wall, trying to get in without alerting the goblins keeping watch from the nearby tower. Your GM calls for an Agility Test, where Success is a 15 and means you get up without being noticed and a Failure is a 10 and means you get spotted. You roll your Agility Test, you get a 5 on the dice and add 2 from your Agility, giving you a total of 7. The goblins spot you half way up, they begin to shout something you can't understand and begin to run towards the wall you are climbing!",
-            type: "RULE",
+            text: "You are scaling a castle wall, trying to get in without alerting the goblins keeping watch from the nearby tower. Your GM calls for an Agility Test, where Success is a 15 and means you get up without being noticed and a Failure is a 10 and means you get spotted. You roll your Agility Test, you get a 5 on the dice and add 2 from your Agility, giving you a total of 7. The goblins spot you half way up, they begin to shout something you can't understand and begin to run towards the wall you are climbing!",
+            type: "EG",
           },
         ],
       },
@@ -344,8 +344,8 @@ const generalRules: GenericRule[] = [
             type: "RULE",
           },
           {
-            text: "Eg: You joined an arm wrestling competition. Your first competition you are against a stout dwarven woman. The GM calls for a Test of Mettle. You roll a 13 and add your Mettle of 3 or a total of 16. The GM rolls a 10 and adds the woman's Mettle of 2, giving them a result of 12. This makes it a Mixed Success so the GM narrates how you go back and forth, finally winning the best 2-3 rounds on the 3rd round.",
-            type: "RULE",
+            text: "You joined an arm wrestling competition. Your first competition you are against a stout dwarven woman. The GM calls for a Test of Mettle. You roll a 13 and add your Mettle of 3 or a total of 16. The GM rolls a 10 and adds the woman's Mettle of 2, giving them a result of 12. This makes it a Mixed Success so the GM narrates how you go back and forth, finally winning the best 2-3 rounds on the 3rd round.",
+            type: "EG",
           },
         ],
       },
@@ -359,8 +359,8 @@ const generalRules: GenericRule[] = [
             type: "RULE",
           },
           {
-            text: "Eg: The GM calls for a Group Test for a group of 5, Pass is 13 and Fail is 8. If the group rolls 2 Passes, 2 Mixed and 1 Fail, then we subtract the 1 Fail from 2 Passes, leaving us with 1 Pass and 2 Mixed, so the result is Mixed. If instead there were 3 Passes and 1 Mixed, the result would have been a Pass.",
-            type: "RULE",
+            text: "The GM calls for a Group Test for a group of 5, Pass is 13 and Fail is 8. If the group rolls 2 Passes, 2 Mixed and 1 Fail, then we subtract the 1 Fail from 2 Passes, leaving us with 1 Pass and 2 Mixed, so the result is Mixed. If instead there were 3 Passes and 1 Mixed, the result would have been a Pass.",
+            type: "EG",
           },
         ],
       },
@@ -374,8 +374,8 @@ const generalRules: GenericRule[] = [
             type: "RULE",
           },
           {
-            text: "Eg: Bill the Brawler is trying to open a big heavy stone door. His party is helping him by giving him a crowbar and helping to pull on the door. If Bill is not already using Fortune's Favor on this roll, he gets Fortune's Favor and adds +3 to the roll because there are two different ways the party is helping him.",
-            type: "RULE",
+            text: "Bill the Brawler is trying to open a big heavy stone door. His party is helping him by giving him a crowbar and helping to pull on the door. If Bill is not already using Fortune's Favor on this roll, he gets Fortune's Favor and adds +3 to the roll because there are two different ways the party is helping him.",
+            type: "EG",
           },
         ],
       },
@@ -388,8 +388,8 @@ const generalRules: GenericRule[] = [
             type: "RULE",
           },
           {
-            text: "Eg: Smee the Shapeshifter wants to know what the smartest animals are around to communicate with. They aren't willing to track or spend time looking around for a smart animal so this wouldn't be a Test of their Heart or Intellect, instead it will be a Test of Luck.",
-            type: "RULE",
+            text: "Smee the Shapeshifter wants to know what the smartest animals are around to communicate with. They aren't willing to track or spend time looking around for a smart animal so this wouldn't be a Test of their Heart or Intellect, instead it will be a Test of Luck.",
+            type: "EG",
           },
         ],
       },
@@ -536,8 +536,8 @@ const generalRules: GenericRule[] = [
                 type: "RULE",
               },
               {
-                text: "Eg: You have a 30 ft. Base Speed and a 20 ft. Fly Speed. You could fly 10 ft. and then run 20 ft. or run 10 ft. and then Fly 10 ft. But you could not run 20 ft. and then fly 10 ft.",
-                type: "RULE",
+                text: "You have a 30 ft. Base Speed and a 20 ft. Fly Speed. You could fly 10 ft. and then run 20 ft. or run 10 ft. and then Fly 10 ft. But you could not run 20 ft. and then fly 10 ft.",
+                type: "EG",
               },
             ],
           },
@@ -646,8 +646,8 @@ const generalRules: GenericRule[] = [
                 type: "RULE",
               },
               {
-                text: "EG: You attack a goblin with your sword. You get an 11 on the Attack causing a Clash. You choose to trade damage, the goblin draws their daggers to make the Counter Attack. Now Ryle the Ranger makes a ranged Attack against the same goblin. They also roll an 11 and choose to trade damage, but because the goblin already has their daggers out, they cannot use the Counter Attack as their Counter Action.",
-                type: "RULE",
+                text: "You attack a goblin with your sword. You get an 11 on the Attack causing a Clash. You choose to trade damage, the goblin draws their daggers to make the Counter Attack. Now Ryle the Ranger makes a ranged Attack against the same goblin. They also roll an 11 and choose to trade damage, but because the goblin already has their daggers out, they cannot use the Counter Attack as their Counter Action.",
+                type: "EG",
               },
             ],
           },
@@ -673,8 +673,8 @@ const generalRules: GenericRule[] = [
             type: "RULE",
           },
           {
-            text: "Eg: You move 10 ft. Make an Attack and then move another 20 ft. If you move away from an enemy, they get a chance to make a counter attack against you as you try to slip by.",
-            type: "RULE",
+            text: "You move 10 ft. Make an Attack and then move another 20 ft. If you move away from an enemy, they get a chance to make a counter attack against you as you try to slip by.",
+            type: "EG",
           },
         ],
         subRules: [
@@ -722,8 +722,8 @@ const generalRules: GenericRule[] = [
             type: "RULE",
           },
           {
-            text: "Eg: A goblin swings at you with a rusted short sword. They hit, and would deal 3 damage to you. You decide to Deflect, spending 2 Stamina and rolling your 1d4 dice. You get a 2, reducing the Slashing damage to 1. Your GM narrates how you throw yourself back at the last second, avoiding the worst of the attack, but still getting caught by the tip of the blade.",
-            type: "RULE",
+            text: "A goblin swings at you with a rusted short sword. They hit, and would deal 3 damage to you. You decide to Deflect, spending 2 Stamina and rolling your 1d4 dice. You get a 2, reducing the Slashing damage to 1. Your GM narrates how you throw yourself back at the last second, avoiding the worst of the attack, but still getting caught by the tip of the blade.",
+            type: "EG",
           },
         ],
       },
@@ -1140,12 +1140,8 @@ const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "When you fall from a height greater than 10 ft. Make an Agility Test. Pass: 12, Fail: 7. For every 10 ft. further you fall the difficulty increases by 2. On a Pass you take no damage. On a fail you take 1d10 Bludgeoning damage per 10 ft. you fell. On a Mixed you take half damage.",
+            text: "When you fall from a height greater than 10 ft. Make an Agility Test. Pass: 12, Fail: 7. For every 5 ft. past 10 ft. the difficulty increases by 2. On a Pass you take no damage. On a fail you take 1d10 bludgeoning damage per 5 ft. On a Mixed you take half damage.",
             type: "RULE",
-          },
-          {
-            text: "You are traversing a rope 20 ft. above the ground. You lose your grip and fall. You make an Agility Test the difficulty is 14 and you would take 2d10 Bludgeoning Damage on a Failed Test.",
-            type: "EG",
           },
         ],
       },
