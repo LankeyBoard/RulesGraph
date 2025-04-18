@@ -1,9 +1,15 @@
 /* This file was automatically generated. DO NOT UPDATE MANUALLY. */
     import type   { Resolvers } from './types.generated';
     import    { AuthPayload } from './base/resolvers/AuthPayload';
+import    { BeastAbility } from './base/resolvers/BeastAbility';
+import    { BeastForm } from './base/resolvers/BeastForm';
+import    { BeastHealth } from './base/resolvers/BeastHealth';
+import    { BeastStats } from './base/resolvers/BeastStats';
+import    { BeastmasterPet } from './base/resolvers/BeastmasterPet';
 import    { Character } from './base/resolvers/Character';
 import    { CharacterClass } from './base/resolvers/CharacterClass';
 import    { CharacterClassFeature } from './base/resolvers/CharacterClassFeature';
+import    { CharacterExtras } from './base/resolvers/CharacterExtras';
 import    { Culture } from './base/resolvers/Culture';
 import    { Damage } from './base/resolvers/Damage';
 import    { Deflect } from './base/resolvers/Deflect';
@@ -34,7 +40,6 @@ import    { Range } from './base/resolvers/Range';
 import    { RuleText } from './base/resolvers/RuleText';
 import    { SearchResult } from './base/resolvers/SearchResult';
 import    { ShifterForm } from './base/resolvers/ShifterForm';
-import    { ShifterForms } from './base/resolvers/ShifterForms';
 import    { SlugDict } from './base/resolvers/SlugDict';
 import    { Speed } from './base/resolvers/Speed';
 import    { Training } from './base/resolvers/Training';
@@ -49,9 +54,15 @@ import    { shifterFeature } from './base/resolvers/shifterFeature';
       Mutation: { createCharacter: Mutation_createCharacter,createUser: Mutation_createUser,deleteCharacter: Mutation_deleteCharacter,login: Mutation_login,updateCharacter: Mutation_updateCharacter },
       
       AuthPayload: AuthPayload,
+BeastAbility: BeastAbility,
+BeastForm: BeastForm,
+BeastHealth: BeastHealth,
+BeastStats: BeastStats,
+BeastmasterPet: BeastmasterPet,
 Character: Character,
 CharacterClass: CharacterClass,
 CharacterClassFeature: CharacterClassFeature,
+CharacterExtras: CharacterExtras,
 Culture: Culture,
 Damage: Damage,
 Deflect: Deflect,
@@ -66,7 +77,6 @@ Range: Range,
 RuleText: RuleText,
 SearchResult: SearchResult,
 ShifterForm: ShifterForm,
-ShifterForms: ShifterForms,
 SlugDict: SlugDict,
 Speed: Speed,
 Training: Training,
