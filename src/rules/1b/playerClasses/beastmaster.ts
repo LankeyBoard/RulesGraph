@@ -42,14 +42,30 @@ const beastmaster: CharacterClass = {
     },
     {
       level: 1,
-      title: "Setup/Follow-up",
-      slug: "BEASTMASTER-SETUP-FOLLOWUP",
+      title: "Setup",
+      slug: "BEASTMASTER-SETUP",
       staminaCost: 2,
+      actionType: "ACTION",
       costsFortunesFavor: false,
       text: [
         {
           type: "RULE",
-          text: "You and your Beast work as a team. As an Action, spend 2 Stamina. You can use Your Setup and your Beast's Follow-up or vice versa. The Setup must hit to trigger the Follow-up. You can use a Basic Attack as either a Setup or Follow-up.",
+          text: "Spend 2 Stamina to make a special attack designed to distract your target and allow your Beast to get a good strike in. Reduce your Attack Damage by 1 dice step for this Attack. If this attack hits and your beast is within melee range, they may immediately also hit with their Follow-up if they have one.",
+        },
+      ],
+    },
+
+    {
+      level: 1,
+      title: "Follow-up",
+      slug: "BEASTMASTER-Followup",
+      staminaCost: 2,
+      actionType: "ACTION",
+      costsFortunesFavor: false,
+      text: [
+        {
+          type: "RULE",
+          text: "Spend 2 Stamina to have your Beast make a special attack designed to distract your target and allow you to get a good strike in. Your Beast makes a melee attack against the target. If their attack hits, you may immediately deal your Base Damage to the target if they are within your attack range.",
         },
       ],
     },
@@ -68,8 +84,8 @@ const beastmaster: CharacterClass = {
     },
     {
       level: 2,
-      title: "Scavenger’s Pair",
-      slug: "BEASTMASTER-SCAVENGERS-PAIR",
+      title: "Scavenger’s at Heart",
+      slug: "BEASTMASTER-SCAVENGERS",
       staminaCost: 0,
       costsFortunesFavor: false,
       text: [
@@ -81,8 +97,8 @@ const beastmaster: CharacterClass = {
     },
     {
       level: 3,
-      title: "Coordinated Ferocity",
-      slug: "BEASTMASTER-COORDINATED-FEROCITY",
+      title: "Ferocity",
+      slug: "BEASTMASTER-FEROCITY",
       staminaCost: 0,
       costsFortunesFavor: true,
       text: [
@@ -107,15 +123,16 @@ const beastmaster: CharacterClass = {
     },
     {
       level: 5,
-      title: "Coordinated Effort",
-      slug: "BEASTMASTER-COORDINATED-EFFORT",
+      title: "Ultimate Tag Team",
+      slug: "BEASTMASTER-TAG-TEAM",
       staminaCost: 2,
       costsFortunesFavor: false,
       ruleType: "CHOICE",
+      chooseNum: 2,
       text: [
         {
           type: "RULE",
-          text: "Choose one of the following maneuvers. Spend 2 additional Stamina to use the move in place of a Basic Attack Setup or Follow-up.",
+          text: "Choose two of the following maneuvers. Spend 2 additional Stamina to use the move in place of a Setup or Follow-up.",
         },
       ],
       choices: [
@@ -124,7 +141,7 @@ const beastmaster: CharacterClass = {
           slug: "BEASTMASTER-ENTANGLING-STRIKE",
           text: [
             {
-              text: "On a Hit, the target must pass a Mettle Test (13/8) or become Entangled until the start of the next round.",
+              text: "On Hit, the target must pass a Mettle Test (13/8) or become Entangled until the start of the next round.",
             },
           ],
         },
@@ -133,7 +150,7 @@ const beastmaster: CharacterClass = {
           slug: "BEASTMASTER-PREDATORS-LEAP",
           text: [
             {
-              text: "On hit, you may immediately move up to half your Speed without provoking opportunity attacks.",
+              text: "On hit, you may immediately move up to half your Speed.",
             },
           ],
         },
@@ -185,8 +202,8 @@ const beastmaster: CharacterClass = {
     },
     {
       level: 7,
-      title: "Unbroken Bond",
-      slug: "BEASTMASTER-UNBROKEN-BOND",
+      title: "Friends Till the End",
+      slug: "BEASTMASTER-FRIENDS-TILL-THE-END",
       staminaCost: 0,
       costsFortunesFavor: false,
       text: [
@@ -302,7 +319,7 @@ const beastmaster: CharacterClass = {
             {
               type: "Setup",
               title: "Raking Attack",
-              text: "Add your Heart to the attack bonus of your Follow-up attack.",
+              text: "Add your Heart to the Damage bonus of your Follow-up.",
             },
           ],
         },
