@@ -315,11 +315,12 @@ type CharacterClass implements Rule {
   damage: Damage!
   deflect: Deflect!
   features: [CharacterClassFeature]!
-  extra: ShifterForms
+  extra: CharacterExtras
 }
 
-type ShifterForms {
-  forms: [ShifterForm]
+type CharacterExtras {
+  forms: [ShifterForm!]
+  beastMasterPet: BeastmasterPet
 }
 
 type ShifterForm implements Rule {
@@ -341,6 +342,42 @@ type shifterArmor {
 
 type shifterFeature {
   title: String
+  text: String!
+}
+
+type BeastmasterPet {
+  title: String!
+  slug: String!
+  description: [String]!
+  beasts: [BeastForm!]!
+}
+
+type BeastForm {
+  title: String!
+  slug: String!
+  size: Size!
+  health: BeastHealth!
+  stats: BeastStats!
+  speed: [Speed!]!
+  damage: Damage!
+  abilities: [BeastAbility!]!
+}
+
+type BeastHealth {
+  base: Int!
+  perLevel: Int!
+}
+
+type BeastStats {
+  mettle: Int!
+  agility: Int!
+  heart: Int!
+  intellect: Int!
+}
+
+type BeastAbility {
+  type: String!
+  title: String!
   text: String!
 }
 

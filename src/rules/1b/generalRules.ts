@@ -180,10 +180,25 @@ const generalRules: GenericRule[] = [
         ],
       },
       {
-        title: "Resting",
+        title: "Fortune's Favor",
+        slug: "FORTUNES-FAVOR",
+        ruleType: "RULE",
+        text: [
+          {
+            text: "Fortune's Favor represent's the little bit of extra luck you have as a hero. You gain Fortune's Favor whenever you fail a [Test](/rules/player_rules#tests). It can be spent to roll a second d20 on a [Test](/rules/player_rules#TESTS) or to use special [Class](/rules/player_rules##CLASS-RULES-DESC) abilities.",
+            type: "RULE",
+          },
+        ],
+      },
+      {
+        title: "Regaining Resources",
         slug: "REST",
         ruleType: "RULE",
         text: [
+          {
+            text: "To regain your different resources, you have three different types of rests available depending on how long you are able to rest for. Finishing a longer rest grants all benefits of the shorter rest as well. So if you have abilities that you get back when you Catch Your Breath, you also get them back when you finish a Night's Rest.",
+            type: "RULE",
+          },
           {
             text: "If you spend Stamina or engage in strenuous activities while resting, the rest ends immediately and you gain no benefits from it.",
             type: "RULE",
@@ -306,7 +321,7 @@ const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "A Mixed Ssuccess is another possible Mixed Result when you are partially successful in your endeavor. You achieve some of the outcome you want, but there are some complications or downsides.",
+            text: "A Mixed Success is another possible Mixed Result when you are partially successful in your endeavor. You achieve some of the outcome you want, but there are some complications or downsides.",
             type: "RULE",
           },
           {
@@ -423,8 +438,8 @@ const generalRules: GenericRule[] = [
         ],
       },
       {
-        title: "Fortune's Favor",
-        slug: "FORTUNES-FAVOR",
+        title: "Spending Fortune's Favor",
+        slug: "SPEND-FORTUNES-FAVOR",
         ruleType: "RULE",
         text: [
           {
@@ -532,7 +547,7 @@ const generalRules: GenericRule[] = [
             slug: "BASIC-SPEED",
             text: [
               {
-                text: "Your Speed determines how far you can move and comes from your lineage. If you have more than one Speed, you can use any combination of them when you move. If you use a combination of Speeds, any movement counts against the total distance you can travel with all of them.",
+                text: "Your Speed determines how far you can move and comes from your Lineage. If you have more than one Speed, you can use any combination of them when you move. If you use a combination of Speeds, any movement counts against the total distance you can travel with all of them.",
                 type: "RULE",
               },
               {
@@ -1142,6 +1157,27 @@ const generalRules: GenericRule[] = [
           {
             text: "When you fall from a height greater than 10 ft. Make an Agility Test. Pass: 12, Fail: 7. For every 5 ft. past 10 ft. the difficulty increases by 2. On a Pass you take no damage. On a fail you take 1d10 bludgeoning damage per 5 ft. On a Mixed you take half damage.",
             type: "RULE",
+          },
+        ],
+      },
+      {
+        title: "Other Forms of Movement",
+        slug: "OTHER-MOVEMENT",
+        ruleType: "LISTCOMPACT",
+        text: [
+          {
+            text: "There are times when you may want to swim, climb. If they have a Speed for that movement, then use that. Otherwise use the base speeds below.",
+            type: "RULE",
+          },
+          {
+            text: "If you are wearing Heavy Armor while Climbing or Swimming, make a Mettle Test. Pass: 12, Fail: 7. On a Mixed, the movement costs 2 Stamina. On a Fail, it costs 4.",
+            type: "RULE",
+          },
+        ],
+        lists: [
+          {
+            label: "",
+            items: ["Climbing: 5 ft.", "Swimming: 5 ft."],
           },
         ],
       },

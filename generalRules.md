@@ -106,11 +106,19 @@ slug: HEALTH
 ruleType: RULE\
 Health represents the life force of your character. It is slow to get back and in limited supply. See [Exhausted, Dying, Last Stand & Healing](/rules/player_rules#EDL) for what happens at 0 Health.
 
-## Resting
+## Fortune's Favor
+
+slug: FORTUNES-FAVOR
+
+ruleType: RULE\
+Fortune's Favor represent's the little bit of extra luck you have as a hero. You gain Fortune's Favor whenever you fail a [Test](/rules/player_rules#tests). It can be spent to roll a second d20 on a [Test](/rules/player_rules#TESTS) or to use special [Class](/rules/player_rules##CLASS-RULES-DESC) abilities.
+
+## Regaining Resources
 
 slug: REST
 
 ruleType: RULE\
+To regain your different resources, you have three different types of rests available depending on how long you are able to rest for. Finishing a longer rest grants all benefits of the shorter rest as well. So if you have abilities that you get back when you Catch Your Breath, you also get them back when you finish a Night's Rest.\
 If you spend Stamina or engage in strenuous activities while resting, the rest ends immediately and you gain no benefits from it.
 
 ### Catch Your Breath
@@ -170,7 +178,7 @@ EG: You try and scale a difficult cliff, you roll a mixed result. The GM may off
 slug: MIXED-SUCCESS
 
 ruleType: RULE\
-A Mixed Ssuccess is another possible Mixed Result when you are partially successful in your endeavor. You achieve some of the outcome you want, but there are some complications or downsides.\
+A Mixed Success is another possible Mixed Result when you are partially successful in your endeavor. You achieve some of the outcome you want, but there are some complications or downsides.\
 EG: You are trying to trick a guard into letting you go after being caught breaking curfew. You told him you forgot your pass at home and got a Mixed Success on the Heart Test your GM called for. The guard believes you but insists on escorting you home to show him the pass.
 
 ## Failure
@@ -233,9 +241,9 @@ slug: 20s
 ruleType: RULE\
 Rolling a 20 is the best a character could do. Tests always pass and when you roll a Critical Success on an attack, you deal double damage on the attack.
 
-## Fortune's Favor
+## Spending Fortune's Favor
 
-slug: FORTUNES-FAVOR
+slug: SPEND-FORTUNES-FAVOR
 
 ruleType: RULE\
 When you Fail a Test, you gain Fortune's Favor.\
@@ -299,7 +307,7 @@ How far away you can Attack. Your class range shows the minimum and maximum dist
 
 slug: BASIC-SPEED
 
-Your Speed determines how far you can move and comes from your lineage. If you have more than one Speed, you can use any combination of them when you move. If you use a combination of Speeds, any movement counts against the total distance you can travel with all of them.\
+Your Speed determines how far you can move and comes from your Lineage. If you have more than one Speed, you can use any combination of them when you move. If you use a combination of Speeds, any movement counts against the total distance you can travel with all of them.\
 EG: You have a 30 ft. Base Speed and a 20 ft. Fly Speed. You could fly 10 ft. and then run 20 ft. or run 10 ft. and then Fly 10 ft. But you could not run 20 ft. and then fly 10 ft.
 
 ### Armor
@@ -654,6 +662,18 @@ slug: FALL
 
 ruleType: RULE\
 When you fall from a height greater than 10 ft. Make an Agility Test. Pass: 12, Fail: 7. For every 5 ft. past 10 ft. the difficulty increases by 2. On a Pass you take no damage. On a fail you take 1d10 bludgeoning damage per 5 ft. On a Mixed you take half damage.
+
+## Other Forms of Movement
+
+slug: OTHER-MOVEMENT
+
+ruleType: LISTCOMPACT\
+There are times when you may want to swim, climb. If they have a Speed for that movement, then use that. Otherwise use the base speeds below.
+
+- Climbing: 5 ft.
+- Swimming: 5 ft.
+
+If you are wearing Heavy Armor while Climbing or Swimming, make a Mettle Test. Pass: 12, Fail: 7. On a Mixed, the movement costs 2 Stamina. On a Fail, it costs 4.
 
 # Lift, Drag, & Pack
 
