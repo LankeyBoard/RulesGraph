@@ -241,27 +241,20 @@ slug: 20s
 ruleType: RULE\
 Rolling a 20 is the best a character could do. Tests always pass and when you roll a Critical Success on an attack, you deal double damage on the attack.
 
-## Spending Fortune's Favor
-
-slug: SPEND-FORTUNES-FAVOR
-
-ruleType: RULE\
-When you Fail a Test, you gain Fortune's Favor.\
-With Fortune's Favor, when you take a Test, before you roll any dice, you can spend your Fortune's Favor to roll a second d20. You can use the results of either dice.
-
 ## Misfortune
 
 slug: MISFORTUNE
 
 ruleType: RULE\
-Circumstances may cause misfortune as well. When the GM calls for a roll with Misfortune, you roll a second d20 and take the lower of the two rolls. If you have Fortune's Favor, before you roll you can chose to give it up to cancel out the Misfortune and roll the test normally.
+Circumstances may cause misfortune. When the GM calls for a roll with Misfortune, you roll a second d20 and take the lower of the two rolls. If you have [Fortune's Favor](/rules/player_rules#FORTUNES-FAVOR), before you roll you can chose to give it up to cancel out the Misfortune and roll the test normally.
 
 # Combat
 
 slug: COMBAT
 
 ruleType: RULE\
-Each round of combat is split into 3 parts, 1st, Environmental effects, 2nd, Players take their turn, 3rd, Enemies take their turn. During the player's turn, each player makes one Action and can move up to their speed. During the enemies turn enemies with actions can take one action and move. Enemies with only counters can only move unless they are not engaged, in which case they can use a counter as an action.
+Each round of combat is split into 3 parts, 1st, Environmental effects, 2nd, Players take their turn, 3rd, Enemies take their turn. During the player's turn, each player makes one Action and can move up to their speed. During the enemies turn enemies with Actions can take one Action and move. Enemies with only counters can only move unless they are not engaged, in which case they can use a counter as an action.\
+Each round of combat represents 30 seconds of in game time.
 
 ## Exchanges
 
@@ -314,7 +307,7 @@ EG: You have a 30 ft. Base Speed and a 20 ft. Fly Speed. You could fly 10 ft. an
 
 slug: BASIC-ARMOR
 
-If you are not wearing any armor, your Armor is 10+Agility. Your Armor determines how hard you are to hit.
+Your Armor determines how hard you are to hit. Your Class will determine what Armor you are trained to wear and you can the effects of different armor in the [Armor section](/rules/player_rules#ARMOR).
 
 ### Counter
 
@@ -411,7 +404,7 @@ Any flat deflect bonuses only apply once regardless of how many dice you roll.\
 Depending on the source of the damage this might represent a last second dodge to reduce the effect of the blow or gritting your teeth through the damage to reduce the effect.\
 EG: A goblin swings at you with a rusted short sword. They hit, and would deal 3 damage to you. You decide to Deflect, spending 2 Stamina and rolling your 1d4 dice. You get a 2, reducing the Slashing damage to 1. Your GM narrates how you throw yourself back at the last second, avoiding the worst of the attack, but still getting caught by the tip of the blade.
 
-# Weapons, Shields, Armor & Equipment
+# Weapons, Armor & Shields
 
 slug: EQUIPMENT
 
@@ -473,32 +466,6 @@ ruleType: RULE\
 Some effects cause your Base Damage to go up or down by one or more steps. Follow the pattern below to determine the new Base Damage dice.\
 1d4 - 1d6 - 1d8 - 1d10 - 1d12 - 2d6 - 2d8 - etc.
 
-## Shields
-
-slug: SHIELDS
-
-ruleType: LIST\
-Shields come in three sizes, light (bucklers and dueling shields), medium (kite shields), and heavy (tower shields).\
-Shields can help increase your armor, deflect attacks and absorb damage.
-
-### Light Shields
-
-slug: LIGHT-SHIELDS
-
-Require at least 3 Agility: Increases your Deflect Dice by 1 step.
-
-### Medium Shields
-
-slug: MEDIUM-SHIELDS
-
-Require at least 1 Agility and 1 Mettle: +1 to Armor and you can reroll 1s on your Deflect Dice roll.
-
-### Heavy Shields
-
-slug: HEAVY-SHIELDS
-
-Require at least 3 mettle: +2 to Armor and +3 to Deflect.
-
 ## Armor
 
 slug: ARMOR
@@ -529,6 +496,32 @@ slug: MEDIUM-ARMOR
 slug: HEAVY ARMOR
 
 17
+
+## Shields
+
+slug: SHIELDS
+
+ruleType: LIST\
+Shields come in three sizes, light (bucklers and dueling shields), medium (kite shields), and heavy (tower shields).\
+Shields can help increase your armor, deflect attacks and absorb damage.
+
+### Light Shields
+
+slug: LIGHT-SHIELDS
+
+Require at least 3 Agility: Increases your Deflect Dice by 1 step.
+
+### Medium Shields
+
+slug: MEDIUM-SHIELDS
+
+Require at least 1 Agility and 1 Mettle: +1 to Armor and you can reroll 1s on your Deflect Dice roll.
+
+### Heavy Shields
+
+slug: HEAVY-SHIELDS
+
+Require at least 3 mettle: +2 to Armor and +3 to Deflect.
 
 # Exhausted, Dying, & Last Stand
 
@@ -675,7 +668,7 @@ There are times when you may want to swim, climb. If they have a Speed for that 
 
 If you are wearing Heavy Armor while Climbing or Swimming, make a Mettle Test. Pass: 12, Fail: 7. On a Mixed, the movement costs 2 Stamina. On a Fail, it costs 4.
 
-# Lift, Drag, & Pack
+## Lift, Drag, & Pack
 
 slug: LIFT-DRAG-PACK
 
@@ -701,7 +694,8 @@ Your pack contains everyday essentials like rope, a bedroll, and flint & tinderâ
 slug: GEAR-SLOTS
 
 ruleType: RULE\
-You have 7 + half your level (rounded down) Gear Slots. These can be used in two ways:
+You have 7 + half your Mettle (round towards zero) + half your level (rounded down) Gear Slots. These can be used in two ways:
+Eg: You are level 7 and have -1 Mettle, then you have 7 + 0 + 3 = 10 Gear Slots.
 
 ### Quick Retrieval
 
@@ -727,7 +721,7 @@ label: Results
 slug: NOTABLE-ITEMS
 
 ruleType: RULE\
-Notable or valuable items take up 1 Gear Slot each, unless particularly bulky, in which case they take more.
+Notable or valuable items take up 1 Gear Slot each, unless particularly bulky, in which case they take more. Smaller items might not be notable on their own, but when combined might be notable. It's probably not notable that you have 1 ball bearing, but it's probably notable that you have a sack full.
 
 ## Currency
 

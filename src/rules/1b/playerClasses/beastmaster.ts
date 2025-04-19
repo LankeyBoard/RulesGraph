@@ -6,7 +6,7 @@ const beastmaster: CharacterClass = {
   description: [
     "You've formed a deep bond with an animal, your faithful companion and your best friend that aids you in your adventures.",
   ],
-  complexity: "STANDARD",
+  complexity: "COMPLEX",
   health: 12,
   healthOnLevel: 2,
   staminaStat: "AGILITY",
@@ -36,7 +36,11 @@ const beastmaster: CharacterClass = {
       text: [
         {
           type: "RULE",
-          text: "Choose the form of your beast. Use your Heart as the Attack bonus for your Beast. When you regain Health during a Rest, your Beast regains the same amount. If your Beast drops to 0 Health, you can stabilize it over a Night's Rest, restoring it to 1 Health. If you are unable to retrieve the body, or the Beast dies, you can find a new Beast during a Rest and Recuperation.",
+          text: "Choose the form of your beast, a list of forms is provided at the end of this section. Use your Heart as the Attack bonus for your Beast. When you regain Health during a Rest, your Beast regains the same amount. If your Beast drops to 0 Health, you can stabilize it over a Night's Rest, restoring it to 1 Health. If you are unable to retrieve the body, or the Beast dies, you can find a new Beast during a Rest and Recuperation.",
+        },
+        {
+          type: "RULE",
+          text: "During combat, you and your beast can Attack together, one of you using a Setup and the other a Follow-up. Or both can use any other Actions in combat such as hiding, aiding, etc. separately.",
         },
       ],
     },
