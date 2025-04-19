@@ -438,27 +438,12 @@ const generalRules: GenericRule[] = [
         ],
       },
       {
-        title: "Spending Fortune's Favor",
-        slug: "SPEND-FORTUNES-FAVOR",
-        ruleType: "RULE",
-        text: [
-          {
-            text: "When you Fail a Test, you gain Fortune's Favor.",
-            type: "RULE",
-          },
-          {
-            text: "With Fortune's Favor, when you take a Test, before you roll any dice, you can spend your Fortune's Favor to roll a second d20. You can use the results of either dice.",
-            type: "RULE",
-          },
-        ],
-      },
-      {
         title: "Misfortune",
         slug: "MISFORTUNE",
         ruleType: "RULE",
         text: [
           {
-            text: "Circumstances may cause misfortune as well. When the GM calls for a roll with Misfortune, you roll a second d20 and take the lower of the two rolls. If you have Fortune's Favor, before you roll you can chose to give it up to cancel out the Misfortune and roll the test normally.",
+            text: "Circumstances may cause misfortune. When the GM calls for a roll with Misfortune, you roll a second d20 and take the lower of the two rolls. If you have [Fortune's Favor](/rules/player_rules#FORTUNES-FAVOR), before you roll you can chose to give it up to cancel out the Misfortune and roll the test normally.",
             type: "RULE",
           },
         ],
@@ -471,7 +456,11 @@ const generalRules: GenericRule[] = [
     ruleType: "RULE",
     text: [
       {
-        text: "Each round of combat is split into 3 parts, 1st, Environmental effects, 2nd, Players take their turn, 3rd, Enemies take their turn. During the player's turn, each player makes one Action and can move up to their speed. During the enemies turn enemies with actions can take one action and move. Enemies with only counters can only move unless they are not engaged, in which case they can use a counter as an action.",
+        text: "Each round of combat is split into 3 parts, 1st, Environmental effects, 2nd, Players take their turn, 3rd, Enemies take their turn. During the player's turn, each player makes one Action and can move up to their speed. During the enemies turn enemies with Actions can take one Action and move. Enemies with only counters can only move unless they are not engaged, in which case they can use a counter as an action.",
+        type: "RULE",
+      },
+      {
+        text: "Each round of combat represents 30 seconds of in game time.",
         type: "RULE",
       },
     ],
@@ -561,7 +550,7 @@ const generalRules: GenericRule[] = [
             slug: "BASIC-ARMOR",
             text: [
               {
-                text: "If you are not wearing any armor, your Armor is 10+Agility. Your Armor determines how hard you are to hit.",
+                text: "Your Armor determines how hard you are to hit. Your Class will determine what Armor you are trained to wear and you can the effects of different armor in the [Armor section](/rules/player_rules#ARMOR).",
                 type: "RULE",
               },
             ],
@@ -745,7 +734,7 @@ const generalRules: GenericRule[] = [
     ],
   },
   {
-    title: "Weapons, Shields, Armor & Equipment",
+    title: "Weapons, Armor & Shields",
     slug: "EQUIPMENT",
     ruleType: "RULE",
     subRules: [
@@ -844,53 +833,6 @@ const generalRules: GenericRule[] = [
         ],
       },
       {
-        title: "Shields",
-        slug: "SHIELDS",
-        ruleType: "LIST",
-        text: [
-          {
-            text: "Shields come in three sizes, light (bucklers and dueling shields), medium (kite shields), and heavy (tower shields).",
-            type: "RULE",
-          },
-          {
-            text: "Shields can help increase your armor, deflect attacks and absorb damage.",
-            type: "RULE",
-          },
-        ],
-        subRules: [
-          {
-            title: "Light Shields",
-            slug: "LIGHT-SHIELDS",
-            text: [
-              {
-                text: "Require at least 3 Agility: Increases your Deflect Dice by 1 step.",
-                type: "RULE",
-              },
-            ],
-          },
-          {
-            title: "Medium Shields",
-            slug: "MEDIUM-SHIELDS",
-            text: [
-              {
-                text: "Require at least 1 Agility and 1 Mettle: +1 to Armor and you can reroll 1s on your Deflect Dice roll.",
-                type: "RULE",
-              },
-            ],
-          },
-          {
-            title: "Heavy Shields",
-            slug: "HEAVY-SHIELDS",
-            text: [
-              {
-                text: "Require at least 3 mettle: +2 to Armor and +3 to Deflect.",
-                type: "RULE",
-              },
-            ],
-          },
-        ],
-      },
-      {
         title: "Armor",
         slug: "ARMOR",
         ruleType: "LISTCOMPACT",
@@ -937,6 +879,53 @@ const generalRules: GenericRule[] = [
             text: [
               {
                 text: "17",
+                type: "RULE",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "Shields",
+        slug: "SHIELDS",
+        ruleType: "LIST",
+        text: [
+          {
+            text: "Shields come in three sizes, light (bucklers and dueling shields), medium (kite shields), and heavy (tower shields).",
+            type: "RULE",
+          },
+          {
+            text: "Shields can help increase your armor, deflect attacks and absorb damage.",
+            type: "RULE",
+          },
+        ],
+        subRules: [
+          {
+            title: "Light Shields",
+            slug: "LIGHT-SHIELDS",
+            text: [
+              {
+                text: "Require at least 3 Agility: Increases your Deflect Dice by 1 step.",
+                type: "RULE",
+              },
+            ],
+          },
+          {
+            title: "Medium Shields",
+            slug: "MEDIUM-SHIELDS",
+            text: [
+              {
+                text: "Require at least 1 Agility and 1 Mettle: +1 to Armor and you can reroll 1s on your Deflect Dice roll.",
+                type: "RULE",
+              },
+            ],
+          },
+          {
+            title: "Heavy Shields",
+            slug: "HEAVY-SHIELDS",
+            text: [
+              {
+                text: "Require at least 3 mettle: +2 to Armor and +3 to Deflect.",
                 type: "RULE",
               },
             ],
@@ -1181,28 +1170,28 @@ const generalRules: GenericRule[] = [
           },
         ],
       },
-    ],
-  },
-  {
-    title: "Lift, Drag, & Pack",
-    slug: "LIFT-DRAG-PACK",
-    ruleType: "RULE",
-    text: [
       {
-        text: "Your Lift, Drag & Pack (how much you can carry in your backpack and on your person) are all affected by your size. For each size below Medium, amounts are halved, and for each size above Medium they are doubled.",
-        type: "RULE",
-      },
-      {
-        text: "Using both hands, you can lift up to 50+10x your Mettle pounds.",
-        type: "RULE",
-      },
-      {
-        text: "You can drag up to 4x your lifting capacity.",
-        type: "RULE",
-      },
-      {
-        text: "You can pack up to 30+5x your Mettle pounds.",
-        type: "RULE",
+        title: "Lift, Drag, & Pack",
+        slug: "LIFT-DRAG-PACK",
+        ruleType: "RULE",
+        text: [
+          {
+            text: "Your Lift, Drag & Pack (how much you can carry in your backpack and on your person) are all affected by your size. For each size below Medium, amounts are halved, and for each size above Medium they are doubled.",
+            type: "RULE",
+          },
+          {
+            text: "Using both hands, you can lift up to 50+10x your Mettle pounds.",
+            type: "RULE",
+          },
+          {
+            text: "You can drag up to 4x your lifting capacity.",
+            type: "RULE",
+          },
+          {
+            text: "You can pack up to 30+5x your Mettle pounds.",
+            type: "RULE",
+          },
+        ],
       },
     ],
   },
@@ -1227,7 +1216,11 @@ const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "You have 7 + half your level (rounded down) Gear Slots. These can be used in two ways:",
+            text: "You have 7 + half your Mettle (round towards zero) + half your level (rounded down) Gear Slots. These can be used in two ways:",
+            type: "RULE",
+          },
+          {
+            text: "Eg: You are level 7 and have -1 Mettle, then you have 7 + 0 + 3 = 10 Gear Slots.",
             type: "RULE",
           },
         ],
@@ -1263,7 +1256,7 @@ const generalRules: GenericRule[] = [
             ruleType: "RULE",
             text: [
               {
-                text: "Notable or valuable items take up 1 Gear Slot each, unless particularly bulky, in which case they take more.",
+                text: "Notable or valuable items take up 1 Gear Slot each, unless particularly bulky, in which case they take more. Smaller items might not be notable on their own, but when combined might be notable. It's probably not notable that you have 1 ball bearing, but it's probably notable that you have a sack full.",
                 type: "RULE",
               },
             ],
