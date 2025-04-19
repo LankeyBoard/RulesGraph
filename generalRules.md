@@ -363,7 +363,7 @@ These Counters are available to all players all the time.
 
 slug: COUNTER-ATTACK
 
-Attack the target with your currently equipped weapon or magic. The Attack deals half your Base Damage rounded down. The first time you make a Counter Attack in a round you can pick which weapon you have equipped.
+Attack the target with your currently equipped weapon or magic. Counter Attacks deal 1 dice steps less than your Base Damage. The first time you make a Counter Attack in a round you can pick which weapon you have equipped.
 EG: You attack a goblin with your sword. You get an 11 on the Attack causing a Clash. You choose to trade damage, the goblin draws their daggers to make the Counter Attack. Now Ryle the Ranger makes a ranged Attack against the same goblin. They also roll an 11 and choose to trade damage, but because the goblin already has their daggers out, they cannot use the Counter Attack as their Counter Action.
 
 ### Dive Roll
