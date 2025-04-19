@@ -646,7 +646,7 @@ const generalRules: GenericRule[] = [
             slug: "COUNTER-ATTACK",
             text: [
               {
-                text: "Attack the target with your currently equipped weapon or magic. The Attack deals half your Base Damage rounded down. The first time you make a Counter Attack in a round you can pick which weapon you have equipped.",
+                text: "Attack the target with your currently equipped weapon or magic. Counter Attacks deal 1 dice steps less than your Base Damage. The first time you make a Counter Attack in a round you can pick which weapon you have equipped.",
                 type: "RULE",
               },
               {
