@@ -367,6 +367,7 @@ export type Query = {
   genericRules: Array<Maybe<GenericRule>>;
   lineages: Array<Maybe<Lineage>>;
   me?: Maybe<User>;
+  rules: Array<Maybe<RuleSection>>;
   searchAll: Array<Maybe<SearchResult>>;
   slugMap?: Maybe<Array<Maybe<SlugDict>>>;
   universalFeatures: Array<Maybe<GenericFeature>>;
@@ -401,6 +402,11 @@ export type QuerygenericRulesArgs = {
 export type QuerylineagesArgs = {
   slug?: InputMaybe<Scalars['String']['input']>;
   version?: InputMaybe<VERSIONS>;
+};
+
+
+export type QueryrulesArgs = {
+  ruleSectionsToInclude?: InputMaybe<Array<InputMaybe<RuleSectionNames>>>;
 };
 
 
@@ -446,6 +452,17 @@ export type Rule = {
   slug: Scalars['String']['output'];
   title: Scalars['String']['output'];
 };
+
+export type RuleSection = {
+  __typename?: 'RuleSection';
+  rules: Array<Maybe<GenericRule>>;
+  sectionName: Scalars['String']['output'];
+};
+
+export type RuleSectionNames =
+  | 'GM'
+  | 'MONSTERS'
+  | 'PLAYER';
 
 export type RuleText = {
   __typename?: 'RuleText';
@@ -710,6 +727,8 @@ export type ResolversTypes = {
   Rarity: Rarity;
   RechargeOn: RechargeOn;
   Rule: ResolverTypeWrapper<ResolversInterfaceTypes<ResolversTypes>['Rule']>;
+  RuleSection: ResolverTypeWrapper<RuleSection>;
+  RuleSectionNames: RuleSectionNames;
   RuleText: ResolverTypeWrapper<RuleText>;
   RuleTextInput: RuleTextInput;
   RuleType: RuleType;
@@ -767,6 +786,7 @@ export type ResolversParentTypes = {
   Query: {};
   Range: Range;
   Rule: ResolversInterfaceTypes<ResolversParentTypes>['Rule'];
+  RuleSection: RuleSection;
   RuleText: RuleText;
   RuleTextInput: RuleTextInput;
   SearchResult: SearchResult;
@@ -1049,6 +1069,7 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
   genericRules?: Resolver<Array<Maybe<ResolversTypes['GenericRule']>>, ParentType, ContextType, Partial<QuerygenericRulesArgs>>;
   lineages?: Resolver<Array<Maybe<ResolversTypes['Lineage']>>, ParentType, ContextType, Partial<QuerylineagesArgs>>;
   me?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType>;
+  rules?: Resolver<Array<Maybe<ResolversTypes['RuleSection']>>, ParentType, ContextType, Partial<QueryrulesArgs>>;
   searchAll?: Resolver<Array<Maybe<ResolversTypes['SearchResult']>>, ParentType, ContextType, RequireFields<QuerysearchAllArgs, 'phrase'>>;
   slugMap?: Resolver<Maybe<Array<Maybe<ResolversTypes['SlugDict']>>>, ParentType, ContextType>;
   universalFeatures?: Resolver<Array<Maybe<ResolversTypes['GenericFeature']>>, ParentType, ContextType, Partial<QueryuniversalFeaturesArgs>>;
@@ -1068,6 +1089,12 @@ export type RuleResolvers<ContextType = any, ParentType extends ResolversParentT
   shortTitle?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type RuleSectionResolvers<ContextType = any, ParentType extends ResolversParentTypes['RuleSection'] = ResolversParentTypes['RuleSection']> = {
+  rules?: Resolver<Array<Maybe<ResolversTypes['GenericRule']>>, ParentType, ContextType>;
+  sectionName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
 export type RuleTextResolvers<ContextType = any, ParentType extends ResolversParentTypes['RuleText'] = ResolversParentTypes['RuleText']> = {
@@ -1189,6 +1216,7 @@ export type Resolvers<ContextType = any> = {
   Query?: QueryResolvers<ContextType>;
   Range?: RangeResolvers<ContextType>;
   Rule?: RuleResolvers<ContextType>;
+  RuleSection?: RuleSectionResolvers<ContextType>;
   RuleText?: RuleTextResolvers<ContextType>;
   SearchResult?: SearchResultResolvers<ContextType>;
   ShifterForm?: ShifterFormResolvers<ContextType>;

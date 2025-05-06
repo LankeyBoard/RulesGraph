@@ -206,6 +206,14 @@ ruleType: RULE\
 Sometimes a group of characters are performing an action where the success depends on the group's overall performance, not one individual. One common case is sneaking around a dungeon. When taking a Group Test, each character rolls against the Test, counting the number of Success, Mixed, and Failures. The average of the result is the group's result. An easy way to find the average is to subtract the larger of successes or failures from the other. If that new number is higher than the Mixed, that's the result, otherwise the result is Mixed.\
 EG: The GM calls for a Group Test for a group of 5, Pass is 13 and Fail is 8. If the group rolls 2 Passes, 2 Mixed and 1 Fail, then we subtract the 1 Fail from 2 Passes, leaving us with 1 Pass and 2 Mixed, so the result is Mixed. If instead there were 3 Passes and 1 Mixed, the result would have been a Pass.
 
+## Pushing Your Limits
+
+slug: PUSHING-LIMITS
+
+ruleType: RULE\
+On non-combat Tests, you can try and push your limits to improve your odds of success. To Push Your Limits, when you make a non-combat Test, spend 3 Stamina to add 1d6 to the roll.\
+You have to push your limit at the same time you decide if you are going to use [Fortune's Favor](/rules/player_rules#FORTUNES-FAVOR).
+
 ## Helping on a Test
 
 slug: HELP
@@ -626,7 +634,7 @@ Difficult terrain takes extra energy to traverse. For each hour navigating treac
 slug: JUMP
 
 ruleType: LIST\
-When jumping, use these formulas to calculate the minimum distances you can go. If you are trying to jump further, Test your Mettle. The difficulty is equal to 10+1 per foot beyond your standard jump range. If you roll below a Success, you can spend Stamina to increase your roll up to the point of a Success if you have the Stamina to spend.
+When jumping, use these formulas to calculate the minimum distances you can go. If you are trying to jump further, Test your Mettle. The difficulty is equal to 10+1 per foot beyond your standard jump range.
 
 ### Running Leap
 
@@ -654,7 +662,7 @@ ruleType: RULE\
 slug: FALL
 
 ruleType: RULE\
-When you fall from a height greater than 10 ft. Make an Agility Test. Pass: 12, Fail: 7. For every 5 ft. past 10 ft. the difficulty increases by 2. On a Pass you take no damage. On a fail you take 1d10 bludgeoning damage per 5 ft. On a Mixed you take half damage.
+When you fall from a height greater than 10 ft. Make an Agility Test. Pass: 12, Fail: 7. For every 5 ft. past 10 ft. the difficulty increases by 2. On a Pass you take no damage. On a fail you take 1d10 bludgeoning damage per 10 ft. On a Mixed you take half damage.
 
 ## Other Forms of Movement
 

@@ -1,5 +1,6 @@
 import { CharacterClass } from "../../schema/types.generated";
 import beastmaster from "./playerClasses/beastmaster";
+import hypeman from "./playerClasses/hypeman";
 import spellsword from "./playerClasses/spellsword";
 
 const playerClasses: CharacterClass[] = [
@@ -1566,6 +1567,6 @@ const playerClasses: CharacterClass[] = [
 ];
 playerClasses.push(spellsword);
 playerClasses.push(beastmaster);
-
+playerClasses.push(hypeman);
 playerClasses.sort((a, b) => a.title.localeCompare(b.title));
 export default playerClasses;

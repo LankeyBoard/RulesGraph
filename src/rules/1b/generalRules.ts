@@ -380,6 +380,21 @@ const generalRules: GenericRule[] = [
         ],
       },
       {
+        title: "Pushing Your Limits",
+        slug: "PUSHING-LIMITS",
+        ruleType: "RULE",
+        text: [
+          {
+            text: "On non-combat Tests, you can try and push your limits to improve your odds of success. To Push Your Limits, when you make a non-combat Test, spend 3 Stamina to add 1d6 to the roll.",
+            type: "RULE",
+          },
+          {
+            text: "You have to push your limit at the same time you decide if you are going to use [Fortune's Favor](/rules/player_rules#FORTUNES-FAVOR).",
+            type: "RULE",
+          },
+        ],
+      },
+      {
         title: "Helping on a Test",
         slug: "HELP",
         ruleType: "RULE",
