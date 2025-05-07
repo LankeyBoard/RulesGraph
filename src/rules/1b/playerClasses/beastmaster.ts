@@ -9,7 +9,7 @@ const beastmaster: CharacterClass = {
   complexity: "COMPLEX",
   health: 12,
   healthOnLevel: 2,
-  staminaStat: "AGILITY",
+  staminaStat: "HEART",
   stamina: 6,
   staminaOnLevel: 2,
   training: {
@@ -40,7 +40,11 @@ const beastmaster: CharacterClass = {
         },
         {
           type: "RULE",
-          text: "During combat, you and your beast can Attack together, one of you using a Setup and the other a Follow-up. Or both can use any other Actions in combat such as hiding, aiding, etc. separately.",
+          text: "During combat, you and your beast can Attack together, one of you using a Setup and the other a Follow-up, otherwise only one of you can Attack. Or both can use any other Actions in combat such as hiding, aiding, etc. separately.",
+        },
+        {
+          type: "RULE",
+          text: "If your beast takes damage, as long as you are within 60 feet of each other, you can use your Deflect to reduce their damage take.",
         },
       ],
     },
@@ -54,7 +58,7 @@ const beastmaster: CharacterClass = {
       text: [
         {
           type: "RULE",
-          text: "Spend 2 Stamina to make a special attack designed to distract your target and allow your Beast to get a good strike in. Reduce your Attack Damage by 1 dice step for this Attack. If this attack hits and your beast is within melee range, they may immediately also hit with their Follow-up if they have one.",
+          text: "Spend 2 Stamina to use your Attack Action to make a Setup Attack. Reduce your Attack Damage by 1 dice step for this Attack. If your Setup hits and your beast is within melee range of the target, they may immediately also hit with their Follow-up if they have one.",
         },
       ],
     },
@@ -69,7 +73,7 @@ const beastmaster: CharacterClass = {
       text: [
         {
           type: "RULE",
-          text: "Spend 2 Stamina to have your Beast make a special attack designed to distract your target and allow you to get a good strike in. Your Beast makes a melee attack against the target. If their attack hits, you may immediately deal your Base Damage to the target if they are within your attack range.",
+          text: "Spend 2 Stamina to command your Beast make a Setup Attack if they have one and are in melee range of the target. Reduce their Attack Damage by 1 dice step for this Attack. If their Setup hits and you may use your Follow-up to automatically hit the target with a Basic Attack.",
         },
       ],
     },
@@ -292,7 +296,7 @@ const beastmaster: CharacterClass = {
             {
               type: "Follow-up",
               title: "Takedown",
-              text: "Mettle test 13/8. Knocked Prone on a fail, or Slowed on a Mixed.",
+              text: "Mettle test 13/8. Knocked Prone on a Fail, or Slowed on a Mixed.",
             },
           ],
         },

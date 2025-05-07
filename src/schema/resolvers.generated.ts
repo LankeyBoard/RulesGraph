@@ -31,12 +31,14 @@ import    { cultures as Query_cultures } from './base/resolvers/Query/cultures';
 import    { genericRules as Query_genericRules } from './base/resolvers/Query/genericRules';
 import    { lineages as Query_lineages } from './base/resolvers/Query/lineages';
 import    { me as Query_me } from './base/resolvers/Query/me';
+import    { rules as Query_rules } from './base/resolvers/Query/rules';
 import    { searchAll as Query_searchAll } from './base/resolvers/Query/searchAll';
 import    { slugMap as Query_slugMap } from './base/resolvers/Query/slugMap';
 import    { universalFeatures as Query_universalFeatures } from './base/resolvers/Query/universalFeatures';
 import    { user as Query_user } from './base/resolvers/Query/user';
 import    { users as Query_users } from './base/resolvers/Query/users';
 import    { Range } from './base/resolvers/Range';
+import    { RuleSection } from './base/resolvers/RuleSection';
 import    { RuleText } from './base/resolvers/RuleText';
 import    { SearchResult } from './base/resolvers/SearchResult';
 import    { ShifterForm } from './base/resolvers/ShifterForm';
@@ -50,7 +52,7 @@ import    { Weapons } from './base/resolvers/Weapons';
 import    { shifterArmor } from './base/resolvers/shifterArmor';
 import    { shifterFeature } from './base/resolvers/shifterFeature';
     export const resolvers: Resolvers = {
-      Query: { character: Query_character,characterClasses: Query_characterClasses,cultures: Query_cultures,genericRules: Query_genericRules,lineages: Query_lineages,me: Query_me,searchAll: Query_searchAll,slugMap: Query_slugMap,universalFeatures: Query_universalFeatures,user: Query_user,users: Query_users },
+      Query: { character: Query_character,characterClasses: Query_characterClasses,cultures: Query_cultures,genericRules: Query_genericRules,lineages: Query_lineages,me: Query_me,rules: Query_rules,searchAll: Query_searchAll,slugMap: Query_slugMap,universalFeatures: Query_universalFeatures,user: Query_user,users: Query_users },
       Mutation: { createCharacter: Mutation_createCharacter,createUser: Mutation_createUser,deleteCharacter: Mutation_deleteCharacter,login: Mutation_login,updateCharacter: Mutation_updateCharacter },
       
       AuthPayload: AuthPayload,
@@ -74,6 +76,7 @@ Item: Item,
 Lineage: Lineage,
 List: List,
 Range: Range,
+RuleSection: RuleSection,
 RuleText: RuleText,
 SearchResult: SearchResult,
 ShifterForm: ShifterForm,

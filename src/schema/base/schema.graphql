@@ -24,6 +24,8 @@ type Query {
   me: User
 
   character(id: ID!): Character
+
+  rules(ruleSectionsToInclude: [RuleSectionNames]): [RuleSection]!
 }
 
 type Mutation {
@@ -114,6 +116,12 @@ enum RechargeOn {
   CATCH_BREATH
   NIGHTS_REST
   REST_AND_RECUPERATE
+}
+
+enum RuleSectionNames {
+  PLAYER
+  GM
+  MONSTERS
 }
 
 #########
@@ -497,4 +505,9 @@ input RuleTextInput {
   text: String!
   type: String
   choices: [String]
+}
+
+type RuleSection {
+  sectionName: String!
+  rules: [GenericRule]!
 }
