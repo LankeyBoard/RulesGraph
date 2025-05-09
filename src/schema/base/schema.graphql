@@ -37,6 +37,8 @@ type Mutation {
   updateCharacter(id: ID!, input: CharacterInput): Character
   deleteCharacter(id: ID!): Boolean
   createShop(input: ItemShopInput): ItemShop
+  updateShop(id: ID!, input: ItemShopInput): ItemShop
+  deleteShop(id: ID!): Boolean
 }
 
 #########

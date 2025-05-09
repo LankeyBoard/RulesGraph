@@ -25,8 +25,10 @@ import    { createCharacter as Mutation_createCharacter } from './base/resolvers
 import    { createShop as Mutation_createShop } from './base/resolvers/Mutation/createShop';
 import    { createUser as Mutation_createUser } from './base/resolvers/Mutation/createUser';
 import    { deleteCharacter as Mutation_deleteCharacter } from './base/resolvers/Mutation/deleteCharacter';
+import    { deleteShop as Mutation_deleteShop } from './base/resolvers/Mutation/deleteShop';
 import    { login as Mutation_login } from './base/resolvers/Mutation/login';
 import    { updateCharacter as Mutation_updateCharacter } from './base/resolvers/Mutation/updateCharacter';
+import    { updateShop as Mutation_updateShop } from './base/resolvers/Mutation/updateShop';
 import    { character as Query_character } from './base/resolvers/Query/character';
 import    { characterClasses as Query_characterClasses } from './base/resolvers/Query/characterClasses';
 import    { cultures as Query_cultures } from './base/resolvers/Query/cultures';
@@ -56,7 +58,7 @@ import    { shifterArmor } from './base/resolvers/shifterArmor';
 import    { shifterFeature } from './base/resolvers/shifterFeature';
     export const resolvers: Resolvers = {
       Query: { character: Query_character,characterClasses: Query_characterClasses,cultures: Query_cultures,genericRules: Query_genericRules,itemShop: Query_itemShop,lineages: Query_lineages,me: Query_me,rules: Query_rules,searchAll: Query_searchAll,slugMap: Query_slugMap,universalFeatures: Query_universalFeatures,user: Query_user,users: Query_users },
-      Mutation: { createCharacter: Mutation_createCharacter,createShop: Mutation_createShop,createUser: Mutation_createUser,deleteCharacter: Mutation_deleteCharacter,login: Mutation_login,updateCharacter: Mutation_updateCharacter },
+      Mutation: { createCharacter: Mutation_createCharacter,createShop: Mutation_createShop,createUser: Mutation_createUser,deleteCharacter: Mutation_deleteCharacter,deleteShop: Mutation_deleteShop,login: Mutation_login,updateCharacter: Mutation_updateCharacter,updateShop: Mutation_updateShop },
       
       AuthPayload: AuthPayload,
 BeastAbility: BeastAbility,

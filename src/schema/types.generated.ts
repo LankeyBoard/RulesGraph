@@ -344,8 +344,10 @@ export type Mutation = {
   createShop?: Maybe<ItemShop>;
   createUser?: Maybe<AuthPayload>;
   deleteCharacter?: Maybe<Scalars['Boolean']['output']>;
+  deleteShop?: Maybe<Scalars['Boolean']['output']>;
   login?: Maybe<AuthPayload>;
   updateCharacter?: Maybe<Character>;
+  updateShop?: Maybe<ItemShop>;
 };
 
 
@@ -371,6 +373,11 @@ export type MutationdeleteCharacterArgs = {
 };
 
 
+export type MutationdeleteShopArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
 export type MutationloginArgs = {
   email: Scalars['String']['input'];
   password: Scalars['String']['input'];
@@ -380,6 +387,12 @@ export type MutationloginArgs = {
 export type MutationupdateCharacterArgs = {
   id: Scalars['ID']['input'];
   input?: InputMaybe<CharacterInput>;
+};
+
+
+export type MutationupdateShopArgs = {
+  id: Scalars['ID']['input'];
+  input?: InputMaybe<ItemShopInput>;
 };
 
 export type Query = {
@@ -1101,8 +1114,10 @@ export type MutationResolvers<ContextType = any, ParentType extends ResolversPar
   createShop?: Resolver<Maybe<ResolversTypes['ItemShop']>, ParentType, ContextType, Partial<MutationcreateShopArgs>>;
   createUser?: Resolver<Maybe<ResolversTypes['AuthPayload']>, ParentType, ContextType, RequireFields<MutationcreateUserArgs, 'email' | 'password'>>;
   deleteCharacter?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType, RequireFields<MutationdeleteCharacterArgs, 'id'>>;
+  deleteShop?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType, RequireFields<MutationdeleteShopArgs, 'id'>>;
   login?: Resolver<Maybe<ResolversTypes['AuthPayload']>, ParentType, ContextType, RequireFields<MutationloginArgs, 'email' | 'password'>>;
   updateCharacter?: Resolver<Maybe<ResolversTypes['Character']>, ParentType, ContextType, RequireFields<MutationupdateCharacterArgs, 'id'>>;
+  updateShop?: Resolver<Maybe<ResolversTypes['ItemShop']>, ParentType, ContextType, RequireFields<MutationupdateShopArgs, 'id'>>;
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
