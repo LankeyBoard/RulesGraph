@@ -26,6 +26,8 @@ type Query {
   character(id: ID!): Character
 
   rules(ruleSectionsToInclude: [RuleSectionNames]): [RuleSection]!
+
+  itemShop(id: ID): ItemShop
 }
 
 type Mutation {
@@ -34,6 +36,7 @@ type Mutation {
   createCharacter(input: CharacterInput): Character
   updateCharacter(id: ID!, input: CharacterInput): Character
   deleteCharacter(id: ID!): Boolean
+  createShop(input: ItemShopInput): ItemShop
 }
 
 #########
@@ -510,4 +513,20 @@ input RuleTextInput {
 type RuleSection {
   sectionName: String!
   rules: [GenericRule]!
+}
+
+type ItemShop {
+  id: ID!
+  name: String!
+  description: String!
+  itemsInStock: [Item]!
+  itemsCouldStock: [Item]!
+}
+
+input ItemShopInput {
+  id: ID
+  name: String!
+  description: String!
+  itemsInStock: [ItemInput]!
+  itemsCouldStock: [ItemInput]!
 }

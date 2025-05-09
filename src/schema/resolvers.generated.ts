@@ -18,9 +18,11 @@ import    { FeatureWithoutChoices } from './base/resolvers/FeatureWithoutChoices
 import    { GenericFeature } from './base/resolvers/GenericFeature';
 import    { GenericRule } from './base/resolvers/GenericRule';
 import    { Item } from './base/resolvers/Item';
+import    { ItemShop } from './base/resolvers/ItemShop';
 import    { Lineage } from './base/resolvers/Lineage';
 import    { List } from './base/resolvers/List';
 import    { createCharacter as Mutation_createCharacter } from './base/resolvers/Mutation/createCharacter';
+import    { createShop as Mutation_createShop } from './base/resolvers/Mutation/createShop';
 import    { createUser as Mutation_createUser } from './base/resolvers/Mutation/createUser';
 import    { deleteCharacter as Mutation_deleteCharacter } from './base/resolvers/Mutation/deleteCharacter';
 import    { login as Mutation_login } from './base/resolvers/Mutation/login';
@@ -29,6 +31,7 @@ import    { character as Query_character } from './base/resolvers/Query/characte
 import    { characterClasses as Query_characterClasses } from './base/resolvers/Query/characterClasses';
 import    { cultures as Query_cultures } from './base/resolvers/Query/cultures';
 import    { genericRules as Query_genericRules } from './base/resolvers/Query/genericRules';
+import    { itemShop as Query_itemShop } from './base/resolvers/Query/itemShop';
 import    { lineages as Query_lineages } from './base/resolvers/Query/lineages';
 import    { me as Query_me } from './base/resolvers/Query/me';
 import    { rules as Query_rules } from './base/resolvers/Query/rules';
@@ -52,8 +55,8 @@ import    { Weapons } from './base/resolvers/Weapons';
 import    { shifterArmor } from './base/resolvers/shifterArmor';
 import    { shifterFeature } from './base/resolvers/shifterFeature';
     export const resolvers: Resolvers = {
-      Query: { character: Query_character,characterClasses: Query_characterClasses,cultures: Query_cultures,genericRules: Query_genericRules,lineages: Query_lineages,me: Query_me,rules: Query_rules,searchAll: Query_searchAll,slugMap: Query_slugMap,universalFeatures: Query_universalFeatures,user: Query_user,users: Query_users },
-      Mutation: { createCharacter: Mutation_createCharacter,createUser: Mutation_createUser,deleteCharacter: Mutation_deleteCharacter,login: Mutation_login,updateCharacter: Mutation_updateCharacter },
+      Query: { character: Query_character,characterClasses: Query_characterClasses,cultures: Query_cultures,genericRules: Query_genericRules,itemShop: Query_itemShop,lineages: Query_lineages,me: Query_me,rules: Query_rules,searchAll: Query_searchAll,slugMap: Query_slugMap,universalFeatures: Query_universalFeatures,user: Query_user,users: Query_users },
+      Mutation: { createCharacter: Mutation_createCharacter,createShop: Mutation_createShop,createUser: Mutation_createUser,deleteCharacter: Mutation_deleteCharacter,login: Mutation_login,updateCharacter: Mutation_updateCharacter },
       
       AuthPayload: AuthPayload,
 BeastAbility: BeastAbility,
@@ -73,6 +76,7 @@ FeatureWithoutChoices: FeatureWithoutChoices,
 GenericFeature: GenericFeature,
 GenericRule: GenericRule,
 Item: Item,
+ItemShop: ItemShop,
 Lineage: Lineage,
 List: List,
 Range: Range,

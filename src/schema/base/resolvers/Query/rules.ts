@@ -11,7 +11,7 @@ const sectionNames = {
   MONSTERS: "Monsters",
 };
 const rulesSections = new Map([[sectionNames.PLAYER, generalRules]]);
-export const rules: NonNullable<QueryResolvers["rules"]> = async (
+export const rules: NonNullable<QueryResolvers['rules']> = async (
   _parent,
   _arg,
 ) => {
