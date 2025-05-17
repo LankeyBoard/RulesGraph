@@ -1,6 +1,6 @@
 import type { MutationResolvers } from "../../../types.generated";
 
-export const createShop: NonNullable<MutationResolvers["createShop"]> = async (
+export const createShop: NonNullable<MutationResolvers['createShop']> = async (
   _parent,
   args,
   ctx,
@@ -15,6 +15,8 @@ export const createShop: NonNullable<MutationResolvers["createShop"]> = async (
   if (!input) {
     throw new Error("Shop info must be provided");
   }
+
+  console.log("createShop inputs", input);
   // Create the ItemShop in the database
   const newShop = await ctx.prisma.itemShop.create({
     data: {
@@ -77,6 +79,7 @@ export const createShop: NonNullable<MutationResolvers["createShop"]> = async (
       },
     },
   });
+  console.log("New shop created", newShop);
 
   return newShop;
 };

@@ -11,23 +11,28 @@ export const itemShop: NonNullable<QueryResolvers['itemShop']> = async (
     const shop = await _ctx.prisma.itemShop.findUnique({
       where: { id },
       include: {
-        itemsInStock: true,
-        itemsCouldStock: true,
+        ItemsStockedByShop: {
+          include: {
+            item: {
+              include: {
+                text: true,
+              },
+            },
+          },
+        },
+        itemsCouldStock: {
+          include: {
+            text: true,
+          },
+        },
+        createdBy: true,
       },
     });
 
     if (!shop) {
       throw new Error(`ItemShop with ID ${id} not found.`);
     }
-
-    return shop;
-  }
-
-  // Fetch all ItemShops if no ID is provided
-  return await _ctx.prisma.itemShop.findMany({
-    include: {
-      itemsInStock: true,
-      itemsCouldStock: true,
-    },
-  });
+    console.log("item shop: ", shop);
+    return { ...shop, itemsInStock: shop.ItemsStockedByShop };
+  } else throw new Error("A shop id must be included");
 };
