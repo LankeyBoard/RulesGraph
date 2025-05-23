@@ -512,6 +512,7 @@ type ItemShop {
   itemsInStock: [Item]!
   itemsCouldStock: [Item]!
   createdBy: User!
+  canEdit: Boolean!
 }
 
 input ItemShopInput {

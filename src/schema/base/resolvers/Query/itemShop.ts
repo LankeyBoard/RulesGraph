@@ -1,5 +1,5 @@
 import type { QueryResolvers } from "./../../../types.generated";
-export const itemShop: NonNullable<QueryResolvers['itemShop']> = async (
+export const itemShop: NonNullable<QueryResolvers["itemShop"]> = async (
   _parent,
   _arg,
   _ctx,
@@ -21,6 +21,11 @@ export const itemShop: NonNullable<QueryResolvers['itemShop']> = async (
           },
         },
         itemsCouldStock: {
+          orderBy: [
+            {
+              title: "desc",
+            },
+          ],
           include: {
             text: true,
           },
@@ -32,7 +37,26 @@ export const itemShop: NonNullable<QueryResolvers['itemShop']> = async (
     if (!shop) {
       throw new Error(`ItemShop with ID ${id} not found.`);
     }
-    console.log("item shop: ", shop);
-    return { ...shop, itemsInStock: shop.ItemsStockedByShop };
+
+    shop.ItemsStockedByShop.sort(
+      (a: { item: { title: string } }, b: { item: { title: string } }) =>
+        a.item.title.localeCompare(b.item.title),
+    );
+
+    return {
+      ...shop,
+      canEdit: _ctx.currentUser
+        ? shop.createdById === _ctx.currentUser.id
+        : false,
+      itemsInStock: shop.ItemsStockedByShop.map(
+        (item: {
+          item: (typeof shop.ItemsStockedByShop)[0]["item"];
+          salePrice: number;
+        }) => ({
+          ...item.item,
+          salePrice: item.salePrice,
+        }),
+      ),
+    };
   } else throw new Error("A shop id must be included");
 };

@@ -326,6 +326,7 @@ export type ItemInput = {
 
 export type ItemShop = {
   __typename?: 'ItemShop';
+  canEdit: Scalars['Boolean']['output'];
   createdBy: User;
   description: Scalars['String']['output'];
   id: Scalars['ID']['output'];
@@ -1116,6 +1117,7 @@ export type ItemResolvers<ContextType = any, ParentType extends ResolversParentT
 };
 
 export type ItemShopResolvers<ContextType = any, ParentType extends ResolversParentTypes['ItemShop'] = ResolversParentTypes['ItemShop']> = {
+  canEdit?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   createdBy?: Resolver<ResolversTypes['User'], ParentType, ContextType>;
   description?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
