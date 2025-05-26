@@ -1,5 +1,5 @@
 import type { QueryResolvers } from "./../../../types.generated";
-export const allShops: NonNullable<QueryResolvers['allShops']> = async (
+export const allShops: NonNullable<QueryResolvers["allShops"]> = async (
   _parent,
   _arg,
   _ctx,
@@ -28,7 +28,7 @@ export const allShops: NonNullable<QueryResolvers['allShops']> = async (
     (shop: { ItemsStockedByShop: object; createdBy: number }) => ({
       ...shop,
       itemsInStock: shop.ItemsStockedByShop,
-      canEdit: shop.createdBy === _ctx.currentUser.id,
+      canEdit: _ctx.currentUser && shop.createdBy === _ctx.currentUser.id,
     }),
   );
   console.log("Item shop: ", mappedShops);
