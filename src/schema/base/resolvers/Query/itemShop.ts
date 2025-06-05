@@ -42,8 +42,7 @@ export const itemShop: NonNullable<QueryResolvers['itemShop']> = async (
       (a: { item: { title: string } }, b: { item: { title: string } }) =>
         a.item.title.localeCompare(b.item.title),
     );
-
-    return {
+    const returnShop = {
       ...shop,
       canEdit: _ctx.currentUser
         ? shop.createdById === _ctx.currentUser.id
@@ -54,9 +53,24 @@ export const itemShop: NonNullable<QueryResolvers['itemShop']> = async (
           salePrice: number;
         }) => ({
           ...item.item,
+          uses:
+            item.item.uses && Object.keys(item.item.uses).length === 0
+              ? undefined
+              : item.item.uses,
           salePrice: item.salePrice,
         }),
       ),
+      itemsCouldStock: shop.itemsCouldStock.map((item: { uses: object }) => ({
+        ...item,
+        uses:
+          item.uses && Object.keys(item.uses).length === 0
+            ? undefined
+            : item.uses,
+      })),
     };
+    returnShop.itemsCouldStock.forEach((element: { text: unknown }) => {
+      console.log(element.text);
+    });
+    return returnShop;
   } else throw new Error("A shop id must be included");
 };
