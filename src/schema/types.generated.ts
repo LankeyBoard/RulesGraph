@@ -283,23 +283,64 @@ export type GenericRule = Rule & {
 
 export type Item = {
   __typename?: 'Item';
+  couldStock: Array<Maybe<ItemShop>>;
+  createdBy: User;
+  defaultPrice: Scalars['Int']['output'];
   effects: Array<Maybe<Effect>>;
+  heldBy: Array<Maybe<Character>>;
   id: Scalars['ID']['output'];
+  inStock: Scalars['Boolean']['output'];
   isMagic: Scalars['Boolean']['output'];
   rarity?: Maybe<Rarity>;
+  salePrice?: Maybe<Scalars['Int']['output']>;
+  tags: Array<Maybe<Scalars['String']['output']>>;
   text: Array<Maybe<RuleText>>;
   title: Scalars['String']['output'];
   uses?: Maybe<Uses>;
 };
 
-export type ItemInput = {
+export type ItemInStockInput = {
+  defaultPrice: Scalars['Int']['input'];
   effects: Array<InputMaybe<EffectInput>>;
   id?: InputMaybe<Scalars['ID']['input']>;
   isMagic: Scalars['Boolean']['input'];
   rarity?: InputMaybe<Rarity>;
+  salePrice?: InputMaybe<Scalars['Int']['input']>;
+  tags: Array<InputMaybe<Scalars['String']['input']>>;
   text: Array<InputMaybe<RuleTextInput>>;
   title: Scalars['String']['input'];
   uses?: InputMaybe<UsesInput>;
+};
+
+export type ItemInput = {
+  defaultPrice: Scalars['Int']['input'];
+  effects: Array<InputMaybe<EffectInput>>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  isMagic: Scalars['Boolean']['input'];
+  rarity?: InputMaybe<Rarity>;
+  tags: Array<InputMaybe<Scalars['String']['input']>>;
+  text: Array<InputMaybe<RuleTextInput>>;
+  title: Scalars['String']['input'];
+  uses?: InputMaybe<UsesInput>;
+};
+
+export type ItemShop = {
+  __typename?: 'ItemShop';
+  canEdit: Scalars['Boolean']['output'];
+  createdBy: User;
+  description: Scalars['String']['output'];
+  id: Scalars['ID']['output'];
+  itemsCouldStock: Array<Maybe<Item>>;
+  itemsInStock: Array<Maybe<Item>>;
+  name: Scalars['String']['output'];
+};
+
+export type ItemShopInput = {
+  description: Scalars['String']['input'];
+  id?: InputMaybe<Scalars['ID']['input']>;
+  itemsCouldStock: Array<InputMaybe<ItemInput>>;
+  itemsInStock: Array<InputMaybe<ItemInStockInput>>;
+  name: Scalars['String']['input'];
 };
 
 export type Lineage = Rule & {
@@ -324,15 +365,23 @@ export type List = {
 export type Mutation = {
   __typename?: 'Mutation';
   createCharacter?: Maybe<Character>;
+  createShop?: Maybe<ItemShop>;
   createUser?: Maybe<AuthPayload>;
   deleteCharacter?: Maybe<Scalars['Boolean']['output']>;
+  deleteShop?: Maybe<Scalars['Boolean']['output']>;
   login?: Maybe<AuthPayload>;
   updateCharacter?: Maybe<Character>;
+  updateShop?: Maybe<ItemShop>;
 };
 
 
 export type MutationcreateCharacterArgs = {
   input?: InputMaybe<CharacterInput>;
+};
+
+
+export type MutationcreateShopArgs = {
+  input?: InputMaybe<ItemShopInput>;
 };
 
 
@@ -348,6 +397,11 @@ export type MutationdeleteCharacterArgs = {
 };
 
 
+export type MutationdeleteShopArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
 export type MutationloginArgs = {
   email: Scalars['String']['input'];
   password: Scalars['String']['input'];
@@ -359,12 +413,21 @@ export type MutationupdateCharacterArgs = {
   input?: InputMaybe<CharacterInput>;
 };
 
+
+export type MutationupdateShopArgs = {
+  id: Scalars['ID']['input'];
+  input?: InputMaybe<ItemShopInput>;
+};
+
 export type Query = {
   __typename?: 'Query';
+  allItems?: Maybe<Array<Maybe<Item>>>;
+  allShops?: Maybe<Array<Maybe<ItemShop>>>;
   character?: Maybe<Character>;
   characterClasses: Array<Maybe<CharacterClass>>;
   cultures: Array<Maybe<Culture>>;
   genericRules: Array<Maybe<GenericRule>>;
+  itemShop?: Maybe<ItemShop>;
   lineages: Array<Maybe<Lineage>>;
   me?: Maybe<User>;
   rules: Array<Maybe<RuleSection>>;
@@ -396,6 +459,11 @@ export type QueryculturesArgs = {
 export type QuerygenericRulesArgs = {
   slug?: InputMaybe<Scalars['String']['input']>;
   version?: InputMaybe<VERSIONS>;
+};
+
+
+export type QueryitemShopArgs = {
+  id?: InputMaybe<Scalars['ID']['input']>;
 };
 
 
@@ -698,7 +766,7 @@ export type ResolversTypes = {
   Int: ResolverTypeWrapper<Scalars['Int']['output']>;
   BeastStats: ResolverTypeWrapper<BeastStats>;
   BeastmasterPet: ResolverTypeWrapper<BeastmasterPet>;
-  Character: ResolverTypeWrapper<Omit<Character, 'characterClass' | 'characterCulture' | 'characterLineage' | 'createdBy'> & { characterClass: ResolversTypes['CharacterClass'], characterCulture: ResolversTypes['Culture'], characterLineage: ResolversTypes['Lineage'], createdBy: ResolversTypes['User'] }>;
+  Character: ResolverTypeWrapper<Omit<Character, 'characterClass' | 'characterCulture' | 'characterLineage' | 'createdBy' | 'items'> & { characterClass: ResolversTypes['CharacterClass'], characterCulture: ResolversTypes['Culture'], characterLineage: ResolversTypes['Lineage'], createdBy: ResolversTypes['User'], items: Array<Maybe<ResolversTypes['Item']>> }>;
   ID: ResolverTypeWrapper<Scalars['ID']['output']>;
   CharacterClass: ResolverTypeWrapper<Omit<CharacterClass, 'damage' | 'features'> & { damage: ResolversTypes['Damage'], features: Array<Maybe<ResolversTypes['CharacterClassFeature']>> }>;
   CharacterClassFeature: ResolverTypeWrapper<Omit<CharacterClassFeature, 'choices'> & { choices?: Maybe<Array<ResolversTypes['FeatureChoices']>> }>;
@@ -717,8 +785,11 @@ export type ResolversTypes = {
   FeatureWithoutChoices: ResolverTypeWrapper<FeatureWithoutChoices>;
   GenericFeature: ResolverTypeWrapper<Omit<GenericFeature, 'choices'> & { choices?: Maybe<Array<ResolversTypes['FeatureChoices']>> }>;
   GenericRule: ResolverTypeWrapper<GenericRule>;
-  Item: ResolverTypeWrapper<Item>;
+  Item: ResolverTypeWrapper<Omit<Item, 'couldStock' | 'createdBy' | 'heldBy'> & { couldStock: Array<Maybe<ResolversTypes['ItemShop']>>, createdBy: ResolversTypes['User'], heldBy: Array<Maybe<ResolversTypes['Character']>> }>;
+  ItemInStockInput: ItemInStockInput;
   ItemInput: ItemInput;
+  ItemShop: ResolverTypeWrapper<Omit<ItemShop, 'createdBy' | 'itemsCouldStock' | 'itemsInStock'> & { createdBy: ResolversTypes['User'], itemsCouldStock: Array<Maybe<ResolversTypes['Item']>>, itemsInStock: Array<Maybe<ResolversTypes['Item']>> }>;
+  ItemShopInput: ItemShopInput;
   Lineage: ResolverTypeWrapper<Omit<Lineage, 'traits'> & { traits?: Maybe<Array<ResolversTypes['GenericFeature']>> }>;
   List: ResolverTypeWrapper<List>;
   Mutation: ResolverTypeWrapper<{}>;
@@ -761,7 +832,7 @@ export type ResolversParentTypes = {
   Int: Scalars['Int']['output'];
   BeastStats: BeastStats;
   BeastmasterPet: BeastmasterPet;
-  Character: Omit<Character, 'characterClass' | 'characterCulture' | 'characterLineage' | 'createdBy'> & { characterClass: ResolversParentTypes['CharacterClass'], characterCulture: ResolversParentTypes['Culture'], characterLineage: ResolversParentTypes['Lineage'], createdBy: ResolversParentTypes['User'] };
+  Character: Omit<Character, 'characterClass' | 'characterCulture' | 'characterLineage' | 'createdBy' | 'items'> & { characterClass: ResolversParentTypes['CharacterClass'], characterCulture: ResolversParentTypes['Culture'], characterLineage: ResolversParentTypes['Lineage'], createdBy: ResolversParentTypes['User'], items: Array<Maybe<ResolversParentTypes['Item']>> };
   ID: Scalars['ID']['output'];
   CharacterClass: Omit<CharacterClass, 'damage' | 'features'> & { damage: ResolversParentTypes['Damage'], features: Array<Maybe<ResolversParentTypes['CharacterClassFeature']>> };
   CharacterClassFeature: Omit<CharacterClassFeature, 'choices'> & { choices?: Maybe<Array<ResolversParentTypes['FeatureChoices']>> };
@@ -778,8 +849,11 @@ export type ResolversParentTypes = {
   FeatureWithoutChoices: FeatureWithoutChoices;
   GenericFeature: Omit<GenericFeature, 'choices'> & { choices?: Maybe<Array<ResolversParentTypes['FeatureChoices']>> };
   GenericRule: GenericRule;
-  Item: Item;
+  Item: Omit<Item, 'couldStock' | 'createdBy' | 'heldBy'> & { couldStock: Array<Maybe<ResolversParentTypes['ItemShop']>>, createdBy: ResolversParentTypes['User'], heldBy: Array<Maybe<ResolversParentTypes['Character']>> };
+  ItemInStockInput: ItemInStockInput;
   ItemInput: ItemInput;
+  ItemShop: Omit<ItemShop, 'createdBy' | 'itemsCouldStock' | 'itemsInStock'> & { createdBy: ResolversParentTypes['User'], itemsCouldStock: Array<Maybe<ResolversParentTypes['Item']>>, itemsInStock: Array<Maybe<ResolversParentTypes['Item']>> };
+  ItemShopInput: ItemShopInput;
   Lineage: Omit<Lineage, 'traits'> & { traits?: Maybe<Array<ResolversParentTypes['GenericFeature']>> };
   List: List;
   Mutation: {};
@@ -1025,13 +1099,31 @@ export type GenericRuleResolvers<ContextType = any, ParentType extends Resolvers
 };
 
 export type ItemResolvers<ContextType = any, ParentType extends ResolversParentTypes['Item'] = ResolversParentTypes['Item']> = {
+  couldStock?: Resolver<Array<Maybe<ResolversTypes['ItemShop']>>, ParentType, ContextType>;
+  createdBy?: Resolver<ResolversTypes['User'], ParentType, ContextType>;
+  defaultPrice?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   effects?: Resolver<Array<Maybe<ResolversTypes['Effect']>>, ParentType, ContextType>;
+  heldBy?: Resolver<Array<Maybe<ResolversTypes['Character']>>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  inStock?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   isMagic?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   rarity?: Resolver<Maybe<ResolversTypes['Rarity']>, ParentType, ContextType>;
+  salePrice?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  tags?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   text?: Resolver<Array<Maybe<ResolversTypes['RuleText']>>, ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   uses?: Resolver<Maybe<ResolversTypes['Uses']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type ItemShopResolvers<ContextType = any, ParentType extends ResolversParentTypes['ItemShop'] = ResolversParentTypes['ItemShop']> = {
+  canEdit?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
+  createdBy?: Resolver<ResolversTypes['User'], ParentType, ContextType>;
+  description?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  itemsCouldStock?: Resolver<Array<Maybe<ResolversTypes['Item']>>, ParentType, ContextType>;
+  itemsInStock?: Resolver<Array<Maybe<ResolversTypes['Item']>>, ParentType, ContextType>;
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -1056,17 +1148,23 @@ export type ListResolvers<ContextType = any, ParentType extends ResolversParentT
 
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
   createCharacter?: Resolver<Maybe<ResolversTypes['Character']>, ParentType, ContextType, Partial<MutationcreateCharacterArgs>>;
+  createShop?: Resolver<Maybe<ResolversTypes['ItemShop']>, ParentType, ContextType, Partial<MutationcreateShopArgs>>;
   createUser?: Resolver<Maybe<ResolversTypes['AuthPayload']>, ParentType, ContextType, RequireFields<MutationcreateUserArgs, 'email' | 'password'>>;
   deleteCharacter?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType, RequireFields<MutationdeleteCharacterArgs, 'id'>>;
+  deleteShop?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType, RequireFields<MutationdeleteShopArgs, 'id'>>;
   login?: Resolver<Maybe<ResolversTypes['AuthPayload']>, ParentType, ContextType, RequireFields<MutationloginArgs, 'email' | 'password'>>;
   updateCharacter?: Resolver<Maybe<ResolversTypes['Character']>, ParentType, ContextType, RequireFields<MutationupdateCharacterArgs, 'id'>>;
+  updateShop?: Resolver<Maybe<ResolversTypes['ItemShop']>, ParentType, ContextType, RequireFields<MutationupdateShopArgs, 'id'>>;
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
+  allItems?: Resolver<Maybe<Array<Maybe<ResolversTypes['Item']>>>, ParentType, ContextType>;
+  allShops?: Resolver<Maybe<Array<Maybe<ResolversTypes['ItemShop']>>>, ParentType, ContextType>;
   character?: Resolver<Maybe<ResolversTypes['Character']>, ParentType, ContextType, RequireFields<QuerycharacterArgs, 'id'>>;
   characterClasses?: Resolver<Array<Maybe<ResolversTypes['CharacterClass']>>, ParentType, ContextType, Partial<QuerycharacterClassesArgs>>;
   cultures?: Resolver<Array<Maybe<ResolversTypes['Culture']>>, ParentType, ContextType, Partial<QueryculturesArgs>>;
   genericRules?: Resolver<Array<Maybe<ResolversTypes['GenericRule']>>, ParentType, ContextType, Partial<QuerygenericRulesArgs>>;
+  itemShop?: Resolver<Maybe<ResolversTypes['ItemShop']>, ParentType, ContextType, Partial<QueryitemShopArgs>>;
   lineages?: Resolver<Array<Maybe<ResolversTypes['Lineage']>>, ParentType, ContextType, Partial<QuerylineagesArgs>>;
   me?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType>;
   rules?: Resolver<Array<Maybe<ResolversTypes['RuleSection']>>, ParentType, ContextType, Partial<QueryrulesArgs>>;
@@ -1210,6 +1308,7 @@ export type Resolvers<ContextType = any> = {
   GenericFeature?: GenericFeatureResolvers<ContextType>;
   GenericRule?: GenericRuleResolvers<ContextType>;
   Item?: ItemResolvers<ContextType>;
+  ItemShop?: ItemShopResolvers<ContextType>;
   Lineage?: LineageResolvers<ContextType>;
   List?: ListResolvers<ContextType>;
   Mutation?: MutationResolvers<ContextType>;

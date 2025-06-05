@@ -26,6 +26,12 @@ type Query {
   character(id: ID!): Character
 
   rules(ruleSectionsToInclude: [RuleSectionNames]): [RuleSection]!
+
+  itemShop(id: ID): ItemShop
+
+  allShops: [ItemShop]
+
+  allItems: [Item]
 }
 
 type Mutation {
@@ -34,6 +40,9 @@ type Mutation {
   createCharacter(input: CharacterInput): Character
   updateCharacter(id: ID!, input: CharacterInput): Character
   deleteCharacter(id: ID!): Boolean
+  createShop(input: ItemShopInput): ItemShop
+  updateShop(id: ID!, input: ItemShopInput): ItemShop
+  deleteShop(id: ID!): Boolean
 }
 
 #########
@@ -458,11 +467,18 @@ input CharacterInput {
 type Item {
   id: ID!
   title: String!
-  text: [RuleText]!
-  effects: [Effect]!
   isMagic: Boolean!
   rarity: Rarity
   uses: Uses
+  text: [RuleText]!
+  effects: [Effect]!
+  heldBy: [Character]!
+  createdBy: User!
+  couldStock: [ItemShop]!
+  defaultPrice: Int!
+  salePrice: Int
+  tags: [String]!
+  inStock: Boolean!
 }
 
 type Uses {
@@ -471,20 +487,53 @@ type Uses {
   rechargeOn: RechargeOn!
 }
 
-input ItemInput {
-  id: ID
-  title: String!
-  text: [RuleTextInput]!
-  effects: [EffectInput]!
-  isMagic: Boolean!
-  rarity: Rarity
-  uses: UsesInput
-}
-
 input UsesInput {
   used: Int!
   max: Int!
   rechargeOn: RechargeOn!
+}
+
+input ItemInput {
+  id: ID
+  title: String!
+  isMagic: Boolean!
+  rarity: Rarity
+  uses: UsesInput
+  text: [RuleTextInput]!
+  effects: [EffectInput]!
+  defaultPrice: Int!
+  tags: [String]!
+}
+
+type ItemShop {
+  id: ID!
+  name: String!
+  description: String!
+  itemsInStock: [Item]!
+  itemsCouldStock: [Item]!
+  createdBy: User!
+  canEdit: Boolean!
+}
+
+input ItemShopInput {
+  id: ID
+  name: String!
+  description: String!
+  itemsInStock: [ItemInStockInput]!
+  itemsCouldStock: [ItemInput]!
+}
+
+input ItemInStockInput {
+  id: ID
+  title: String!
+  isMagic: Boolean!
+  rarity: Rarity
+  uses: UsesInput
+  text: [RuleTextInput]!
+  effects: [EffectInput]!
+  defaultPrice: Int!
+  tags: [String]!
+  salePrice: Int
 }
 
 type Effect {

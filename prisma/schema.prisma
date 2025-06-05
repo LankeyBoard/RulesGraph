@@ -9,11 +9,13 @@ datasource db {
 }
 
 model User {
-  id         Int         @id @default(autoincrement())
-  name       String?     @db.VarChar(255)
-  email      String      @unique @db.VarChar(255)
-  password   String
-  characters Character[]
+  id               Int         @id @default(autoincrement())
+  name             String?     @db.VarChar(255)
+  email            String      @unique @db.VarChar(255)
+  password         String
+  characters       Character[]
+  createdItems     Item[]
+  createdItemShops ItemShop[]
 }
 
 model Character {
@@ -46,14 +48,20 @@ model Character {
 }
 
 model Item {
-  id      Int         @id @default(autoincrement())
-  title   String      @db.VarChar(255)
-  isMagic Boolean
-  rarity  Rarity?
-  uses Json?
-  text    RuleText[]
-  heldBy  Character[] @relation("CharacterToItem")
-  effects Json[]
+  id                 Int                  @id @default(autoincrement())
+  title              String               @db.VarChar(255)
+  isMagic            Boolean
+  rarity             Rarity?
+  uses               Json?
+  text               RuleText[]
+  heldBy             Character[]          @relation("CharacterToItem")
+  createdById        Int                  @default(1)
+  createdBy          User                 @relation(fields: [createdById], references: [id])
+  effects            Json[]
+  couldStock         ItemShop[]           @relation(name: "CouldStockToItem")
+  defaultPrice       Int                  @default(0)
+  ItemsStockedByShop ItemsStockedByShop[]
+  tags String[]
 }
 
 model RuleText {
@@ -65,6 +73,25 @@ model RuleText {
   Item   Item?    @relation(fields: [itemId], references: [id])
 }
 
+model ItemShop {
+  id                 String               @id @default(uuid())
+  name               String
+  description        String
+  itemsCouldStock    Item[]               @relation(name: "CouldStockToItem")
+  createdById        Int                  @default(1)
+  createdBy          User                 @relation(fields: [createdById], references: [id])
+  ItemsStockedByShop ItemsStockedByShop[]
+}
+
+model ItemsStockedByShop {
+  item      Item     @relation(fields: [itemId], references: [id])
+  itemId    Int
+  shop      ItemShop @relation(fields: [shopId], references: [id])
+  shopId    String
+  salePrice Int?
+
+  @@id([shopId, itemId])
+}
 
 enum Rarity {
   COMMON
