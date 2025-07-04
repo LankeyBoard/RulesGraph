@@ -16,35 +16,38 @@ model User {
   characters       Character[]
   createdItems     Item[]
   createdItemShops ItemShop[]
+  Campaign         Campaign[]
 }
 
 model Character {
-  id                 Int      @id @default(autoincrement())
-  name               String   @db.VarChar(255)
+  id                 Int       @id @default(autoincrement())
+  name               String    @db.VarChar(255)
   userId             Int
-  level              Int      @default(1)
-  mettle             Int      @default(0)
-  agility            Int      @default(0)
-  heart              Int      @default(0)
-  intellect          Int      @default(0)
-  coin               Int      @default(5)
-  languages          String[] @default(["allspeak"])
+  level              Int       @default(1)
+  mettle             Int       @default(0)
+  agility            Int       @default(0)
+  heart              Int       @default(0)
+  intellect          Int       @default(0)
+  coin               Int       @default(5)
+  languages          String[]  @default(["allspeak"])
   characterClass     String
   characterLineage   String
   characterCulture   String
-  currentHealth      Int      @default(0)
-  currentStamina     Int      @default(0)
-  maxHealth          Int      @default(0)
-  maxStamina         Int      @default(0)
-  armorName          String   @default("None")
-  shieldName         String   @default("None")
+  currentHealth      Int       @default(0)
+  currentStamina     Int       @default(0)
+  maxHealth          Int       @default(0)
+  maxStamina         Int       @default(0)
+  armorName          String    @default("None")
+  shieldName         String    @default("None")
   counter            Int
-  baseDamage         Int      @default(0)
-  rangeMin           Int      @default(0)
-  rangeMax           Int      @default(0)
+  baseDamage         Int       @default(0)
+  rangeMin           Int       @default(0)
+  rangeMax           Int       @default(0)
   featureChoiceSlugs String[]
-  createdBy          User     @relation(fields: [userId], references: [id])
-  items              Item[]   @relation("CharacterToItem")
+  createdBy          User      @relation(fields: [userId], references: [id])
+  items              Item[]    @relation("CharacterToItem")
+  campaign           Campaign? @relation(fields: [campaignId], references: [id])
+  campaignId         Int?
 }
 
 model Item {
@@ -61,7 +64,7 @@ model Item {
   couldStock         ItemShop[]           @relation(name: "CouldStockToItem")
   defaultPrice       Int                  @default(0)
   ItemsStockedByShop ItemsStockedByShop[]
-  tags String[]
+  tags               String[]
 }
 
 model RuleText {
@@ -81,6 +84,8 @@ model ItemShop {
   createdById        Int                  @default(1)
   createdBy          User                 @relation(fields: [createdById], references: [id])
   ItemsStockedByShop ItemsStockedByShop[]
+  Campaign           Campaign?            @relation(fields: [campaignId], references: [id])
+  campaignId         Int?
 }
 
 model ItemsStockedByShop {
@@ -93,10 +98,31 @@ model ItemsStockedByShop {
   @@id([shopId, itemId])
 }
 
+model Campaign {
+  id          Int            @id @default(autoincrement())
+  name        String
+  description String
+  status      CampaignStatus
+  startDate   DateTime
+  endDate     DateTime?
+  owner       User           @relation(fields: [ownerId], references: [id])
+  ownerId     Int
+  characters  Character[]
+  shops       ItemShop[]
+}
+
 enum Rarity {
   COMMON
   UNCOMMON
   RARE
   LEGENDARY
   UNIQUE
+}
+
+enum CampaignStatus {
+  PLANNING
+  ACTIVE
+  ON_HOLD
+  COMPLETED
+  CANCELLED
 }
