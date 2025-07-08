@@ -727,6 +727,7 @@ export type TrainingOptions = {
 export type User = {
   __typename?: 'User';
   characters?: Maybe<Array<Maybe<Character>>>;
+  createdShops?: Maybe<Array<Maybe<ItemShop>>>;
   email: Scalars['String']['output'];
   id: Scalars['ID']['output'];
   name?: Maybe<Scalars['String']['output']>;
@@ -908,7 +909,7 @@ export type ResolversTypes = {
   StatOptions: StatOptions;
   Training: ResolverTypeWrapper<Training>;
   TrainingOptions: ResolverTypeWrapper<TrainingOptions>;
-  User: ResolverTypeWrapper<Omit<User, 'characters'> & { characters?: Maybe<Array<Maybe<ResolversTypes['Character']>>> }>;
+  User: ResolverTypeWrapper<Omit<User, 'characters' | 'createdShops'> & { characters?: Maybe<Array<Maybe<ResolversTypes['Character']>>>, createdShops?: Maybe<Array<Maybe<ResolversTypes['ItemShop']>>> }>;
   Uses: ResolverTypeWrapper<Uses>;
   UsesInput: UsesInput;
   VERSIONS: VERSIONS;
@@ -967,7 +968,7 @@ export type ResolversParentTypes = {
   Speed: Speed;
   Training: Training;
   TrainingOptions: TrainingOptions;
-  User: Omit<User, 'characters'> & { characters?: Maybe<Array<Maybe<ResolversParentTypes['Character']>>> };
+  User: Omit<User, 'characters' | 'createdShops'> & { characters?: Maybe<Array<Maybe<ResolversParentTypes['Character']>>>, createdShops?: Maybe<Array<Maybe<ResolversParentTypes['ItemShop']>>> };
   Uses: Uses;
   UsesInput: UsesInput;
   Weapons: Weapons;
@@ -1382,6 +1383,7 @@ export type TrainingOptionsResolvers<ContextType = any, ParentType extends Resol
 
 export type UserResolvers<ContextType = any, ParentType extends ResolversParentTypes['User'] = ResolversParentTypes['User']> = {
   characters?: Resolver<Maybe<Array<Maybe<ResolversTypes['Character']>>>, ParentType, ContextType>;
+  createdShops?: Resolver<Maybe<Array<Maybe<ResolversTypes['ItemShop']>>>, ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;

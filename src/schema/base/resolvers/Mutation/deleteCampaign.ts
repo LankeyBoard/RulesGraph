@@ -1,8 +1,6 @@
 import type { MutationResolvers } from "./../../../types.generated";
 
-export const deleteCampaign: NonNullable<
-  MutationResolvers["deleteCampaign"]
-> = async (_parent, { id }, _ctx) => {
+export const deleteCampaign: NonNullable<MutationResolvers['deleteCampaign']> = async (_parent, { id }, _ctx) => {
   if (!_ctx.currentUser) {
     throw new Error("Not authenticated");
   }

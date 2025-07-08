@@ -1,6 +1,6 @@
 import type { QueryResolvers } from "./../../../types.generated";
 
-export const allCampaigns: NonNullable<QueryResolvers["allCampaigns"]> = async (
+export const allCampaigns: NonNullable<QueryResolvers['allCampaigns']> = async (
   _parent,
   _arg,
   _ctx,

@@ -1,11 +1,9 @@
 import type { MutationResolvers } from "./../../../types.generated";
 
-export const addShopToCampaign: NonNullable<
-  MutationResolvers["addShopToCampaign"]
-> = async (_parent, { campaignId, shopId }, _ctx) => {
+export const addShopToCampaign: NonNullable<MutationResolvers['addShopToCampaign']> = async (_parent, { campaignId, shopId }, _ctx) => {
   // Update the shop to set its campaignId (removing from any previous campaign)
   await _ctx.prisma.itemShop.update({
-    where: { id: Number(shopId) },
+    where: { id: shopId },
     data: { campaignId: Number(campaignId) },
   });
 

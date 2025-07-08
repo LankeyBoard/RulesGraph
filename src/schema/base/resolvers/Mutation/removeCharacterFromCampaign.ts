@@ -1,8 +1,6 @@
 import type { MutationResolvers } from "./../../../types.generated";
 
-export const removeCharacterFromCampaign: NonNullable<
-  MutationResolvers["removeCharacterFromCampaign"]
-> = async (_parent, { campaignId, characterId }, _ctx) => {
+export const removeCharacterFromCampaign: NonNullable<MutationResolvers['removeCharacterFromCampaign']> = async (_parent, { campaignId, characterId }, _ctx) => {
   // Set the character's campaignId to null if it matches the given campaign
   await _ctx.prisma.character.updateMany({
     where: {

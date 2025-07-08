@@ -2,12 +2,11 @@ import cultures from "../../../../rules/1b/cultures";
 import lineages from "../../../../rules/1b/lineages";
 import playerClasses from "../../../../rules/1b/playerClasses";
 import type { QueryResolvers } from "./../../../types.generated";
-export const character: NonNullable<QueryResolvers['character']> = async (
+export const character: NonNullable<QueryResolvers["character"]> = async (
   _parent,
   _arg,
   _ctx,
 ) => {
-  /* Implement Query.character resolver logic here */
   if (!_ctx.currentUser) {
     throw new Error("Not authenticated");
   }

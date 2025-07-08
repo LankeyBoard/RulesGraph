@@ -2,12 +2,11 @@ import cultures from "../../../../rules/1b/cultures";
 import lineages from "../../../../rules/1b/lineages";
 import playerClasses from "../../../../rules/1b/playerClasses";
 import type { QueryResolvers } from "./../../../types.generated";
-export const me: NonNullable<QueryResolvers['me']> = async (
+export const me: NonNullable<QueryResolvers["me"]> = async (
   _parent,
   _arg,
   _ctx,
 ) => {
-  /* Implement Query.me resolver logic here */
   if (!_ctx.currentUser) {
     throw new Error("Not authenticated");
   }
@@ -21,7 +20,12 @@ export const me: NonNullable<QueryResolvers['me']> = async (
   user.characters = await _ctx.prisma.character.findMany({
     where: { userId: user.id },
   });
-  // remove characters if they have null values for character.characterClass, character.characterLineage, or character.characterCulture
+
+  // Add createdShops for each character
+  const allShops = await _ctx.prisma.itemShop.findMany({
+    where: { createdById: user.id },
+  });
+  user.createdShops = allShops;
   user.characters = user.characters.filter(
     (character: {
       characterClass: string;
@@ -37,6 +41,7 @@ export const me: NonNullable<QueryResolvers['me']> = async (
   );
   user.characters = user.characters.map(
     (character: {
+      id: number;
       characterClass: string;
       characterLineage: string;
       characterCulture: string;
@@ -78,7 +83,5 @@ export const me: NonNullable<QueryResolvers['me']> = async (
       );
     },
   );
-  console.log(user.characters);
-
   return user;
 };

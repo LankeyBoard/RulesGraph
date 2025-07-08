@@ -20,6 +20,15 @@ export const updateCampaign: NonNullable<
     throw new Error("You do not have permission to update this campaign.");
   }
 
+  const startDate = new Date(input.startDate);
+  if (isNaN(startDate.getTime())) {
+    throw new Error(`Invalid startDate provided. ${startDate}`);
+  }
+  const endDate = input.endDate ? new Date(input.endDate) : null;
+  if (endDate && isNaN(endDate.getTime())) {
+    throw new Error("Invalid endDate provided.");
+  }
+
   // Update campaign fields
   await _ctx.prisma.campaign.update({
     where: { id: Number(id) },
@@ -27,8 +36,8 @@ export const updateCampaign: NonNullable<
       name: input.name,
       description: input.description,
       status: input.status,
-      startDate: new Date(input.startDate),
-      endDate: input.endDate ? new Date(input.endDate) : null,
+      startDate,
+      endDate,
     },
   });
 
