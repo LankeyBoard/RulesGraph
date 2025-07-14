@@ -3,7 +3,7 @@ import lineages from "../../../../rules/1b/lineages";
 import playerClasses from "../../../../rules/1b/playerClasses";
 import type { QueryResolvers } from "./../../../types.generated";
 
-export const campaign: NonNullable<QueryResolvers["campaign"]> = async (
+export const campaign: NonNullable<QueryResolvers['campaign']> = async (
   _parent,
   { id },
   _ctx,
