@@ -2,50 +2,31 @@ import cultures from "../../../../rules/1b/cultures";
 import lineages from "../../../../rules/1b/lineages";
 import playerClasses from "../../../../rules/1b/playerClasses";
 import type { QueryResolvers } from "./../../../types.generated";
-export const me: NonNullable<QueryResolvers["me"]> = async (
+
+export const campaign: NonNullable<QueryResolvers['campaign']> = async (
   _parent,
-  _arg,
+  { id },
   _ctx,
 ) => {
-  if (!_ctx.currentUser) {
-    throw new Error("Not authenticated");
-  }
-  const user = await _ctx.prisma.user.findUnique({
-    where: { id: _ctx.currentUser.id },
+  const campaign = await _ctx.prisma.campaign.findUnique({
+    where: { id: Number(id) },
     include: {
-      createdCampaigns: true,
-      createdItemShops: true,
+      owner: true,
       characters: true,
+      shops: true,
     },
   });
 
-  if (!user) {
-    throw new Error("User not found");
+  if (!campaign) {
+    throw new Error(`Campaign with ID ${id} not found.`);
   }
-  if (!user.createdCampaigns) user.createdCampaigns = [];
-  if (!user.createdItemShops) user.createdItemShops = [];
-  if (!user.characters) user.characters = [];
-  user.characters = user.characters.filter(
+  console.log("campaign characters before search", campaign.characters);
+
+  campaign.characters = campaign.characters.map(
     (character: {
       characterClass: string;
       characterLineage: string;
       characterCulture: string;
-    }) => {
-      return (
-        character.characterClass &&
-        character.characterLineage &&
-        character.characterCulture
-      );
-    },
-  );
-  user.characters = user.characters.map(
-    (character: {
-      campaign: unknown;
-      id: number;
-      characterClass: string;
-      characterLineage: string;
-      characterCulture: string;
-      campaignId?: number;
     }) => {
       const characterClass = playerClasses.find(
         (c) =>
@@ -62,11 +43,7 @@ export const me: NonNullable<QueryResolvers["me"]> = async (
           c.slug.toLocaleUpperCase() ===
           character.characterCulture.toLocaleUpperCase(),
       );
-      if (character.campaignId) {
-        character.campaign = _ctx.prisma.campaign.findUnique({
-          where: { id: character.campaignId },
-        });
-      }
+      console.log("characterClass", characterClass);
       return {
         ...character,
         characterClass,
@@ -75,7 +52,8 @@ export const me: NonNullable<QueryResolvers["me"]> = async (
       };
     },
   );
-  user.characters = user.characters.filter(
+  console.log("campaign characters after search", campaign.characters);
+  campaign.characters = campaign.characters.filter(
     (character: {
       characterClass: object;
       characterLineage: object;
@@ -88,7 +66,8 @@ export const me: NonNullable<QueryResolvers["me"]> = async (
       );
     },
   );
-
-  console.log("User found", user);
-  return user;
+  console.log("campaign characters after filter", campaign.characters);
+  campaign.startDate = new Date(Number(campaign.startDate)).toDateString();
+  campaign.endDate = new Date(Number(campaign.endDate)).toDateString();
+  return campaign;
 };

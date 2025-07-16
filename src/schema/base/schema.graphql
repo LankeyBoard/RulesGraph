@@ -32,6 +32,12 @@ type Query {
   allShops: [ItemShop]
 
   allItems: [Item]
+
+  campaign(id: ID!): Campaign
+
+  myCampaigns: MyCampaignsResult!
+
+  allCampaigns: [Campaign]!
 }
 
 type Mutation {
@@ -43,6 +49,18 @@ type Mutation {
   createShop(input: ItemShopInput): ItemShop
   updateShop(id: ID!, input: ItemShopInput): ItemShop
   deleteShop(id: ID!): Boolean
+  createCampaign(input: CampaignInput!): Campaign!
+  updateCampaign(
+    id: ID!
+    input: CampaignInput!
+    characterIds: [ID!]
+    shopIds: [ID!]
+  ): Campaign!
+  deleteCampaign(id: ID!): Boolean!
+  addCharacterToCampaign(campaignId: ID!, characterId: ID!): Campaign!
+  removeCharacterFromCampaign(campaignId: ID!, characterId: ID!): Campaign!
+  addShopToCampaign(campaignId: ID!, shopId: ID!): Campaign!
+  removeShopFromCampaign(campaignId: ID!, shopId: ID!): Campaign!
 }
 
 #########
@@ -131,6 +149,14 @@ enum RuleSectionNames {
   PLAYER
   GM
   MONSTERS
+}
+
+enum CampaignStatus {
+  PLANNING
+  ACTIVE
+  ON_HOLD
+  COMPLETED
+  CANCELLED
 }
 
 #########
@@ -403,6 +429,8 @@ type User {
   name: String
   email: String!
   characters: [Character]
+  createdItemShops: [ItemShop]
+  createdCampaigns: [Campaign]
 }
 
 type AuthPayload {
@@ -411,6 +439,7 @@ type AuthPayload {
 }
 
 type Character {
+  campaign: Campaign
   id: ID!
   name: String!
   createdBy: User!
@@ -559,4 +588,29 @@ input RuleTextInput {
 type RuleSection {
   sectionName: String!
   rules: [GenericRule]!
+}
+
+type Campaign {
+  id: ID!
+  name: String!
+  description: String!
+  status: CampaignStatus!
+  startDate: String!
+  endDate: String
+  owner: User!
+  characters: [Character]!
+  shops: [ItemShop]!
+}
+
+input CampaignInput {
+  name: String!
+  description: String!
+  status: CampaignStatus!
+  startDate: String!
+  endDate: String
+}
+
+type MyCampaignsResult {
+  owned: [Campaign]!
+  in: [Campaign]!
 }

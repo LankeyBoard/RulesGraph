@@ -7,7 +7,6 @@ export const character: NonNullable<QueryResolvers['character']> = async (
   _arg,
   _ctx,
 ) => {
-  /* Implement Query.character resolver logic here */
   if (!_ctx.currentUser) {
     throw new Error("Not authenticated");
   }
@@ -16,6 +15,12 @@ export const character: NonNullable<QueryResolvers['character']> = async (
   }
   const character = await _ctx.prisma.character.findUnique({
     where: { id: Number(_arg.id) },
+    include: {
+      items: {
+        orderBy: { id: "asc" },
+        include: { text: true },
+      },
+    },
   });
   if (!character) {
     throw new Error("Character not found");
@@ -35,19 +40,7 @@ export const character: NonNullable<QueryResolvers['character']> = async (
       c.slug.toLocaleUpperCase() ===
       character.characterCulture.toLocaleUpperCase(),
   );
-
-  character.items =
-    (await _ctx.prisma.item.findMany({
-      where: {
-        heldBy: { every: { id: Number(character.id) } },
-      },
-      orderBy: {
-        id: "asc",
-      },
-      include: {
-        text: true,
-      },
-    })) || [];
+  character.items = character.items || [];
   character.items = character.items.map((item: { uses: object }) => {
     return {
       ...item,
@@ -55,6 +48,12 @@ export const character: NonNullable<QueryResolvers['character']> = async (
         item.uses && Object.keys(item.uses).length > 0 ? item.uses : undefined,
     };
   });
+
+  character.createdBy = await _ctx.prisma.user.findUnique({
+    where: { id: character.userId },
+  });
+
+  console.log("character retrieved", character);
 
   return {
     ...character,

@@ -471,7 +471,7 @@ const generalRules: GenericRule[] = [
     ruleType: "RULE",
     text: [
       {
-        text: "Each round of combat is split into 3 parts, 1st, Environmental effects, 2nd, Players take their turn, 3rd, Enemies take their turn. During the player's turn, each player makes one Action and can move up to their speed. During the enemies turn enemies with Actions can take one Action and move. Enemies with only counters can only move unless they are not engaged, in which case they can use a counter as an action.",
+        text: "Each round of combat is split into 3 parts, 1st, Environmental effects, 2nd, Players take their turn, 3rd, Enemies take their turn. During the player's turn, each player makes one Action and can move up to their speed. During the enemies turn enemies with Actions can take one Action and move.",
         type: "RULE",
       },
       {
@@ -486,7 +486,7 @@ const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "When a character attacks or casts an offensive spell at another creature or creatures an exchange begins. To start the exchange, Test your Attack, adding your Base Attack Bonus. The defenders Armor and Counter become the Success and Failure points of the Test. If you Succeed on the Test then the hit is clean and there is no room for retaliation. If the result is Mixed then you Clash. You can either choose to deal no damage or strike but leave yourself open to counter attack. Your Attack is resolved first, and then the target can use one of their Counter Actions. If you Fail the Test, your Attack is countered, with no effect and the target can use one of their counter moves.",
+            text: "When a character attacks or casts an offensive spell at another creature or creatures an Exchange begins. To start the Exchange, Test your Attack, adding your Base Attack Bonus. The defenders Armor and Counter become the Success and Failure points of the Test. If you Succeed on the Test then the hit is clean and there is no room for retaliation. If the result is Mixed then you Clash. When you Clash, you and your target both choose a Counter Action to use. If you Fail the test, your attack is Countered and the target gets to use a Counter Action.",
             type: "RULE",
           },
         ],
@@ -497,7 +497,7 @@ const generalRules: GenericRule[] = [
             ruleType: "RULE",
             text: [
               {
-                text: "When your Attack targets multiple enemies, roll a single Attack Test, and compare to each enemy's defenses. If the roll would be a Clash or Counter, the GM chooses which creature will get to take a Counter Action.",
+                text: "When your Attack targets multiple enemies, roll a single Attack Test, and compare to each enemy's defenses. If the roll would be a Clash or Counter, the GM chooses which creature will get to take a Clash Action.",
                 type: "RULE",
               },
             ],
@@ -588,7 +588,7 @@ const generalRules: GenericRule[] = [
         ruleType: "LISTCOMPACT",
         text: [
           {
-            text: "These Actions are available to all players all the time.",
+            text: "These Actions are available to all characters. Each round a character can take 1 Action.",
             type: "RULE",
           },
         ],
@@ -608,7 +608,7 @@ const generalRules: GenericRule[] = [
             slug: "CAREFUL-ATTACK",
             text: [
               {
-                text: "Attack with one of your proficient weapons or magic. You deal half your Base Damage. A Miss or Clash does not trigger a Counter from the enemy.",
+                text: "Attack with one of your proficient weapons or magic. You deal half your Base Damage. A Miss or Clash does not trigger Clash Actions for the target.",
                 type: "RULE",
               },
             ],
@@ -651,31 +651,47 @@ const generalRules: GenericRule[] = [
         ruleType: "LISTCOMPACT",
         text: [
           {
-            text: "These Counters are available to all players all the time.",
+            text: "These Actions can be used whenever you Clash with an enemy, they miss you with an Attack in addition to being used as an Action.",
             type: "RULE",
           },
         ],
         subRules: [
           {
-            title: "Counter Attack",
-            slug: "COUNTER-ATTACK",
+            title: "Push",
+            slug: "COUNTER-PUSH",
             text: [
               {
-                text: "Attack the target with your currently equipped weapon or magic. Counter Attacks deal 1 dice steps less than your Base Damage. The first time you make a Counter Attack in a round you can pick which weapon you have equipped.",
+                text: "Move the target 5 ft. into an unoccupied space.",
                 type: "RULE",
-              },
-              {
-                text: "You attack a goblin with your sword. You get an 11 on the Attack causing a Clash. You choose to trade damage, the goblin draws their daggers to make the Counter Attack. Now Ryle the Ranger makes a ranged Attack against the same goblin. They also roll an 11 and choose to trade damage, but because the goblin already has their daggers out, they cannot use the Counter Attack as their Counter Action.",
-                type: "EG",
               },
             ],
           },
           {
-            title: "Dive Roll",
-            slug: "DIVE-ROLL",
+            title: "Stagger",
+            slug: "COUNTER-STAGGER",
             text: [
               {
-                text: "Move up to 10 ft. in a straight line.",
+                text: "Halve the targets Base Speed.",
+                type: "RULE",
+              },
+            ],
+          },
+          {
+            title: "Expose",
+            slug: "COUNTER-EXPOSE",
+            text: [
+              {
+                text: "Choose an ally, they get a +3 to their next Attack Test against the target.",
+                type: "RULE",
+              },
+            ],
+          },
+          {
+            title: "Guard Step",
+            slug: "COUNTER-GUARD-STEP",
+            text: [
+              {
+                text: "Move 5ft. away from the target and gain +2 Armor",
                 type: "RULE",
               },
             ],
@@ -688,11 +704,15 @@ const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "In addition to an Action, you can move during your turn in combat, moving up to your Speed in any direction. You can move at any point during your turn, and can split your move before and after your action.",
+            text: "In addition to an Action, you can move during your turn in combat, moving up to your Speed in any direction. You can move at any point during your turn, and can split your move before and after your Action.",
             type: "RULE",
           },
           {
-            text: "You move 10 ft. Make an Attack and then move another 20 ft. If you move away from an enemy, they get a chance to make a counter attack against you as you try to slip by.",
+            text: "If you pass into melee range of an enemy, your Speed is reduced by half.",
+            type: "RULE",
+          },
+          {
+            text: "If you a speed of 30 ft. you can move 10 ft. Make an Attack and then move another 20 ft. But, if you moved into melee range to make the attack, you'd only be able to move 10 ft. after the attack.",
             type: "EG",
           },
         ],
@@ -1113,7 +1133,7 @@ const generalRules: GenericRule[] = [
         ruleType: "LIST",
         text: [
           {
-            text: "When jumping, use these formulas to calculate the minimum distances you can go. If you are trying to jump further, Test your Mettle. The difficulty is equal to 10+1 per foot beyond your standard jump range. If you roll below a Success, you can spend Stamina to increase your roll up to the point of a Success if you have the Stamina to spend.",
+            text: "When jumping, use these formulas to calculate the minimum distances you can go. If you are trying to jump further, Test your Mettle. The difficulty is equal to 10+1 per foot beyond your standard jump range.",
             type: "RULE",
           },
         ],
@@ -1159,7 +1179,7 @@ const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "When you fall from a height greater than 10 ft. Make an Agility Test. Pass: 12, Fail: 7. For every 5 ft. past 10 ft. the difficulty increases by 2. On a Pass you take no damage. On a fail you take 1d10 bludgeoning damage per 5 ft. On a Mixed you take half damage.",
+            text: "When you fall from a height greater than 10 ft. Make an Agility Test. Pass: 12, Fail: 7. For every 5 ft. past 10 ft. the difficulty increases by 2. On a Pass you take no damage. On a fail you take 1d10 bludgeoning damage per 10 ft. On a Mixed you take half damage.",
             type: "RULE",
           },
         ],

@@ -6,6 +6,7 @@ import    { BeastForm } from './base/resolvers/BeastForm';
 import    { BeastHealth } from './base/resolvers/BeastHealth';
 import    { BeastStats } from './base/resolvers/BeastStats';
 import    { BeastmasterPet } from './base/resolvers/BeastmasterPet';
+import    { Campaign } from './base/resolvers/Campaign';
 import    { Character } from './base/resolvers/Character';
 import    { CharacterClass } from './base/resolvers/CharacterClass';
 import    { CharacterClassFeature } from './base/resolvers/CharacterClassFeature';
@@ -21,16 +22,26 @@ import    { Item } from './base/resolvers/Item';
 import    { ItemShop } from './base/resolvers/ItemShop';
 import    { Lineage } from './base/resolvers/Lineage';
 import    { List } from './base/resolvers/List';
+import    { addCharacterToCampaign as Mutation_addCharacterToCampaign } from './base/resolvers/Mutation/addCharacterToCampaign';
+import    { addShopToCampaign as Mutation_addShopToCampaign } from './base/resolvers/Mutation/addShopToCampaign';
+import    { createCampaign as Mutation_createCampaign } from './base/resolvers/Mutation/createCampaign';
 import    { createCharacter as Mutation_createCharacter } from './base/resolvers/Mutation/createCharacter';
 import    { createShop as Mutation_createShop } from './base/resolvers/Mutation/createShop';
 import    { createUser as Mutation_createUser } from './base/resolvers/Mutation/createUser';
+import    { deleteCampaign as Mutation_deleteCampaign } from './base/resolvers/Mutation/deleteCampaign';
 import    { deleteCharacter as Mutation_deleteCharacter } from './base/resolvers/Mutation/deleteCharacter';
 import    { deleteShop as Mutation_deleteShop } from './base/resolvers/Mutation/deleteShop';
 import    { login as Mutation_login } from './base/resolvers/Mutation/login';
+import    { removeCharacterFromCampaign as Mutation_removeCharacterFromCampaign } from './base/resolvers/Mutation/removeCharacterFromCampaign';
+import    { removeShopFromCampaign as Mutation_removeShopFromCampaign } from './base/resolvers/Mutation/removeShopFromCampaign';
+import    { updateCampaign as Mutation_updateCampaign } from './base/resolvers/Mutation/updateCampaign';
 import    { updateCharacter as Mutation_updateCharacter } from './base/resolvers/Mutation/updateCharacter';
 import    { updateShop as Mutation_updateShop } from './base/resolvers/Mutation/updateShop';
+import    { MyCampaignsResult } from './base/resolvers/MyCampaignsResult';
+import    { allCampaigns as Query_allCampaigns } from './base/resolvers/Query/allCampaigns';
 import    { allItems as Query_allItems } from './base/resolvers/Query/allItems';
 import    { allShops as Query_allShops } from './base/resolvers/Query/allShops';
+import    { campaign as Query_campaign } from './base/resolvers/Query/campaign';
 import    { character as Query_character } from './base/resolvers/Query/character';
 import    { characterClasses as Query_characterClasses } from './base/resolvers/Query/characterClasses';
 import    { cultures as Query_cultures } from './base/resolvers/Query/cultures';
@@ -38,6 +49,7 @@ import    { genericRules as Query_genericRules } from './base/resolvers/Query/ge
 import    { itemShop as Query_itemShop } from './base/resolvers/Query/itemShop';
 import    { lineages as Query_lineages } from './base/resolvers/Query/lineages';
 import    { me as Query_me } from './base/resolvers/Query/me';
+import    { myCampaigns as Query_myCampaigns } from './base/resolvers/Query/myCampaigns';
 import    { rules as Query_rules } from './base/resolvers/Query/rules';
 import    { searchAll as Query_searchAll } from './base/resolvers/Query/searchAll';
 import    { slugMap as Query_slugMap } from './base/resolvers/Query/slugMap';
@@ -59,8 +71,8 @@ import    { Weapons } from './base/resolvers/Weapons';
 import    { shifterArmor } from './base/resolvers/shifterArmor';
 import    { shifterFeature } from './base/resolvers/shifterFeature';
     export const resolvers: Resolvers = {
-      Query: { allItems: Query_allItems,allShops: Query_allShops,character: Query_character,characterClasses: Query_characterClasses,cultures: Query_cultures,genericRules: Query_genericRules,itemShop: Query_itemShop,lineages: Query_lineages,me: Query_me,rules: Query_rules,searchAll: Query_searchAll,slugMap: Query_slugMap,universalFeatures: Query_universalFeatures,user: Query_user,users: Query_users },
-      Mutation: { createCharacter: Mutation_createCharacter,createShop: Mutation_createShop,createUser: Mutation_createUser,deleteCharacter: Mutation_deleteCharacter,deleteShop: Mutation_deleteShop,login: Mutation_login,updateCharacter: Mutation_updateCharacter,updateShop: Mutation_updateShop },
+      Query: { allCampaigns: Query_allCampaigns,allItems: Query_allItems,allShops: Query_allShops,campaign: Query_campaign,character: Query_character,characterClasses: Query_characterClasses,cultures: Query_cultures,genericRules: Query_genericRules,itemShop: Query_itemShop,lineages: Query_lineages,me: Query_me,myCampaigns: Query_myCampaigns,rules: Query_rules,searchAll: Query_searchAll,slugMap: Query_slugMap,universalFeatures: Query_universalFeatures,user: Query_user,users: Query_users },
+      Mutation: { addCharacterToCampaign: Mutation_addCharacterToCampaign,addShopToCampaign: Mutation_addShopToCampaign,createCampaign: Mutation_createCampaign,createCharacter: Mutation_createCharacter,createShop: Mutation_createShop,createUser: Mutation_createUser,deleteCampaign: Mutation_deleteCampaign,deleteCharacter: Mutation_deleteCharacter,deleteShop: Mutation_deleteShop,login: Mutation_login,removeCharacterFromCampaign: Mutation_removeCharacterFromCampaign,removeShopFromCampaign: Mutation_removeShopFromCampaign,updateCampaign: Mutation_updateCampaign,updateCharacter: Mutation_updateCharacter,updateShop: Mutation_updateShop },
       
       AuthPayload: AuthPayload,
 BeastAbility: BeastAbility,
@@ -68,6 +80,7 @@ BeastForm: BeastForm,
 BeastHealth: BeastHealth,
 BeastStats: BeastStats,
 BeastmasterPet: BeastmasterPet,
+Campaign: Campaign,
 Character: Character,
 CharacterClass: CharacterClass,
 CharacterClassFeature: CharacterClassFeature,
@@ -83,6 +96,7 @@ Item: Item,
 ItemShop: ItemShop,
 Lineage: Lineage,
 List: List,
+MyCampaignsResult: MyCampaignsResult,
 Range: Range,
 RuleSection: RuleSection,
 RuleText: RuleText,

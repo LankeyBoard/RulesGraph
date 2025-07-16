@@ -5,6 +5,5 @@ export const users: NonNullable<QueryResolvers['users']> = async (
   args: Record<string, never>,
   context: GraphQLContext,
 ) => {
-  /* Implement Query.users resolver logic here */
   return context.prisma.user.findMany() || [];
 };

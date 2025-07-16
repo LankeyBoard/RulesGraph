@@ -45,6 +45,7 @@ export const createCharacter: NonNullable<MutationResolvers['createCharacter']> 
     data: newCharacterData,
   });
   newCharacter.createdBy = _ctx.currentUser;
+  newCharacter.createdById = _ctx.currentUser.id;
   console.log(newCharacter);
   newCharacter.characterClass = playerClasses.find(
     (playerClass) =>
