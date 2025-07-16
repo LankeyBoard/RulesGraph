@@ -99,12 +99,12 @@ const playerClasses: CharacterClass[] = [
         level: 2,
         title: "Counter Puncher",
         slug: "BRAWLER-COUNTER",
-        staminaCost: 1,
+        staminaCost: 2,
         costsFortunesFavor: false,
         text: [
           {
             type: "RULE",
-            text: "When you make a counter attack, you can spend 1 stamina to remove the counter attack damage penalty, allowing you to deal your base damage on this counter attack.",
+            text: "When you make a Counter Action, you can spend 2 Stamina to use 2 Counter Actions as part of the action.",
           },
           {
             type: "FLAVOR",
@@ -213,7 +213,7 @@ const playerClasses: CharacterClass[] = [
             text: [
               {
                 type: "RULE",
-                text: "When you Counter an enemy, spend 1 Stamina + 1 per size category the target is larger than you. If you do, you move the enemy up to 15 ft.",
+                text: "When you use your [Counter](/rules/player_rules#BASIC-COUNTERS) to Push, spend 1 Stamina + 1 per size category the target is larger than you. If you do, you move the enemy up to 15 ft.",
               },
             ],
           },
@@ -773,7 +773,7 @@ const playerClasses: CharacterClass[] = [
           },
           {
             type: "RULE",
-            text: "When an ally within 5ft of you would be hit by an attack or counter, you can spend 1 stamina to switch places with your ally, taking the hit for them.",
+            text: "When an ally within 5ft of you would be hit by an Attack, you can spend 1 Stamina to switch places with your ally, taking the hit for them.",
           },
         ],
       },
@@ -1188,7 +1188,7 @@ const playerClasses: CharacterClass[] = [
           },
           {
             type: "RULE",
-            text: "When you counterattack, you can use any weapon on your person to make the counter.",
+            text: "When you counter attack, you can use any weapon on your person to make the counter.",
           },
         ],
       },

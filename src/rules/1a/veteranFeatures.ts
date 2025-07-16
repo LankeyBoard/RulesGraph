@@ -47,7 +47,7 @@ const VeteranFeatures: Feature[] = [
     slug: "SKIRMISHERS-AGILITY",
     text: [
       {
-        text: "If you move no more than half your speed on a turn, your movement does not provoke counter attacks.",
+        text: "Moving into Melee range of an enemy does not reduce your Speed.",
       },
     ],
   },

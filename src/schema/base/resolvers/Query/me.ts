@@ -2,7 +2,7 @@ import cultures from "../../../../rules/1b/cultures";
 import lineages from "../../../../rules/1b/lineages";
 import playerClasses from "../../../../rules/1b/playerClasses";
 import type { QueryResolvers } from "./../../../types.generated";
-export const me: NonNullable<QueryResolvers['me']> = async (
+export const me: NonNullable<QueryResolvers["me"]> = async (
   _parent,
   _arg,
   _ctx,
@@ -22,7 +22,9 @@ export const me: NonNullable<QueryResolvers['me']> = async (
   if (!user) {
     throw new Error("User not found");
   }
-
+  if (!user.createdCampaigns) user.createdCampaigns = [];
+  if (!user.createdItemShops) user.createdItemShops = [];
+  if (!user.characters) user.characters = [];
   user.characters = user.characters.filter(
     (character: {
       characterClass: string;

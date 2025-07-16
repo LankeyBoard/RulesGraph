@@ -18,7 +18,9 @@ export const user: NonNullable<QueryResolvers["user"]> = async (
   if (!user) {
     throw new Error(`User with ID ${_arg.id} not found`);
   }
-
+  if (!user.createdCampaigns) user.createdCampaigns = [];
+  if (!user.createdItemShops) user.createdItemShops = [];
+  if (!user.characters) user.characters = [];
   console.log(user);
   if (user.characters) {
     user.characters = user.characters.map(
