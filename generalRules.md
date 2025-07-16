@@ -261,7 +261,7 @@ Circumstances may cause misfortune. When the GM calls for a roll with Misfortune
 slug: COMBAT
 
 ruleType: RULE\
-Each round of combat is split into 3 parts, 1st, Environmental effects, 2nd, Players take their turn, 3rd, Enemies take their turn. During the player's turn, each player makes one Action and can move up to their speed. During the enemies turn enemies with Actions can take one Action and move. Enemies with only counters can only move unless they are not engaged, in which case they can use a counter as an action.\
+Each round of combat is split into 3 parts, 1st, Environmental effects, 2nd, Players take their turn, 3rd, Enemies take their turn. During the player's turn, each player makes one Action and can move up to their speed. During the enemies turn enemies with Actions can take one Action and move.\
 Each round of combat represents 30 seconds of in game time.
 
 ## Exchanges
@@ -269,14 +269,14 @@ Each round of combat represents 30 seconds of in game time.
 slug: EXCHANGES
 
 ruleType: RULE\
-When a character attacks or casts an offensive spell at another creature or creatures an exchange begins. To start the exchange, Test your Attack, adding your Base Attack Bonus. The defenders Armor and Counter become the Success and Failure points of the Test. If you Succeed on the Test then the hit is clean and there is no room for retaliation. If the result is Mixed then you Clash. You can either choose to deal no damage or strike but leave yourself open to counter attack. Your Attack is resolved first, and then the target can use one of their Counter Actions. If you Fail the Test, your Attack is countered, with no effect and the target can use one of their counter moves.
+When a character attacks or casts an offensive spell at another creature or creatures an Exchange begins. To start the Exchange, Test your Attack, adding your Base Attack Bonus. The defenders Armor and Counter become the Success and Failure points of the Test. If you Succeed on the Test then the hit is clean and there is no room for retaliation. If the result is Mixed then you Clash. You can either choose to end the Exchange or Clash. If you Clash, you and your target both choose a Clash Action to use. If you Fail the test, your attack is Countered and the target gets to use a Clash Action.
 
 ### AOE Exchanges
 
 slug: AOE-EXCHANGES
 
 ruleType: RULE\
-When your Attack targets multiple enemies, roll a single Attack Test, and compare to each enemy's defenses. If the roll would be a Clash or Counter, the GM chooses which creature will get to take a Counter Action.
+When your Attack targets multiple enemies, roll a single Attack Test, and compare to each enemy's defenses. If the roll would be a Clash or Counter, the GM chooses which creature will get to take a Clash Action.
 
 ### Engaging an Enemy
 
@@ -328,7 +328,7 @@ Your Counter is equal to your Armor-5.
 slug: BASIC-ACTIONS
 
 ruleType: LISTCOMPACT\
-These Actions are available to all players all the time.
+These Actions are available to all characters. Each round a character can take 1 Action.
 
 ### Attack
 
@@ -340,7 +340,7 @@ Attack with one of your proficient weapons or magic. You deal your Base Damage.
 
 slug: CAREFUL-ATTACK
 
-Attack with one of your proficient weapons or magic. You deal half your Base Damage. A Miss or Clash does not trigger a Counter from the enemy.
+Attack with one of your proficient weapons or magic. You deal half your Base Damage. A Miss or Clash does not trigger Clash Actions for the target.
 
 ### Defend
 
@@ -360,33 +360,45 @@ slug: SPRINT
 
 Double your Speed this turn.
 
-## Basic Counters
+## Basic Clash Moves
 
-slug: BASIC-COUNTERS
+slug: BASIC-CLASH-MOVES
 
 ruleType: LISTCOMPACT\
-These Counters are available to all players all the time.
+These Actions can be used whenever you Clash with an enemy, they miss you with an Attack in addition to being used as an Action.
 
-### Counter Attack
+### Push
 
-slug: COUNTER-ATTACK
+slug: CLASH-PUSH
 
-Attack the target with your currently equipped weapon or magic. Counter Attacks deal 1 dice steps less than your Base Damage. The first time you make a Counter Attack in a round you can pick which weapon you have equipped.
-EG: You attack a goblin with your sword. You get an 11 on the Attack causing a Clash. You choose to trade damage, the goblin draws their daggers to make the Counter Attack. Now Ryle the Ranger makes a ranged Attack against the same goblin. They also roll an 11 and choose to trade damage, but because the goblin already has their daggers out, they cannot use the Counter Attack as their Counter Action.
+Move the target 5 ft. into an unoccupied space.
 
-### Dive Roll
+### Stagger
 
-slug: DIVE-ROLL
+slug: CLASH-STAGGER
 
-Move up to 10 ft. in a straight line.
+Halve the targets Base Speed.
+
+### Expose
+
+slug: CLASH-EXPOSE
+
+Choose an ally, they get a +3 to their next Attack Test against the target.
+
+### Guard Step
+
+slug: CLASH-GUARD-STEP
+
+Move 5ft. away from the target and gain +2 Armor
 
 ## Moving in Combat
 
 slug: MOVING-COMBAT
 
 ruleType: RULE\
-In addition to an Action, you can move during your turn in combat, moving up to your Speed in any direction. You can move at any point during your turn, and can split your move before and after your action.\
-EG: You move 10 ft. Make an Attack and then move another 20 ft. If you move away from an enemy, they get a chance to make a counter attack against you as you try to slip by.
+In addition to an Action, you can move during your turn in combat, moving up to your Speed in any direction. You can move at any point during your turn, and can split your move before and after your Action.\
+If you pass into melee range of an enemy, your Speed is reduced by half.
+EG: If you a speed of 30 ft. you can move 10 ft. Make an Attack and then move another 20 ft. But, if you moved into melee range to make the attack, you'd only be able to move 10 ft. after the attack.
 
 ### Getting Down and Standing Up
 

@@ -101,6 +101,7 @@ export type Character = {
   agility: Scalars['Int']['output'];
   armorName: Scalars['String']['output'];
   baseDamage: Scalars['Int']['output'];
+  campaign?: Maybe<Campaign>;
   characterClass: CharacterClass;
   characterCulture: Culture;
   characterLineage: Lineage;
@@ -727,6 +728,7 @@ export type TrainingOptions = {
 export type User = {
   __typename?: 'User';
   characters?: Maybe<Array<Maybe<Character>>>;
+  createdCampaigns?: Maybe<Array<Maybe<Campaign>>>;
   createdShops?: Maybe<Array<Maybe<ItemShop>>>;
   email: Scalars['String']['output'];
   id: Scalars['ID']['output'];
@@ -858,11 +860,11 @@ export type ResolversTypes = {
   Int: ResolverTypeWrapper<Scalars['Int']['output']>;
   BeastStats: ResolverTypeWrapper<BeastStats>;
   BeastmasterPet: ResolverTypeWrapper<BeastmasterPet>;
-  Campaign: ResolverTypeWrapper<Omit<Campaign, 'characters' | 'owner' | 'shops'> & { characters: Array<Maybe<ResolversTypes['Character']>>, owner: ResolversTypes['User'], shops: Array<Maybe<ResolversTypes['ItemShop']>> }>;
+  Campaign: ResolverTypeWrapper<Omit<Campaign, 'characters' | 'owner'> & { characters: Array<Maybe<ResolversTypes['Character']>>, owner: ResolversTypes['User'] }>;
   ID: ResolverTypeWrapper<Scalars['ID']['output']>;
   CampaignInput: CampaignInput;
   CampaignStatus: CampaignStatus;
-  Character: ResolverTypeWrapper<Omit<Character, 'characterClass' | 'characterCulture' | 'characterLineage' | 'createdBy' | 'items'> & { characterClass: ResolversTypes['CharacterClass'], characterCulture: ResolversTypes['Culture'], characterLineage: ResolversTypes['Lineage'], createdBy: ResolversTypes['User'], items: Array<Maybe<ResolversTypes['Item']>> }>;
+  Character: ResolverTypeWrapper<Omit<Character, 'characterClass' | 'characterCulture' | 'characterLineage' | 'createdBy'> & { characterClass: ResolversTypes['CharacterClass'], characterCulture: ResolversTypes['Culture'], characterLineage: ResolversTypes['Lineage'], createdBy: ResolversTypes['User'] }>;
   CharacterClass: ResolverTypeWrapper<Omit<CharacterClass, 'damage' | 'features'> & { damage: ResolversTypes['Damage'], features: Array<Maybe<ResolversTypes['CharacterClassFeature']>> }>;
   CharacterClassFeature: ResolverTypeWrapper<Omit<CharacterClassFeature, 'choices'> & { choices?: Maybe<Array<ResolversTypes['FeatureChoices']>> }>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']['output']>;
@@ -880,15 +882,15 @@ export type ResolversTypes = {
   FeatureWithoutChoices: ResolverTypeWrapper<FeatureWithoutChoices>;
   GenericFeature: ResolverTypeWrapper<Omit<GenericFeature, 'choices'> & { choices?: Maybe<Array<ResolversTypes['FeatureChoices']>> }>;
   GenericRule: ResolverTypeWrapper<GenericRule>;
-  Item: ResolverTypeWrapper<Omit<Item, 'couldStock' | 'createdBy' | 'heldBy'> & { couldStock: Array<Maybe<ResolversTypes['ItemShop']>>, createdBy: ResolversTypes['User'], heldBy: Array<Maybe<ResolversTypes['Character']>> }>;
+  Item: ResolverTypeWrapper<Omit<Item, 'createdBy' | 'heldBy'> & { createdBy: ResolversTypes['User'], heldBy: Array<Maybe<ResolversTypes['Character']>> }>;
   ItemInStockInput: ItemInStockInput;
   ItemInput: ItemInput;
-  ItemShop: ResolverTypeWrapper<Omit<ItemShop, 'createdBy' | 'itemsCouldStock' | 'itemsInStock'> & { createdBy: ResolversTypes['User'], itemsCouldStock: Array<Maybe<ResolversTypes['Item']>>, itemsInStock: Array<Maybe<ResolversTypes['Item']>> }>;
+  ItemShop: ResolverTypeWrapper<Omit<ItemShop, 'createdBy'> & { createdBy: ResolversTypes['User'] }>;
   ItemShopInput: ItemShopInput;
   Lineage: ResolverTypeWrapper<Omit<Lineage, 'traits'> & { traits?: Maybe<Array<ResolversTypes['GenericFeature']>> }>;
   List: ResolverTypeWrapper<List>;
   Mutation: ResolverTypeWrapper<{}>;
-  MyCampaignsResult: ResolverTypeWrapper<Omit<MyCampaignsResult, 'in' | 'owned'> & { in: Array<Maybe<ResolversTypes['Campaign']>>, owned: Array<Maybe<ResolversTypes['Campaign']>> }>;
+  MyCampaignsResult: ResolverTypeWrapper<MyCampaignsResult>;
   Query: ResolverTypeWrapper<{}>;
   Range: ResolverTypeWrapper<Range>;
   Rarity: Rarity;
@@ -909,7 +911,7 @@ export type ResolversTypes = {
   StatOptions: StatOptions;
   Training: ResolverTypeWrapper<Training>;
   TrainingOptions: ResolverTypeWrapper<TrainingOptions>;
-  User: ResolverTypeWrapper<Omit<User, 'characters' | 'createdShops'> & { characters?: Maybe<Array<Maybe<ResolversTypes['Character']>>>, createdShops?: Maybe<Array<Maybe<ResolversTypes['ItemShop']>>> }>;
+  User: ResolverTypeWrapper<Omit<User, 'characters'> & { characters?: Maybe<Array<Maybe<ResolversTypes['Character']>>> }>;
   Uses: ResolverTypeWrapper<Uses>;
   UsesInput: UsesInput;
   VERSIONS: VERSIONS;
@@ -928,10 +930,10 @@ export type ResolversParentTypes = {
   Int: Scalars['Int']['output'];
   BeastStats: BeastStats;
   BeastmasterPet: BeastmasterPet;
-  Campaign: Omit<Campaign, 'characters' | 'owner' | 'shops'> & { characters: Array<Maybe<ResolversParentTypes['Character']>>, owner: ResolversParentTypes['User'], shops: Array<Maybe<ResolversParentTypes['ItemShop']>> };
+  Campaign: Omit<Campaign, 'characters' | 'owner'> & { characters: Array<Maybe<ResolversParentTypes['Character']>>, owner: ResolversParentTypes['User'] };
   ID: Scalars['ID']['output'];
   CampaignInput: CampaignInput;
-  Character: Omit<Character, 'characterClass' | 'characterCulture' | 'characterLineage' | 'createdBy' | 'items'> & { characterClass: ResolversParentTypes['CharacterClass'], characterCulture: ResolversParentTypes['Culture'], characterLineage: ResolversParentTypes['Lineage'], createdBy: ResolversParentTypes['User'], items: Array<Maybe<ResolversParentTypes['Item']>> };
+  Character: Omit<Character, 'characterClass' | 'characterCulture' | 'characterLineage' | 'createdBy'> & { characterClass: ResolversParentTypes['CharacterClass'], characterCulture: ResolversParentTypes['Culture'], characterLineage: ResolversParentTypes['Lineage'], createdBy: ResolversParentTypes['User'] };
   CharacterClass: Omit<CharacterClass, 'damage' | 'features'> & { damage: ResolversParentTypes['Damage'], features: Array<Maybe<ResolversParentTypes['CharacterClassFeature']>> };
   CharacterClassFeature: Omit<CharacterClassFeature, 'choices'> & { choices?: Maybe<Array<ResolversParentTypes['FeatureChoices']>> };
   Boolean: Scalars['Boolean']['output'];
@@ -947,15 +949,15 @@ export type ResolversParentTypes = {
   FeatureWithoutChoices: FeatureWithoutChoices;
   GenericFeature: Omit<GenericFeature, 'choices'> & { choices?: Maybe<Array<ResolversParentTypes['FeatureChoices']>> };
   GenericRule: GenericRule;
-  Item: Omit<Item, 'couldStock' | 'createdBy' | 'heldBy'> & { couldStock: Array<Maybe<ResolversParentTypes['ItemShop']>>, createdBy: ResolversParentTypes['User'], heldBy: Array<Maybe<ResolversParentTypes['Character']>> };
+  Item: Omit<Item, 'createdBy' | 'heldBy'> & { createdBy: ResolversParentTypes['User'], heldBy: Array<Maybe<ResolversParentTypes['Character']>> };
   ItemInStockInput: ItemInStockInput;
   ItemInput: ItemInput;
-  ItemShop: Omit<ItemShop, 'createdBy' | 'itemsCouldStock' | 'itemsInStock'> & { createdBy: ResolversParentTypes['User'], itemsCouldStock: Array<Maybe<ResolversParentTypes['Item']>>, itemsInStock: Array<Maybe<ResolversParentTypes['Item']>> };
+  ItemShop: Omit<ItemShop, 'createdBy'> & { createdBy: ResolversParentTypes['User'] };
   ItemShopInput: ItemShopInput;
   Lineage: Omit<Lineage, 'traits'> & { traits?: Maybe<Array<ResolversParentTypes['GenericFeature']>> };
   List: List;
   Mutation: {};
-  MyCampaignsResult: Omit<MyCampaignsResult, 'in' | 'owned'> & { in: Array<Maybe<ResolversParentTypes['Campaign']>>, owned: Array<Maybe<ResolversParentTypes['Campaign']>> };
+  MyCampaignsResult: MyCampaignsResult;
   Query: {};
   Range: Range;
   Rule: ResolversInterfaceTypes<ResolversParentTypes>['Rule'];
@@ -968,7 +970,7 @@ export type ResolversParentTypes = {
   Speed: Speed;
   Training: Training;
   TrainingOptions: TrainingOptions;
-  User: Omit<User, 'characters' | 'createdShops'> & { characters?: Maybe<Array<Maybe<ResolversParentTypes['Character']>>>, createdShops?: Maybe<Array<Maybe<ResolversParentTypes['ItemShop']>>> };
+  User: Omit<User, 'characters'> & { characters?: Maybe<Array<Maybe<ResolversParentTypes['Character']>>> };
   Uses: Uses;
   UsesInput: UsesInput;
   Weapons: Weapons;
@@ -1040,6 +1042,7 @@ export type CharacterResolvers<ContextType = any, ParentType extends ResolversPa
   agility?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   armorName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   baseDamage?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  campaign?: Resolver<Maybe<ResolversTypes['Campaign']>, ParentType, ContextType>;
   characterClass?: Resolver<ResolversTypes['CharacterClass'], ParentType, ContextType>;
   characterCulture?: Resolver<ResolversTypes['Culture'], ParentType, ContextType>;
   characterLineage?: Resolver<ResolversTypes['Lineage'], ParentType, ContextType>;
@@ -1383,6 +1386,7 @@ export type TrainingOptionsResolvers<ContextType = any, ParentType extends Resol
 
 export type UserResolvers<ContextType = any, ParentType extends ResolversParentTypes['User'] = ResolversParentTypes['User']> = {
   characters?: Resolver<Maybe<Array<Maybe<ResolversTypes['Character']>>>, ParentType, ContextType>;
+  createdCampaigns?: Resolver<Maybe<Array<Maybe<ResolversTypes['Campaign']>>>, ParentType, ContextType>;
   createdShops?: Resolver<Maybe<Array<Maybe<ResolversTypes['ItemShop']>>>, ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;

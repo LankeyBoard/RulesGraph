@@ -430,6 +430,7 @@ type User {
   email: String!
   characters: [Character]
   createdShops: [ItemShop]
+  createdCampaigns: [Campaign]
 }
 
 type AuthPayload {
@@ -438,6 +439,7 @@ type AuthPayload {
 }
 
 type Character {
+  campaign: Campaign
   id: ID!
   name: String!
   createdBy: User!
