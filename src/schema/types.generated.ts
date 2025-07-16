@@ -729,7 +729,7 @@ export type User = {
   __typename?: 'User';
   characters?: Maybe<Array<Maybe<Character>>>;
   createdCampaigns?: Maybe<Array<Maybe<Campaign>>>;
-  createdShops?: Maybe<Array<Maybe<ItemShop>>>;
+  createdItemShops?: Maybe<Array<Maybe<ItemShop>>>;
   email: Scalars['String']['output'];
   id: Scalars['ID']['output'];
   name?: Maybe<Scalars['String']['output']>;
@@ -1387,7 +1387,7 @@ export type TrainingOptionsResolvers<ContextType = any, ParentType extends Resol
 export type UserResolvers<ContextType = any, ParentType extends ResolversParentTypes['User'] = ResolversParentTypes['User']> = {
   characters?: Resolver<Maybe<Array<Maybe<ResolversTypes['Character']>>>, ParentType, ContextType>;
   createdCampaigns?: Resolver<Maybe<Array<Maybe<ResolversTypes['Campaign']>>>, ParentType, ContextType>;
-  createdShops?: Resolver<Maybe<Array<Maybe<ResolversTypes['ItemShop']>>>, ParentType, ContextType>;
+  createdItemShops?: Resolver<Maybe<Array<Maybe<ResolversTypes['ItemShop']>>>, ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;

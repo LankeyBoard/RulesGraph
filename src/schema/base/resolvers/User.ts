@@ -1,4 +1,12 @@
 import type { UserResolvers } from "./../../types.generated";
 export const User: UserResolvers = {
-  /* Implement User resolver logic here */
+  characters: (parent) => {
+    return parent.characters ?? [];
+  },
+  createdCampaigns: (parent) => {
+    return parent.createdCampaigns ?? [];
+  },
+  createdItemShops: (parent) => {
+    return parent.createdItemShops ?? [];
+  },
 };

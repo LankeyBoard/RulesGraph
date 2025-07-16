@@ -486,7 +486,7 @@ const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "When a character attacks or casts an offensive spell at another creature or creatures an Exchange begins. To start the Exchange, Test your Attack, adding your Base Attack Bonus. The defenders Armor and Counter become the Success and Failure points of the Test. If you Succeed on the Test then the hit is clean and there is no room for retaliation. If the result is Mixed then you Clash. You can either choose to end the Exchange or Clash. If you Clash, you and your target both choose a Clash Action to use. If you Fail the test, your attack is Countered and the target gets to use a Clash Action.",
+            text: "When a character attacks or casts an offensive spell at another creature or creatures an Exchange begins. To start the Exchange, Test your Attack, adding your Base Attack Bonus. The defenders Armor and Counter become the Success and Failure points of the Test. If you Succeed on the Test then the hit is clean and there is no room for retaliation. If the result is Mixed then you Clash. When you Clash, you and your target both choose a Counter Action to use. If you Fail the test, your attack is Countered and the target gets to use a Counter Action.",
             type: "RULE",
           },
         ],
@@ -646,8 +646,8 @@ const generalRules: GenericRule[] = [
         ],
       },
       {
-        title: "Basic Clash Moves",
-        slug: "BASIC-CLASH-MOVES",
+        title: "Basic Counters",
+        slug: "BASIC-COUNTERS",
         ruleType: "LISTCOMPACT",
         text: [
           {
@@ -658,7 +658,7 @@ const generalRules: GenericRule[] = [
         subRules: [
           {
             title: "Push",
-            slug: "CLASH-PUSH",
+            slug: "COUNTER-PUSH",
             text: [
               {
                 text: "Move the target 5 ft. into an unoccupied space.",
@@ -668,7 +668,7 @@ const generalRules: GenericRule[] = [
           },
           {
             title: "Stagger",
-            slug: "CLASH-STAGGER",
+            slug: "COUNTER-STAGGER",
             text: [
               {
                 text: "Halve the targets Base Speed.",
@@ -678,7 +678,7 @@ const generalRules: GenericRule[] = [
           },
           {
             title: "Expose",
-            slug: "CLASH-EXPOSE",
+            slug: "COUNTER-EXPOSE",
             text: [
               {
                 text: "Choose an ally, they get a +3 to their next Attack Test against the target.",
@@ -688,7 +688,7 @@ const generalRules: GenericRule[] = [
           },
           {
             title: "Guard Step",
-            slug: "CLASH-GUARD-STEP",
+            slug: "COUNTER-GUARD-STEP",
             text: [
               {
                 text: "Move 5ft. away from the target and gain +2 Armor",
@@ -1144,7 +1144,7 @@ const generalRules: GenericRule[] = [
             ruleType: "RULE",
             text: [
               {
-                text: "If you move up to 10 ft. before jumping: (4 + 2    *Mettle) ft. horizontally (Min 2 ft.)",
+                text: "If you move up to 10 ft. before jumping: (4 + 2*Mettle) ft. horizontally (Min 2 ft.)",
                 type: "RULE",
               },
             ],

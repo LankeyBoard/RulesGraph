@@ -269,7 +269,7 @@ Each round of combat represents 30 seconds of in game time.
 slug: EXCHANGES
 
 ruleType: RULE\
-When a character attacks or casts an offensive spell at another creature or creatures an Exchange begins. To start the Exchange, Test your Attack, adding your Base Attack Bonus. The defenders Armor and Counter become the Success and Failure points of the Test. If you Succeed on the Test then the hit is clean and there is no room for retaliation. If the result is Mixed then you Clash. You can either choose to end the Exchange or Clash. If you Clash, you and your target both choose a Clash Action to use. If you Fail the test, your attack is Countered and the target gets to use a Clash Action.
+When a character attacks or casts an offensive spell at another creature or creatures an Exchange begins. To start the Exchange, Test your Attack, adding your Base Attack Bonus. The defenders Armor and Counter become the Success and Failure points of the Test. If you Succeed on the Test then the hit is clean and there is no room for retaliation. If the result is Mixed then you Clash. When you Clash, you and your target both choose a Counter Action to use. If you Fail the test, your attack is Countered and the target gets to use a Counter Action.
 
 ### AOE Exchanges
 
@@ -360,34 +360,34 @@ slug: SPRINT
 
 Double your Speed this turn.
 
-## Basic Clash Moves
+## Basic Counters
 
-slug: BASIC-CLASH-MOVES
+slug: BASIC-COUNTERS
 
 ruleType: LISTCOMPACT\
 These Actions can be used whenever you Clash with an enemy, they miss you with an Attack in addition to being used as an Action.
 
 ### Push
 
-slug: CLASH-PUSH
+slug: COUNTER-PUSH
 
 Move the target 5 ft. into an unoccupied space.
 
 ### Stagger
 
-slug: CLASH-STAGGER
+slug: COUNTER-STAGGER
 
 Halve the targets Base Speed.
 
 ### Expose
 
-slug: CLASH-EXPOSE
+slug: COUNTER-EXPOSE
 
 Choose an ally, they get a +3 to their next Attack Test against the target.
 
 ### Guard Step
 
-slug: CLASH-GUARD-STEP
+slug: COUNTER-GUARD-STEP
 
 Move 5ft. away from the target and gain +2 Armor
 
