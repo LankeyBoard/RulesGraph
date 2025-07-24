@@ -2,3 +2,5 @@ node_modules/
 generatedRules.ts
 .generatedRules
 .env
+.continue/
+.vscode/

@@ -306,6 +306,10 @@ const playerClasses: CharacterClass[] = [
             type: "RULE",
             text: "Casting Spells: To cast a spell you spend stamina equal to the spell's level while using your Holy Symbol.",
           },
+          {
+            type: "RULE",
+            text: "[All Spells](/rules/spells)",
+          },
         ],
       },
       {
@@ -321,7 +325,7 @@ const playerClasses: CharacterClass[] = [
           },
           {
             type: "FLAVOR",
-            text: "E.g., if you are using a staff, you have to be holding it in one hand or if you have a tattoo on the back of your hand, then you can't have anything in that hand to cast.",
+            text: "If you are using a staff, you have to be holding it in one hand or if you have a tattoo on the back of your hand, then you can't have anything in that hand to cast.",
           },
         ],
       },
