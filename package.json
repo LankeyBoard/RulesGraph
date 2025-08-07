@@ -304,7 +304,8 @@
     "generate": "graphql-codegen",
     "build": "npm install && npm run generate",
     "writeMD": "ts-node src/makeMdFromObjs.ts",
-    "writeTS": "ts-node src/makeObjFromMD.ts"
+    "writeTS": "ts-node src/makeObjFromMD.ts",
+    "simulateCombat": "ts-node timeToDie.ts"
   },
   "keywords": [],
   "author": "",

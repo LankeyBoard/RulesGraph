@@ -684,6 +684,10 @@ const generalRules: GenericRule[] = [
                 text: "Choose an ally, they get a +3 to their next Attack Test against the target.",
                 type: "RULE",
               },
+              {
+                text: "An ally can only benefit from Expose once per target.",
+                type: "RULE",
+              },
             ],
           },
           {
@@ -691,7 +695,7 @@ const generalRules: GenericRule[] = [
             slug: "COUNTER-GUARD-STEP",
             text: [
               {
-                text: "Move 5ft. away from the target and gain +2 Armor",
+                text: "Move 5ft. away from the target.",
                 type: "RULE",
               },
             ],
@@ -1008,7 +1012,7 @@ const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "When you are reduced to 0 Health and are not unconscious, you can opt to make a Last Stand, pushing yourself to the absolute limit, knowing these will be your final moments. You immediately and the start of each round of combat regain all of your Health & Stamina. If you are reduced to 0 Stamina or at the end of the 1 minute, you die.",
+            text: "When you are reduced to 0 Health and are not unconscious, you can opt to make a Last Stand, pushing yourself to the absolute limit, knowing these will be your final moments. You immediately and the start of each round of combat regain all of your Health & Stamina. If you are reduced to 0 Stamina or at the end of the 2 rounds, you die.",
             type: "RULE",
           },
         ],

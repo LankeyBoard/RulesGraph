@@ -2,7 +2,7 @@ import cultures from "../../../../rules/1b/cultures";
 import lineages from "../../../../rules/1b/lineages";
 import playerClasses from "../../../../rules/1b/playerClasses";
 import type { QueryResolvers } from "./../../../types.generated";
-export const me: NonNullable<QueryResolvers["me"]> = async (
+export const me: NonNullable<QueryResolvers['me']> = async (
   _parent,
   _arg,
   _ctx,
