@@ -42,6 +42,7 @@ type Query {
 
 type Mutation {
   createUser(name: String, email: String!, password: String!): AuthPayload
+  updateMe(name: String, email: String, password: String): AuthPayload
   login(email: String!, password: String!): AuthPayload
   createCharacter(input: CharacterInput): Character
   updateCharacter(id: ID!, input: CharacterInput): Character
@@ -61,6 +62,8 @@ type Mutation {
   removeCharacterFromCampaign(campaignId: ID!, characterId: ID!): Campaign!
   addShopToCampaign(campaignId: ID!, shopId: ID!): Campaign!
   removeShopFromCampaign(campaignId: ID!, shopId: ID!): Campaign!
+  forgotPassword(email: String!): Boolean
+  setPassword(forgotPasswordId: String!, newPassword: String!): User
 }
 
 #########
