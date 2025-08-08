@@ -62,7 +62,7 @@ type Mutation {
   removeCharacterFromCampaign(campaignId: ID!, characterId: ID!): Campaign!
   addShopToCampaign(campaignId: ID!, shopId: ID!): Campaign!
   removeShopFromCampaign(campaignId: ID!, shopId: ID!): Campaign!
-  forgotPassword(email: String!): Boolean
+  forgotPassword(email: String!, baseUrl: String): Boolean
   setPassword(forgotPasswordId: String!, newPassword: String!): User
 }
 

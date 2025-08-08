@@ -464,6 +464,7 @@ export type MutationdeleteShopArgs = {
 
 
 export type MutationforgotPasswordArgs = {
+  baseUrl?: InputMaybe<Scalars['String']['input']>;
   email: Scalars['String']['input'];
 };
 

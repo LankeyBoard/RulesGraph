@@ -3,7 +3,7 @@ import { sign } from "jsonwebtoken";
 
 import type { MutationResolvers } from "./../../../types.generated";
 import { AUTH_SIGNING_SECRET } from "../../../../auth";
-export const updateMe: NonNullable<MutationResolvers["updateMe"]> = async (
+export const updateMe: NonNullable<MutationResolvers['updateMe']> = async (
   _parent,
   _arg,
   _ctx,

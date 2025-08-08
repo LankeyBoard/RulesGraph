@@ -1,8 +1,6 @@
 import { hash } from "bcryptjs";
 import type { MutationResolvers } from "./../../../types.generated";
-export const setPassword: NonNullable<
-  MutationResolvers["setPassword"]
-> = async (_parent, _arg, _ctx) => {
+export const setPassword: NonNullable<MutationResolvers['setPassword']> = async (_parent, _arg, _ctx) => {
   const { forgotPasswordId, newPassword } = _arg;
   const now = new Date();
   const forgotPasswordEntry =

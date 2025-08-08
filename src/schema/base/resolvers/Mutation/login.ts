@@ -2,7 +2,7 @@ import { compare } from "bcryptjs";
 import type { MutationResolvers } from "./../../../types.generated";
 import { sign } from "jsonwebtoken";
 import { AUTH_SIGNING_SECRET } from "../../../../auth";
-export const login: NonNullable<MutationResolvers["login"]> = async (
+export const login: NonNullable<MutationResolvers['login']> = async (
   _parent,
   _arg,
   _ctx,
