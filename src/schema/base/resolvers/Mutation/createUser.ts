@@ -7,7 +7,6 @@ export const createUser: NonNullable<MutationResolvers['createUser']> = async (
   _arg,
   _ctx,
 ) => {
-  /* Implement Mutation.createUser resolver logic here */
   const password = await hash(_arg.password, 10);
   const newUser = await _ctx.prisma.user.create({
     data: {

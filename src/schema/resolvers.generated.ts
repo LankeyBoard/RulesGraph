@@ -31,11 +31,14 @@ import    { createUser as Mutation_createUser } from './base/resolvers/Mutation/
 import    { deleteCampaign as Mutation_deleteCampaign } from './base/resolvers/Mutation/deleteCampaign';
 import    { deleteCharacter as Mutation_deleteCharacter } from './base/resolvers/Mutation/deleteCharacter';
 import    { deleteShop as Mutation_deleteShop } from './base/resolvers/Mutation/deleteShop';
+import    { forgotPassword as Mutation_forgotPassword } from './base/resolvers/Mutation/forgotPassword';
 import    { login as Mutation_login } from './base/resolvers/Mutation/login';
 import    { removeCharacterFromCampaign as Mutation_removeCharacterFromCampaign } from './base/resolvers/Mutation/removeCharacterFromCampaign';
 import    { removeShopFromCampaign as Mutation_removeShopFromCampaign } from './base/resolvers/Mutation/removeShopFromCampaign';
+import    { setPassword as Mutation_setPassword } from './base/resolvers/Mutation/setPassword';
 import    { updateCampaign as Mutation_updateCampaign } from './base/resolvers/Mutation/updateCampaign';
 import    { updateCharacter as Mutation_updateCharacter } from './base/resolvers/Mutation/updateCharacter';
+import    { updateMe as Mutation_updateMe } from './base/resolvers/Mutation/updateMe';
 import    { updateShop as Mutation_updateShop } from './base/resolvers/Mutation/updateShop';
 import    { MyCampaignsResult } from './base/resolvers/MyCampaignsResult';
 import    { allCampaigns as Query_allCampaigns } from './base/resolvers/Query/allCampaigns';
@@ -72,7 +75,7 @@ import    { shifterArmor } from './base/resolvers/shifterArmor';
 import    { shifterFeature } from './base/resolvers/shifterFeature';
     export const resolvers: Resolvers = {
       Query: { allCampaigns: Query_allCampaigns,allItems: Query_allItems,allShops: Query_allShops,campaign: Query_campaign,character: Query_character,characterClasses: Query_characterClasses,cultures: Query_cultures,genericRules: Query_genericRules,itemShop: Query_itemShop,lineages: Query_lineages,me: Query_me,myCampaigns: Query_myCampaigns,rules: Query_rules,searchAll: Query_searchAll,slugMap: Query_slugMap,universalFeatures: Query_universalFeatures,user: Query_user,users: Query_users },
-      Mutation: { addCharacterToCampaign: Mutation_addCharacterToCampaign,addShopToCampaign: Mutation_addShopToCampaign,createCampaign: Mutation_createCampaign,createCharacter: Mutation_createCharacter,createShop: Mutation_createShop,createUser: Mutation_createUser,deleteCampaign: Mutation_deleteCampaign,deleteCharacter: Mutation_deleteCharacter,deleteShop: Mutation_deleteShop,login: Mutation_login,removeCharacterFromCampaign: Mutation_removeCharacterFromCampaign,removeShopFromCampaign: Mutation_removeShopFromCampaign,updateCampaign: Mutation_updateCampaign,updateCharacter: Mutation_updateCharacter,updateShop: Mutation_updateShop },
+      Mutation: { addCharacterToCampaign: Mutation_addCharacterToCampaign,addShopToCampaign: Mutation_addShopToCampaign,createCampaign: Mutation_createCampaign,createCharacter: Mutation_createCharacter,createShop: Mutation_createShop,createUser: Mutation_createUser,deleteCampaign: Mutation_deleteCampaign,deleteCharacter: Mutation_deleteCharacter,deleteShop: Mutation_deleteShop,forgotPassword: Mutation_forgotPassword,login: Mutation_login,removeCharacterFromCampaign: Mutation_removeCharacterFromCampaign,removeShopFromCampaign: Mutation_removeShopFromCampaign,setPassword: Mutation_setPassword,updateCampaign: Mutation_updateCampaign,updateCharacter: Mutation_updateCharacter,updateMe: Mutation_updateMe,updateShop: Mutation_updateShop },
       
       AuthPayload: AuthPayload,
 BeastAbility: BeastAbility,

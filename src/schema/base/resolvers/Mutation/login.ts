@@ -7,14 +7,13 @@ export const login: NonNullable<MutationResolvers['login']> = async (
   _arg,
   _ctx,
 ) => {
-  /* Implement Mutation.login resolver logic here */
   const user: { id: string; password: string; email: string } =
     await _ctx.prisma.user.findUnique({
       where: { email: _arg.email },
     });
 
   if (!user) {
-    throw new Error("No user found");
+    throw new Error(`No user found with email: ${_arg.email}`);
   }
   console.log(_arg.password, user.password);
 

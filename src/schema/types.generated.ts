@@ -402,11 +402,14 @@ export type Mutation = {
   deleteCampaign: Scalars['Boolean']['output'];
   deleteCharacter?: Maybe<Scalars['Boolean']['output']>;
   deleteShop?: Maybe<Scalars['Boolean']['output']>;
+  forgotPassword?: Maybe<Scalars['Boolean']['output']>;
   login?: Maybe<AuthPayload>;
   removeCharacterFromCampaign: Campaign;
   removeShopFromCampaign: Campaign;
+  setPassword?: Maybe<User>;
   updateCampaign: Campaign;
   updateCharacter?: Maybe<Character>;
+  updateMe?: Maybe<AuthPayload>;
   updateShop?: Maybe<ItemShop>;
 };
 
@@ -460,6 +463,12 @@ export type MutationdeleteShopArgs = {
 };
 
 
+export type MutationforgotPasswordArgs = {
+  baseUrl?: InputMaybe<Scalars['String']['input']>;
+  email: Scalars['String']['input'];
+};
+
+
 export type MutationloginArgs = {
   email: Scalars['String']['input'];
   password: Scalars['String']['input'];
@@ -478,6 +487,12 @@ export type MutationremoveShopFromCampaignArgs = {
 };
 
 
+export type MutationsetPasswordArgs = {
+  forgotPasswordId: Scalars['String']['input'];
+  newPassword: Scalars['String']['input'];
+};
+
+
 export type MutationupdateCampaignArgs = {
   characterIds?: InputMaybe<Array<Scalars['ID']['input']>>;
   id: Scalars['ID']['input'];
@@ -489,6 +504,13 @@ export type MutationupdateCampaignArgs = {
 export type MutationupdateCharacterArgs = {
   id: Scalars['ID']['input'];
   input?: InputMaybe<CharacterInput>;
+};
+
+
+export type MutationupdateMeArgs = {
+  email?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  password?: InputMaybe<Scalars['String']['input']>;
 };
 
 
@@ -1271,11 +1293,14 @@ export type MutationResolvers<ContextType = any, ParentType extends ResolversPar
   deleteCampaign?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType, RequireFields<MutationdeleteCampaignArgs, 'id'>>;
   deleteCharacter?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType, RequireFields<MutationdeleteCharacterArgs, 'id'>>;
   deleteShop?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType, RequireFields<MutationdeleteShopArgs, 'id'>>;
+  forgotPassword?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType, RequireFields<MutationforgotPasswordArgs, 'email'>>;
   login?: Resolver<Maybe<ResolversTypes['AuthPayload']>, ParentType, ContextType, RequireFields<MutationloginArgs, 'email' | 'password'>>;
   removeCharacterFromCampaign?: Resolver<ResolversTypes['Campaign'], ParentType, ContextType, RequireFields<MutationremoveCharacterFromCampaignArgs, 'campaignId' | 'characterId'>>;
   removeShopFromCampaign?: Resolver<ResolversTypes['Campaign'], ParentType, ContextType, RequireFields<MutationremoveShopFromCampaignArgs, 'campaignId' | 'shopId'>>;
+  setPassword?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType, RequireFields<MutationsetPasswordArgs, 'forgotPasswordId' | 'newPassword'>>;
   updateCampaign?: Resolver<ResolversTypes['Campaign'], ParentType, ContextType, RequireFields<MutationupdateCampaignArgs, 'id' | 'input'>>;
   updateCharacter?: Resolver<Maybe<ResolversTypes['Character']>, ParentType, ContextType, RequireFields<MutationupdateCharacterArgs, 'id'>>;
+  updateMe?: Resolver<Maybe<ResolversTypes['AuthPayload']>, ParentType, ContextType, Partial<MutationupdateMeArgs>>;
   updateShop?: Resolver<Maybe<ResolversTypes['ItemShop']>, ParentType, ContextType, RequireFields<MutationupdateShopArgs, 'id'>>;
 };
 

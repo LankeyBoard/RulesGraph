@@ -9,14 +9,22 @@ datasource db {
 }
 
 model User {
-  id               Int         @id @default(autoincrement())
-  name             String?     @db.VarChar(255)
-  email            String      @unique @db.VarChar(255)
-  password         String
-  characters       Character[]
-  createdItems     Item[]
-  createdItemShops ItemShop[]
-  createdCampaigns Campaign[]
+  id                    Int                     @id @default(autoincrement())
+  name                  String?                 @db.VarChar(255)
+  email                 String                  @unique @db.VarChar(255)
+  password              String
+  characters            Character[]
+  createdItems          Item[]
+  createdItemShops      ItemShop[]
+  createdCampaigns      Campaign[]
+  ForgottenPasswordLink ForgottenPasswordLink[]
+}
+
+model ForgottenPasswordLink {
+  id        String   @id @default(uuid())
+  createdAt DateTime
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
 }
 
 model Character {
