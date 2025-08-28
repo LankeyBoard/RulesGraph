@@ -81,5 +81,17 @@ export const createCharacter: NonNullable<MutationResolvers['createCharacter']> 
     },
   });
   console.log("newCharacter items", newCharacter.items);
+  newCharacter.maxSlots =
+    7 +
+    Math.trunc(0.5 * newCharacter.mettle) +
+    Math.floor(0.5 * newCharacter.level);
+  newCharacter.slots = !newCharacter.items
+    ? 0
+    : newCharacter.items.reduce(
+        (accumulator: number, currentValue: { slots: number }) => {
+          return accumulator + currentValue.slots;
+        },
+        0,
+      );
   return newCharacter;
 };

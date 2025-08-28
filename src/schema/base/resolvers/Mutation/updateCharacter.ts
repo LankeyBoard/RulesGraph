@@ -15,10 +15,8 @@ export const updateCharacter: NonNullable<MutationResolvers['updateCharacter']> 
     const mappedItems = _arg.input.items.map((item) => {
       if (!item) return;
       const updatedItemData = {
+        ...item,
         id: Number(item.id) || undefined,
-        title: item.title,
-        isMagic: item.isMagic,
-        rarity: item.rarity,
         effects: item.effects
           ?.filter((effect) => effect !== undefined && effect !== null)
           .map((effect) => {
@@ -51,17 +49,18 @@ export const updateCharacter: NonNullable<MutationResolvers['updateCharacter']> 
       mappedItems.map(async (item) => {
         console.log("item", item);
         if (item) {
-          const i = await _ctx.prisma.item.upsert({
-            where: {
-              id: item.id,
-            },
-            update: {
-              ...item,
-            },
-            create: {
-              ...item,
-            },
-          });
+          let i;
+          if (item.id) {
+            i = await _ctx.prisma.item.upsert({
+              where: { id: Number(item.id) },
+              update: { ...item },
+              create: { ...item },
+            });
+          } else {
+            i = await _ctx.prisma.item.create({
+              data: { ...item },
+            });
+          }
           console.log("item from the upsert", i);
           if (i) upsertItems.push(i);
         }
@@ -138,6 +137,18 @@ export const updateCharacter: NonNullable<MutationResolvers['updateCharacter']> 
         `Culture ${updatedCharacter.characterCulture} not found in the player cultures`,
       );
 
+    updatedCharacter.maxSlots =
+      7 +
+      Math.trunc(0.5 * updatedCharacter.mettle) +
+      Math.floor(0.5 * updatedCharacter.level);
+    updatedCharacter.slots = !updatedCharacter.items
+      ? 0
+      : updatedCharacter.items.reduce(
+          (accumulator: number, currentValue: { slots: number }) => {
+            return accumulator + currentValue.slots;
+          },
+          0,
+        );
     console.log("updatedCharacter", updatedCharacter);
     return updatedCharacter;
   }

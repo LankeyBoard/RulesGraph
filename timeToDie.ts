@@ -6,24 +6,24 @@ type Enemy = {
   hitBonus: number;
 };
 const enemy1: Enemy = {
-  dmgDice: 10,
+  dmgDice: 6,
   diceCount: 1,
-  flat: 4,
-  hitBonus: 4,
+  flat: 3,
+  hitBonus: 3,
 };
 
 const enemy2: Enemy = {
   dmgDice: 8,
   diceCount: 1,
-  flat: 4,
-  hitBonus: 4,
+  flat: 3,
+  hitBonus: 3,
 };
 
 const enemy3: Enemy = {
-  dmgDice: 6,
-  diceCount: 2,
-  flat: 4,
-  hitBonus: 4,
+  dmgDice: 10,
+  diceCount: 1,
+  flat: 3,
+  hitBonus: 3,
 };
 
 const enemies = [enemy1, enemy2, enemy3];
@@ -76,7 +76,7 @@ const CombatRound = (player: Player, enemy: Enemy) => {
 };
 
 const ROUNDS_TO_SIM = 10000;
-const levels = [5];
+const levels = [1, 2, 3, 4];
 levels.forEach((level) => {
   console.log(`========== ${level} ==========`);
   enemies.forEach((enemy) => {
