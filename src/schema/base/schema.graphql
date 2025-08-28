@@ -468,6 +468,8 @@ type Character {
   rangeMin: Int!
   rangeMax: Int!
   featureChoiceSlugs: [String]
+  slots: Int!
+  maxSlots: Int!
 }
 
 input CharacterInput {
@@ -511,6 +513,7 @@ type Item {
   salePrice: Int
   tags: [String]!
   inStock: Boolean!
+  slots: Int!
 }
 
 type Uses {
@@ -535,6 +538,7 @@ input ItemInput {
   effects: [EffectInput]!
   defaultPrice: Int!
   tags: [String]!
+  slots: Int!
 }
 
 type ItemShop {
@@ -566,6 +570,7 @@ input ItemInStockInput {
   defaultPrice: Int!
   tags: [String]!
   salePrice: Int
+  slots: Int!
 }
 
 type Effect {

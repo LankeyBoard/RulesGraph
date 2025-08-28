@@ -73,6 +73,7 @@ model Item {
   defaultPrice       Int                  @default(0)
   ItemsStockedByShop ItemsStockedByShop[]
   tags               String[]
+  slots              Int                  @default(0)
 }
 
 model RuleText {

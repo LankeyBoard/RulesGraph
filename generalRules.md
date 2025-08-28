@@ -689,15 +689,14 @@ There are times when you may want to swim, climb. If they have a Speed for that 
 
 If you are wearing Heavy Armor while Climbing or Swimming, make a Mettle Test. Pass: 12, Fail: 7. On a Mixed, the movement costs 2 Stamina. On a Fail, it costs 4.
 
-## Lift, Drag, & Pack
+## Lift & Drag
 
-slug: LIFT-DRAG-PACK
+slug: LIFT-DRAG
 
 ruleType: RULE\
-Your Lift, Drag & Pack (how much you can carry in your backpack and on your person) are all affected by your size. For each size below Medium, amounts are halved, and for each size above Medium they are doubled.\
+How much you can lift and drag are affected by your size. For each size below Medium, amounts are halved, and for each size above Medium they are doubled.\
 Using both hands, you can lift up to 50+10x your Mettle pounds.\
 You can drag up to 4x your lifting capacity.\
-You can pack up to 30+5x your Mettle pounds.
 
 # Gear
 
@@ -715,8 +714,16 @@ Your pack contains everyday essentials like rope, a bedroll, and flint & tinder�
 slug: GEAR-SLOTS
 
 ruleType: RULE\
-You have 7 + half your Mettle (round towards zero) + half your level (rounded down) Gear Slots. These can be used in two ways:
-Eg: You are level 7 and have -1 Mettle, then you have 7 + 0 + 3 = 10 Gear Slots.
+You have 7 + half your Mettle (round towards zero) + half your level (rounded down) Gear Slots. These can be used for notable items in your pack, or for quick retrieval to grab a useful item out of your pack.\
+If you have more than your maximum gear slots, you are Slowed and all Agility Tests are made with misfortune.\
+If you have more than double your max gear slots, you are Pinned.\
+
+### Notable Items
+
+slug: NOTABLE-ITEMS
+
+ruleType: RULE\
+Notable or valuable items take up 1 Gear Slot each, unless particularly bulky, in which case they take more. Smaller items might not be notable on their own, but when combined might be notable. It's probably not notable that you have 1 ball bearing, but it's probably notable that you have a sack full.
 
 ### Quick Retrieval
 
@@ -736,13 +743,6 @@ label: Results
 - Pass → You have the item.
 - Mixed → You have something similar.
 - Fail → You don’t have anything useful.
-
-### Notable Items
-
-slug: NOTABLE-ITEMS
-
-ruleType: RULE\
-Notable or valuable items take up 1 Gear Slot each, unless particularly bulky, in which case they take more. Smaller items might not be notable on their own, but when combined might be notable. It's probably not notable that you have 1 ball bearing, but it's probably notable that you have a sack full.
 
 ## Currency
 

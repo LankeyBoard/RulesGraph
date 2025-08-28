@@ -118,12 +118,14 @@ export type Character = {
   languages: Array<Maybe<Scalars['String']['output']>>;
   level: Scalars['Int']['output'];
   maxHealth: Scalars['Int']['output'];
+  maxSlots: Scalars['Int']['output'];
   maxStamina: Scalars['Int']['output'];
   mettle: Scalars['Int']['output'];
   name: Scalars['String']['output'];
   rangeMax: Scalars['Int']['output'];
   rangeMin: Scalars['Int']['output'];
   shieldName: Scalars['String']['output'];
+  slots: Scalars['Int']['output'];
 };
 
 export type CharacterClass = Rule & {
@@ -322,6 +324,7 @@ export type Item = {
   isMagic: Scalars['Boolean']['output'];
   rarity?: Maybe<Rarity>;
   salePrice?: Maybe<Scalars['Int']['output']>;
+  slots: Scalars['Int']['output'];
   tags: Array<Maybe<Scalars['String']['output']>>;
   text: Array<Maybe<RuleText>>;
   title: Scalars['String']['output'];
@@ -335,6 +338,7 @@ export type ItemInStockInput = {
   isMagic: Scalars['Boolean']['input'];
   rarity?: InputMaybe<Rarity>;
   salePrice?: InputMaybe<Scalars['Int']['input']>;
+  slots: Scalars['Int']['input'];
   tags: Array<InputMaybe<Scalars['String']['input']>>;
   text: Array<InputMaybe<RuleTextInput>>;
   title: Scalars['String']['input'];
@@ -347,6 +351,7 @@ export type ItemInput = {
   id?: InputMaybe<Scalars['ID']['input']>;
   isMagic: Scalars['Boolean']['input'];
   rarity?: InputMaybe<Rarity>;
+  slots: Scalars['Int']['input'];
   tags: Array<InputMaybe<Scalars['String']['input']>>;
   text: Array<InputMaybe<RuleTextInput>>;
   title: Scalars['String']['input'];
@@ -1081,12 +1086,14 @@ export type CharacterResolvers<ContextType = any, ParentType extends ResolversPa
   languages?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   level?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   maxHealth?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  maxSlots?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   maxStamina?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   mettle?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   rangeMax?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   rangeMin?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   shieldName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  slots?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -1246,6 +1253,7 @@ export type ItemResolvers<ContextType = any, ParentType extends ResolversParentT
   isMagic?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   rarity?: Resolver<Maybe<ResolversTypes['Rarity']>, ParentType, ContextType>;
   salePrice?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  slots?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   tags?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   text?: Resolver<Array<Maybe<ResolversTypes['RuleText']>>, ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;

@@ -1,5 +1,5 @@
 import type { QueryResolvers } from "./../../../types.generated";
-export const itemShop: NonNullable<QueryResolvers['itemShop']> = async (
+export const itemShop: NonNullable<QueryResolvers["itemShop"]> = async (
   _parent,
   _arg,
   _ctx,
@@ -68,9 +68,7 @@ export const itemShop: NonNullable<QueryResolvers['itemShop']> = async (
             : item.uses,
       })),
     };
-    returnShop.itemsCouldStock.forEach((element: { text: unknown }) => {
-      console.log(element.text);
-    });
+    console.log("item shop results", returnShop);
     return returnShop;
   } else throw new Error("A shop id must be included");
 };

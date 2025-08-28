@@ -52,7 +52,16 @@ export const character: NonNullable<QueryResolvers['character']> = async (
   character.createdBy = await _ctx.prisma.user.findUnique({
     where: { id: character.userId },
   });
-
+  character.maxSlots =
+    7 + Math.trunc(0.5 * character.mettle) + Math.floor(0.5 * character.level);
+  character.slots = !character.items
+    ? 0
+    : character.items.reduce(
+        (accumulator: number, currentValue: { slots: number }) => {
+          return accumulator + currentValue.slots;
+        },
+        0,
+      );
   console.log("character retrieved", character);
 
   return {
