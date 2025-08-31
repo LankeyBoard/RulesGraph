@@ -665,7 +665,7 @@ const generalRules: GenericRule[] = [
             slug: "COUNTER-PUSH",
             text: [
               {
-                text: "Move the target 5 ft. into an unoccupied space.",
+                text: "Move the target 5 ft. away from you into an unoccupied space.",
                 type: "RULE",
               },
             ],

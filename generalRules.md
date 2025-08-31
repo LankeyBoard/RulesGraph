@@ -372,7 +372,7 @@ These Actions can be used whenever you Clash with an enemy, they miss you with a
 
 slug: COUNTER-PUSH
 
-Move the target 5 ft. into an unoccupied space.
+Move the target 5 ft. away from you into an unoccupied space.
 
 ### Stagger
 
