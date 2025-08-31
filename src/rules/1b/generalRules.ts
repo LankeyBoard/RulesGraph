@@ -528,7 +528,7 @@ const generalRules: GenericRule[] = [
         subRules: [
           {
             title: "Base Attack Stat",
-            slug: "BASIC-ATTACK",
+            slug: "BASIC-STAT",
             text: [
               {
                 text: "Your Base Attack is the stat you use for Attack rolls and comes from your Class.",
@@ -599,6 +599,10 @@ const generalRules: GenericRule[] = [
             text: [
               {
                 text: "Attack with one of your proficient weapons or magic. You deal your Base Damage.",
+                type: "RULE",
+              },
+              {
+                text: "Overdrive: Spend 3 Stamina to increase your Base Damage for this attack. (You can do this multiple times.)",
                 type: "RULE",
               },
             ],
