@@ -1,28 +1,28 @@
-# Intro
-
-## General Philosophy
+# General Philosophy of Fortune's Favor
 
 - Provide information whenever possible
-  - If the character would know the general difficulty of the task they are undertaking, the player should know the difficulty of the Test and the general consequences of failure.
-  - Don't roll for "Perception" unless both outcomes are interesting or the failure is quickly revealed.
+- If the character would know the general difficulty of the task they are undertaking, the player should know the difficulty of the Test and the general consequences of failure.
+- Don't roll for "Perception" unless both outcomes are interesting or the failure is quickly revealed.
 - The characters are competent and familiar with the world even if the players are not.
 
 # Running the Game
 
 ## Test Difficulty
 
-- Examples
-  - 5
-  - 10
-  - 15
-  - 20
-  - 25
+Examples
+| Target | Example |
+| ------ | ------------------------------------------------------------------------------------------------------ |
+| 10 | (Mettle) Climbing a wall with a rope on the first try |
+| 15 | (Heart) Figuring out if the barkeep is hiding information about a local thieves guild |
+| 20 | (Intellect) Recalling an obscure piece of lore about a monster's weakness |
+| 25 | (Agility) Jumping from falling piece of rubble to falling piece or rubble to cross a collapsing bridge |
 
 # Planning
 
 ## Running a Session 0
 
-## Planning Pieces Not Plot
+Session 0 is your chance to set expectations for the game. It's also a chance to make characters together and find ways to tie them together.
+For more information [The Ultimate Session 0 Checklist](https://www.level1geek.com/blog/dnd-session-0) by Level 1 Geek is a good place to start.
 
 ## Making Enemies
 
