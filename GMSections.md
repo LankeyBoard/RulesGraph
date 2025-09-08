@@ -1,5 +1,7 @@
 # General Philosophy of Fortune's Favor
 
+SLUG: GM-PHILOSOPHY
+
 - Provide information whenever possible
 - If the character would know the general difficulty of the task they are undertaking, the player should know the difficulty of the Test and the general consequences of failure.
 - Don't roll for "Perception" unless both outcomes are interesting or the failure is quickly revealed.
@@ -7,7 +9,11 @@
 
 # Running the Game
 
+SLUG: GM-RUNNING-THE-GAME
+
 ## Test Difficulty
+
+SLUG: GM-TEST-DIFFICULTY
 
 Examples
 | Target | Example |
@@ -19,16 +25,24 @@ Examples
 
 # Planning
 
+SLUG: GM-PLANNING
+
 ## Running a Session 0
+
+SLUG: GM-SESSION-0
 
 Session 0 is your chance to set expectations for the game. It's also a chance to make characters together and find ways to tie them together.
 For more information [The Ultimate Session 0 Checklist](https://www.level1geek.com/blog/dnd-session-0) by Level 1 Geek is a good place to start.
 
 ## Making Enemies
 
+SLUG: GM-MAKING-ENEMIES
+
 Three types of enemies, minions: easy to kill canon fodder, monsters: a reasonable challenge. bosses: a tough challenge. Every boss should provide a unique challenge.
 
 ### Building Encounters
+
+SLUG: GM-BUILDING-ENCOUNTERS
 
 An encounter encompasses everything that happens between opportunities for PCs to Catch Your Breath.
 
@@ -36,6 +50,8 @@ For each character on the Player's side, there should be 1 Monster of the same l
 These stat's assume 5 encounters per Rest & Recuperation. If you have less encounters, you will need to add either more enemies or increase the damage of the enemies.
 
 ### Base Monster Stats
+
+SLUG: GM-BASE-MONSTER-STATS
 
 | Level | Health | Armor | Attack | Damage | Kills in X turns |
 | ----- | ------ | ----- | ------ | ------ | ---------------- |

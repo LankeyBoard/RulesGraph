@@ -4,14 +4,18 @@ import type {
   RuleSectionNames,
 } from "./../../../types.generated";
 import generalRules from "../../../../rules/1b/generalRules";
+import gmRules from "../../../../rules/1b/generalRules";
 
 const sectionNames = {
   PLAYER: "Player Rules",
   GM: "Running the Game",
   MONSTERS: "Monsters",
 };
-const rulesSections = new Map([[sectionNames.PLAYER, generalRules]]);
-export const rules: NonNullable<QueryResolvers['rules']> = async (
+const rulesSections = new Map([
+  [sectionNames.PLAYER, generalRules],
+  [sectionNames.GM, gmRules],
+]);
+export const rules: NonNullable<QueryResolvers["rules"]> = async (
   _parent,
   _arg,
 ) => {
