@@ -64,6 +64,7 @@ type Mutation {
   removeShopFromCampaign(campaignId: ID!, shopId: ID!): Campaign!
   forgotPassword(email: String!, baseUrl: String): Boolean
   setPassword(forgotPasswordId: String!, newPassword: String!): User
+  sellItem(shopId: ID!, itemId: ID!, characterId: ID!): ItemShop
 }
 
 #########
@@ -548,6 +549,7 @@ type ItemShop {
   itemsInStock: [Item]!
   itemsCouldStock: [Item]!
   createdBy: User!
+  campaign: Campaign
   canEdit: Boolean!
 }
 
