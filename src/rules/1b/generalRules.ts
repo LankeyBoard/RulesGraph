@@ -516,7 +516,7 @@ const generalRules: GenericRule[] = [
         ],
       },
       {
-        title: "Key Comat Information",
+        title: "Key Combat Information",
         slug: "COMBAT-NUMBERS",
         ruleType: "LISTCOMPACT",
         text: [
