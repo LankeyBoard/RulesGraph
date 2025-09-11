@@ -285,7 +285,7 @@ slug: ENGAGING-ENEMIES
 ruleType: RULE\
 When you attempt to attack an enemy, they are [Engaged](/rules/player_rules#ENGAGED). Engaged Minions cannot take an Action on their turn, Non-boss monsters damage dice go down by 1 step, and bosses lose access to their most potent abilities.
 
-## Key Comat Information
+## Key Combat Information
 
 slug: COMBAT-NUMBERS
 
