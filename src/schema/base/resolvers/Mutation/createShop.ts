@@ -1,6 +1,6 @@
 import type { MutationResolvers } from "../../../types.generated";
 
-export const createShop: NonNullable<MutationResolvers['createShop']> = async (
+export const createShop: NonNullable<MutationResolvers["createShop"]> = async (
   _parent,
   args,
   ctx,
@@ -26,10 +26,14 @@ export const createShop: NonNullable<MutationResolvers['createShop']> = async (
           salePrice: item?.salePrice,
           item: {
             create: {
-              title: item?.title,
-              isMagic: item?.isMagic,
-              rarity: item?.rarity,
-              uses: item?.uses,
+              ...item,
+              uses: item?.uses
+                ? {
+                    used: item.uses.used,
+                    max: item.uses.max,
+                    rechargeOn: item.uses.rechargeOn,
+                  }
+                : undefined,
               text: {
                 create: item?.text.map((ruleText) => ({
                   text: ruleText?.text,
@@ -37,9 +41,6 @@ export const createShop: NonNullable<MutationResolvers['createShop']> = async (
                   choice: ruleText?.choices || [],
                 })),
               },
-              effects: item?.effects,
-              defaultPrice: item?.defaultPrice,
-              tags: item?.tags,
             },
           },
         })),
@@ -61,12 +62,6 @@ export const createShop: NonNullable<MutationResolvers['createShop']> = async (
               choice: ruleText?.choices || [],
             })),
           },
-          effects: item?.effects.map((effect) => ({
-            target: effect?.target,
-            operation: effect?.operation,
-            value: effect?.value,
-            condition: effect?.condition,
-          })),
         })),
       },
     },
