@@ -1,6 +1,6 @@
 import type { MutationResolvers } from "../../../types.generated";
 
-export const updateShop: NonNullable<MutationResolvers['updateShop']> = async (
+export const updateShop: NonNullable<MutationResolvers["updateShop"]> = async (
   _parent,
   args,
   ctx,
@@ -47,6 +47,7 @@ export const updateShop: NonNullable<MutationResolvers['updateShop']> = async (
               title: item?.title,
               isMagic: item?.isMagic,
               rarity: item?.rarity,
+              slots: item?.slots,
               uses: item?.uses,
               text: {
                 create: item?.text.map((ruleText) => ({
@@ -68,11 +69,12 @@ export const updateShop: NonNullable<MutationResolvers['updateShop']> = async (
           title: item?.title,
           isMagic: item?.isMagic,
           rarity: item?.rarity,
+          slots: item?.slots,
           uses: item?.uses
             ? {
-                used: item.uses.used,
-                max: item.uses.max,
-                rechargeOn: item.uses.rechargeOn,
+                used: item.uses?.used,
+                max: item.uses?.max,
+                rechargeOn: item.uses?.rechargeOn,
               }
             : undefined,
           text: {
