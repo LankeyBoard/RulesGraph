@@ -376,7 +376,7 @@ const generalRules: GenericRule[] = [
       },
       {
         slug: "COMBAT-NUMBERS",
-        title: "Key Comat Information",
+        title: "Key Combat Information",
         ruleType: "LISTCOMPACT",
         text: [{ text: "These are the key fields for most combat Exchanges" }],
         subRules: [

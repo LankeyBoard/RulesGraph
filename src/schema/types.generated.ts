@@ -360,6 +360,7 @@ export type ItemInput = {
 
 export type ItemShop = {
   __typename?: 'ItemShop';
+  campaign?: Maybe<Campaign>;
   canEdit: Scalars['Boolean']['output'];
   createdBy: User;
   description: Scalars['String']['output'];
@@ -411,6 +412,7 @@ export type Mutation = {
   login?: Maybe<AuthPayload>;
   removeCharacterFromCampaign: Campaign;
   removeShopFromCampaign: Campaign;
+  sellItem?: Maybe<ItemShop>;
   setPassword?: Maybe<User>;
   updateCampaign: Campaign;
   updateCharacter?: Maybe<Character>;
@@ -488,6 +490,13 @@ export type MutationremoveCharacterFromCampaignArgs = {
 
 export type MutationremoveShopFromCampaignArgs = {
   campaignId: Scalars['ID']['input'];
+  shopId: Scalars['ID']['input'];
+};
+
+
+export type MutationsellItemArgs = {
+  characterId: Scalars['ID']['input'];
+  itemId: Scalars['ID']['input'];
   shopId: Scalars['ID']['input'];
 };
 
@@ -1262,6 +1271,7 @@ export type ItemResolvers<ContextType = any, ParentType extends ResolversParentT
 };
 
 export type ItemShopResolvers<ContextType = any, ParentType extends ResolversParentTypes['ItemShop'] = ResolversParentTypes['ItemShop']> = {
+  campaign?: Resolver<Maybe<ResolversTypes['Campaign']>, ParentType, ContextType>;
   canEdit?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   createdBy?: Resolver<ResolversTypes['User'], ParentType, ContextType>;
   description?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -1305,6 +1315,7 @@ export type MutationResolvers<ContextType = any, ParentType extends ResolversPar
   login?: Resolver<Maybe<ResolversTypes['AuthPayload']>, ParentType, ContextType, RequireFields<MutationloginArgs, 'email' | 'password'>>;
   removeCharacterFromCampaign?: Resolver<ResolversTypes['Campaign'], ParentType, ContextType, RequireFields<MutationremoveCharacterFromCampaignArgs, 'campaignId' | 'characterId'>>;
   removeShopFromCampaign?: Resolver<ResolversTypes['Campaign'], ParentType, ContextType, RequireFields<MutationremoveShopFromCampaignArgs, 'campaignId' | 'shopId'>>;
+  sellItem?: Resolver<Maybe<ResolversTypes['ItemShop']>, ParentType, ContextType, RequireFields<MutationsellItemArgs, 'characterId' | 'itemId' | 'shopId'>>;
   setPassword?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType, RequireFields<MutationsetPasswordArgs, 'forgotPasswordId' | 'newPassword'>>;
   updateCampaign?: Resolver<ResolversTypes['Campaign'], ParentType, ContextType, RequireFields<MutationupdateCampaignArgs, 'id' | 'input'>>;
   updateCharacter?: Resolver<Maybe<ResolversTypes['Character']>, ParentType, ContextType, RequireFields<MutationupdateCharacterArgs, 'id'>>;

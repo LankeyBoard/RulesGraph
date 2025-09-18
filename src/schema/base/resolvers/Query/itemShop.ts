@@ -1,5 +1,5 @@
 import type { QueryResolvers } from "./../../../types.generated";
-export const itemShop: NonNullable<QueryResolvers["itemShop"]> = async (
+export const itemShop: NonNullable<QueryResolvers['itemShop']> = async (
   _parent,
   _arg,
   _ctx,
@@ -11,6 +11,7 @@ export const itemShop: NonNullable<QueryResolvers["itemShop"]> = async (
     const shop = await _ctx.prisma.itemShop.findUnique({
       where: { id },
       include: {
+        Campaign: true,
         ItemsStockedByShop: {
           include: {
             item: {
@@ -44,6 +45,7 @@ export const itemShop: NonNullable<QueryResolvers["itemShop"]> = async (
     );
     const returnShop = {
       ...shop,
+      campaign: shop.Campaign,
       canEdit: _ctx.currentUser
         ? shop.createdById === _ctx.currentUser.id
         : false,
