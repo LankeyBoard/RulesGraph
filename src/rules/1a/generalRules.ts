@@ -891,7 +891,7 @@ const generalRules: GenericRule[] = [
     ],
   },
   {
-    slug: "STARTING_GEAR",
+    slug: "STARTING-GEAR",
     title: "Starting Equipment",
     text: [
       {

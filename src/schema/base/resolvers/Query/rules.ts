@@ -4,18 +4,18 @@ import type {
   RuleSectionNames,
 } from "./../../../types.generated";
 import generalRules from "../../../../rules/1b/generalRules";
-import gmRules from "../../../../rules/1b/generalRules";
+import gmRules from "../../../../rules/1b/gmSections";
 
 const sectionNames = {
-  PLAYER: "Player Rules",
+  PLAYER: "General Rules",
   GM: "Running the Game",
   MONSTERS: "Monsters",
 };
 const rulesSections = new Map([
-  [sectionNames.PLAYER, generalRules],
-  [sectionNames.GM, gmRules],
+  ["PLAYER", generalRules],
+  ["GM", gmRules],
 ]);
-export const rules: NonNullable<QueryResolvers["rules"]> = async (
+export const rules: NonNullable<QueryResolvers['rules']> = async (
   _parent,
   _arg,
 ) => {
@@ -25,10 +25,13 @@ export const rules: NonNullable<QueryResolvers["rules"]> = async (
       (sectionName) => sectionName as RuleSectionNames,
     );
 
+  console.log("Rule Sections", ruleSection, gmRules);
+
   const rulesOutput: RuleSection[] = [];
   Object.keys(sectionNames).forEach((sectionName) => {
     if (ruleSection.includes(sectionName as RuleSectionNames)) {
       const rules = rulesSections.get(sectionName);
+      console.log(sectionName, rules);
       if (rules) {
         rulesOutput.push({
           rules,
