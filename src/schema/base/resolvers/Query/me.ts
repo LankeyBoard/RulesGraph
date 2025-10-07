@@ -8,7 +8,7 @@ export const me: NonNullable<QueryResolvers['me']> = async (
   _ctx,
 ) => {
   if (!_ctx.currentUser) {
-    throw new Error("Not authenticated");
+    return Promise.reject("User not authenticated");
   }
   const user = await _ctx.prisma.user.findUnique({
     where: { id: _ctx.currentUser.id },
@@ -20,7 +20,7 @@ export const me: NonNullable<QueryResolvers['me']> = async (
   });
 
   if (!user) {
-    throw new Error("User not found");
+    return Promise.reject("User not found");
   }
   if (!user.createdCampaigns) user.createdCampaigns = [];
   if (!user.createdItemShops) user.createdItemShops = [];
