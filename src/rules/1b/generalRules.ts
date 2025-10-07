@@ -681,11 +681,7 @@ const generalRules: GenericRule[] = [
             slug: "COUNTER-EXPOSE",
             text: [
               {
-                text: "Choose an ally, they get a +3 to their next Attack Test against the target.",
-                type: "RULE",
-              },
-              {
-                text: "An ally can only benefit from Expose once per target.",
+                text: "Choose an ally, they get a +3 to their next Attack Test against the target.\nAn ally can only benefit from Expose once per target.",
                 type: "RULE",
               },
             ],
@@ -757,7 +753,7 @@ const generalRules: GenericRule[] = [
             type: "RULE",
           },
           {
-            text: "Any flat deflect bonuses only apply once regardless of how many dice you roll.",
+            text: "Any flat Deflect bonuses only apply once regardless of how many dice you roll.",
             type: "RULE",
           },
           {
@@ -1148,7 +1144,7 @@ const generalRules: GenericRule[] = [
             ruleType: "RULE",
             text: [
               {
-                text: "If you move up to 10 ft. before jumping: (4 + 2*Mettle) ft. horizontally (Min 2 ft.)",
+                text: "If you move up to 10 ft. before jumping: (4 + 2\\*Mettle) ft. horizontally (Min 2 ft.)",
                 type: "RULE",
               },
             ],
@@ -1325,7 +1321,7 @@ const generalRules: GenericRule[] = [
   },
   {
     title: "Starting Equipment",
-    slug: "STARTING_GEAR",
+    slug: "STARTING-GEAR",
     text: [
       {
         text: "Your character starts with a pack full of gear and the equipment they need for their adventures. The exact contents will vary from character to character and from campaign to campaign, but generally you have a light source, rope, a comfortable way to sleep, and some weather protection.",

@@ -37,6 +37,7 @@ export type BeastAbility = {
 export type BeastForm = {
   __typename?: 'BeastForm';
   abilities: Array<BeastAbility>;
+  armor: Scalars['Int']['output'];
   damage: Damage;
   health: BeastHealth;
   size: Size;
@@ -892,8 +893,8 @@ export type ResolversTypes = {
   String: ResolverTypeWrapper<Scalars['String']['output']>;
   BeastAbility: ResolverTypeWrapper<BeastAbility>;
   BeastForm: ResolverTypeWrapper<Omit<BeastForm, 'damage'> & { damage: ResolversTypes['Damage'] }>;
-  BeastHealth: ResolverTypeWrapper<BeastHealth>;
   Int: ResolverTypeWrapper<Scalars['Int']['output']>;
+  BeastHealth: ResolverTypeWrapper<BeastHealth>;
   BeastStats: ResolverTypeWrapper<BeastStats>;
   BeastmasterPet: ResolverTypeWrapper<BeastmasterPet>;
   Campaign: ResolverTypeWrapper<Omit<Campaign, 'characters' | 'owner'> & { characters: Array<Maybe<ResolversTypes['Character']>>, owner: ResolversTypes['User'] }>;
@@ -962,8 +963,8 @@ export type ResolversParentTypes = {
   String: Scalars['String']['output'];
   BeastAbility: BeastAbility;
   BeastForm: Omit<BeastForm, 'damage'> & { damage: ResolversParentTypes['Damage'] };
-  BeastHealth: BeastHealth;
   Int: Scalars['Int']['output'];
+  BeastHealth: BeastHealth;
   BeastStats: BeastStats;
   BeastmasterPet: BeastmasterPet;
   Campaign: Omit<Campaign, 'characters' | 'owner'> & { characters: Array<Maybe<ResolversParentTypes['Character']>>, owner: ResolversParentTypes['User'] };
@@ -1029,6 +1030,7 @@ export type BeastAbilityResolvers<ContextType = any, ParentType extends Resolver
 
 export type BeastFormResolvers<ContextType = any, ParentType extends ResolversParentTypes['BeastForm'] = ResolversParentTypes['BeastForm']> = {
   abilities?: Resolver<Array<ResolversTypes['BeastAbility']>, ParentType, ContextType>;
+  armor?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   damage?: Resolver<ResolversTypes['Damage'], ParentType, ContextType>;
   health?: Resolver<ResolversTypes['BeastHealth'], ParentType, ContextType>;
   size?: Resolver<ResolversTypes['Size'], ParentType, ContextType>;

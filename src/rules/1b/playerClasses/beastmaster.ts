@@ -248,6 +248,7 @@ const beastmaster: CharacterClass = {
           slug: "BEASTMASTER-LARGE-BEAST",
           size: "LARGE",
           health: { base: 16, perLevel: 3 },
+          armor: 12,
           stats: {
             mettle: 4,
             agility: 0,
@@ -274,6 +275,7 @@ const beastmaster: CharacterClass = {
           slug: "BEASTMASTER-MEDIUM-BEAST",
           size: "MEDIUM",
           health: { base: 6, perLevel: 2 },
+          armor: 15,
           stats: {
             mettle: 0,
             agility: 4,
@@ -305,6 +307,7 @@ const beastmaster: CharacterClass = {
           slug: "BEASTMASTER-SMALL-FLYING-BEAST",
           size: "SMALL",
           health: { base: 4, perLevel: 1 },
+          armor: 15,
           stats: {
             mettle: 0,
             agility: 4,
@@ -322,7 +325,7 @@ const beastmaster: CharacterClass = {
             {
               type: "Passive",
               title: "Flyby Attacks",
-              text: "If the beast attacks a target, that target does not impose the melee slow penalty.",
+              text: "If the beast attacks a target, that target does not get a Counter Attack when the beast moves out of  melee range.",
             },
             {
               type: "Setup",
@@ -336,6 +339,7 @@ const beastmaster: CharacterClass = {
           slug: "BEASTMASTER-SMALL-GROUND-BEAST",
           size: "SMALL",
           health: { base: 4, perLevel: 1 },
+          armor: 15,
           stats: {
             mettle: 0,
             agility: 4,

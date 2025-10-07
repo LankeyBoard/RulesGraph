@@ -4,6 +4,7 @@ import NoviceFeatures from "./rules/1b/noviceFeatures";
 import VeteranFeatures from "./rules/1b/veteranFeatures";
 import lineagesData from "./rules/1b/lineages";
 import playerClasses from "./rules/1b/playerClasses";
+import gmSections from "./rules/1b/gmSections";
 import { Feature, GenericRule, SlugDict } from "./schema/types.generated";
 
 export enum baseUrls {
@@ -13,6 +14,7 @@ export enum baseUrls {
   veteranFeatures = "/rules/generic_features/veteran_features",
   lineages = "/rules/lineages",
   classes = "/rules/classes",
+  gmRules = "/rules/gm_rules",
 }
 
 export const hrefer = (
@@ -26,21 +28,21 @@ export const hrefer = (
 };
 
 const SlugMapper = () => {
-  const slugDict: SlugDict[] = [];
+  const slugMap: Map<string, SlugDict> = new Map();
 
   const subRuleMapper = (
     rule: GenericRule | Feature,
     slugStr: string,
-    dict: SlugDict[],
+    map: Map<string, SlugDict>,
   ) => {
-    dict.push({
+    map.set(rule.slug, {
       slug: rule.slug,
       title: rule.shortTitle || rule.title,
       url: hrefer(slugStr, rule.slug, true),
     });
     if ("subRules" in rule) {
       rule.subRules?.forEach((r) => {
-        if (r) subRuleMapper(r, slugStr, dict);
+        if (r) subRuleMapper(r, slugStr, map);
       });
     }
   };
@@ -52,8 +54,18 @@ const SlugMapper = () => {
       title: rule.shortTitle || rule.title,
       url: hrefer(baseUrls.generalRules, rule.slug, true),
     };
-    slugDict.push(s);
-    subRuleMapper(rule, s.url, slugDict);
+    slugMap.set(s.slug, s);
+    subRuleMapper(rule, s.url, slugMap);
+  });
+
+  gmSections.forEach((rule) => {
+    const s = {
+      slug: rule.slug,
+      title: rule.shortTitle || rule.title,
+      url: hrefer(baseUrls.gmRules, rule.slug, true),
+    };
+    slugMap.set(s.slug, s);
+    subRuleMapper(rule, s.url, slugMap);
   });
 
   culturesData.forEach((culture) => {
@@ -62,15 +74,15 @@ const SlugMapper = () => {
       title: culture.shortTitle || culture.title,
       url: hrefer(baseUrls.cultures, culture.slug, false),
     };
-    slugDict.push(s);
+    slugMap.set(s.slug, s);
     culture.traits?.forEach((trait) => {
-      if (trait) subRuleMapper(trait, s.url, slugDict);
+      if (trait) subRuleMapper(trait, s.url, slugMap);
     });
   });
 
   //Novice Features
   NoviceFeatures.forEach((feature) => {
-    slugDict.push({
+    slugMap.set(feature.slug, {
       slug: feature.slug,
       title: feature.shortTitle || feature.title,
       url: hrefer(baseUrls.noviceFeatures, feature.slug, false),
@@ -78,7 +90,7 @@ const SlugMapper = () => {
   });
   //Veteran Features
   VeteranFeatures.forEach((feature) => {
-    slugDict.push({
+    slugMap.set(feature.slug, {
       slug: feature.slug,
       title: feature.shortTitle || feature.title,
       url: hrefer(baseUrls.veteranFeatures, feature.slug, false),
@@ -92,9 +104,9 @@ const SlugMapper = () => {
       title: lineage.shortTitle || lineage.title,
       url: hrefer(baseUrls.lineages, lineage.slug, false),
     };
-    slugDict.push(s);
+    slugMap.set(s.slug, s);
     lineage.traits?.forEach((trait) => {
-      if (trait) subRuleMapper(trait, s.url, slugDict);
+      if (trait) subRuleMapper(trait, s.url, slugMap);
     });
   });
 
@@ -105,17 +117,17 @@ const SlugMapper = () => {
       title: playerClass.shortTitle || playerClass.title,
       url: hrefer(baseUrls.classes, playerClass.slug, false),
     };
-    slugDict.push(s);
+    slugMap.set(s.slug, s);
     playerClass.features.forEach((classFeature) => {
       if (classFeature) {
-        slugDict.push({
+        slugMap.set(classFeature.slug, {
           slug: classFeature.slug,
           title: classFeature.shortTitle || classFeature.title,
           url: hrefer(s.url, classFeature.slug, true),
         });
         classFeature.choices?.forEach((choice) => {
           if ("slug" in choice)
-            slugDict.push({
+            slugMap.set(choice.slug, {
               slug: choice.slug,
               title: choice.shortTitle || choice.title,
               url: hrefer(s.url, classFeature.slug, true),
@@ -125,7 +137,7 @@ const SlugMapper = () => {
     });
   });
 
-  return slugDict;
+  return slugMap;
 };
 const mappedSlugs = SlugMapper();
 export default mappedSlugs;

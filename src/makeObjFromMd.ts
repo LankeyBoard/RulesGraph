@@ -7,9 +7,11 @@ import {
   RuleType,
 } from "./schema/types.generated";
 
+const files = [{ filename: "generalRules" }, { filename: "gmSections" }];
+
 const readFile = (filename: string): string => {
   try {
-    const data = fs.readFileSync(filename, "utf8");
+    const data = fs.readFileSync(`${filename}.md`, "utf8");
     return data;
   } catch (err) {
     console.error(err);
@@ -28,7 +30,7 @@ const ruleTextToStr = (contents: Maybe<RuleText>[]): string => {
         : rule.text;
     result += `
     {
-    text: "${text}",
+    text: ${text},
     type: "${rule.type}"
     },`;
   });
@@ -90,10 +92,10 @@ const writeToFile = (contents: GenericRule[], filename: string) => {
   const rules = fileContentsToJsonStr(contents);
   const write =
     `import { GenericRule } from "../../schema/types.generated";
-const generalRules: GenericRule[] = ` +
+const ${filename}: GenericRule[] = ` +
     rules +
-    "\nexport default generalRules;";
-  fs.writeFile(filename, write, (err: unknown) => {
+    `\nexport default ${filename};`;
+  fs.writeFile(`generated${filename}.ts`, write, (err: unknown) => {
     // In case of a error throw err.
     if (err) throw err;
   });
@@ -101,26 +103,41 @@ const generalRules: GenericRule[] = ` +
 
 const textMaker = (textArray: string[]): RuleText[] => {
   const text: RuleText[] = [];
+  let buffer: string[] = [];
+  let type: string = "RULE";
+
+  const pushBuffer = () => {
+    if (buffer.length > 0) {
+      text.push({
+        text: JSON.stringify(buffer.join("\n")),
+        type,
+      });
+      buffer = [];
+      type = "RULE";
+    }
+  };
+
   textArray.forEach((line) => {
     if (line !== "" && line !== "#") {
-      if (line.substring(0, 4) === "EG: ")
-        text.push({
-          text: line.slice(4),
-          type: "EG",
-        });
-      else if (line[0] === "*") {
-        text.push({
-          text: line.slice(1),
-          type: "FLAVOR",
-        });
+      if (line.substring(0, 4) === "EG: ") {
+        pushBuffer();
+        buffer.push(line.slice(4));
+        type = "EG";
+        pushBuffer();
+      } else if (line[0] === "*") {
+        pushBuffer();
+        buffer.push(line.slice(1));
+        type = "FLAVOR";
+        pushBuffer();
       } else {
-        text.push({
-          text: line,
-          type: "RULE",
-        });
+        buffer.push(line);
+        type = "RULE";
       }
+    } else {
+      pushBuffer();
     }
   });
+  pushBuffer();
   return text;
 };
 
@@ -178,7 +195,6 @@ const lineProcessor = (line: string): string => {
 const strToRuleType = (str: string): RuleType | null => {
   str = lineProcessor(str);
   str = str.substring("ruleType: ".length, str.length - 1);
-  console.log(str);
   if (
     str === "EG" ||
     str === "FLAVOR" ||
@@ -245,8 +261,12 @@ const rulesStringToObj = (fileContents: string): GenericRule[] | undefined => {
 };
 
 function main() {
-  const fileContentsStr = readFile("generalRules.md");
-  const rules = rulesStringToObj(fileContentsStr);
-  if (rules) writeToFile(rules, "generatedRules.ts");
+  files.forEach((file) => {
+    console.log(`Reading ${file.filename}.md`);
+    const fileContentsStr = readFile(file.filename);
+    const rules = rulesStringToObj(fileContentsStr);
+    if (rules) writeToFile(rules, file.filename);
+    console.log(`Writing generated${file.filename}.ts`);
+  });
 }
 main();

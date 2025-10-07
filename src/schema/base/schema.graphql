@@ -404,6 +404,7 @@ type BeastForm {
   slug: String!
   size: Size!
   health: BeastHealth!
+  armor: Int!
   stats: BeastStats!
   speed: [Speed!]!
   damage: Damage!
