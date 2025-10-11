@@ -2,7 +2,7 @@ import cultures from "../../../../rules/1b/cultures";
 import lineages from "../../../../rules/1b/lineages";
 import playerClasses from "../../../../rules/1b/playerClasses";
 import type { QueryResolvers } from "./../../../types.generated";
-export const character: NonNullable<QueryResolvers['character']> = async (
+export const character: NonNullable<QueryResolvers["character"]> = async (
   _parent,
   _arg,
   _ctx,
@@ -20,6 +20,7 @@ export const character: NonNullable<QueryResolvers['character']> = async (
         orderBy: { id: "asc" },
         include: { text: true },
       },
+      campaign: true,
     },
   });
   if (!character) {
