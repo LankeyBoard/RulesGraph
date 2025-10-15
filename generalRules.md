@@ -391,33 +391,33 @@ Double your Speed this turn.
 slug: BASIC-COUNTERS
 
 ruleType: LISTCOMPACT\
-These Actions can be used whenever you Clash with an enemy, they miss you with an Attack in addition to being used as an Action.
-
-### Push
-
-slug: COUNTER-PUSH
-
-Move the target 5 ft. into an unoccupied space.
-
-### Stagger
-
-slug: COUNTER-STAGGER
-
-Halve the targets Base Speed.
+These Actions can be used whenever you Clash with an enemy or as an Action.
 
 ### Expose
 
 slug: COUNTER-EXPOSE
 
-Choose an ally, they get a +3 to their next Attack Test against the target.
+Choose an ally within 30 ft. of you, they get a +3 to their next Attack Test against the target.
 
-An ally can only benefit from Expose once per target.
+An ally can only benefit from one Expose at a time.
 
-### Guard Step
+### Rattle
 
-slug: COUNTER-GUARD-STEP
+slug: COUNTER-RATTLE
 
-Move 5ft. away from the target.
+[Rattle](/rules/player_rules#RATTLED-STATUS) your target until the end of their next turn.
+
+### Reposition
+
+slug: COUNTER-REPOSITION
+
+Move yourself, your target or both 5 ft. into an unoccupied space.
+
+### Stagger
+
+slug: COUNTER-STAGGER
+
+[Slow](/rules/player_rules#SLOWED-STATUS) your target until the end of their next turn.
 
 ## Moving in Combat
 
@@ -426,7 +426,7 @@ slug: MOVING-COMBAT
 ruleType: RULE\
 In addition to an Action, you can move during your turn in combat, moving up to your Speed in any direction. You can move at any point during your turn, and can split your move before and after your Action.
 
-If you pass into melee range of an enemy, your Speed is reduced by half.
+If you willingly move out of melee range with an enemy they get a free Counter Action
 
 EG: If you a speed of 30 ft. you can move 10 ft. Make an Attack and then move another 20 ft. But, if you moved into melee range to make the attack, you'd only be able to move 10 ft. after the attack.
 
@@ -580,19 +580,12 @@ slug: HEAVY-SHIELDS
 
 Require at least 3 mettle: +2 to Armor and +3 to Deflect.
 
-# Exhausted, Dying, & Last Stand
+# Dying, & Last Stand
 
 slug: EDL
 
 ruleType: RULE\
 If you would be reduced to below 0 Stamina or 0 Health, you are reduced to 0 instead.
-
-## Exhausted
-
-slug: EXHAUSTED
-
-ruleType: RULE\
-When your Stamina is reduced to 0 you are [Exhausted](/rules/player_rules#STATUSES).
 
 ## Dying
 
@@ -606,7 +599,7 @@ When your Health is reduced to 0, you have been mortally wounded and are Dying. 
 slug: LAST-STAND
 
 ruleType: RULE\
-When you are reduced to 0 Health and are not unconscious, you can opt to make a Last Stand, pushing yourself to the absolute limit, knowing these will be your final moments. You immediately and the start of each round of combat regain all of your Health & Stamina. If you are reduced to 0 Stamina or at the end of the 2 rounds, you die.
+When you are hit by an Attack, before damage is rolled, if you are not Unconscious, you can opt to make a Last Stand to push yourself yourself to the absolute limit. You immediately and the start of each round of combat regain all of your Health & Stamina. If you are reduced to 0 Stamina or at the end of the 5 rounds, you die.
 
 ## Death
 

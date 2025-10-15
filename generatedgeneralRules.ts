@@ -446,39 +446,39 @@ const generalRules: GenericRule[] = [
     title: "Basic Counters",
     slug: "BASIC-COUNTERS",ruleType: "LISTCOMPACT",text: [
     {
-    text: "These Actions can be used whenever you Clash with an enemy, they miss you with an Attack in addition to being used as an Action.",
+    text: "These Actions can be used whenever you Clash with an enemy or as an Action.",
     type: "RULE"
     },],subRules: [
     {
-    title: "Push",
-    slug: "COUNTER-PUSH",text: [
+    title: "Expose",
+    slug: "COUNTER-EXPOSE",text: [
     {
-    text: "Move the target 5 ft. into an unoccupied space.",
+    text: "Choose an ally within 30 ft. of you, they get a +3 to their next Attack Test against the target.",
+    type: "RULE"
+    },
+    {
+    text: "An ally can only benefit from one Expose at a time.",
+    type: "RULE"
+    },],},
+    {
+    title: "Rattle",
+    slug: "COUNTER-RATTLE",text: [
+    {
+    text: "[Rattle](/rules/player_rules#RATTLED-STATUS) your target until the end of their next turn.",
+    type: "RULE"
+    },],},
+    {
+    title: "Reposition",
+    slug: "COUNTER-REPOSITION",text: [
+    {
+    text: "Move yourself, your target or both 5 ft. into an unoccupied space.",
     type: "RULE"
     },],},
     {
     title: "Stagger",
     slug: "COUNTER-STAGGER",text: [
     {
-    text: "Halve the targets Base Speed.",
-    type: "RULE"
-    },],},
-    {
-    title: "Expose",
-    slug: "COUNTER-EXPOSE",text: [
-    {
-    text: "Choose an ally, they get a +3 to their next Attack Test against the target.",
-    type: "RULE"
-    },
-    {
-    text: "An ally can only benefit from Expose once per target.",
-    type: "RULE"
-    },],},
-    {
-    title: "Guard Step",
-    slug: "COUNTER-GUARD-STEP",text: [
-    {
-    text: "Move 5ft. away from the target.",
+    text: "[Slow](/rules/player_rules#SLOWED-STATUS) your target until the end of their next turn.",
     type: "RULE"
     },],},]},
     {
@@ -489,7 +489,7 @@ const generalRules: GenericRule[] = [
     type: "RULE"
     },
     {
-    text: "If you pass into melee range of an enemy, your Speed is reduced by half.",
+    text: "If you willingly move out of melee range with an enemy they get a free Counter Action",
     type: "RULE"
     },
     {
@@ -651,19 +651,12 @@ const generalRules: GenericRule[] = [
     type: "RULE"
     },],},]},]},
     {
-    title: "Exhausted, Dying, & Last Stand",
+    title: "Dying, & Last Stand",
     slug: "EDL",ruleType: "RULE",text: [
     {
     text: "If you would be reduced to below 0 Stamina or 0 Health, you are reduced to 0 instead.",
     type: "RULE"
     },],subRules: [
-    {
-    title: "Exhausted",
-    slug: "EXHAUSTED",ruleType: "RULE",text: [
-    {
-    text: "When your Stamina is reduced to 0 you are [Exhausted](/rules/player_rules#STATUSES).",
-    type: "RULE"
-    },],},
     {
     title: "Dying",
     slug: "DYING",ruleType: "RULE",text: [
@@ -675,7 +668,7 @@ const generalRules: GenericRule[] = [
     title: "Last Stand",
     slug: "LAST-STAND",ruleType: "RULE",text: [
     {
-    text: "When you are reduced to 0 Health and are not unconscious, you can opt to make a Last Stand, pushing yourself to the absolute limit, knowing these will be your final moments. You immediately and the start of each round of combat regain all of your Health & Stamina. If you are reduced to 0 Stamina or at the end of the 2 rounds, you die.",
+    text: "When you are hit by an Attack, before damage is rolled, if you are not Unconscious, you can opt to make a Last Stand to push yourself yourself to the absolute limit. You immediately and the start of each round of combat regain all of your Health & Stamina. If you are reduced to 0 Stamina or at the end of the 5 rounds, you die.",
     type: "RULE"
     },],},
     {
@@ -1020,6 +1013,13 @@ const generalRules: GenericRule[] = [
     slug: "HIDDEN-STATUS",text: [
     {
     text: "You cannot be seen and gain a +5 to attack Tests while hidden. Attacking, casting magic, or performing another noticeable act while hidden immediately triggers a Heart test to spot you from any nearby creatures.",
+    type: "RULE"
+    },],},
+    {
+    title: "Fatigued",
+    slug: "FATIGUED-STATUS",text: [
+    {
+    text: "All Stamina costs are doubled.",
     type: "RULE"
     },],},
     {
