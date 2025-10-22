@@ -1,6 +1,6 @@
 import type { MutationResolvers } from "./../../../types.generated";
 
-export const sellItem: NonNullable<MutationResolvers['sellItem']> = async (
+export const sellItem: NonNullable<MutationResolvers["sellItem"]> = async (
   _parent,
   { shopId, itemId, characterId },
   _ctx,
@@ -14,17 +14,24 @@ export const sellItem: NonNullable<MutationResolvers['sellItem']> = async (
     },
   });
   if (!shop) throw new Error("Shop not found");
-
-  const itemStocked = await _ctx.prisma.itemsStockedByShop.findUnique({
-    where: {
-      shopId_itemId: {
-        shopId: String(shopId),
-        itemId: Number(itemId),
-      },
+  console.log("Shop", shop);
+  const itemStocked = shop.ItemsStockedByShop.find(
+    (item: { itemId: string }) => {
+      return item.itemId.toString() === itemId;
     },
-    include: { item: true },
+  );
+  if (!itemStocked)
+    throw new Error(
+      `Item not in shop's stock. Looking for id: ${itemId}. Current Stock: ${shop.ItemsStockedByShop}`,
+    );
+
+  const itemFromShop = await _ctx.prisma.item.findUnique({
+    where: { id: Number(itemId) },
+    include: {
+      text: true,
+    },
   });
-  if (!itemStocked) throw new Error("Item not in shop's stock");
+  console.log("Item in Shop", itemFromShop);
 
   const character = await _ctx.prisma.character.findUnique({
     where: { id: Number(characterId) },
@@ -32,19 +39,19 @@ export const sellItem: NonNullable<MutationResolvers['sellItem']> = async (
   });
   if (!character) throw new Error("Character not found");
 
-  const price = itemStocked.salePrice ?? itemStocked.item.defaultPrice ?? 0;
+  const price = itemFromShop.salePrice ?? itemFromShop.defaultPrice ?? 0;
   if (character.coin < price) throw new Error("Not enough coin");
 
   // 2. Copy the item for the character (excluding id and relations)
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { id, createdById, ...itemData } = itemStocked.item;
+  const { id, createdById, ...itemData } = itemFromShop;
   const newItem = await _ctx.prisma.item.create({
     data: {
       ...itemData,
       createdBy: { connect: { id: createdById } },
       heldBy: { connect: { id: character.id } },
       text: {
-        create: itemStocked.item.text?.map(
+        create: itemFromShop.text?.map(
           (t: { text: string; type: string; choice: [string] }) => ({
             text: t.text,
             type: t.type,
@@ -78,7 +85,7 @@ export const sellItem: NonNullable<MutationResolvers['sellItem']> = async (
     where: { id: String(shopId) },
     data: {
       itemsCouldStock: {
-        connect: { id: itemStocked.item.id },
+        connect: { id: itemFromShop.id },
       },
     },
   });

@@ -464,7 +464,7 @@ const generalRules: GenericRule[] = [
     title: "Rattle",
     slug: "COUNTER-RATTLE",text: [
     {
-    text: "[Rattle](/rules/player_rules#RATTLED-STATUS) your target until the end of their next turn.",
+    text: "[Rattle](/rules/player_rules#STATUSES) your target until the end of their next turn.",
     type: "RULE"
     },],},
     {
@@ -478,7 +478,7 @@ const generalRules: GenericRule[] = [
     title: "Stagger",
     slug: "COUNTER-STAGGER",text: [
     {
-    text: "[Slow](/rules/player_rules#SLOWED-STATUS) your target until the end of their next turn.",
+    text: "[Slow](/rules/player_rules#STATUSES) your target until the end of their next turn.",
     type: "RULE"
     },],},]},
     {

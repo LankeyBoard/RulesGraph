@@ -120,5 +120,23 @@ const gmSections: GenericRule[] = [
       },
     ],
   },
+  {
+    title: "Resources",
+    slug: "RESOURCES",
+    text: [
+      {
+        text: "Useful resources for running a game.",
+        type: "RULE",
+      },
+    ],
+    lists: [
+      {
+        label: "",
+        items: [
+          "[2 Minute Tabletop](https://tools.2minutetabletop.com/): An expansive and useful collection of tokens I use for printed paper miniatures.",
+        ],
+      },
+    ],
+  },
 ];
 export default gmSections;
