@@ -405,7 +405,7 @@ An ally can only benefit from one Expose at a time.
 
 slug: COUNTER-RATTLE
 
-[Rattle](/rules/player_rules#RATTLED-STATUS) your target until the end of their next turn.
+[Rattle](/rules/player_rules#STATUSES) your target until the end of their next turn.
 
 ### Reposition
 
@@ -417,7 +417,7 @@ Move yourself, your target or both 5 ft. into an unoccupied space.
 
 slug: COUNTER-STAGGER
 
-[Slow](/rules/player_rules#SLOWED-STATUS) your target until the end of their next turn.
+[Slow](/rules/player_rules#STATUSES) your target until the end of their next turn.
 
 ## Moving in Combat
 

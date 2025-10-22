@@ -76,5 +76,15 @@ const gmSections: GenericRule[] = [
     {
     text: "For each character on the Player's side, there should be 1 Monster of the same level. 2 Minions can be used in place of 1 Monster, or 1 Boss can be used in place of 2 Monsters.\nThese stat's assume 5 encounters per Rest & Recuperation. If you have less encounters, you will need to add either more enemies or increase the damage of the enemies.",
     type: "RULE"
-    },],},]},]},]
+    },],},]},]},
+    {
+    title: "Resources",
+    slug: "RESOURCES",text: [
+    {
+    text: "Useful resources for running a game.",
+    type: "RULE"
+    },],lists: [{
+    label: "",
+    items: ['[2 Minute Tabletop](https://tools.2minutetabletop.com/): An expansive and useful collection of tokens I use for printed paper miniatures.', ]
+  }],},]
 export default gmSections;

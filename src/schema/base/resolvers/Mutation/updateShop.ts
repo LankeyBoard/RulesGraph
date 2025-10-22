@@ -1,6 +1,6 @@
 import type { MutationResolvers } from "../../../types.generated";
 
-export const updateShop: NonNullable<MutationResolvers['updateShop']> = async (
+export const updateShop: NonNullable<MutationResolvers["updateShop"]> = async (
   _parent,
   args,
   ctx,
@@ -20,7 +20,7 @@ export const updateShop: NonNullable<MutationResolvers['updateShop']> = async (
   if (!input) {
     throw new Error("Shop info must be provided");
   }
-
+  console.log("update Shop mutation with id and input", id, input);
   // Find the shop to ensure it exists
   const existingShop = await ctx.prisma.itemShop.findUnique({
     where: { id },

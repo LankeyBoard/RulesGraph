@@ -87,3 +87,11 @@ These are a good average starting point for creating a monster. When balancing a
 | 6     | 50     | 14    | +4     | 2d8+4  |
 | 7     | 55     | 15    | +5     | 2d8+5  |
 | 8     | 60     | 15    | +5     | 2d10+5 |
+
+# Resources
+
+SLUG: RESOURCES
+
+Useful resources for running a game.
+
+- [2 Minute Tabletop](https://tools.2minutetabletop.com/): An expansive and useful collection of tokens I use for printed paper miniatures.
