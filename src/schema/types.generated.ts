@@ -149,6 +149,7 @@ export type CharacterClass = Rule & {
   staminaStat: StatOptions;
   title: Scalars['String']['output'];
   training: Training;
+  variants?: Maybe<Array<Maybe<CharacterClassVariant>>>;
 };
 
 export type CharacterClassFeature = Feature & {
@@ -167,6 +168,28 @@ export type CharacterClassFeature = Feature & {
   staminaCost: Scalars['Int']['output'];
   text?: Maybe<Array<Maybe<RuleText>>>;
   title: Scalars['String']['output'];
+};
+
+export type CharacterClassVariant = Rule & {
+  __typename?: 'CharacterClassVariant';
+  attackStat?: Maybe<Array<StatOptions>>;
+  complexity?: Maybe<Complexity>;
+  damage: Damage;
+  deflect: Deflect;
+  description: Array<Maybe<Scalars['String']['output']>>;
+  extra?: Maybe<CharacterExtras>;
+  features: Array<Maybe<CharacterClassFeature>>;
+  health: Scalars['Int']['output'];
+  healthOnLevel: Scalars['Int']['output'];
+  href?: Maybe<Scalars['String']['output']>;
+  range: Range;
+  shortTitle?: Maybe<Scalars['String']['output']>;
+  slug: Scalars['String']['output'];
+  stamina: Scalars['Int']['output'];
+  staminaOnLevel: Scalars['Int']['output'];
+  staminaStat: StatOptions;
+  title: Scalars['String']['output'];
+  training: Training;
 };
 
 export type CharacterExtras = {
@@ -208,6 +231,19 @@ export type Complexity =
 
 export type Culture = Rule & {
   __typename?: 'Culture';
+  description?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  href?: Maybe<Scalars['String']['output']>;
+  languages?: Maybe<Scalars['String']['output']>;
+  shortTitle?: Maybe<Scalars['String']['output']>;
+  slug: Scalars['String']['output'];
+  stat?: Maybe<Scalars['String']['output']>;
+  title: Scalars['String']['output'];
+  traits?: Maybe<Array<GenericFeature>>;
+  variants?: Maybe<Array<Maybe<CultureVariant>>>;
+};
+
+export type CultureVariant = Rule & {
+  __typename?: 'CultureVariant';
   description?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   href?: Maybe<Scalars['String']['output']>;
   languages?: Maybe<Scalars['String']['output']>;
@@ -381,6 +417,20 @@ export type ItemShopInput = {
 
 export type Lineage = Rule & {
   __typename?: 'Lineage';
+  description: Array<Maybe<Scalars['String']['output']>>;
+  href?: Maybe<Scalars['String']['output']>;
+  shortTitle?: Maybe<Scalars['String']['output']>;
+  size: Array<Size>;
+  slug: Scalars['String']['output'];
+  speeds: Array<Speed>;
+  stat?: Maybe<Scalars['String']['output']>;
+  title: Scalars['String']['output'];
+  traits: Array<GenericFeature>;
+  variants?: Maybe<Array<Maybe<LineageVariant>>>;
+};
+
+export type LineageVariant = Rule & {
+  __typename?: 'LineageVariant';
   description?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   href?: Maybe<Scalars['String']['output']>;
   shortTitle?: Maybe<Scalars['String']['output']>;
@@ -883,7 +933,7 @@ export type ResolversUnionTypes<_RefType extends Record<string, unknown>> = {
 /** Mapping of interface types */
 export type ResolversInterfaceTypes<_RefType extends Record<string, unknown>> = {
   Feature: ( Omit<CharacterClassFeature, 'choices'> & { choices?: Maybe<Array<_RefType['FeatureChoices']>> } & { __typename: 'CharacterClassFeature' } ) | ( FeatureWithoutChoices & { __typename: 'FeatureWithoutChoices' } ) | ( Omit<GenericFeature, 'choices'> & { choices?: Maybe<Array<_RefType['FeatureChoices']>> } & { __typename: 'GenericFeature' } );
-  Rule: ( Omit<CharacterClass, 'damage' | 'features'> & { damage: _RefType['Damage'], features: Array<Maybe<_RefType['CharacterClassFeature']>> } & { __typename: 'CharacterClass' } ) | ( Omit<Culture, 'traits'> & { traits?: Maybe<Array<_RefType['GenericFeature']>> } & { __typename: 'Culture' } ) | ( GenericRule & { __typename: 'GenericRule' } ) | ( Omit<Lineage, 'traits'> & { traits?: Maybe<Array<_RefType['GenericFeature']>> } & { __typename: 'Lineage' } ) | ( SearchResult & { __typename: 'SearchResult' } ) | ( Omit<ShifterForm, 'damage'> & { damage: Array<Maybe<_RefType['Damage']>> } & { __typename: 'ShifterForm' } );
+  Rule: ( Omit<CharacterClass, 'damage' | 'features' | 'variants'> & { damage: _RefType['Damage'], features: Array<Maybe<_RefType['CharacterClassFeature']>>, variants?: Maybe<Array<Maybe<_RefType['CharacterClassVariant']>>> } & { __typename: 'CharacterClass' } ) | ( Omit<CharacterClassVariant, 'damage' | 'features'> & { damage: _RefType['Damage'], features: Array<Maybe<_RefType['CharacterClassFeature']>> } & { __typename: 'CharacterClassVariant' } ) | ( Omit<Culture, 'traits' | 'variants'> & { traits?: Maybe<Array<_RefType['GenericFeature']>>, variants?: Maybe<Array<Maybe<_RefType['CultureVariant']>>> } & { __typename: 'Culture' } ) | ( Omit<CultureVariant, 'traits'> & { traits?: Maybe<Array<_RefType['GenericFeature']>> } & { __typename: 'CultureVariant' } ) | ( GenericRule & { __typename: 'GenericRule' } ) | ( Omit<Lineage, 'traits' | 'variants'> & { traits: Array<_RefType['GenericFeature']>, variants?: Maybe<Array<Maybe<_RefType['LineageVariant']>>> } & { __typename: 'Lineage' } ) | ( Omit<LineageVariant, 'traits'> & { traits?: Maybe<Array<_RefType['GenericFeature']>> } & { __typename: 'LineageVariant' } ) | ( SearchResult & { __typename: 'SearchResult' } ) | ( Omit<ShifterForm, 'damage'> & { damage: Array<Maybe<_RefType['Damage']>> } & { __typename: 'ShifterForm' } );
 };
 
 /** Mapping between all available schema types and the resolvers types */
@@ -902,13 +952,15 @@ export type ResolversTypes = {
   CampaignInput: CampaignInput;
   CampaignStatus: CampaignStatus;
   Character: ResolverTypeWrapper<Omit<Character, 'characterClass' | 'characterCulture' | 'characterLineage' | 'createdBy'> & { characterClass: ResolversTypes['CharacterClass'], characterCulture: ResolversTypes['Culture'], characterLineage: ResolversTypes['Lineage'], createdBy: ResolversTypes['User'] }>;
-  CharacterClass: ResolverTypeWrapper<Omit<CharacterClass, 'damage' | 'features'> & { damage: ResolversTypes['Damage'], features: Array<Maybe<ResolversTypes['CharacterClassFeature']>> }>;
+  CharacterClass: ResolverTypeWrapper<Omit<CharacterClass, 'damage' | 'features' | 'variants'> & { damage: ResolversTypes['Damage'], features: Array<Maybe<ResolversTypes['CharacterClassFeature']>>, variants?: Maybe<Array<Maybe<ResolversTypes['CharacterClassVariant']>>> }>;
   CharacterClassFeature: ResolverTypeWrapper<Omit<CharacterClassFeature, 'choices'> & { choices?: Maybe<Array<ResolversTypes['FeatureChoices']>> }>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']['output']>;
+  CharacterClassVariant: ResolverTypeWrapper<Omit<CharacterClassVariant, 'damage' | 'features'> & { damage: ResolversTypes['Damage'], features: Array<Maybe<ResolversTypes['CharacterClassFeature']>> }>;
   CharacterExtras: ResolverTypeWrapper<CharacterExtras>;
   CharacterInput: CharacterInput;
   Complexity: Complexity;
-  Culture: ResolverTypeWrapper<Omit<Culture, 'traits'> & { traits?: Maybe<Array<ResolversTypes['GenericFeature']>> }>;
+  Culture: ResolverTypeWrapper<Omit<Culture, 'traits' | 'variants'> & { traits?: Maybe<Array<ResolversTypes['GenericFeature']>>, variants?: Maybe<Array<Maybe<ResolversTypes['CultureVariant']>>> }>;
+  CultureVariant: ResolverTypeWrapper<Omit<CultureVariant, 'traits'> & { traits?: Maybe<Array<ResolversTypes['GenericFeature']>> }>;
   Damage: ResolverTypeWrapper<Damage>;
   Deflect: ResolverTypeWrapper<Deflect>;
   Effect: ResolverTypeWrapper<Effect>;
@@ -924,7 +976,8 @@ export type ResolversTypes = {
   ItemInput: ItemInput;
   ItemShop: ResolverTypeWrapper<Omit<ItemShop, 'createdBy'> & { createdBy: ResolversTypes['User'] }>;
   ItemShopInput: ItemShopInput;
-  Lineage: ResolverTypeWrapper<Omit<Lineage, 'traits'> & { traits?: Maybe<Array<ResolversTypes['GenericFeature']>> }>;
+  Lineage: ResolverTypeWrapper<Omit<Lineage, 'traits' | 'variants'> & { traits: Array<ResolversTypes['GenericFeature']>, variants?: Maybe<Array<Maybe<ResolversTypes['LineageVariant']>>> }>;
+  LineageVariant: ResolverTypeWrapper<Omit<LineageVariant, 'traits'> & { traits?: Maybe<Array<ResolversTypes['GenericFeature']>> }>;
   List: ResolverTypeWrapper<List>;
   Mutation: ResolverTypeWrapper<{}>;
   MyCampaignsResult: ResolverTypeWrapper<MyCampaignsResult>;
@@ -971,12 +1024,14 @@ export type ResolversParentTypes = {
   ID: Scalars['ID']['output'];
   CampaignInput: CampaignInput;
   Character: Omit<Character, 'characterClass' | 'characterCulture' | 'characterLineage' | 'createdBy'> & { characterClass: ResolversParentTypes['CharacterClass'], characterCulture: ResolversParentTypes['Culture'], characterLineage: ResolversParentTypes['Lineage'], createdBy: ResolversParentTypes['User'] };
-  CharacterClass: Omit<CharacterClass, 'damage' | 'features'> & { damage: ResolversParentTypes['Damage'], features: Array<Maybe<ResolversParentTypes['CharacterClassFeature']>> };
+  CharacterClass: Omit<CharacterClass, 'damage' | 'features' | 'variants'> & { damage: ResolversParentTypes['Damage'], features: Array<Maybe<ResolversParentTypes['CharacterClassFeature']>>, variants?: Maybe<Array<Maybe<ResolversParentTypes['CharacterClassVariant']>>> };
   CharacterClassFeature: Omit<CharacterClassFeature, 'choices'> & { choices?: Maybe<Array<ResolversParentTypes['FeatureChoices']>> };
   Boolean: Scalars['Boolean']['output'];
+  CharacterClassVariant: Omit<CharacterClassVariant, 'damage' | 'features'> & { damage: ResolversParentTypes['Damage'], features: Array<Maybe<ResolversParentTypes['CharacterClassFeature']>> };
   CharacterExtras: CharacterExtras;
   CharacterInput: CharacterInput;
-  Culture: Omit<Culture, 'traits'> & { traits?: Maybe<Array<ResolversParentTypes['GenericFeature']>> };
+  Culture: Omit<Culture, 'traits' | 'variants'> & { traits?: Maybe<Array<ResolversParentTypes['GenericFeature']>>, variants?: Maybe<Array<Maybe<ResolversParentTypes['CultureVariant']>>> };
+  CultureVariant: Omit<CultureVariant, 'traits'> & { traits?: Maybe<Array<ResolversParentTypes['GenericFeature']>> };
   Damage: Damage;
   Deflect: Deflect;
   Effect: Effect;
@@ -991,7 +1046,8 @@ export type ResolversParentTypes = {
   ItemInput: ItemInput;
   ItemShop: Omit<ItemShop, 'createdBy'> & { createdBy: ResolversParentTypes['User'] };
   ItemShopInput: ItemShopInput;
-  Lineage: Omit<Lineage, 'traits'> & { traits?: Maybe<Array<ResolversParentTypes['GenericFeature']>> };
+  Lineage: Omit<Lineage, 'traits' | 'variants'> & { traits: Array<ResolversParentTypes['GenericFeature']>, variants?: Maybe<Array<Maybe<ResolversParentTypes['LineageVariant']>>> };
+  LineageVariant: Omit<LineageVariant, 'traits'> & { traits?: Maybe<Array<ResolversParentTypes['GenericFeature']>> };
   List: List;
   Mutation: {};
   MyCampaignsResult: MyCampaignsResult;
@@ -1127,6 +1183,7 @@ export type CharacterClassResolvers<ContextType = any, ParentType extends Resolv
   staminaStat?: Resolver<ResolversTypes['StatOptions'], ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   training?: Resolver<ResolversTypes['Training'], ParentType, ContextType>;
+  variants?: Resolver<Maybe<Array<Maybe<ResolversTypes['CharacterClassVariant']>>>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -1148,6 +1205,28 @@ export type CharacterClassFeatureResolvers<ContextType = any, ParentType extends
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
+export type CharacterClassVariantResolvers<ContextType = any, ParentType extends ResolversParentTypes['CharacterClassVariant'] = ResolversParentTypes['CharacterClassVariant']> = {
+  attackStat?: Resolver<Maybe<Array<ResolversTypes['StatOptions']>>, ParentType, ContextType>;
+  complexity?: Resolver<Maybe<ResolversTypes['Complexity']>, ParentType, ContextType>;
+  damage?: Resolver<ResolversTypes['Damage'], ParentType, ContextType>;
+  deflect?: Resolver<ResolversTypes['Deflect'], ParentType, ContextType>;
+  description?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
+  extra?: Resolver<Maybe<ResolversTypes['CharacterExtras']>, ParentType, ContextType>;
+  features?: Resolver<Array<Maybe<ResolversTypes['CharacterClassFeature']>>, ParentType, ContextType>;
+  health?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  healthOnLevel?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  href?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  range?: Resolver<ResolversTypes['Range'], ParentType, ContextType>;
+  shortTitle?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  stamina?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  staminaOnLevel?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  staminaStat?: Resolver<ResolversTypes['StatOptions'], ParentType, ContextType>;
+  title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  training?: Resolver<ResolversTypes['Training'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
 export type CharacterExtrasResolvers<ContextType = any, ParentType extends ResolversParentTypes['CharacterExtras'] = ResolversParentTypes['CharacterExtras']> = {
   beastMasterPet?: Resolver<Maybe<ResolversTypes['BeastmasterPet']>, ParentType, ContextType>;
   forms?: Resolver<Maybe<Array<ResolversTypes['ShifterForm']>>, ParentType, ContextType>;
@@ -1155,6 +1234,19 @@ export type CharacterExtrasResolvers<ContextType = any, ParentType extends Resol
 };
 
 export type CultureResolvers<ContextType = any, ParentType extends ResolversParentTypes['Culture'] = ResolversParentTypes['Culture']> = {
+  description?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
+  href?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  languages?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  shortTitle?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  stat?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  traits?: Resolver<Maybe<Array<ResolversTypes['GenericFeature']>>, ParentType, ContextType>;
+  variants?: Resolver<Maybe<Array<Maybe<ResolversTypes['CultureVariant']>>>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type CultureVariantResolvers<ContextType = any, ParentType extends ResolversParentTypes['CultureVariant'] = ResolversParentTypes['CultureVariant']> = {
   description?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
   href?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   languages?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
@@ -1285,6 +1377,20 @@ export type ItemShopResolvers<ContextType = any, ParentType extends ResolversPar
 };
 
 export type LineageResolvers<ContextType = any, ParentType extends ResolversParentTypes['Lineage'] = ResolversParentTypes['Lineage']> = {
+  description?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
+  href?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  shortTitle?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  size?: Resolver<Array<ResolversTypes['Size']>, ParentType, ContextType>;
+  slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  speeds?: Resolver<Array<ResolversTypes['Speed']>, ParentType, ContextType>;
+  stat?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  traits?: Resolver<Array<ResolversTypes['GenericFeature']>, ParentType, ContextType>;
+  variants?: Resolver<Maybe<Array<Maybe<ResolversTypes['LineageVariant']>>>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type LineageVariantResolvers<ContextType = any, ParentType extends ResolversParentTypes['LineageVariant'] = ResolversParentTypes['LineageVariant']> = {
   description?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
   href?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   shortTitle?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
@@ -1359,7 +1465,7 @@ export type RangeResolvers<ContextType = any, ParentType extends ResolversParent
 };
 
 export type RuleResolvers<ContextType = any, ParentType extends ResolversParentTypes['Rule'] = ResolversParentTypes['Rule']> = {
-  __resolveType?: TypeResolveFn<'CharacterClass' | 'Culture' | 'GenericRule' | 'Lineage' | 'SearchResult' | 'ShifterForm', ParentType, ContextType>;
+  __resolveType?: TypeResolveFn<'CharacterClass' | 'CharacterClassVariant' | 'Culture' | 'CultureVariant' | 'GenericRule' | 'Lineage' | 'LineageVariant' | 'SearchResult' | 'ShifterForm', ParentType, ContextType>;
   href?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   shortTitle?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -1477,8 +1583,10 @@ export type Resolvers<ContextType = any> = {
   Character?: CharacterResolvers<ContextType>;
   CharacterClass?: CharacterClassResolvers<ContextType>;
   CharacterClassFeature?: CharacterClassFeatureResolvers<ContextType>;
+  CharacterClassVariant?: CharacterClassVariantResolvers<ContextType>;
   CharacterExtras?: CharacterExtrasResolvers<ContextType>;
   Culture?: CultureResolvers<ContextType>;
+  CultureVariant?: CultureVariantResolvers<ContextType>;
   Damage?: DamageResolvers<ContextType>;
   Deflect?: DeflectResolvers<ContextType>;
   Effect?: EffectResolvers<ContextType>;
@@ -1490,6 +1598,7 @@ export type Resolvers<ContextType = any> = {
   Item?: ItemResolvers<ContextType>;
   ItemShop?: ItemShopResolvers<ContextType>;
   Lineage?: LineageResolvers<ContextType>;
+  LineageVariant?: LineageVariantResolvers<ContextType>;
   List?: ListResolvers<ContextType>;
   Mutation?: MutationResolvers<ContextType>;
   MyCampaignsResult?: MyCampaignsResultResolvers<ContextType>;

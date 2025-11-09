@@ -1,6 +1,7 @@
 import { GraphQLError } from "graphql";
 import culturesData from "../../../../rules/1b/cultures";
 import type { Culture, QueryResolvers } from "./../../../types.generated";
+import findCulture from "../../../../extras/findCultureWithSlug";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Suppress TS2322 error for type mismatch
@@ -18,9 +19,7 @@ export const cultures: NonNullable<QueryResolvers['cultures']> = async (
   }
 
   if (searchSlug) {
-    const result = currentCultures.find((culture) => {
-      if (culture.slug.toLocaleLowerCase() === searchSlug) return culture;
-    });
+    const result = findCulture(currentCultures, searchSlug);
     if (result) return [result];
     else
       throw new GraphQLError(

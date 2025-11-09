@@ -1,4 +1,5 @@
 import { Lineage } from "../../schema/types.generated";
+import chimeric from "./lineages/chimeric";
 
 const lineagesData: Lineage[] = [
   {
@@ -130,81 +131,7 @@ const lineagesData: Lineage[] = [
       },
     ],
   },
-  {
-    title: "Chimeric",
-    slug: "CHIMERIC",
-    description: [
-      "Chimeric are a whole class of people who are humanoids who express animal traits. Often they have the head of their animal, but they come in many shapes and sizes, sometimes indistinguishable from humans, to obviously Chimeric.",
-    ],
-    size: ["SMALL", "MEDIUM", "LARGE"],
-    speeds: [{ speed: 30, type: "ground" }],
-    stat: "+1 to any stat",
-    traits: [
-      {
-        title: "Animal Features",
-        slug: "CHIMERIC-ANIMAL-FEATURES",
-        text: [{ text: "Pick 2 options from the list below." }],
-        ruleType: "CHOICE",
-        chooseNum: 2,
-        choices: [
-          {
-            title: "Intimidating",
-            slug: "CHIMERIC-INTIMIDATING",
-            text: [{ text: "Gain +2 on tests to intimidate someone." }],
-          },
-          {
-            title: "Cute",
-            slug: "CHIMERIC-CUTE",
-            text: [{ text: "Gain +2 on tests to persuade someone." }],
-          },
-          {
-            title: "Prehensile Tail",
-            slug: "CHIMERIC-PREHENSILE-TAIL",
-            text: [
-              {
-                text: "You can use your prehensile tail to help you balance as well as to grip things and move through the environment. Gain +3 on tests to climb and balance. Your tail cannot be used to hold weapons or shields in combat.",
-              },
-            ],
-          },
-          {
-            title: "Fast",
-            slug: "CHIMERIC-FAST",
-            text: [{ text: "Increase your speed by 5ft." }],
-          },
-          {
-            title: "Tough Skin/Shell",
-            slug: "CHIMERIC-TOUGH",
-            text: [
-              { text: "Add +3 to your Armor when you are not wearing armor." },
-            ],
-          },
-          {
-            title: "Flight",
-            slug: "CHIMERIC-FLIGHT",
-            text: [
-              {
-                text: "You have a pair of wings, you have a fly speed equal to your speed. You can fly for up to 10 minutes.",
-              },
-            ],
-          },
-          {
-            title: "Claws/Fangs",
-            slug: "CHIMERIC-CLAWS",
-            text: [
-              {
-                text: "You can attack with your claws/fangs. If you are trained in any melee weapon, you deal your base damage. If you are not, this attack deals 1d6+mettle damage. Choose if the damage is piercing, slashing or bludgeoning when you pick this trait.",
-              },
-            ],
-          },
-          {
-            title: "Stealthy",
-            slug: "CHIMERIC-STEALTHY",
-            text: [{ text: "Add a +2 to tests when stealthing." }],
-          },
-        ],
-      },
-    ],
-  },
 ];
-
+lineagesData.push(chimeric);
+lineagesData.sort((a, b) => a.title.localeCompare(b.title));
 export default lineagesData;

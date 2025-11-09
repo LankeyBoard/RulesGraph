@@ -133,7 +133,7 @@ const gmSections: GenericRule[] = [
       {
         label: "",
         items: [
-          "[2 Minute Tabletop](https://tools.2minutetabletop.com/): An expansive and useful collection of tokens I use for printed paper miniatures.",
+          "[2 Minute Tabletop](https://tools.2minutetabletop.com/) - An expansive and useful collection of tokens I use for printed paper miniatures.",
         ],
       },
     ],
