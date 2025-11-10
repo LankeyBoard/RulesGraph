@@ -3,6 +3,9 @@ import culturesData from "../../../../rules/1b/cultures";
 import lineagesData from "../../../../rules/1b/lineages";
 import playerClasses from "../../../../rules/1b/playerClasses";
 import type { MutationResolvers } from "./../../../types.generated";
+import findClass from "../../../../extras/findClassWithSlug";
+import findCulture from "../../../../extras/findCultureWithSlug";
+import findLineage from "../../../../extras/findLineageWithSlug";
 export const updateCharacter: NonNullable<MutationResolvers['updateCharacter']> = async (_parent, _arg, _ctx) => {
   if (!_ctx.currentUser) {
     throw new Error("You must be logged in to create a character");
@@ -108,30 +111,28 @@ export const updateCharacter: NonNullable<MutationResolvers['updateCharacter']> 
 
     if (!updatedCharacter.items) updatedCharacter.items = [];
 
-    // Class culture and lineage have to be manually linked because they aren't in the db
-    updatedCharacter.characterClass = playerClasses.find(
-      (playerClass) =>
-        playerClass.slug.toLocaleUpperCase() ===
-        _arg.input?.characterClass.toLocaleUpperCase(),
+    updatedCharacter.characterClass = findClass(
+      playerClasses,
+      _arg.input?.characterClass.toUpperCase(),
+    );
+    updatedCharacter.characterCulture = findCulture(
+      culturesData,
+      _arg.input?.characterCulture.toUpperCase(),
+    );
+    updatedCharacter.characterLineage = findLineage(
+      lineagesData,
+      _arg.input?.characterLineage.toLocaleUpperCase(),
     );
     if (!updatedCharacter.characterClass)
       throw new Error(
         `Player class ${updatedCharacter.playerClassSlug} not found in the player classes`,
       );
-    updatedCharacter.characterLineage = lineagesData.find(
-      (lineage) =>
-        lineage.slug.toLocaleUpperCase() ===
-        _arg.input?.characterLineage.toLocaleUpperCase(),
-    );
+
     if (!updatedCharacter.characterLineage)
       throw new Error(
         `Lineage ${updatedCharacter.characterLineage} not found in the player lineages`,
       );
-    updatedCharacter.characterCulture = culturesData.find(
-      (culture) =>
-        culture.slug.toLocaleUpperCase() ===
-        _arg.input?.characterCulture.toLocaleUpperCase(),
-    );
+
     if (!updatedCharacter.characterCulture)
       throw new Error(
         `Culture ${updatedCharacter.characterCulture} not found in the player cultures`,

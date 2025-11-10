@@ -218,6 +218,18 @@ type Culture implements Rule {
   stat: String
   languages: String
   traits: [GenericFeature!]
+  variants: [CultureVariant]
+}
+
+type CultureVariant implements Rule {
+  title: String!
+  slug: String!
+  href: String
+  shortTitle: String
+  description: [String]
+  stat: String
+  languages: String
+  traits: [GenericFeature!]
 }
 
 type Speed {
@@ -226,6 +238,19 @@ type Speed {
 }
 
 type Lineage implements Rule {
+  title: String!
+  slug: String!
+  href: String
+  shortTitle: String
+  description: [String]!
+  size: [Size!]!
+  speeds: [Speed!]!
+  stat: String
+  traits: [GenericFeature!]!
+  variants: [LineageVariant]
+}
+
+type LineageVariant implements Rule {
   title: String!
   slug: String!
   href: String
@@ -345,6 +370,28 @@ type CharacterClassFeature implements Feature {
 }
 
 type CharacterClass implements Rule {
+  title: String!
+  slug: String!
+  href: String
+  shortTitle: String
+  complexity: Complexity
+  description: [String]!
+  health: Int!
+  healthOnLevel: Int!
+  stamina: Int!
+  staminaOnLevel: Int!
+  staminaStat: StatOptions!
+  training: Training!
+  attackStat: [StatOptions!]
+  range: Range!
+  damage: Damage!
+  deflect: Deflect!
+  features: [CharacterClassFeature]!
+  extra: CharacterExtras
+  variants: [CharacterClassVariant]
+}
+
+type CharacterClassVariant implements Rule {
   title: String!
   slug: String!
   href: String

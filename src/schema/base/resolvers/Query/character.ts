@@ -1,3 +1,6 @@
+import findClass from "../../../../extras/findClassWithSlug";
+import findCulture from "../../../../extras/findCultureWithSlug";
+import findLineage from "../../../../extras/findLineageWithSlug";
 import cultures from "../../../../rules/1b/cultures";
 import lineages from "../../../../rules/1b/lineages";
 import playerClasses from "../../../../rules/1b/playerClasses";
@@ -26,21 +29,10 @@ export const character: NonNullable<QueryResolvers['character']> = async (
   if (!character) {
     throw new Error("Character not found");
   }
-  const characterClass = playerClasses.find(
-    (c) =>
-      c.slug.toLocaleUpperCase() ===
-      character.characterClass.toLocaleUpperCase(),
-  );
-  const characterLineage = lineages.find(
-    (c) =>
-      c.slug.toLocaleUpperCase() ===
-      character.characterLineage.toLocaleUpperCase(),
-  );
-  const characterCulture = cultures.find(
-    (c) =>
-      c.slug.toLocaleUpperCase() ===
-      character.characterCulture.toLocaleUpperCase(),
-  );
+  const characterClass = findClass(playerClasses, character.characterClass);
+  const characterLineage = findLineage(lineages, character.characterLineage);
+  const characterCulture = findCulture(cultures, character.characterCulture);
+
   character.items = character.items || [];
   character.items = character.items.map((item: { uses: object }) => {
     return {

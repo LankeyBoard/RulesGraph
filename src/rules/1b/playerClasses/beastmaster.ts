@@ -1,4 +1,6 @@
+import { variantClassCombiner } from "../../../extras/variantCombiner";
 import { CharacterClass } from "../../../schema/types.generated";
+import tattooedBeastmaster from "./variants/tattooedBeastmaster";
 
 const beastmaster: CharacterClass = {
   title: "Beastmaster",
@@ -26,6 +28,7 @@ const beastmaster: CharacterClass = {
   range: { min: 0, max: 120 },
   damage: { dice: 6, count: 1, stat: ["AGILITY"] },
   deflect: { dice: 4, count: 1 },
+  variants: [],
   features: [
     {
       level: 1,
@@ -365,4 +368,7 @@ const beastmaster: CharacterClass = {
     },
   },
 };
+
+const combinedTattooed = variantClassCombiner(beastmaster, tattooedBeastmaster);
+beastmaster.variants = [combinedTattooed];
 export default beastmaster;

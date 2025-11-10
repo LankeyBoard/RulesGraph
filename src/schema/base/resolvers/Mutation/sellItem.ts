@@ -1,6 +1,6 @@
 import type { MutationResolvers } from "./../../../types.generated";
 
-export const sellItem: NonNullable<MutationResolvers["sellItem"]> = async (
+export const sellItem: NonNullable<MutationResolvers['sellItem']> = async (
   _parent,
   { shopId, itemId, characterId },
   _ctx,

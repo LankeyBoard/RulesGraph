@@ -1,6 +1,7 @@
 import { GraphQLError } from "graphql";
 import lineagesData from "../../../../rules/1b/lineages";
 import type { Lineage, QueryResolvers } from "./../../../types.generated";
+import findLineage from "../../../../extras/findLineageWithSlug";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Suppress TS2322 error for type mismatch
@@ -16,9 +17,7 @@ export const lineages: NonNullable<QueryResolvers['lineages']> = async (
     });
   }
   if (searchSlug) {
-    const result = currentLineages.find((lineage) => {
-      if (lineage.slug.toLocaleLowerCase() === searchSlug) return lineage;
-    });
+    const result = findLineage(currentLineages, searchSlug);
     if (result) return [result];
     else
       throw new GraphQLError(

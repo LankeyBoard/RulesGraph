@@ -1,3 +1,6 @@
+import findClass from "../../../../extras/findClassWithSlug";
+import findCulture from "../../../../extras/findCultureWithSlug";
+import findLineage from "../../../../extras/findLineageWithSlug";
 import cultures from "../../../../rules/1b/cultures";
 import lineages from "../../../../rules/1b/lineages";
 import playerClasses from "../../../../rules/1b/playerClasses";
@@ -47,21 +50,16 @@ export const me: NonNullable<QueryResolvers['me']> = async (
       characterCulture: string;
       campaignId?: number;
     }) => {
-      const characterClass = playerClasses.find(
-        (c) =>
-          c.slug.toLocaleUpperCase() ===
-          character.characterClass.toLocaleUpperCase(),
+      const characterClass = findClass(playerClasses, character.characterClass);
+      const characterLineage = findLineage(
+        lineages,
+        character.characterLineage,
       );
-      const characterLineage = lineages.find(
-        (c) =>
-          c.slug.toLocaleUpperCase() ===
-          character.characterLineage.toLocaleUpperCase(),
+      const characterCulture = findCulture(
+        cultures,
+        character.characterCulture,
       );
-      const characterCulture = cultures.find(
-        (c) =>
-          c.slug.toLocaleUpperCase() ===
-          character.characterCulture.toLocaleUpperCase(),
-      );
+
       if (character.campaignId) {
         character.campaign = _ctx.prisma.campaign.findUnique({
           where: { id: character.campaignId },

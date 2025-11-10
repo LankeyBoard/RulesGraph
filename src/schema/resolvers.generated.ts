@@ -10,8 +10,10 @@ import    { Campaign } from './base/resolvers/Campaign';
 import    { Character } from './base/resolvers/Character';
 import    { CharacterClass } from './base/resolvers/CharacterClass';
 import    { CharacterClassFeature } from './base/resolvers/CharacterClassFeature';
+import    { CharacterClassVariant } from './base/resolvers/CharacterClassVariant';
 import    { CharacterExtras } from './base/resolvers/CharacterExtras';
 import    { Culture } from './base/resolvers/Culture';
+import    { CultureVariant } from './base/resolvers/CultureVariant';
 import    { Damage } from './base/resolvers/Damage';
 import    { Deflect } from './base/resolvers/Deflect';
 import    { Effect } from './base/resolvers/Effect';
@@ -21,6 +23,7 @@ import    { GenericRule } from './base/resolvers/GenericRule';
 import    { Item } from './base/resolvers/Item';
 import    { ItemShop } from './base/resolvers/ItemShop';
 import    { Lineage } from './base/resolvers/Lineage';
+import    { LineageVariant } from './base/resolvers/LineageVariant';
 import    { List } from './base/resolvers/List';
 import    { addCharacterToCampaign as Mutation_addCharacterToCampaign } from './base/resolvers/Mutation/addCharacterToCampaign';
 import    { addShopToCampaign as Mutation_addShopToCampaign } from './base/resolvers/Mutation/addShopToCampaign';
@@ -88,8 +91,10 @@ Campaign: Campaign,
 Character: Character,
 CharacterClass: CharacterClass,
 CharacterClassFeature: CharacterClassFeature,
+CharacterClassVariant: CharacterClassVariant,
 CharacterExtras: CharacterExtras,
 Culture: Culture,
+CultureVariant: CultureVariant,
 Damage: Damage,
 Deflect: Deflect,
 Effect: Effect,
@@ -99,6 +104,7 @@ GenericRule: GenericRule,
 Item: Item,
 ItemShop: ItemShop,
 Lineage: Lineage,
+LineageVariant: LineageVariant,
 List: List,
 MyCampaignsResult: MyCampaignsResult,
 Range: Range,

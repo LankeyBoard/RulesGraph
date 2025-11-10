@@ -1,3 +1,4 @@
+import findClass from "../../../../extras/findClassWithSlug";
 import playerClasses from "../../../../rules/1b/playerClasses";
 import type {
   CharacterClass,
@@ -17,10 +18,7 @@ export const characterClasses: NonNullable<QueryResolvers['characterClasses']> =
   }
   const searchSlug = _arg.slug?.toLocaleLowerCase();
   if (searchSlug) {
-    const result = currentClasses.find((playerClass) => {
-      if (playerClass.slug.toLocaleLowerCase() === searchSlug)
-        return playerClass;
-    });
+    const result = findClass(currentClasses, searchSlug);
     if (result) return [result];
     else
       throw new GraphQLError(
