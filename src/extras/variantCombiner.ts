@@ -143,6 +143,7 @@ export function variantLineageCombiner(
   const combinedFeatures = base.traits.slice();
 
   for (const vFeat of variant.traits) {
+    vFeat.isVariant = true;
     // try to find existing feature with same slug
     const existingIndex = combinedFeatures.findIndex(
       (f) => f.slug === vFeat.slug,

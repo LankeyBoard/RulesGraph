@@ -19,4 +19,5 @@ const featureTyper = (slug: string) => {
 export const GenericFeature: GenericFeatureResolvers = {
   href: ({ slug }) => makeFeatureLink(slug),
   featureType: ({ slug }) => featureTyper(slug),
+  isVariant: (object) => object.isVariant || false,
 };
