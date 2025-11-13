@@ -368,6 +368,7 @@ type CharacterClassFeature implements Feature {
   shortText: String
   choices: [FeatureChoices!]
   chooseNum: Int
+  isVariant: Boolean
 }
 
 type CharacterClass implements Rule {

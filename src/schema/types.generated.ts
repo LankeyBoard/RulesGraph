@@ -159,6 +159,7 @@ export type CharacterClassFeature = Feature & {
   chooseNum?: Maybe<Scalars['Int']['output']>;
   costsFortunesFavor: Scalars['Boolean']['output'];
   href?: Maybe<Scalars['String']['output']>;
+  isVariant?: Maybe<Scalars['Boolean']['output']>;
   level: Scalars['Int']['output'];
   multiSelect?: Maybe<Scalars['Boolean']['output']>;
   ruleType?: Maybe<RuleType>;
@@ -1194,6 +1195,7 @@ export type CharacterClassFeatureResolvers<ContextType = any, ParentType extends
   chooseNum?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   costsFortunesFavor?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   href?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  isVariant?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
   level?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   multiSelect?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
   ruleType?: Resolver<Maybe<ResolversTypes['RuleType']>, ParentType, ContextType>;
