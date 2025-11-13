@@ -159,6 +159,7 @@ export type CharacterClassFeature = Feature & {
   chooseNum?: Maybe<Scalars['Int']['output']>;
   costsFortunesFavor: Scalars['Boolean']['output'];
   href?: Maybe<Scalars['String']['output']>;
+  isVariant?: Maybe<Scalars['Boolean']['output']>;
   level: Scalars['Int']['output'];
   multiSelect?: Maybe<Scalars['Boolean']['output']>;
   ruleType?: Maybe<RuleType>;
@@ -326,6 +327,7 @@ export type GenericFeature = Feature & {
   costsFortunesFavor?: Maybe<Scalars['Boolean']['output']>;
   featureType?: Maybe<FeatureType>;
   href?: Maybe<Scalars['String']['output']>;
+  isVariant?: Maybe<Scalars['Boolean']['output']>;
   multiSelect?: Maybe<Scalars['Boolean']['output']>;
   ruleType?: Maybe<RuleType>;
   shortText?: Maybe<Scalars['String']['output']>;
@@ -1193,6 +1195,7 @@ export type CharacterClassFeatureResolvers<ContextType = any, ParentType extends
   chooseNum?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   costsFortunesFavor?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   href?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  isVariant?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
   level?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   multiSelect?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
   ruleType?: Resolver<Maybe<ResolversTypes['RuleType']>, ParentType, ContextType>;
@@ -1321,6 +1324,7 @@ export type GenericFeatureResolvers<ContextType = any, ParentType extends Resolv
   costsFortunesFavor?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
   featureType?: Resolver<Maybe<ResolversTypes['FeatureType']>, ParentType, ContextType>;
   href?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  isVariant?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
   multiSelect?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
   ruleType?: Resolver<Maybe<ResolversTypes['RuleType']>, ParentType, ContextType>;
   shortText?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;

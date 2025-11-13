@@ -33,6 +33,7 @@ export function variantClassCombiner(
       `variant slug cannot be ${variant.slug} slug cannot be empty or the same as the base class`,
     );
   }
+
   delete base.variants;
   // shallow merge for top-level fields (variant overrides base)
   const merged: CharacterClassVariant = {
@@ -63,6 +64,7 @@ export function variantClassCombiner(
   const combinedFeatures = baseFeatures.slice();
 
   for (const vFeat of variantFeatures) {
+    vFeat.isVariant = true;
     // try to find existing feature with same slug
     const existingIndex = combinedFeatures.findIndex(
       (f) => f.slug === vFeat.slug,
@@ -108,10 +110,31 @@ export function variantCultureCombiner(
   // shallow merge for top-level fields (variant overrides base)
   const merged: CultureVariant = {
     ...base,
-    // allow partial variant fields to overwrite base without using `any`
     ...variant,
   } as CultureVariant;
 
+  // If there are no variant features just return the shallow-merged class
+  if (!variant.traits || variant.traits.length === 0 || !base.traits) {
+    return merged;
+  }
+  const combinedFeatures = base.traits.slice();
+
+  for (const vFeat of variant.traits) {
+    vFeat.isVariant = true;
+    // try to find existing feature with same slug
+    const existingIndex = combinedFeatures.findIndex(
+      (f) => f.slug === vFeat.slug,
+    );
+
+    if (existingIndex >= 0) {
+      // replace existing feature entirely with the variant feature
+      combinedFeatures[existingIndex] = vFeat;
+    } else {
+      combinedFeatures.push(vFeat);
+    }
+  }
+
+  merged.traits = combinedFeatures;
   return merged;
 }
 
@@ -143,6 +166,7 @@ export function variantLineageCombiner(
   const combinedFeatures = base.traits.slice();
 
   for (const vFeat of variant.traits) {
+    vFeat.isVariant = true;
     // try to find existing feature with same slug
     const existingIndex = combinedFeatures.findIndex(
       (f) => f.slug === vFeat.slug,
