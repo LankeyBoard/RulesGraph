@@ -1,0 +1,25 @@
+import { CharacterClass } from "../../schema/types.generated";
+import beastmaster from "./playerClasses/classes/beastmaster";
+import hypeman from "./playerClasses/classes/hypeman";
+import spellsword from "./playerClasses/classes/spellsword";
+import brawler from "./playerClasses/classes/brawler";
+import devoted from "./playerClasses/classes/devoted";
+import elementalist from "./playerClasses/classes/elementalist";
+import knight from "./playerClasses/classes/knight";
+import maverick from "./playerClasses/classes/maverick";
+import ranger from "./playerClasses/classes/ranger";
+import shapeshifter from "./playerClasses/classes/shapeshifter";
+
+const playerClasses: CharacterClass[] = [];
+playerClasses.push(spellsword);
+playerClasses.push(beastmaster);
+playerClasses.push(hypeman);
+playerClasses.push(brawler);
+playerClasses.push(devoted);
+playerClasses.push(elementalist);
+playerClasses.push(knight);
+playerClasses.push(maverick);
+playerClasses.push(ranger);
+playerClasses.push(shapeshifter);
+playerClasses.sort((a, b) => a.title.localeCompare(b.title));
+export default playerClasses;

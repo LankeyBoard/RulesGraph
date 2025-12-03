@@ -1,5 +1,5 @@
-import NoviceFeatures from "../../../rules/1b/noviceFeatures";
-import VeteranFeatures from "../../../rules/1b/veteranFeatures";
+import NoviceFeatures from "../../../rules/2a/noviceFeatures";
+import VeteranFeatures from "../../../rules/2a/veteranFeatures";
 import { baseUrls, hrefer } from "../../../slugMapper";
 import type { GenericFeatureResolvers } from "./../../types.generated";
 

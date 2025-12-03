@@ -1,10 +1,10 @@
-import culturesData from "./rules/1b/cultures";
-import generalRules from "./rules/1b/generalRules";
-import NoviceFeatures from "./rules/1b/noviceFeatures";
-import VeteranFeatures from "./rules/1b/veteranFeatures";
-import lineagesData from "./rules/1b/lineages";
-import playerClasses from "./rules/1b/playerClasses";
-import gmSections from "./rules/1b/gmSections";
+import culturesData from "./rules/2a/cultures";
+import generalRules from "./rules/2a/generalRules";
+import NoviceFeatures from "./rules/2a/noviceFeatures";
+import VeteranFeatures from "./rules/2a/veteranFeatures";
+import lineagesData from "./rules/2a/lineages";
+import playerClasses from "./rules/2a/playerClasses";
+import gmSections from "./rules/2a/gmSections";
 import { Feature, GenericRule, SlugDict } from "./schema/types.generated";
 
 export enum baseUrls {

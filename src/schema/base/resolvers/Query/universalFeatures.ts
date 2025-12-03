@@ -1,6 +1,6 @@
 import { GraphQLError } from "graphql";
-import NoviceFeatures from "../../../../rules/1b/noviceFeatures";
-import VeteranFeatures from "../../../../rules/1b/veteranFeatures";
+import NoviceFeatures from "../../../../rules/2a/noviceFeatures";
+import VeteranFeatures from "../../../../rules/2a/veteranFeatures";
 import type { Feature, QueryResolvers } from "./../../../types.generated";
 
 export const universalFeatures: NonNullable<QueryResolvers['universalFeatures']> = async (_parent, _arg) => {
@@ -10,12 +10,12 @@ export const universalFeatures: NonNullable<QueryResolvers['universalFeatures']>
     import(`../../../../rules/${_arg.version.slice(1)}/noviceFeatures`).then(
       (f) => {
         currentNoviceFeatures = f;
-      }
+      },
     );
     import(`../../../../rules/${_arg.version.slice(1)}/veteranFeatures`).then(
       (f) => {
         currentVeteranFeatures = f;
-      }
+      },
     );
   }
   const searchSlug = _arg.slug?.toLocaleLowerCase();
@@ -29,7 +29,7 @@ export const universalFeatures: NonNullable<QueryResolvers['universalFeatures']>
     if (result !== undefined) return [{ ...result }];
     else
       throw new GraphQLError(
-        `Slug ${_arg.slug} not found in the generic features data`
+        `Slug ${_arg.slug} not found in the generic features data`,
       );
   } else if (featureType) {
     if (featureType === "NOVICE") {

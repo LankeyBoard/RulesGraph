@@ -9,18 +9,11 @@ Pick a Lineage, Culture and Class.
 
 Assign stats - You have a set of 3,2,0,-2. Use each number once, placing them in your 4 stats. Then add your stat bonuses from your Lineage and your Culture. These cannot both go to the same Stat.
 
-Higher numbers are better. Your class will have at least 1 primary stat. It's a good idea to have that be your highest number.
+Higher numbers are better. Your class will have at least 1 primary stat. It's a good idea to have that be your highest stat.
 
 Pick a [Novice Feature](/rules/generic_features/novice_features).
 
 (Optional) Write a backstory for your character.
-
-## Leveling Up
-
-slug: LEVELING-UP
-
-ruleType: RULE\
-Your GM will tell you when you level up. Parties should generally be kept at the same level and should level up at the same time when Recuperating. When you level up, your Health & Stamina increase and you gain new features based on your Class.
 
 # What Makes Up a Character
 
@@ -34,7 +27,7 @@ Level, Lineage, Culture, Class, and Stats
 slug: LEVEL-RULE-DESC
 
 ruleType: RULE\
-As your character grows more powerful and experienced you gain levels, unlocking new abilities based on your class. The current rules go from level 1-8.
+As your character grows more powerful and experienced you gain levels, unlocking new abilities and increasing your Health and Stamina based on your [class](/rules/classes). The current rules go from level 1-8.
 
 ## Lineage
 
@@ -75,7 +68,7 @@ Physical strength and toughness.
 slug: AGILITY
 
 ruleType: RULE\
-Physical accuracy, body control and balance..
+Physical accuracy, body control and balance.
 
 ### Intellect
 
@@ -102,21 +95,21 @@ ruleType: RULE\
 slug: STAMINA
 
 ruleType: RULE\
-Stamina is the characters wellspring of energy. It is relatively quick to go down, and easy to get back. The exact amount of Stamina a character has is determined by their Class and stat block. Stamina can be used for Class abilities and to avoid taking damage. See [Exhausted, Dying, Last Stand & Healing](/rules/player_rules#EDL) for what happens at 0 Stamina.
+Stamina is the characters wellspring of energy. It is relatively quick to go down, and easy to get back. The exact amount of Stamina a character has is determined by their Class, stats and level. Stamina can be used for Class abilities and to avoid taking damage.
 
 ## Health
 
 slug: HEALTH
 
 ruleType: RULE\
-Health represents the life force of your character. It is slow to get back and in limited supply. See [Exhausted, Dying, Last Stand & Healing](/rules/player_rules#EDL) for what happens at 0 Health.
+Health represents the life force of your character. It is slow to get back and in limited supply. The exact amount of Health a character has is determined by their Class, stats and level. See [Exhausted, Dying, Last Stand & Healing](/rules/player_rules#EDL) for what happens at 0 Health.
 
 ## Fortune's Favor
 
 slug: FORTUNES-FAVOR
 
 ruleType: RULE\
-Fortune's Favor represent's the little bit of extra luck you have as a hero. You gain Fortune's Favor whenever you fail a [Test](/rules/player_rules#tests). It can be spent to roll a second d20 on a [Test](/rules/player_rules#TESTS) or to use special [Class](/rules/player_rules##CLASS-RULES-DESC) abilities.
+Fortune's Favor represent's the little bit of extra luck you have as a hero. You gain Fortune's Favor whenever you fail a [Test](/rules/player_rules#tests). You can spend Fortune's Favor when you make a [Test](/rules/player_rules#TESTS) to roll a second d20 and use the higher result. As you level up your [Class](/rules/player_rules##CLASS-RULES-DESC) will also have abilities that require Fortune's Favor.
 
 ## Regaining Resources
 
@@ -143,7 +136,7 @@ If you are at 0 Health, you gain 1 Health. Some classes may also have features t
 slug: NIGHTS-REST
 
 ruleType: RULE\
-A good Night's Rest is still important to an adventurer. To complete a Night's Rest, spend a minimum of 6 hours sleeping. This gives surface level wounds a chance to heal and prepare yourself for the next day. When you finish a Night's Rest, return your Stamina to full, regain Health equal to your level + 1, and gain Fortune's Favor.
+A good Night's Rest is still important to an adventurer. To complete a Night's Rest, spend a minimum of 6 hours sleeping. This gives surface level wounds a chance to heal and prepare yourself for the next day. When you finish a Night's Rest, return your Stamina to full, regain Health equal to your level + 1.
 
 If you are awake for more than 24 hours in a row, Test your Mettle each hour. The difficulty of this test increases by 1 for each hour beyond 24 hours. Pass (15+): You suffer no ill effects. Mixed (10-14): Reduce your current and maximum Stamina by 3. Fail (9-): Reduce your current and maximum Stamina by 7. If you are reduced to 0 stamina in this way you become unconscious. You must complete a Night's Rest to remove these effects.
 
@@ -160,7 +153,7 @@ Or spend 14 days & nights in less than ideal conditions with no more than light 
 
 Eg. Sleeping in a tent in the woods.
 
-After successful Rest and Relaxation, regain all lost Health and Stamina. You also lose any conditions that do not specifically last through a R&R
+After successful Rest and Relaxation, regain all lost Health and Stamina and gain Fortune's Favor. You also lose any conditions that do not specifically last through a R&R.
 
 # Tests
 
@@ -178,9 +171,15 @@ slug: SUCCESS
 ruleType: RULE\
 Success on a test doesn't always mean getting exactly what you want, but it does mean a favorable outcome for you. To achieve Success, you have to roll at least the Success point for the Test.
 
-EG: You are talking to the innkeeper negotiating for a room. The GM calls for a Heart Test and tells you that you'll succeed on a 15, earning your party a good discount. Failure is a 5 and you get no discount and an undesirable room. You roll a 13 and add +2 for your Heart to get a total of 15, which means you succeed. You manage to negotiate a 20% discount!
+EG: You are talking to the innkeeper negotiating for a room. The GM calls for a Heart Test and tells you that you'll succeed on a 15. You roll a 13 and add +2 for your Heart to get a total of 15, which means you succeed. You manage to endear yourself to the innkeeper and reduce the cost from 3 Coin to 2!
 
-## Success With a Cost
+## Mixed Result
+
+slug: MIXED
+
+When you between the Success Target and five below the Target, you get a mixed result. Mixed results could be Success With a Cost or a Mixed Success.
+
+### Success With a Cost
 
 slug: SUCCESS-WITH-COST
 
@@ -189,7 +188,7 @@ Success with a Cost is one possible Mixed Result where the GM offers a consequen
 
 EG: You try and scale a difficult cliff, you roll a mixed result. The GM may offer that you try and fall the first time, taking 1d6 damage but make it up on the second try or you fail and realize it would be too risky to climb and can't make it up.
 
-## Mixed Success
+### Mixed Success
 
 slug: MIXED-SUCCESS
 
@@ -203,11 +202,11 @@ EG: You are trying to trick a guard into letting you go after being caught break
 slug: FAILURE
 
 ruleType: RULE\
-A Failure occurs when you cannot achieve your desired outcome. This may mean the situation was harder than you initially believed or because you couldn't do it as well as you hoped or any other reason you and the GM think is reasonable. Sometimes the consequences of failure are direct, such as taking damage, other times they can simply be a complication for the story, this is determined by the GM.
+A Failure occurs when you roll more than five below the Target. Maybe the situation was more complicated than you though, or you were missing some key information, or maybe you were just unlucky. Regardless of the reason the consequences of failure can be direct, such as taking damage, or they can simply be a complication for the story, this is determined by the GM. Generally the scope of failure should clear to the player before making the Test.
 
 When you roll a Failure, you gain [Fortune's Favor](/rules/player_rules#FORTUNES-FAVOR)
 
-EG: You are scaling a castle wall, trying to get in without alerting the goblins keeping watch from the nearby tower. Your GM calls for an Agility Test, where Success is a 15 and means you get up without being noticed and a Failure is a 10 and means you get spotted. You roll your Agility Test, you get a 5 on the dice and add 2 from your Agility, giving you a total of 7. The goblins spot you half way up, they begin to shout something you can't understand and begin to run towards the wall you are climbing!
+EG: You are scaling a castle wall, trying to get in without alerting the goblins keeping watch from the nearby tower. Your GM calls for an Agility Test, where Success is a 15 and means you get up without being noticed and a Failure is a 10 and means you get spotted and the goblins move to raise the alarm. You roll your Agility Test, you get a 5 on the dice and add 2 from your Agility, giving you a total of 7. The goblins spot you half way up, they begin to shout something you can't understand and begin to run towards the wall you are climbing!
 
 ## Contests
 
@@ -227,15 +226,6 @@ Sometimes a group of characters are performing an action where the success depen
 
 EG: The GM calls for a Group Test for a group of 5, Pass is 13 and Fail is 8. If the group rolls 2 Passes, 2 Mixed and 1 Fail, then we subtract the 1 Fail from 2 Passes, leaving us with 1 Pass and 2 Mixed, so the result is Mixed. If instead there were 3 Passes and 1 Mixed, the result would have been a Pass.
 
-## Pushing Your Limits
-
-slug: PUSHING-LIMITS
-
-ruleType: RULE\
-On non-combat Tests, you can try and push your limits to improve your odds of success. To Push Your Limits, when you make a non-combat Test, spend 3 Stamina to add 1d6 to the roll.
-
-You have to push your limit at the same time you decide if you are going to use [Fortune's Favor](/rules/player_rules#FORTUNES-FAVOR).
-
 ## Helping on a Test
 
 slug: HELP
@@ -249,7 +239,7 @@ EG: Bill the Brawler is trying to open a big heavy stone door. His party is help
 
 slug: LUCK-TEST
 
-A Luck Test is a special kind of Test without any Stat attached and cannot be helped on. It's just a Test to see if the player is lucky.
+A Luck Test is a special kind of Test without any Stat attached and cannot be helped with. It's just a Test to see if the character is lucky. Fortune's Favor can still be used on Luck Tests.
 
 EG: Smee the Shapeshifter wants to know what the smartest animals are around to communicate with. They aren't willing to track or spend time looking around for a smart animal so this wouldn't be a Test of their Heart or Intellect, instead it will be a Test of Luck.
 
@@ -271,22 +261,21 @@ Rolling a 1 is the worst a character could do. Tests always fail.
 slug: 20s
 
 ruleType: RULE\
-Rolling a 20 is the best a character could do. Tests always pass and when you roll a Critical Success on an attack, you deal double damage on the attack.
+Rolling a 20 is the best a character could do. Tests always pass and when you roll a Critical Success on an attack, you deal double damage on the attack, including any flat bonuses.
 
 ## Misfortune
 
 slug: MISFORTUNE
 
 ruleType: RULE\
-Circumstances may cause misfortune. When the GM calls for a roll with Misfortune, you roll a second d20 and take the lower of the two rolls. If you have [Fortune's Favor](/rules/player_rules#FORTUNES-FAVOR), before you roll you can chose to give it up to cancel out the Misfortune and roll the test normally.
+Circumstances may cause misfortune. When the GM calls for a roll with Misfortune, you roll a second d20 and take the lower of the two rolls. If you have [Fortune's Favor](/rules/player_rules#FORTUNES-FAVOR), before you roll you can choose to spend it to cancel out the Misfortune and roll the test normally.
 
 # Combat
 
 slug: COMBAT
 
 ruleType: RULE\
-Each round of combat is split into 3 parts, 1st, Environmental effects, 2nd, Players take their turn, 3rd, Enemies take their turn. During the player's turn, each player makes one Action and can move up to their speed. During the enemies turn enemies with Actions can take one Action and move.
-
+Each round of combat is split into 3 parts, 1st, Environmental effects, 2nd, Players take their turn, 3rd, Enemies take their turn. During the player's turn, each player makes one Action and can move up to their speed. Enemies do the same during their turn.
 Each round of combat represents 30 seconds of in game time.
 
 ## Exchanges
@@ -294,21 +283,21 @@ Each round of combat represents 30 seconds of in game time.
 slug: EXCHANGES
 
 ruleType: RULE\
-When a character attacks or casts an offensive spell at another creature or creatures an Exchange begins. To start the Exchange, Test your Attack, adding your Base Attack Bonus. The defenders Armor and Counter become the Success and Failure points of the Test. If you Succeed on the Test then the hit is clean and there is no room for retaliation. If the result is Mixed then you Clash. When you Clash, you and your target both choose a Counter Action to use. If you Fail the test, your attack is Countered and the target gets to use a Counter Action.
+When a character attacks or casts an offensive spell at another creature or creatures an Exchange begins. To start the Exchange, Test your Attack, adding your Base Attack Bonus. The defenders Armor and Counter become the Success and Failure points of the Test. If you Succeed on the Test then the hit is clean and there is no room for retaliation. If the result is Mixed then you Clash. When you Clash, you and your target both choose a Clash Action to use with the defender picking first. If you Fail the test, your attack is Countered and the target deals damage to you as though they landed a Basic Attack.
 
 ### AOE Exchanges
 
 slug: AOE-EXCHANGES
 
 ruleType: RULE\
-When your Attack targets multiple enemies, roll a single Attack Test, and compare to each enemy's defenses. If the roll would be a Clash or Counter, the GM chooses which creature will get to take a Clash Action.
+When your Attack targets multiple enemies, roll a single Attack Test, and compare to each enemy's defenses. Only one enemy can make a Clash or Counter. (One enemy can Clash and a different one can Counter.)
 
 ### Engaging an Enemy
 
 slug: ENGAGING-ENEMIES
 
 ruleType: RULE\
-When you attempt to attack an enemy, they are [Engaged](/rules/player_rules#ENGAGED). Engaged Minions cannot take an Action on their turn, Non-boss monsters damage dice go down by 1 step, and bosses lose access to their most potent abilities.
+When you attempt to attack an enemy, they are [Engaged](/rules/player_rules#ENGAGED). Engaged Minions cannot take an Action on their turn, Non-Boss monsters damage dice go down by 1 step, and Bosses lose access to their most potent abilities.
 
 ## Key Combat Information
 
@@ -322,6 +311,12 @@ These are the key fields for most combat Exchanges
 slug: BASIC-ATTACK
 
 Your Base Attack is the stat you use for Attack rolls and comes from your Class.
+
+### Base Damage
+
+slug: BASE-DAMAGE
+
+Your Base Damage is how much damage you deal if you hit with an attack. It comes from your Class, and can change if you are wielding a weapon in 1 hand or 2.
 
 ### Range
 
@@ -360,19 +355,19 @@ These Actions are available to all characters. Each round a character can take 1
 
 slug: BASIC-ATTACK
 
-Attack with one of your proficient weapons or magic. You deal your Base Damage.
+Attack with one of your proficient weapons or magic. If you hit, deal your Base Damage.
 
 ### Careful Attack
 
 slug: CAREFUL-ATTACK
 
-Attack with one of your proficient weapons or magic. You deal half your Base Damage. A Miss or Clash does not trigger Clash Actions for the target.
+Attack with one of your proficient weapons or magic. If you hit, deal half your Base Damage. A Miss or Clash does not trigger Clash Actions for the target.
 
 ### Defend
 
 slug: DEFEND
 
-Add +2 to your Armor and Counter.
+Add +3 to your Armor and Counter.
 
 ### Hide
 
@@ -419,6 +414,13 @@ slug: COUNTER-STAGGER
 
 [Slow](/rules/player_rules#STATUSES) your target until the end of their next turn.
 
+## Oomph
+
+slug: OOMPH
+
+ruleType: RULE\
+When you Attack, you can spend 2 Stamina to increase your Base Damage by 1 step. You can do this a number of times equal to 1/2 your current level.
+
 ## Moving in Combat
 
 slug: MOVING-COMBAT
@@ -426,7 +428,7 @@ slug: MOVING-COMBAT
 ruleType: RULE\
 In addition to an Action, you can move during your turn in combat, moving up to your Speed in any direction. You can move at any point during your turn, and can split your move before and after your Action.
 
-If you willingly move out of melee range with an enemy they get a free Counter Action
+If you willingly move out of melee range with an enemy they get a free Clash Action
 
 EG: If you a speed of 30 ft. you can move 10 ft. Make an Attack and then move another 20 ft. But, if you moved into melee range to make the attack, you'd only be able to move 10 ft. after the attack.
 
@@ -436,6 +438,15 @@ slug: MOVEMENT-DOWN-UP
 
 ruleType: RULE\
 Dropping [prone](/rules/player_rules#PRONE) is a free action. Standing up from [prone](/rules/player_rules#PRONE) takes either 10 ft. of Movement or an Action. If you have magical flight, it only takes 5ft. of Movement.
+
+## Cover
+
+slug COVER
+
+ruleType: RULE\
+Attacks require a clear line from the attacker to the target. When the line is interrupted, it becomes harder to effectively hit and damage your target. A target has Cover if they are more than half hidden from the attacker. If the target has Cover, they gain +3 to their Armor and Counter for this attack.
+
+If the target is fully hidden they cannot be attacked.
 
 # Taking Damage
 
@@ -449,9 +460,7 @@ When you take damage, your Health is reduced by the damage amount. You can spent
 slug: DEFLECT-DICE
 
 ruleType: RULE\
-When you would take damage and you are not Surprised, Unconscious or otherwise unaware of the damage, you can attempt to reduce the damage by spending 2 Stamina per die to roll Deflect Dice, reducing the damage taken by the amount rolled. You can roll Deflect Dice equal to 1 + half your level rounded down and you must decide and roll all dice at once.
-
-Any flat Deflect bonuses only apply once regardless of how many dice you roll.
+When you would take damage and you are not Surprised, Unconscious or otherwise unaware of the damage, you can attempt to reduce the damage by spending 3 Stamina per die to roll Deflect Dice, reducing the damage taken by the amount rolled. Your Deflect Dice is determined by your Class. You start with two Deflect Dice and gain 1 more every third level starting at level 3. Level 1-2: 2 dice, Level 3-5: 3 dice, Level 6+: 4 dice. You must decide how many dice you are going to roll before rolling any of them.
 
 Depending on the source of the damage this might represent a last second dodge to reduce the effect of the blow or gritting your teeth through the damage to reduce the effect.
 
@@ -470,7 +479,7 @@ slug: WEAPONS
 ruleType: RULE\
 Characters can be proficient in different groups of weapons and magic. It is up to your GMs discretion what category a weapon falls into, or if it is a unique weapon that requires its own training.
 
-Weapons can require one or two hands to wield. If you leave one hand free to wield a Shield or some other item, your Base Damage is reduced by one step.
+Weapons can require one or two hands to wield. If you leave one hand free to wield a Shield or some other item, your Base Damage is reduced by [one step](/rules/player_rules#DAMAGE-DICE).
 
 Using a ranged weapon in melee range causes Misfortune on the Attack Test.
 
@@ -494,8 +503,9 @@ ruleType: LIST\
 
 - Bows
 - Crossbows
-- Light Throwing weapons (Dart, Throwing Dagger)
-- Heavy Throwing weapons (Shot Put, Heavy Spear)
+- Light Throwing Weapons (Dart, Throwing Dagger)
+- Medium Throwing Weapons (Throwing Axe, Spear)
+- Heavy Throwing Weapons (Shot Put, Heavy Spear)
 
 ### Special Weapons
 
@@ -503,7 +513,7 @@ slug: SPECIAL-WEAPONS
 
 ruleType: LIST\
 
-- Whips: Range: 10-20ft
+- Whips: Range: Melee-20ft
 - Pole Weapons: Range: Melee-10ft
 
 ### Magic
@@ -520,7 +530,7 @@ slug: DAMAGE-DICE
 ruleType: RULE\
 Some effects cause your Base Damage to go up or down by one or more steps. Follow the pattern below to determine the new Base Damage dice.
 
-1d4 - 1d6 - 1d8 - 1d10 - 1d12 - 2d6 - 2d8 - etc.
+1 - 1d4 - 1d6 - 1d8 - 1d10 - 1d12 - 2d6 - 2d8 - etc.
 
 ## Armor
 
@@ -578,7 +588,7 @@ Require at least 1 Agility and 1 Mettle: +1 to Armor and you can reroll 1s on yo
 
 slug: HEAVY-SHIELDS
 
-Require at least 3 mettle: +2 to Armor and +3 to Deflect.
+Require at least 3 Mettle: +2 to Armor and +3 to Deflect.
 
 # Dying, & Last Stand
 
@@ -592,14 +602,14 @@ If you would be reduced to below 0 Stamina or 0 Health, you are reduced to 0 ins
 slug: DYING
 
 ruleType: RULE\
-When your Health is reduced to 0, you have been mortally wounded and are Dying. Taking an Action or moving more than half your Speed costs 1 stamina. An ally can use the Help Action to aid you, removing the Stamina cost as long as they stay within 5ft of you.
+When your Health is reduced to 0, you have been mortally wounded and are Dying. Taking an Action or moving more than half your Speed costs 3 Stamina. An ally can use the Help Action to aid you, removing the Stamina cost as long as they stay within 5ft of you.
 
 ## Last Stand
 
 slug: LAST-STAND
 
 ruleType: RULE\
-When you are hit by an Attack, before damage is rolled, if you are not Unconscious, you can opt to make a Last Stand to push yourself yourself to the absolute limit. You immediately and the start of each round of combat regain all of your Health & Stamina. If you are reduced to 0 Stamina or at the end of the 5 rounds, you die.
+At the start of your turn you can opt to make a Last Stand to push yourself yourself to the absolute limit. Immediately and the start of each round of combat you regain all of your Health & Stamina. If you are reduced to 0 Health or at the end of the 3 rounds, you die.
 
 ## Death
 
@@ -620,7 +630,7 @@ Healing cannot affect dead creatures.
 slug: HEALING-DYING-ALLY
 
 ruleType: RULE\
-If an ally is at 0 Health, you can use an Action to attempt to heal them. Make an Intellect Test, Pass: 15, Fail: 10. On a pass they regain 1 Health, on a fail they lose 1 Stamina.
+If an ally within reach of you is at 0 Health but not Dead, you can use an Action to attempt to heal them. Make an Intellect Test, Pass: 15, Fail: 10. On a pass they regain 1 Health, on a fail they lose 1 Stamina.
 
 ## Healing when Catching Your Breath
 
@@ -636,7 +646,7 @@ If you Catch Your Breath and are at 0 Health, you regain 1 Health.
 slug: HEALING-NIGHTS-REST
 
 ruleType: RULE\
-When you finish a [Night's Rest](/rules/player_rules#nights-rest), regain Health equal to your current level + 1.
+When you finish a [Night's Rest](/rules/player_rules#nights-rest), regain Health equal to your current level.
 
 # Movement
 
@@ -658,13 +668,6 @@ slug: COMFORTABLE-MARCH
 ruleType: RULE\
 15 + Mettle miles per day along an established road. The speed is halved when traveling without a road.
 
-### Pushing the Pace
-
-slug: PUSHING-PACE
-
-ruleType: RULE\
-You can push the pace of march. Spend 1 stamina to travel 1 additional mile that day.
-
 ### Treacherous Terrain
 
 slug: TREACHEROUS-TERRAIN
@@ -684,28 +687,28 @@ When jumping, use these formulas to calculate the minimum distances you can go. 
 slug: RUNNING-LEAP
 
 ruleType: RULE\
-If you move up to 10 ft. before jumping: (4 + 2\*Mettle) ft. horizontally (Min 2 ft.)
+If you move up to 10 ft. before jumping: (6 + 2\*Mettle) ft. horizontally (Min 2 ft.)
 
 ### Standing Leap
 
 slug: STANDING-LEAP
 
 ruleType: RULE\
-(3 + Mettle) ft. horizontally (Min 1 ft.)
+(4 + Mettle) ft. horizontally (Min 1 ft.)
 
 ### High Jump
 
 slug: HIGH-JUMP
 
 ruleType: RULE\
-(1 + Mettle) ft. vertically (Min 1 ft.)
+(3 + Mettle) ft. vertically (Min 1 ft.)
 
 ## Falling
 
 slug: FALL
 
 ruleType: RULE\
-When you fall from a height greater than 10 ft. Make an Agility Test. Pass: 12, Fail: 7. For every 5 ft. past 10 ft. the difficulty increases by 2. On a Pass you take no damage. On a fail you take 1d10 bludgeoning damage per 10 ft. On a Mixed you take half damage.
+When you fall from a height greater than 10 ft. Make an Agility Test. Pass: 12, Fail: 7. For every 5 ft. past 10 ft. the difficulty of the Test increases by 2. On a Pass you take no damage. On a fail you take 1d10 bludgeoning damage per 10 ft. On a Mixed you take half damage.
 
 ## Other Forms of Movement
 
@@ -746,9 +749,9 @@ Your pack contains everyday essentials like rope, a bedroll, and flint & tinder�
 slug: GEAR-SLOTS
 
 ruleType: RULE\
-You have 7 + half your Mettle (round towards zero) + half your level (rounded down) Gear Slots. These can be used for notable items in your pack, or for quick retrieval to grab a useful item out of your pack.
+You have 9 + half your Mettle (round towards zero) + half your level (rounded down) Gear Slots. These can be used for armor and gear beyond the default, notable items in your pack, and for Supplies.
 
-If you have more than your maximum gear slots, you are Slowed and all Agility Tests are made with misfortune.
+If you have more than your maximum gear slots, you are Slowed and all Agility Tests are made with Misfortune.
 
 If you have more than double your max gear slots, you are Pinned.
 
@@ -759,16 +762,16 @@ slug: NOTABLE-ITEMS
 ruleType: RULE\
 Notable or valuable items take up 1 Gear Slot each, unless particularly bulky, in which case they take more. Smaller items might not be notable on their own, but when combined might be notable. It's probably not notable that you have 1 ball bearing, but it's probably notable that you have a sack full.
 
-### Quick Retrieval
+### Supplies
 
-slug: QUICK-RETRIEVAL
+slug: SUPPLIES
 
 ruleType: RULE\
-Spend 2 Gear Slots to attempt a Luck Test and see if you have a needed item. The GM determines the likelihood using the table below. If successful, you have the item until your next Rest & Recovery (R&R).
+Supplies can be purchased for 1 Coin each and take up 1 Gear Slot. Supplies represent an item or set of mundane items that a standard adventurer is likely to have with them. Things like 20' of rope, an extra water skin, or a flint fire starter are typical Supplies. If you are trying to pull something less likely out of your Supplies, use the following table to determine the [Luck Test](/rules/player_rules#LUCK-TEST) required to pull out the item.
 
 label: Likelihood
 
-- Likely 10/5
+- Pretty Likely 10/5
 - Unlikely 15/10
 - Very Unlikely 18/13
 
@@ -776,7 +779,7 @@ label: Results
 
 - Pass → You have the item.
 - Mixed → You have something similar.
-- Fail → You don’t have anything useful.
+- Fail → You don’t have anything useful. Pick a typical Supply to take up the Gear Slot.
 
 ## Currency
 
@@ -795,7 +798,7 @@ slug: STARTING-GEAR
 
 Your character starts with a pack full of gear and the equipment they need for their adventures. The exact contents will vary from character to character and from campaign to campaign, but generally you have a light source, rope, a comfortable way to sleep, and some weather protection.
 
-If you have training or experience with equipment, you have the equipment to use that training, if it's portable. You might have one or two melee weapons and one or two ranged weapons from your class, a set of dice from your culture and some artisans tools from your novice feature. The exact items should be discussed with your GM during your intro session.
+If you have training or experience with equipment, you have the equipment to use that training, if it's portable. You might have one or two melee weapons and one or two ranged weapons from your Class, a set of dice from your culture and some artisans tools from your Novice Feature. The exact items should be discussed with your GM during your intro session.
 
 ## Starting Coin
 
@@ -849,7 +852,7 @@ The language of celestials as well as some air elementals and other sky dwellers
 
 slug: DEEPROOT
 
-The language of Ents and Stone Colossi. It's a deep and slow language for deep and slow creatures. Deeproot rumbles like the earth, each word a deliberate and ancient utterance resonating with the solidity of stone.
+The language of Ents, Earth Elementals and Stone Colossi. It's a deep and slow language for deep and slow creatures. Deeproot rumbles like the earth, each word a deliberate and ancient utterance resonating with the solidity of stone.
 
 ### Seawhisper
 
@@ -924,7 +927,7 @@ You cannot spend Stamina, your Speed is reduced by half and your Attack Dice is 
 
 slug: HIDDEN-STATUS
 
-You cannot be seen and gain a +5 to attack Tests while hidden. Attacking, casting magic, or performing another noticeable act while hidden immediately triggers a Heart test to spot you from any nearby creatures.
+You cannot be seen and gain a +5 to attack Tests while hidden. Attacking, casting magic, or performing another noticeable act while hidden immediately triggers a Heart Test to spot you from any nearby creatures.
 
 ### Fatigued
 

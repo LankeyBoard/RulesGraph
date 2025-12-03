@@ -1,4 +1,4 @@
-import generalRules from "./rules/1b/generalRules";
+import generalRules from "./rules/2a/generalRules";
 import { GenericRule, Maybe, RuleText, List } from "./schema/types.generated";
 
 const writeToFile = (contents: string, filename: string) => {

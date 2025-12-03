@@ -1,4 +1,4 @@
-import lineagesData from "../../../rules/1b/lineages";
+import lineagesData from "../../../rules/2a/lineages";
 import { hrefer, baseUrls } from "../../../slugMapper";
 import type { Lineage, LineageVariantResolvers } from "./../../types.generated";
 

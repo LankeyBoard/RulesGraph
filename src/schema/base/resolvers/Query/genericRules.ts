@@ -1,16 +1,16 @@
 import { GraphQLError } from "graphql";
-import generalRules from "../../../../rules/1b/generalRules";
+import generalRules from "../../../../rules/2a/generalRules";
 import type { GenericRule, QueryResolvers } from "./../../../types.generated";
 export const genericRules: NonNullable<QueryResolvers['genericRules']> = async (
   _parent,
-  _arg
+  _arg,
 ) => {
   let currentRules: GenericRule[] = generalRules;
   if (_arg.version) {
     import(`../../../../rules/${_arg.version.slice(1)}/generalRules`).then(
       (r) => {
         currentRules = r;
-      }
+      },
     );
   }
   const searchSlug = _arg.slug?.toLocaleLowerCase();
@@ -21,7 +21,7 @@ export const genericRules: NonNullable<QueryResolvers['genericRules']> = async (
     if (result) return [result];
     else
       throw new GraphQLError(
-        `Slug ${_arg.slug} not found in the general rules data`
+        `Slug ${_arg.slug} not found in the general rules data`,
       );
   } else return [...currentRules];
 };

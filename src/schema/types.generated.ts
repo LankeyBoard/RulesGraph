@@ -839,7 +839,8 @@ export type UsesInput = {
 
 export type VERSIONS =
   | '_1a'
-  | '_1b';
+  | '_1b'
+  | '_2a';
 
 export type Weapons = {
   __typename?: 'Weapons';

@@ -228,7 +228,7 @@ const playerClasses: CharacterClass[] = [
         text: [
           {
             type: "RULE",
-            text: "Spend Fortune's Favor, halve all damage taken until the start of the next round of combat.",
+            text: "At the start of a round of combat, you can spend Fortune's Favor to halve all damage taken until the start of the next round of combat.",
           },
           {
             type: "FLAVOR",

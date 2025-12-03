@@ -3,8 +3,8 @@ import type {
   RuleSection,
   RuleSectionNames,
 } from "./../../../types.generated";
-import generalRules from "../../../../rules/1b/generalRules";
-import gmRules from "../../../../rules/1b/gmSections";
+import generalRules from "../../../../rules/2a/generalRules";
+import gmRules from "../../../../rules/2a/gmSections";
 
 const sectionNames = {
   PLAYER: "General Rules",
