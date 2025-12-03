@@ -1,5 +1,5 @@
 import { GraphQLError } from "graphql";
-import culturesData from "../../../../rules/1b/cultures";
+import culturesData from "../../../../rules/2a/cultures";
 import type { Culture, QueryResolvers } from "./../../../types.generated";
 import findCulture from "../../../../extras/findCultureWithSlug";
 

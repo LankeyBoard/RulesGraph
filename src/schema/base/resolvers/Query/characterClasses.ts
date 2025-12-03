@@ -1,5 +1,5 @@
 import findClass from "../../../../extras/findClassWithSlug";
-import playerClasses from "../../../../rules/1b/playerClasses";
+import playerClasses from "../../../../rules/2a/playerClasses";
 import type {
   CharacterClass,
   QueryResolvers,

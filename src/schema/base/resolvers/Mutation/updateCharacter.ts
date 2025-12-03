@@ -1,7 +1,7 @@
 import { Prisma } from "@prisma/client";
-import culturesData from "../../../../rules/1b/cultures";
-import lineagesData from "../../../../rules/1b/lineages";
-import playerClasses from "../../../../rules/1b/playerClasses";
+import culturesData from "../../../../rules/2a/cultures";
+import lineagesData from "../../../../rules/2a/lineages";
+import playerClasses from "../../../../rules/2a/playerClasses";
 import type { MutationResolvers } from "./../../../types.generated";
 import findClass from "../../../../extras/findClassWithSlug";
 import findCulture from "../../../../extras/findCultureWithSlug";

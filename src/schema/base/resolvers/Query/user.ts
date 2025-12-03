@@ -1,4 +1,4 @@
-import playerClasses from "../../../../rules/1b/playerClasses";
+import playerClasses from "../../../../rules/2a/playerClasses";
 import type { QueryResolvers } from "./../../../types.generated";
 export const user: NonNullable<QueryResolvers['user']> = async (
   _parent,

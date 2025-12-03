@@ -3,7 +3,7 @@ import type {
   CharacterClass,
   CharacterClassVariantResolvers,
 } from "../../types.generated";
-import playerClasses from "../../../rules/1b/playerClasses";
+import playerClasses from "../../../rules/2a/playerClasses";
 const findBaseSlug = (
   classes: CharacterClass[],
   variantSlug: string,

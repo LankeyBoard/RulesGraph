@@ -16,7 +16,7 @@ const generalRules: GenericRule[] = [
     type: "RULE"
     },
     {
-    text: "Higher numbers are better. Your class will have at least 1 primary stat. It's a good idea to have that be your highest number.",
+    text: "Higher numbers are better. Your class will have at least 1 primary stat. It's a good idea to have that be your highest stat.",
     type: "RULE"
     },
     {
@@ -31,7 +31,7 @@ const generalRules: GenericRule[] = [
     title: "Leveling Up",
     slug: "LEVELING-UP",ruleType: "RULE",text: [
     {
-    text: "Your GM will tell you when you level up. Parties should generally be kept at the same level and should level up at the same time when Recuperating. When you level up, your Health & Stamina increase and you gain new features based on your Class.",
+    text: "Your GM will tell you when you level up. Parties should generally be kept at the same level and should level up at the same time when you complete a [Rest & Recuperation](/rules/player_rules#REST). When you level up, your Health & Stamina increase and you gain new features based on your Class.",
     type: "RULE"
     },],},]},
     {
@@ -45,7 +45,7 @@ const generalRules: GenericRule[] = [
     title: "Level",
     slug: "LEVEL-RULE-DESC",ruleType: "RULE",text: [
     {
-    text: "As your character grows more powerful and experienced you gain levels, unlocking new abilities based on your class. The current rules go from level 1-8.",
+    text: "As your character grows more powerful and experienced you gain levels, unlocking new abilities based on your [class](/rules/classes). The current rules go from level 1-8.",
     type: "RULE"
     },],},
     {
@@ -83,7 +83,7 @@ const generalRules: GenericRule[] = [
     title: "Agility",
     slug: "AGILITY",ruleType: "RULE",text: [
     {
-    text: "Physical accuracy, body control and balance..",
+    text: "Physical accuracy, body control and balance.",
     type: "RULE"
     },],},
     {
@@ -107,7 +107,7 @@ const generalRules: GenericRule[] = [
     title: "Stamina",
     slug: "STAMINA",ruleType: "RULE",text: [
     {
-    text: "Stamina is the characters wellspring of energy. It is relatively quick to go down, and easy to get back. The exact amount of Stamina a character has is determined by their Class and stat block. Stamina can be used for Class abilities and to avoid taking damage. See [Exhausted, Dying, Last Stand & Healing](/rules/player_rules#EDL) for what happens at 0 Stamina.",
+    text: "Stamina is the characters wellspring of energy. It is relatively quick to go down, and easy to get back. The exact amount of Stamina a character has is determined by their Class and stats. Stamina can be used for Class abilities and to avoid taking damage.",
     type: "RULE"
     },],},
     {
@@ -121,7 +121,7 @@ const generalRules: GenericRule[] = [
     title: "Fortune's Favor",
     slug: "FORTUNES-FAVOR",ruleType: "RULE",text: [
     {
-    text: "Fortune's Favor represent's the little bit of extra luck you have as a hero. You gain Fortune's Favor whenever you fail a [Test](/rules/player_rules#tests). It can be spent to roll a second d20 on a [Test](/rules/player_rules#TESTS) or to use special [Class](/rules/player_rules##CLASS-RULES-DESC) abilities.",
+    text: "Fortune's Favor represent's the little bit of extra luck you have as a hero. You gain Fortune's Favor whenever you fail a [Test](/rules/player_rules#tests). You can spend Fortune's Favor when you make a [Test](/rules/player_rules#TESTS) to roll a second d20 and use the higher result. As you level up your [Class](/rules/player_rules##CLASS-RULES-DESC) will also have abilities that require Fortune's Favor.",
     type: "RULE"
     },],},
     {
@@ -154,7 +154,7 @@ const generalRules: GenericRule[] = [
     title: "A Night's Rest",
     slug: "NIGHTS-REST",ruleType: "RULE",text: [
     {
-    text: "A good Night's Rest is still important to an adventurer. To complete a Night's Rest, spend a minimum of 6 hours sleeping. This gives surface level wounds a chance to heal and prepare yourself for the next day. When you finish a Night's Rest, return your Stamina to full, regain Health equal to your level + 1, and gain Fortune's Favor.",
+    text: "A good Night's Rest is still important to an adventurer. To complete a Night's Rest, spend a minimum of 6 hours sleeping. This gives surface level wounds a chance to heal and prepare yourself for the next day. When you finish a Night's Rest, return your Stamina to full, regain Health equal to your level + 1.",
     type: "RULE"
     },
     {
@@ -181,7 +181,7 @@ const generalRules: GenericRule[] = [
     type: "RULE"
     },
     {
-    text: "After successful Rest and Relaxation, regain all lost Health and Stamina. You also lose any conditions that do not specifically last through a R&R",
+    text: "After successful Rest and Relaxation, regain all lost Health and Stamina and gain Fortune's Favor. You also lose any conditions that do not specifically last through a R&R.",
     type: "RULE"
     },],},]},]},
     {
@@ -203,9 +203,16 @@ const generalRules: GenericRule[] = [
     type: "RULE"
     },
     {
-    text: "You are talking to the innkeeper negotiating for a room. The GM calls for a Heart Test and tells you that you'll succeed on a 15, earning your party a good discount. Failure is a 5 and you get no discount and an undesirable room. You roll a 13 and add +2 for your Heart to get a total of 15, which means you succeed. You manage to negotiate a 20% discount!",
+    text: "You are talking to the innkeeper negotiating for a room. The GM calls for a Heart Test and tells you that you'll succeed on a 15. You roll a 13 and add +2 for your Heart to get a total of 15, which means you succeed. You manage to endear yourself to the innkeeper and reduce the cost from 3 Coin to 2!",
     type: "EG"
     },],},
+    {
+    title: "Mixed Result",
+    slug: "MIXED",text: [
+    {
+    text: "When you between the Success Target and five below the Target, you get a mixed result. Mixed results could be Success With a Cost or a Mixed Success.",
+    type: "RULE"
+    },],subRules: [
     {
     title: "Success With a Cost",
     slug: "SUCCESS-WITH-COST",ruleType: "RULE",text: [
@@ -227,12 +234,12 @@ const generalRules: GenericRule[] = [
     {
     text: "You are trying to trick a guard into letting you go after being caught breaking curfew. You told him you forgot your pass at home and got a Mixed Success on the Heart Test your GM called for. The guard believes you but insists on escorting you home to show him the pass.",
     type: "EG"
-    },],},
+    },],},]},
     {
     title: "Failure",
     slug: "FAILURE",ruleType: "RULE",text: [
     {
-    text: "A Failure occurs when you cannot achieve your desired outcome. This may mean the situation was harder than you initially believed or because you couldn't do it as well as you hoped or any other reason you and the GM think is reasonable. Sometimes the consequences of failure are direct, such as taking damage, other times they can simply be a complication for the story, this is determined by the GM.",
+    text: "A Failure occurs when you roll more than five below the Target. Maybe the situation was more complicated than you though, or you were missing some key information, or maybe you were just unlucky. Regardless of the reason the consequences of failure can be direct, such as taking damage, or they can simply be a complication for the story, this is determined by the GM. Generally the scope of failure should clear to the player before making the Test.",
     type: "RULE"
     },
     {
@@ -240,7 +247,7 @@ const generalRules: GenericRule[] = [
     type: "RULE"
     },
     {
-    text: "You are scaling a castle wall, trying to get in without alerting the goblins keeping watch from the nearby tower. Your GM calls for an Agility Test, where Success is a 15 and means you get up without being noticed and a Failure is a 10 and means you get spotted. You roll your Agility Test, you get a 5 on the dice and add 2 from your Agility, giving you a total of 7. The goblins spot you half way up, they begin to shout something you can't understand and begin to run towards the wall you are climbing!",
+    text: "You are scaling a castle wall, trying to get in without alerting the goblins keeping watch from the nearby tower. Your GM calls for an Agility Test, where Success is a 15 and means you get up without being noticed and a Failure is a 10 and means you get spotted and the goblins move to raise the alarm. You roll your Agility Test, you get a 5 on the dice and add 2 from your Agility, giving you a total of 7. The goblins spot you half way up, they begin to shout something you can't understand and begin to run towards the wall you are climbing!",
     type: "EG"
     },],},
     {
@@ -266,17 +273,6 @@ const generalRules: GenericRule[] = [
     type: "EG"
     },],},
     {
-    title: "Pushing Your Limits",
-    slug: "PUSHING-LIMITS",ruleType: "RULE",text: [
-    {
-    text: "On non-combat Tests, you can try and push your limits to improve your odds of success. To Push Your Limits, when you make a non-combat Test, spend 3 Stamina to add 1d6 to the roll.",
-    type: "RULE"
-    },
-    {
-    text: "You have to push your limit at the same time you decide if you are going to use [Fortune's Favor](/rules/player_rules#FORTUNES-FAVOR).",
-    type: "RULE"
-    },],},
-    {
     title: "Helping on a Test",
     slug: "HELP",ruleType: "RULE",text: [
     {
@@ -291,7 +287,7 @@ const generalRules: GenericRule[] = [
     title: "Luck Test",
     slug: "LUCK-TEST",text: [
     {
-    text: "A Luck Test is a special kind of Test without any Stat attached and cannot be helped on. It's just a Test to see if the player is lucky.",
+    text: "A Luck Test is a special kind of Test without any Stat attached and cannot be helped with. It's just a Test to see if the character is lucky. Fortune's Favor can still be used on Luck Tests.",
     type: "RULE"
     },
     {
@@ -312,46 +308,42 @@ const generalRules: GenericRule[] = [
     title: "20 - Critical Success",
     slug: "20s",ruleType: "RULE",text: [
     {
-    text: "Rolling a 20 is the best a character could do. Tests always pass and when you roll a Critical Success on an attack, you deal double damage on the attack.",
+    text: "Rolling a 20 is the best a character could do. Tests always pass and when you roll a Critical Success on an attack, you deal double damage on the attack, including any flat bonuses.",
     type: "RULE"
     },],},]},
     {
     title: "Misfortune",
     slug: "MISFORTUNE",ruleType: "RULE",text: [
     {
-    text: "Circumstances may cause misfortune. When the GM calls for a roll with Misfortune, you roll a second d20 and take the lower of the two rolls. If you have [Fortune's Favor](/rules/player_rules#FORTUNES-FAVOR), before you roll you can chose to give it up to cancel out the Misfortune and roll the test normally.",
+    text: "Circumstances may cause misfortune. When the GM calls for a roll with Misfortune, you roll a second d20 and take the lower of the two rolls. If you have [Fortune's Favor](/rules/player_rules#FORTUNES-FAVOR), before you roll you can choose to spend it to cancel out the Misfortune and roll the test normally.",
     type: "RULE"
     },],},]},
     {
     title: "Combat",
     slug: "COMBAT",ruleType: "RULE",text: [
     {
-    text: "Each round of combat is split into 3 parts, 1st, Environmental effects, 2nd, Players take their turn, 3rd, Enemies take their turn. During the player's turn, each player makes one Action and can move up to their speed. During the enemies turn enemies with Actions can take one Action and move.",
-    type: "RULE"
-    },
-    {
-    text: "Each round of combat represents 30 seconds of in game time.",
+    text: "Each round of combat is split into 3 parts, 1st, Environmental effects, 2nd, Players take their turn, 3rd, Enemies take their turn. During the player's turn, each player makes one Action and can move up to their speed. Enemies do the same during their turn.\nEach round of combat represents 30 seconds of in game time.",
     type: "RULE"
     },],subRules: [
     {
     title: "Exchanges",
     slug: "EXCHANGES",ruleType: "RULE",text: [
     {
-    text: "When a character attacks or casts an offensive spell at another creature or creatures an Exchange begins. To start the Exchange, Test your Attack, adding your Base Attack Bonus. The defenders Armor and Counter become the Success and Failure points of the Test. If you Succeed on the Test then the hit is clean and there is no room for retaliation. If the result is Mixed then you Clash. When you Clash, you and your target both choose a Counter Action to use. If you Fail the test, your attack is Countered and the target gets to use a Counter Action.",
+    text: "When a character attacks or casts an offensive spell at another creature or creatures an Exchange begins. To start the Exchange, Test your Attack, adding your Base Attack Bonus. The defenders Armor and Counter become the Success and Failure points of the Test. If you Succeed on the Test then the hit is clean and there is no room for retaliation. If the result is Mixed then you Clash. When you Clash, you and your target both choose a Clash Action to use with the defender picking first. If you Fail the test, your attack is Countered and the target deals damage to you as though they landed a Basic Attack.",
     type: "RULE"
     },],subRules: [
     {
     title: "AOE Exchanges",
     slug: "AOE-EXCHANGES",ruleType: "RULE",text: [
     {
-    text: "When your Attack targets multiple enemies, roll a single Attack Test, and compare to each enemy's defenses. If the roll would be a Clash or Counter, the GM chooses which creature will get to take a Clash Action.",
+    text: "When your Attack targets multiple enemies, roll a single Attack Test, and compare to each enemy's defenses. Only one enemy can make a Clash or Counter. (One enemy can Clash and a different one can Counter.)",
     type: "RULE"
     },],},
     {
     title: "Engaging an Enemy",
     slug: "ENGAGING-ENEMIES",ruleType: "RULE",text: [
     {
-    text: "When you attempt to attack an enemy, they are [Engaged](/rules/player_rules#ENGAGED). Engaged Minions cannot take an Action on their turn, Non-boss monsters damage dice go down by 1 step, and bosses lose access to their most potent abilities.",
+    text: "When you attempt to attack an enemy, they are [Engaged](/rules/player_rules#ENGAGED). Engaged Minions cannot take an Action on their turn, Non-Boss monsters damage dice go down by 1 step, and Bosses lose access to their most potent abilities.",
     type: "RULE"
     },],},]},
     {
@@ -366,6 +358,13 @@ const generalRules: GenericRule[] = [
     slug: "BASIC-ATTACK",text: [
     {
     text: "Your Base Attack is the stat you use for Attack rolls and comes from your Class.",
+    type: "RULE"
+    },],},
+    {
+    title: "Base Damage",
+    slug: "BASE-DAMAGE",text: [
+    {
+    text: "Your Base Damage is how much damage you deal if you hit with an attack. It comes from your Class, and can change if you are wielding a weapon in 1 hand or 2.",
     type: "RULE"
     },],},
     {
@@ -411,21 +410,21 @@ const generalRules: GenericRule[] = [
     title: "Attack",
     slug: "BASIC-ATTACK",text: [
     {
-    text: "Attack with one of your proficient weapons or magic. You deal your Base Damage.",
+    text: "Attack with one of your proficient weapons or magic. If you hit, deal your Base Damage.",
     type: "RULE"
     },],},
     {
     title: "Careful Attack",
     slug: "CAREFUL-ATTACK",text: [
     {
-    text: "Attack with one of your proficient weapons or magic. You deal half your Base Damage. A Miss or Clash does not trigger Clash Actions for the target.",
+    text: "Attack with one of your proficient weapons or magic. If you hit, deal half your Base Damage. A Miss or Clash does not trigger Clash Actions for the target.",
     type: "RULE"
     },],},
     {
     title: "Defend",
     slug: "DEFEND",text: [
     {
-    text: "Add +2 to your Armor and Counter.",
+    text: "Add +3 to your Armor and Counter.",
     type: "RULE"
     },],},
     {
@@ -482,6 +481,13 @@ const generalRules: GenericRule[] = [
     type: "RULE"
     },],},]},
     {
+    title: "Oomph",
+    slug: "OOMPH",ruleType: "RULE",text: [
+    {
+    text: "When you Attack, you can spend 2 Stamina to increase your Base Damage by 1 step. You can do this a number of times equal to 1/2 your current level.",
+    type: "RULE"
+    },],},
+    {
     title: "Moving in Combat",
     slug: "MOVING-COMBAT",ruleType: "RULE",text: [
     {
@@ -489,7 +495,7 @@ const generalRules: GenericRule[] = [
     type: "RULE"
     },
     {
-    text: "If you willingly move out of melee range with an enemy they get a free Counter Action",
+    text: "If you willingly move out of melee range with an enemy they get a free Clash Action",
     type: "RULE"
     },
     {
@@ -502,7 +508,18 @@ const generalRules: GenericRule[] = [
     {
     text: "Dropping [prone](/rules/player_rules#PRONE) is a free action. Standing up from [prone](/rules/player_rules#PRONE) takes either 10 ft. of Movement or an Action. If you have magical flight, it only takes 5ft. of Movement.",
     type: "RULE"
-    },],},]},]},
+    },],},]},
+    {
+    title: "Cover",
+    slug: "OVER",ruleType: "RULE",text: [
+    {
+    text: "Attacks require a clear line from the attacker to the target. When the line is interrupted, it becomes harder to effectively hit and damage your target. A target has Cover if they are more than half hidden from the attacker. If the target has Cover, they gain +3 to their Armor and Counter for this attack.",
+    type: "RULE"
+    },
+    {
+    text: "If the target is fully hidden they cannot be attacked.",
+    type: "RULE"
+    },],},]},
     {
     title: "Taking Damage",
     slug: "TAKING-DMG",ruleType: "RULE",text: [
@@ -514,11 +531,7 @@ const generalRules: GenericRule[] = [
     title: "Deflect Dice",
     slug: "DEFLECT-DICE",ruleType: "RULE",text: [
     {
-    text: "When you would take damage and you are not Surprised, Unconscious or otherwise unaware of the damage, you can attempt to reduce the damage by spending 2 Stamina per die to roll Deflect Dice, reducing the damage taken by the amount rolled. You can roll Deflect Dice equal to 1 + half your level rounded down and you must decide and roll all dice at once.",
-    type: "RULE"
-    },
-    {
-    text: "Any flat Deflect bonuses only apply once regardless of how many dice you roll.",
+    text: "When you would take damage and you are not Surprised, Unconscious or otherwise unaware of the damage, you can attempt to reduce the damage by spending 3 Stamina per die to roll Deflect Dice, reducing the damage taken by the amount rolled. Your Deflect Dice is determined by your Class. You start with two Deflect Dice and gain 1 more every third level starting at level 3. Level 1-2: 2 dice, Level 3-5: 3 dice, Level 6+: 4 dice. You must decide how many dice you are going to roll before rolling any of them.",
     type: "RULE"
     },
     {
@@ -540,7 +553,7 @@ const generalRules: GenericRule[] = [
     type: "RULE"
     },
     {
-    text: "Weapons can require one or two hands to wield. If you leave one hand free to wield a Shield or some other item, your Base Damage is reduced by one step.",
+    text: "Weapons can require one or two hands to wield. If you leave one hand free to wield a Shield or some other item, your Base Damage is reduced by [one step](/rules/player_rules#DAMAGE-DICE).",
     type: "RULE"
     },
     {
@@ -557,13 +570,13 @@ const generalRules: GenericRule[] = [
     title: "Ranged",
     slug: "RANGED-WEAPONS",ruleType: "LIST",lists: [{
     label: "",
-    items: ['Bows', 'Crossbows', 'Light Throwing weapons (Dart, Throwing Dagger)', 'Heavy Throwing weapons (Shot Put, Heavy Spear)', ]
+    items: ['Bows', 'Crossbows', 'Light Throwing Weapons (Dart, Throwing Dagger)', 'Medium Throwing Weapons (Throwing Axe, Spear)', 'Heavy Throwing Weapons (Shot Put, Heavy Spear)', ]
   }],},
     {
     title: "Special Weapons",
     slug: "SPECIAL-WEAPONS",ruleType: "LIST",lists: [{
     label: "",
-    items: ['Whips: Range: 10-20ft', 'Pole Weapons: Range: Melee-10ft', ]
+    items: ['Whips: Range: Melee-20ft', 'Pole Weapons: Range: Melee-10ft', ]
   }],},
     {
     title: "Magic",
@@ -580,7 +593,7 @@ const generalRules: GenericRule[] = [
     type: "RULE"
     },
     {
-    text: "1d4 - 1d6 - 1d8 - 1d10 - 1d12 - 2d6 - 2d8 - etc.",
+    text: "1 - 1d4 - 1d6 - 1d8 - 1d10 - 1d12 - 2d6 - 2d8 - etc.",
     type: "RULE"
     },],},
     {
@@ -647,7 +660,7 @@ const generalRules: GenericRule[] = [
     title: "Heavy Shields",
     slug: "HEAVY-SHIELDS",text: [
     {
-    text: "Require at least 3 mettle: +2 to Armor and +3 to Deflect.",
+    text: "Require at least 3 Mettle: +2 to Armor and +3 to Deflect.",
     type: "RULE"
     },],},]},]},
     {
@@ -661,14 +674,14 @@ const generalRules: GenericRule[] = [
     title: "Dying",
     slug: "DYING",ruleType: "RULE",text: [
     {
-    text: "When your Health is reduced to 0, you have been mortally wounded and are Dying. Taking an Action or moving more than half your Speed costs 1 stamina. An ally can use the Help Action to aid you, removing the Stamina cost as long as they stay within 5ft of you.",
+    text: "When your Health is reduced to 0, you have been mortally wounded and are Dying. Taking an Action or moving more than half your Speed costs 3 Stamina. An ally can use the Help Action to aid you, removing the Stamina cost as long as they stay within 5ft of you.",
     type: "RULE"
     },],},
     {
     title: "Last Stand",
     slug: "LAST-STAND",ruleType: "RULE",text: [
     {
-    text: "When you are hit by an Attack, before damage is rolled, if you are not Unconscious, you can opt to make a Last Stand to push yourself yourself to the absolute limit. You immediately and the start of each round of combat regain all of your Health & Stamina. If you are reduced to 0 Stamina or at the end of the 5 rounds, you die.",
+    text: "At the start of your turn you can opt to make a Last Stand to push yourself yourself to the absolute limit. Immediately and the start of each round of combat you regain all of your Health & Stamina. If you are reduced to 0 Health or at the end of the 3 rounds, you die.",
     type: "RULE"
     },],},
     {
@@ -689,7 +702,7 @@ const generalRules: GenericRule[] = [
     title: "Healing a Dying Ally",
     slug: "HEALING-DYING-ALLY",ruleType: "RULE",text: [
     {
-    text: "If an ally is at 0 Health, you can use an Action to attempt to heal them. Make an Intellect Test, Pass: 15, Fail: 10. On a pass they regain 1 Health, on a fail they lose 1 Stamina.",
+    text: "If an ally within reach of you is at 0 Health but not Dead, you can use an Action to attempt to heal them. Make an Intellect Test, Pass: 15, Fail: 10. On a pass they regain 1 Health, on a fail they lose 1 Stamina.",
     type: "RULE"
     },],},
     {
@@ -707,7 +720,7 @@ const generalRules: GenericRule[] = [
     title: "Healing during a Night's Rest",
     slug: "HEALING-NIGHTS-REST",ruleType: "RULE",text: [
     {
-    text: "When you finish a [Night's Rest](/rules/player_rules#nights-rest), regain Health equal to your current level + 1.",
+    text: "When you finish a [Night's Rest](/rules/player_rules#nights-rest), regain Health equal to your current level.",
     type: "RULE"
     },],},]},
     {
@@ -728,13 +741,6 @@ const generalRules: GenericRule[] = [
     type: "RULE"
     },],},
     {
-    title: "Pushing the Pace",
-    slug: "PUSHING-PACE",ruleType: "RULE",text: [
-    {
-    text: "You can push the pace of march. Spend 1 stamina to travel 1 additional mile that day.",
-    type: "RULE"
-    },],},
-    {
     title: "Treacherous Terrain",
     slug: "TREACHEROUS-TERRAIN",ruleType: "RULE",text: [
     {
@@ -752,28 +758,28 @@ const generalRules: GenericRule[] = [
     title: "Running Leap",
     slug: "RUNNING-LEAP",ruleType: "RULE",text: [
     {
-    text: "If you move up to 10 ft. before jumping: (4 + 2\\*Mettle) ft. horizontally (Min 2 ft.)",
+    text: "If you move up to 10 ft. before jumping: (6 + 2\\*Mettle) ft. horizontally (Min 2 ft.)",
     type: "RULE"
     },],},
     {
     title: "Standing Leap",
     slug: "STANDING-LEAP",ruleType: "RULE",text: [
     {
-    text: "(3 + Mettle) ft. horizontally (Min 1 ft.)",
+    text: "(4 + Mettle) ft. horizontally (Min 1 ft.)",
     type: "RULE"
     },],},
     {
     title: "High Jump",
     slug: "HIGH-JUMP",ruleType: "RULE",text: [
     {
-    text: "(1 + Mettle) ft. vertically (Min 1 ft.)",
+    text: "(3 + Mettle) ft. vertically (Min 1 ft.)",
     type: "RULE"
     },],},]},
     {
     title: "Falling",
     slug: "FALL",ruleType: "RULE",text: [
     {
-    text: "When you fall from a height greater than 10 ft. Make an Agility Test. Pass: 12, Fail: 7. For every 5 ft. past 10 ft. the difficulty increases by 2. On a Pass you take no damage. On a fail you take 1d10 bludgeoning damage per 10 ft. On a Mixed you take half damage.",
+    text: "When you fall from a height greater than 10 ft. Make an Agility Test. Pass: 12, Fail: 7. For every 5 ft. past 10 ft. the difficulty of the Test increases by 2. On a Pass you take no damage. On a fail you take 1d10 bludgeoning damage per 10 ft. On a Mixed you take half damage.",
     type: "RULE"
     },],},
     {
@@ -819,11 +825,11 @@ const generalRules: GenericRule[] = [
     title: "Gear Slots",
     slug: "GEAR-SLOTS",ruleType: "RULE",text: [
     {
-    text: "You have 7 + half your Mettle (round towards zero) + half your level (rounded down) Gear Slots. These can be used for notable items in your pack, or for quick retrieval to grab a useful item out of your pack.",
+    text: "You have 9 + half your Mettle (round towards zero) + half your level (rounded down) Gear Slots. These can be used for armor and gear beyond the default, notable items in your pack, and for Supplies.",
     type: "RULE"
     },
     {
-    text: "If you have more than your maximum gear slots, you are Slowed and all Agility Tests are made with misfortune.",
+    text: "If you have more than your maximum gear slots, you are Slowed and all Agility Tests are made with Misfortune.",
     type: "RULE"
     },
     {
@@ -838,17 +844,17 @@ const generalRules: GenericRule[] = [
     type: "RULE"
     },],},
     {
-    title: "Quick Retrieval",
-    slug: "QUICK-RETRIEVAL",ruleType: "RULE",text: [
+    title: "Supplies",
+    slug: "SUPPLIES",ruleType: "RULE",text: [
     {
-    text: "Spend 2 Gear Slots to attempt a Luck Test and see if you have a needed item. The GM determines the likelihood using the table below. If successful, you have the item until your next Rest & Recovery (R&R).",
+    text: "Supplies can be purchased for 1 Coin each and take up 1 Gear Slot. Supplies represent an item or set of mundane items that a standard adventurer is likely to have with them. Things like 20' of rope, an extra water skin, or a flint fire starter are typical Supplies. If you are trying to pull something less likely out of your Supplies, use the following table to determine the [Luck Test](/rules/player_rules#LUCK-TEST) required to pull out the item.",
     type: "RULE"
     },],lists: [{
     label: "Likelihood",
-    items: ['Likely 10/5', 'Unlikely 15/10', 'Very Unlikely 18/13', ]
+    items: ['Pretty Likely 10/5', 'Unlikely 15/10', 'Very Unlikely 18/13', ]
   },{
     label: "Results",
-    items: ['Pass → You have the item.', 'Mixed → You have something similar.', 'Fail → You don’t have anything useful.', ]
+    items: ['Pass → You have the item.', 'Mixed → You have something similar.', 'Fail → You don’t have anything useful. Pick a typical Supply to take up the Gear Slot.', ]
   }],},]},
     {
     title: "Currency",
@@ -873,7 +879,7 @@ const generalRules: GenericRule[] = [
     type: "RULE"
     },
     {
-    text: "If you have training or experience with equipment, you have the equipment to use that training, if it's portable. You might have one or two melee weapons and one or two ranged weapons from your class, a set of dice from your culture and some artisans tools from your novice feature. The exact items should be discussed with your GM during your intro session.",
+    text: "If you have training or experience with equipment, you have the equipment to use that training, if it's portable. You might have one or two melee weapons and one or two ranged weapons from your Class, a set of dice from your culture and some artisans tools from your Novice Feature. The exact items should be discussed with your GM during your intro session.",
     type: "RULE"
     },],subRules: [
     {
@@ -928,7 +934,7 @@ const generalRules: GenericRule[] = [
     title: "Deeproot",
     slug: "DEEPROOT",text: [
     {
-    text: "The language of Ents and Stone Colossi. It's a deep and slow language for deep and slow creatures. Deeproot rumbles like the earth, each word a deliberate and ancient utterance resonating with the solidity of stone.",
+    text: "The language of Ents, Earth Elementals and Stone Colossi. It's a deep and slow language for deep and slow creatures. Deeproot rumbles like the earth, each word a deliberate and ancient utterance resonating with the solidity of stone.",
     type: "RULE"
     },],},
     {
@@ -1012,7 +1018,7 @@ const generalRules: GenericRule[] = [
     title: "Hidden",
     slug: "HIDDEN-STATUS",text: [
     {
-    text: "You cannot be seen and gain a +5 to attack Tests while hidden. Attacking, casting magic, or performing another noticeable act while hidden immediately triggers a Heart test to spot you from any nearby creatures.",
+    text: "You cannot be seen and gain a +5 to attack Tests while hidden. Attacking, casting magic, or performing another noticeable act while hidden immediately triggers a Heart Test to spot you from any nearby creatures.",
     type: "RULE"
     },],},
     {

@@ -1,9 +1,9 @@
 import findClass from "../../../../extras/findClassWithSlug";
 import findCulture from "../../../../extras/findCultureWithSlug";
 import findLineage from "../../../../extras/findLineageWithSlug";
-import cultures from "../../../../rules/1b/cultures";
-import lineages from "../../../../rules/1b/lineages";
-import playerClasses from "../../../../rules/1b/playerClasses";
+import cultures from "../../../../rules/2a/cultures";
+import lineages from "../../../../rules/2a/lineages";
+import playerClasses from "../../../../rules/2a/playerClasses";
 import type { QueryResolvers } from "./../../../types.generated";
 
 export const campaign: NonNullable<QueryResolvers['campaign']> = async (

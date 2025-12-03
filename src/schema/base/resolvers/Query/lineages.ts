@@ -1,5 +1,5 @@
 import { GraphQLError } from "graphql";
-import lineagesData from "../../../../rules/1b/lineages";
+import lineagesData from "../../../../rules/2a/lineages";
 import type { Lineage, QueryResolvers } from "./../../../types.generated";
 import findLineage from "../../../../extras/findLineageWithSlug";
 
