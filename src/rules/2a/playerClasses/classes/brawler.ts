@@ -134,7 +134,7 @@ const brawler: CharacterClass = {
       text: [
         {
           type: "RULE",
-          text: "When you make a Clash Action, you can spend 2 Stamina to use 2 Clash Actions as part of the action.",
+          text: "When you take a Clash Action, you can spend 2 Stamina to use 2 Clash Actions as part of the action.",
         },
         {
           type: "FLAVOR",
@@ -272,7 +272,7 @@ const brawler: CharacterClass = {
       title: "Blood for Blood",
       slug: "BRAWLER-BLOOD-FOR-BLOOD",
       staminaCost: 0,
-      costsFortunesFavor: true,
+      costsFortunesFavor: false,
       text: [
         {
           type: "RULE",
@@ -289,7 +289,7 @@ const brawler: CharacterClass = {
       title: "Showstopper",
       slug: "BRAWLER-SHOWSTOPPER",
       staminaCost: 4,
-      costsFortunesFavor: true,
+      costsFortunesFavor: false,
       text: [
         {
           type: "RULE",

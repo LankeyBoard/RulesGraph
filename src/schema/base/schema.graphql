@@ -164,6 +164,12 @@ enum CampaignStatus {
   CANCELLED
 }
 
+enum SpellType {
+  ARCANE
+  DIVINE
+  NATURE
+}
+
 #########
 # union #
 #########
@@ -522,6 +528,7 @@ type Character {
   featureChoiceSlugs: [String]
   slots: Int!
   maxSlots: Int!
+  spells: [Spell]!
 }
 
 input CharacterInput {
@@ -674,4 +681,14 @@ input CampaignInput {
 type MyCampaignsResult {
   owned: [Campaign]!
   in: [Campaign]!
+}
+
+type Spell {
+  name: String!
+  level: Int!
+  type: [SpellType]!
+  castingTime: String
+  duration: String!
+  range: String
+  description: String!
 }

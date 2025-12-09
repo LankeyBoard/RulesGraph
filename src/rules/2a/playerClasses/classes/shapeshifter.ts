@@ -75,7 +75,7 @@ const shapeshifter: CharacterClass = {
       text: [
         {
           type: "RULE",
-          text: "You can understand and communicate with animals, you gain a +3 on Tests when interacting with animals that closely resemble your chosen form.",
+          text: "You can understand and communicate with animals, you gain a +4 on Tests when interacting with animals that closely resemble your chosen form.",
         },
         {
           type: "EG",
@@ -89,7 +89,6 @@ const shapeshifter: CharacterClass = {
       slug: "SHIFTER-REINVIGORATE",
       staminaCost: 0,
       costsFortunesFavor: true,
-      actionType: "ACTION",
       text: [
         {
           type: "FLAVOR",
@@ -97,7 +96,7 @@ const shapeshifter: CharacterClass = {
         },
         {
           type: "RULE",
-          text: "As an Action, spend Fortune's Favor to add your Heart to your Armor until the end of your next turn.",
+          text: "Spend Fortune's Favor to add your Heart to your Armor until the end of your next turn.",
         },
       ],
     },
@@ -119,16 +118,28 @@ const shapeshifter: CharacterClass = {
       ],
     },
     {
-      level: 5,
-      title: "Unusual Form",
-      slug: "SHIFTER-UNUSUAL-FORM",
-      staminaCost: 2,
+      level: 4,
+      title: "Shifter's Strike",
+      slug: "SHIFTER-WRATH",
+      staminaCost: 0,
       costsFortunesFavor: false,
       text: [
         {
-          type: "CHOICE",
-          text: "When you Shapeshift you can spend 2 Stamina to gain an extra form of movement from the list below.",
-          choices: ["30 ft. fly", "20 ft. swim", "20 ft. burrow"],
+          type: "RULE",
+          text: "When you Shift as part of a Basic Attack, deal an extra 1d6 damage on this attack.",
+        },
+      ],
+    },
+    {
+      level: 5,
+      title: "Second Skin",
+      slug: "SHIFTER-SECOND-SKIN",
+      staminaCost: 0,
+      costsFortunesFavor: false,
+      text: [
+        {
+          type: "RULE",
+          text: "You are able to maintain your Shift for longer. Your shift only ends when you are taking a Night's Rest or when you choose to end it.",
         },
       ],
     },
@@ -189,6 +200,19 @@ const shapeshifter: CharacterClass = {
         {
           type: "FLAVOR",
           text: "In all but the harshest environments you can find food and water for your party.",
+        },
+      ],
+    },
+    {
+      level: 8,
+      title: "Third Skin",
+      slug: "SHIFTER-THIRD SKIN",
+      staminaCost: 0,
+      costsFortunesFavor: false,
+      text: [
+        {
+          type: "RULE",
+          text: "Pick a second form. When you Shift, you can pick either form.",
         },
       ],
     },

@@ -227,7 +227,7 @@ const elementalist: CharacterClass = {
       title: "Elemental Footwork",
       slug: "ELEM-FOOTWORK",
       staminaCost: 0,
-      costsFortunesFavor: true,
+      costsFortunesFavor: false,
       ruleType: "CHOICE",
       text: [
         {
@@ -242,7 +242,7 @@ const elementalist: CharacterClass = {
           slug: "ELEM-FOOTWORK-FIRE",
           text: [
             {
-              text: "+10ft. Base Speed.",
+              text: "+20ft. Base Speed.",
             },
           ],
         },
@@ -254,7 +254,7 @@ const elementalist: CharacterClass = {
               text: "Automatically pass Agility Tests to stay standing on Ice.",
             },
             {
-              text: "As a Free Action, create a patch of ice within 5ft. of yourself. This ice id difficult terrain and lasts until the start of your next turn.",
+              text: "You can create a path of ice when you walk. If you create a path, it lasts until the start of your next turn. If an enemy attempts to walk on the path, they must make an Agility Test equal to 10 + your Intellect. On a fail, they are knocked prone. On a mixed, their speed is halved on the path.",
             },
           ],
         },
@@ -266,7 +266,7 @@ const elementalist: CharacterClass = {
               text: "Increase your jump distances by 10ft.",
             },
             {
-              text: "Always make Tests to avoid fall damage with Fortune's Favor.",
+              text: "Add your Intellect to Tests to avoid falling damage.",
             },
           ],
         },

@@ -30,19 +30,6 @@ const generalRules: GenericRule[] = [
         type: "RULE",
       },
     ],
-    subRules: [
-      {
-        title: "Leveling Up",
-        slug: "LEVELING-UP",
-        ruleType: "RULE",
-        text: [
-          {
-            text: "Your GM will tell you when you level up. Parties should generally be kept at the same level and should level up at the same time when you complete a [Rest & Recuperation](/rules/player_rules#REST). When you level up, your Health & Stamina increase and you gain new features based on your Class.",
-            type: "RULE",
-          },
-        ],
-      },
-    ],
   },
   {
     title: "What Makes Up a Character",
@@ -61,7 +48,7 @@ const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "As your character grows more powerful and experienced you gain levels, unlocking new abilities based on your [class](/rules/classes). The current rules go from level 1-8.",
+            text: "As your character grows more powerful and experienced you gain levels, unlocking new abilities and increasing your Health and Stamina based on your [class](/rules/classes). The current rules go from level 1-8.",
             type: "RULE",
           },
         ],
@@ -163,7 +150,7 @@ const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "Stamina is the characters wellspring of energy. It is relatively quick to go down, and easy to get back. The exact amount of Stamina a character has is determined by their Class and stats. Stamina can be used for Class abilities and to avoid taking damage.",
+            text: "Stamina is the characters wellspring of energy. It is relatively quick to go down, and easy to get back. The exact amount of Stamina a character has is determined by their Class, stats and level. Stamina can be used for Class abilities and to avoid taking damage.",
             type: "RULE",
           },
         ],
@@ -174,7 +161,7 @@ const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "Health represents the life force of your character. It is slow to get back and in limited supply. See [Exhausted, Dying, Last Stand & Healing](/rules/player_rules#EDL) for what happens at 0 Health.",
+            text: "Health represents the life force of your character. It is slow to get back and in limited supply. The exact amount of Health a character has is determined by their Class, stats and level. See [Exhausted, Dying, Last Stand & Healing](/rules/player_rules#EDL) for what happens at 0 Health.",
             type: "RULE",
           },
         ],
@@ -490,7 +477,7 @@ const generalRules: GenericRule[] = [
             ruleType: "RULE",
             text: [
               {
-                text: "When your Attack targets multiple enemies, roll a single Attack Test, and compare to each enemy's defenses. Only one enemy can make a Clash or Counter. (One enemy can Clash and a different one can Counter.)",
+                text: "When your Attack targets multiple enemies, roll a single Attack Test, and compare to each enemy's defenses. Only one enemy can take a Clash or Counter. (One enemy can Clash and a different one can Counter.)",
                 type: "RULE",
               },
             ],
@@ -711,7 +698,7 @@ const generalRules: GenericRule[] = [
         ruleType: "RULE",
         text: [
           {
-            text: "When you Attack, you can spend 2 Stamina to increase your Base Damage by 1 step. You can do this a number of times equal to 1/2 your current level.",
+            text: "When you Attack, you can spend 2 Stamina to increase your Base Damage by 1 step. You can do this a number of times equal to 1/2 your current level, rounded down.",
             type: "RULE",
           },
         ],
@@ -1562,6 +1549,16 @@ const generalRules: GenericRule[] = [
             ],
           },
           {
+            title: "Immune",
+            slug: "IMMUNE-STATUS",
+            text: [
+              {
+                text: "Prevent all damage of the immune type.",
+                type: "RULE",
+              },
+            ],
+          },
+          {
             title: "Incapacitated",
             slug: "INCAPACITATED-STATUS",
             text: [
@@ -1602,11 +1599,31 @@ const generalRules: GenericRule[] = [
             ],
           },
           {
+            title: "Resistant",
+            slug: "RESISTANT-STATUS",
+            text: [
+              {
+                text: "All damage of the resistant type is halved.",
+                type: "RULE",
+              },
+            ],
+          },
+          {
             title: "Slowed",
             slug: "SLOWED-STATUS",
             text: [
               {
                 text: "Your Speed is halved.",
+                type: "RULE",
+              },
+            ],
+          },
+          {
+            title: "Vulnerable",
+            slug: "VULNERABLE-STATUS",
+            text: [
+              {
+                text: "All damage of the vulnerable type is doubled.",
                 type: "RULE",
               },
             ],

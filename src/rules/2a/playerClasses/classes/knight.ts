@@ -58,7 +58,11 @@ const knight: CharacterClass = {
         },
         {
           type: "RULE",
-          text: "When you make a Basic Attack you may spend 1 Stamina to attempt to also drive your enemy back 10ft. On a Mix, you chose whether to damage or move the creature back. On a Success, you can do both.\nIf you chose to move a creature, they can opt to instead increase your Base Damage for this attack to avoid being moved.",
+          text: "When you make a Basic Attack you may spend 1 Stamina to attempt to also drive your enemy back 10ft. On a Mixed Success, you chose whether to damage or move the creature back. On a Success, you can do both.",
+        },
+        {
+          type: "RULE",
+          text: "If you chose to move a creature, they can opt to instead increase your Base Damage by 2 steps for this Attack to avoid being moved.",
         },
       ],
     },
