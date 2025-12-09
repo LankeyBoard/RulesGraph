@@ -92,33 +92,20 @@ const devoted: CharacterClass = {
       ],
     },
     {
-      level: 3,
-      title: "Reading the Signs",
-      slug: "DEVOTED-RS",
-      staminaCost: 1,
+      level: 2,
+      title: "Final Heal",
+      slug: "DEVOTED-FINAL-HEAL",
+      staminaCost: 0,
       costsFortunesFavor: false,
       text: [
         {
           type: "RULE",
-          text: "Spend 1 stamina and 10 minutes in deep meditation or praying on a solution to an issue to gain Fortune's Favor on the next Test to resolve the issue.",
+          text: "When you take your Last Stand, and at the start of each turn while making your Last Stand choose an ally within 30ft. of you. They regain 1d6+your Heart Health.",
         },
       ],
     },
     {
       level: 3,
-      title: "Minor Intervention",
-      slug: "DEVOTED-MI",
-      staminaCost: 0,
-      costsFortunesFavor: true,
-      text: [
-        {
-          type: "RULE",
-          text: "Once a day you can spend Fortune's Favor to improve yours or your allies Test results. Turning a Failure to a Mixed or a Mixed to a Success. You can do this after the dice are rolled but before consequences are applied.",
-        },
-      ],
-    },
-    {
-      level: 4,
       title: "Stat Up",
       slug: "DEVOTED-SU1",
       staminaCost: 0,
@@ -131,6 +118,32 @@ const devoted: CharacterClass = {
         {
           type: "RULE",
           text: "Select a new Novice Feature.",
+        },
+      ],
+    },
+    {
+      level: 4,
+      title: "Minor Intervention",
+      slug: "DEVOTED-MI",
+      staminaCost: 3,
+      costsFortunesFavor: true,
+      text: [
+        {
+          type: "RULE",
+          text: "You can spend Fortune's Favor and 3 Stamina to improve yours or your allies Test results. Turning a Failure to a Mixed or a Mixed to a Success. You can do this after the dice are rolled but before consequences are applied.",
+        },
+      ],
+    },
+    {
+      level: 4,
+      title: "Reading the Signs",
+      slug: "DEVOTED-RS",
+      staminaCost: 1,
+      costsFortunesFavor: false,
+      text: [
+        {
+          type: "RULE",
+          text: "Spend 1 Stamina and 10 minutes in deep meditation or praying on a solution to an issue to gain Fortune's Favor on the next Test to resolve the issue.",
         },
       ],
     },
@@ -153,6 +166,23 @@ const devoted: CharacterClass = {
     },
     {
       level: 6,
+      title: "Stat Up 2",
+      slug: "DEVOTED-SU2",
+      staminaCost: 0,
+      costsFortunesFavor: false,
+      text: [
+        {
+          type: "RULE",
+          text: "Increase a stat by 1 (max 6)",
+        },
+        {
+          type: "RULE",
+          text: "Select a Veteran Feature.",
+        },
+      ],
+    },
+    {
+      level: 7,
       title: "Martyr",
       slug: "DEVOTED-M",
       staminaCost: 0,
@@ -164,12 +194,12 @@ const devoted: CharacterClass = {
         },
         {
           type: "RULE",
-          text: "When you use your Last Stand, you can cast 2 spells per action, and increase your base damage by 1 dice step.",
+          text: "When you use your Last Stand, you can cast 2 spells per Action, and increase your Base Damage by 1 Dice Step.",
         },
       ],
     },
     {
-      level: 7,
+      level: 8,
       title: "Divine Inspiration",
       slug: "DEVOTED-DI",
       staminaCost: 0,
@@ -177,24 +207,7 @@ const devoted: CharacterClass = {
       text: [
         {
           type: "RULE",
-          text: "3 times per adventure, cast a spell without spending stamina. Any additional effects of the spell that require stamina still require you to spend stamina.",
-        },
-      ],
-    },
-    {
-      level: 8,
-      title: "Stat Up 2",
-      slug: "DEVOTED-SU2",
-      staminaCost: 0,
-      costsFortunesFavor: false,
-      text: [
-        {
-          type: "RULE",
-          text: "Increase a stat by 1 (max 5)",
-        },
-        {
-          type: "RULE",
-          text: "Select a Veteran Feature.",
+          text: "3 times per Rest & Recuperation, cast a spell without spending Stamina. Any additional effects of the spell that require Stamina still require you to spend Stamina.",
         },
       ],
     },

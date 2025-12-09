@@ -54,7 +54,20 @@ const spellsword: CharacterClass = {
     },
     {
       level: 1,
-      title: "Infusions",
+      title: "Infusion Dice",
+      slug: "SPELLSWORD-ID",
+      staminaCost: 0,
+      costsFortunesFavor: false,
+      text: [
+        {
+          type: "RULE",
+          text: "Your Infusion Dice is 1d6",
+        },
+      ],
+    },
+    {
+      level: 1,
+      title: "Basic Infusions",
       slug: "SPELLSWORD-INFUSIONS",
       staminaCost: 2,
       costsFortunesFavor: false,
@@ -62,7 +75,7 @@ const spellsword: CharacterClass = {
       text: [
         {
           type: "RULE",
-          text: "Pick 2 Infusions from the list below. You can only benefit from the effect of 1 Infusion at a time. Activating an Infusion requires 2 Stamina. When you start a rest, all Infusions are deactivated.",
+          text: "Pick 2 Basic Infusions from the list below. You can only benefit from the effect of 1 Infusion at a time. Activating an Infusion requires 2 Stamina. When you start a rest, all Infusions are deactivated.",
         },
       ],
       chooseNum: 2,
@@ -72,7 +85,7 @@ const spellsword: CharacterClass = {
           slug: "INFUSION-ABSORB",
           text: [
             {
-              text: "Requires a shield, when you or an ally within 30 ft. would take damage, reduce the damage taken by your infusion dice.",
+              text: "Requires a shield, when you or an ally within 30 ft. would take damage, reduce the damage taken by your Infusion Dice.",
             },
           ],
         },
@@ -108,7 +121,7 @@ const spellsword: CharacterClass = {
           slug: "INFUSION-WEAPON",
           text: [
             {
-              text: "Create an elemental weapon that lasts 1 minute  The weapon deals  elemental damage [Fire, Cold, or Lightning] equal to your Base Damage.",
+              text: "Infuse your weapon with an elemental damage [Fire, Cold, or Lightning] for 6 rounds.  While infused, increase your Base Damage by 1 step and deal damage of the chosen element instead of the weapon's regular damage type.",
             },
           ],
         },
@@ -138,19 +151,6 @@ const spellsword: CharacterClass = {
               text: "Add your Infusion Dice to any Tests to hide or stealth you make for the next minute.",
             },
           ],
-        },
-      ],
-    },
-    {
-      level: 1,
-      title: "Infusion Dice",
-      slug: "SPELLSWORD-ID",
-      staminaCost: 0,
-      costsFortunesFavor: false,
-      text: [
-        {
-          type: "RULE",
-          text: "Your Infusion Dice is 1d6",
         },
       ],
     },
@@ -168,95 +168,20 @@ const spellsword: CharacterClass = {
       ],
     },
     {
-      level: 3,
-      title: "Infusion Training",
-      slug: "SPELLSWORD-INFUSION-TRAINING",
+      level: 2,
+      title: "Moment of Brilliance",
+      slug: "SPELLSWORD-MOMENT-OF-BRILLIANCE",
       staminaCost: 0,
       costsFortunesFavor: false,
       text: [
         {
           type: "RULE",
-          text: "Pick a third Infusion.",
-        },
-      ],
-      chooseNum: 1,
-      choices: [
-        {
-          title: "Absorb",
-          slug: "INFUSION-ABSORB",
-          text: [
-            {
-              text: "Requires a shield, when you or an ally within 30 ft. would take damage, reduce the damage taken by your infusion dice.",
-            },
-          ],
-        },
-        {
-          title: "Bind",
-          slug: "INFUSION-BIND",
-          text: [
-            {
-              text: "Attempt to bind an enemy within 30 ft. of you to the ground. They make a Mettle Test, difficulty is equal to 10+Infusion Dice. Fail, they are Pinned until the start of the next Round. Mixed, they are Entangled until the start of the next Round.",
-            },
-          ],
-        },
-        {
-          title: "Bolster",
-          slug: "INFUSION-BOLSTER",
-          text: [
-            {
-              text: "Add your Infusion Dice to your next Mettle or Agility Test within the next minute.",
-            },
-          ],
-        },
-        {
-          title: "Disrupt",
-          slug: "INFUSION-DISRUPT",
-          text: [
-            {
-              text: "When you or an ally within 30 ft. is Attacked, after the Attack is rolled, reduce the Attack Roll by your Infusion Dice. ",
-            },
-          ],
-        },
-        {
-          title: "Elemental Weapon",
-          slug: "INFUSION-WEAPON",
-          text: [
-            {
-              text: "Create an elemental weapon that lasts 1 minute  The weapon deals  elemental damage [Fire, Cold, or Lightning] equal to your Base Damage.",
-            },
-          ],
-        },
-        {
-          title: "Launch",
-          slug: "INFUSION-Launch",
-          text: [
-            {
-              text: "Use when you make a Ranged Attack. The Attacks Range doubles and deals extra damage equal to your Infusion Dice.",
-            },
-          ],
-        },
-        {
-          title: "Sight",
-          slug: "INFUSION-SIGHT",
-          text: [
-            {
-              text: "For the next 10 minutes you can see invisible creatures and objects. You can also see in dim light and complete darkness as though it was well lit.",
-            },
-          ],
-        },
-        {
-          title: "Veil",
-          slug: "INFUSION-VEIL",
-          text: [
-            {
-              text: "Add your Infusion Dice to any Tests to hide or stealth you make for the next minute.",
-            },
-          ],
+          text: "While you make your Last Stand, you can use any infusion you could have chosen, not just the few you did choose.",
         },
       ],
     },
     {
-      level: 4,
+      level: 3,
       title: "Stat Up",
       slug: "SPELLSWORD-SU1",
       staminaCost: 0,
@@ -269,6 +194,19 @@ const spellsword: CharacterClass = {
         {
           type: "RULE",
           text: "Select a new Novice Feature.",
+        },
+      ],
+    },
+    {
+      level: 4,
+      title: "Infusion Training",
+      slug: "SPELLSWORD-INFUSION-TRAINING",
+      staminaCost: 0,
+      costsFortunesFavor: false,
+      text: [
+        {
+          type: "RULE",
+          text: "Pick a third Basic Infusion.",
         },
       ],
     },
@@ -304,20 +242,7 @@ const spellsword: CharacterClass = {
       ],
     },
     {
-      level: 7,
-      title: "Limit Break",
-      slug: "SPELLSWORD-LIMIT-BREAK",
-      staminaCost: 0,
-      costsFortunesFavor: false,
-      text: [
-        {
-          type: "RULE",
-          text: "When you start your Last Stand, double your Infusion Dice for the duration of your Last Stand.",
-        },
-      ],
-    },
-    {
-      level: 8,
+      level: 6,
       title: "Stat Up 2",
       slug: "SPELLSWORD-SU2",
       staminaCost: 0,
@@ -330,6 +255,74 @@ const spellsword: CharacterClass = {
         {
           type: "RULE",
           text: "Select a Veteran Feature",
+        },
+      ],
+    },
+    {
+      level: 7,
+      title: "Limit Break",
+      slug: "SPELLSWORD-LIMIT-BREAK",
+      staminaCost: 0,
+      costsFortunesFavor: false,
+      text: [
+        {
+          type: "RULE",
+          text: "While making your Last Stand, double your Infusion Dice.",
+        },
+      ],
+    },
+    {
+      level: 8,
+      title: "Advanced Infusion Training",
+      slug: "SPELLSWORD-ADVANCED-INFUSION",
+      staminaCost: 4,
+      costsFortunesFavor: false,
+      chooseNum: 2,
+      text: [
+        {
+          text: "Choose 1 advanced infusions from the list below. They cost 4 Stamina to use.",
+        },
+      ],
+      choices: [
+        {
+          title: "Binding Cage",
+          slug: "INFUSION-BINDING",
+          type: "ACTION",
+          text: [
+            {
+              text: "As an Action, drive a weapon into the ground. As the weapon hits, a binding barbs. Enemies in the barbed area as Slowed, and if they move more than 5ft. they take piercing damage equal to your Infusion Dice.",
+            },
+          ],
+        },
+        {
+          title: "Blink Step",
+          slug: "INFUSION-BLINK",
+          type: "ACTION",
+          text: [
+            {
+              text: "As an Action, teleport into an unoccupied space you can see within 30 ft. and then make a Basic Attack, adding your Infusion Dice to the roll. On a hit, add your Infusion Dice to the damage.",
+            },
+          ],
+        },
+        {
+          title: "Gravitational Warp",
+          slug: "INFUSION-GATHER",
+          text: [
+            {
+              text: `Use when you make a Basic Attack. Choose to either push or pull. On a hit, if you chose pull, enemies within 30ft. of the target are pulled 15ft. closer to them. If you chose push, enemies within 15ft. are pushed 15ft. away from them.  
+              Regardless, if they would collide with the target or another solid obstacle they stop in the nearest unoccupied space and take damage equal to your Infusion Dice.`,
+            },
+          ],
+        },
+        {
+          title: "Dancing Blade",
+          slug: "INFUSION-DANCING-BLADE",
+          type: "ACTION",
+          text: [
+            {
+              text: "As an Action, infuse one of your weapons, allowing it to float and obey mental commands from you. As part of the infusion and for the next 5 rounds you can make 1 additional Basic Attack with this weapon. On a hit, deal damage equal to you Infusion Dice + Intellect.  The weapon stays within 30 ft. of you and you can move it up to your speed when you move. While Infused, you cannot use this weapon normally.",
+            },
+          ],
         },
       ],
     },

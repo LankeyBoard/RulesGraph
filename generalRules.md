@@ -290,7 +290,7 @@ When a character attacks or casts an offensive spell at another creature or crea
 slug: AOE-EXCHANGES
 
 ruleType: RULE\
-When your Attack targets multiple enemies, roll a single Attack Test, and compare to each enemy's defenses. Only one enemy can make a Clash or Counter. (One enemy can Clash and a different one can Counter.)
+When your Attack targets multiple enemies, roll a single Attack Test, and compare to each enemy's defenses. Only one enemy can take a Clash or Counter. (One enemy can Clash and a different one can Counter.)
 
 ### Engaging an Enemy
 
@@ -419,7 +419,7 @@ slug: COUNTER-STAGGER
 slug: OOMPH
 
 ruleType: RULE\
-When you Attack, you can spend 2 Stamina to increase your Base Damage by 1 step. You can do this a number of times equal to 1/2 your current level.
+When you Attack, you can spend 2 Stamina to increase your Base Damage by 1 step. You can do this a number of times equal to 1/2 your current level, rounded down.
 
 ## Moving in Combat
 
@@ -935,6 +935,12 @@ slug: FATIGUED-STATUS
 
 All Stamina costs are doubled.
 
+### Immune
+
+slug: IMMUNE-STATUS
+
+Prevent all damage of the immune type.
+
 ### Incapacitated
 
 slug: INCAPACITATED-STATUS
@@ -959,11 +965,23 @@ slug: RATTLED-STATUS
 
 You have a -2 on Tests.
 
+### Resistant
+
+slug: RESISTANT-STATUS
+
+All damage of the resistant type is halved.
+
 ### Slowed
 
 slug: SLOWED-STATUS
 
 Your Speed is halved.
+
+### Vulnerable
+
+slug: VULNERABLE-STATUS
+
+All damage of the vulnerable type is doubled.
 
 ## Creature Sizes
 

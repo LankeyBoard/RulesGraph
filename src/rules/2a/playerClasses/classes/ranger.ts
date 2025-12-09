@@ -43,7 +43,7 @@ const ranger: CharacterClass = {
         },
         {
           type: "RULE",
-          text: "Gain +3 to Tests to track and spot creatures.",
+          text: "Gain +4 to Tests to track and spot creatures.",
         },
       ],
     },
@@ -51,7 +51,7 @@ const ranger: CharacterClass = {
       level: 1,
       title: "Precision of the Hawk",
       slug: "RANGER-PRECISION",
-      staminaCost: 0,
+      staminaCost: 1,
       costsFortunesFavor: false,
       text: [
         {
@@ -60,7 +60,7 @@ const ranger: CharacterClass = {
         },
         {
           type: "RULE",
-          text: "When you roll Weapon Attack Damage, you can reroll any 1s, taking the new result.",
+          text: "When you roll Weapon Attack Damage, if you have any 1's on your dice you can spend 1 Stamina per 1 on the dice to reroll it.",
         },
       ],
     },
@@ -90,7 +90,7 @@ const ranger: CharacterClass = {
         },
         {
           type: "RULE",
-          text: "Your party can add your Heart to their daily pace when traveling across terrain without roads.",
+          text: "Your party can add your Agility to their daily pace when traveling across terrain without roads.",
         },
       ],
     },

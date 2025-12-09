@@ -70,6 +70,7 @@ import    { SearchResult } from './base/resolvers/SearchResult';
 import    { ShifterForm } from './base/resolvers/ShifterForm';
 import    { SlugDict } from './base/resolvers/SlugDict';
 import    { Speed } from './base/resolvers/Speed';
+import    { Spell } from './base/resolvers/Spell';
 import    { Training } from './base/resolvers/Training';
 import    { TrainingOptions } from './base/resolvers/TrainingOptions';
 import    { User } from './base/resolvers/User';
@@ -114,6 +115,7 @@ SearchResult: SearchResult,
 ShifterForm: ShifterForm,
 SlugDict: SlugDict,
 Speed: Speed,
+Spell: Spell,
 Training: Training,
 TrainingOptions: TrainingOptions,
 User: User,

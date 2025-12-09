@@ -127,6 +127,7 @@ export type Character = {
   rangeMin: Scalars['Int']['output'];
   shieldName: Scalars['String']['output'];
   slots: Scalars['Int']['output'];
+  spells: Array<Maybe<Spell>>;
 };
 
 export type CharacterClass = Rule & {
@@ -794,6 +795,22 @@ export type SpeedTypes =
   | 'ground'
   | 'swimming';
 
+export type Spell = {
+  __typename?: 'Spell';
+  castingTime?: Maybe<Scalars['String']['output']>;
+  description: Scalars['String']['output'];
+  duration: Scalars['String']['output'];
+  level: Scalars['Int']['output'];
+  name: Scalars['String']['output'];
+  range?: Maybe<Scalars['String']['output']>;
+  type: Array<Maybe<SpellType>>;
+};
+
+export type SpellType =
+  | 'ARCANE'
+  | 'DIVINE'
+  | 'NATURE';
+
 export type StatOptions =
   | 'AGILITY'
   | 'HEART'
@@ -1001,6 +1018,8 @@ export type ResolversTypes = {
   SlugDict: ResolverTypeWrapper<SlugDict>;
   Speed: ResolverTypeWrapper<Speed>;
   SpeedTypes: SpeedTypes;
+  Spell: ResolverTypeWrapper<Spell>;
+  SpellType: SpellType;
   StatOptions: StatOptions;
   Training: ResolverTypeWrapper<Training>;
   TrainingOptions: ResolverTypeWrapper<TrainingOptions>;
@@ -1064,6 +1083,7 @@ export type ResolversParentTypes = {
   ShifterForm: Omit<ShifterForm, 'damage'> & { damage: Array<Maybe<ResolversParentTypes['Damage']>> };
   SlugDict: SlugDict;
   Speed: Speed;
+  Spell: Spell;
   Training: Training;
   TrainingOptions: TrainingOptions;
   User: Omit<User, 'characters'> & { characters?: Maybe<Array<Maybe<ResolversParentTypes['Character']>>> };
@@ -1164,6 +1184,7 @@ export type CharacterResolvers<ContextType = any, ParentType extends ResolversPa
   rangeMin?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   shieldName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   slots?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  spells?: Resolver<Array<Maybe<ResolversTypes['Spell']>>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -1527,6 +1548,17 @@ export type SpeedResolvers<ContextType = any, ParentType extends ResolversParent
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
+export type SpellResolvers<ContextType = any, ParentType extends ResolversParentTypes['Spell'] = ResolversParentTypes['Spell']> = {
+  castingTime?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  description?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  duration?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  level?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  range?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  type?: Resolver<Array<Maybe<ResolversTypes['SpellType']>>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
 export type TrainingResolvers<ContextType = any, ParentType extends ResolversParentTypes['Training'] = ResolversParentTypes['Training']> = {
   armor?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
   magic?: Resolver<Maybe<ResolversTypes['TrainingOptions']>, ParentType, ContextType>;
@@ -1616,6 +1648,7 @@ export type Resolvers<ContextType = any> = {
   ShifterForm?: ShifterFormResolvers<ContextType>;
   SlugDict?: SlugDictResolvers<ContextType>;
   Speed?: SpeedResolvers<ContextType>;
+  Spell?: SpellResolvers<ContextType>;
   Training?: TrainingResolvers<ContextType>;
   TrainingOptions?: TrainingOptionsResolvers<ContextType>;
   User?: UserResolvers<ContextType>;
