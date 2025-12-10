@@ -277,7 +277,7 @@ const spellsword: CharacterClass = {
       slug: "SPELLSWORD-ADVANCED-INFUSION",
       staminaCost: 4,
       costsFortunesFavor: false,
-      chooseNum: 2,
+      chooseNum: 1,
       text: [
         {
           text: "Choose 1 advanced infusions from the list below. They cost 4 Stamina to use.",
