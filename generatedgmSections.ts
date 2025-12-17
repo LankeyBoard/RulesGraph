@@ -2,14 +2,30 @@ import { GenericRule } from "../../schema/types.generated";
 const gmSections: GenericRule[] = [
     {
     title: "The Basics",
-    slug: ":GM-BASICS",text: [
+    slug: "ERROR",text: [
+    {
+    text: "The Basics",
+    type: "RULE"
+    },
+    {
+    text: "SLUG: :GM-BASICS",
+    type: "RULE"
+    },
     {
     text: "Fortune's Favor is a game for playing fantasy stories of a band of adventurers going out and changing the world. As the Game Master (GM), your role is to set up the events, respond to players actions and adjudicate the rules for your table.",
     type: "RULE"
     },],subRules: [
     {
     title: "GM Philosophy",
-    slug: "GM-PHILOSOPHY",text: [
+    slug: "ERROR",text: [
+    {
+    text: "GM Philosophy",
+    type: "RULE"
+    },
+    {
+    text: "SLUG: GM-PHILOSOPHY",
+    type: "RULE"
+    },
     {
     text: "When running Fortune's Favor, I have found the following tenets helpful to keep in mind.",
     type: "RULE"
@@ -19,10 +35,26 @@ const gmSections: GenericRule[] = [
   }],},]},
     {
     title: "During Play",
-    slug: "GM-DURING-PLAY",subRules: [
+    slug: "ERROR",text: [
+    {
+    text: "During Play",
+    type: "RULE"
+    },
+    {
+    text: "SLUG: GM-DURING-PLAY",
+    type: "RULE"
+    },],subRules: [
     {
     title: "Test Difficulty",
-    slug: "GM-TEST-DIFFICULTY",text: [
+    slug: "ERROR",text: [
+    {
+    text: "Test Difficulty",
+    type: "RULE"
+    },
+    {
+    text: "SLUG: GM-TEST-DIFFICULTY",
+    type: "RULE"
+    },
     {
     text: "As a GM, you will often have to set Test difficulty on the fly. The difficulty of the Test should reflect how hard the task is as well as how long they have to do it.",
     type: "RULE"
@@ -37,38 +69,86 @@ const gmSections: GenericRule[] = [
     },],subRules: [
     {
     title: "Mixed Results",
-    slug: "GM-MIXED",text: [
+    slug: "ERROR",text: [
+    {
+    text: "Mixed Results",
+    type: "RULE"
+    },
+    {
+    text: "SLUG: GM-MIXED",
+    type: "RULE"
+    },
     {
     text: "Often a good mixed result can be a choice of spending Stamina to succeed on the test or letting the test fail. If there's time pressure, then a mixed is also a good time to ratchet up the pressure. Maybe they slip on the jump across the ravine and manage to scramble up the other side, but the beast chasing them is significantly closer, or they manage to swap the cards in a poker game, but weren't slick enough to completely avoid the pit bosses attention.",
     type: "RULE"
     },],},
     {
     title: "Failures",
-    slug: "GM-TEST-FAILURE",text: [
+    slug: "ERROR",text: [
+    {
+    text: "Failures",
+    type: "RULE"
+    },
+    {
+    text: "SLUG: GM-TEST-FAILURE",
+    type: "RULE"
+    },
     {
     text: "Failing doesn't always have to be narrated as the character not being good enough at the thing to succeed. It's often more satisfying to describe the opponent's skill or the situational challenges that made the character fail rather than their own lacking or incompetence. Failure can also just mean running out of time before something else happens. Like a guard coming around the corner, discovering the party trying to pick a lock, or a troll guarding a bride brushes off an attempt to distract them while the rest of the party sneaks past.",
     type: "RULE"
     },],},]},]},
     {
     title: "Planning",
-    slug: "GM-PLANNING",subRules: [
+    slug: "ERROR",text: [
+    {
+    text: "Planning",
+    type: "RULE"
+    },
+    {
+    text: "SLUG: GM-PLANNING",
+    type: "RULE"
+    },],subRules: [
     {
     title: "Running a Session 0",
-    slug: "GM-SESSION-0",text: [
+    slug: "ERROR",text: [
+    {
+    text: "Running a Session 0",
+    type: "RULE"
+    },
+    {
+    text: "SLUG: GM-SESSION-0",
+    type: "RULE"
+    },
     {
     text: "Session 0 is your chance to set expectations for the game, give players the pitch for your game if you haven't already and talk about tone. It's also a chance to make characters together and find ways to create bonds between those characters.\nFor more information [The Ultimate Session 0 Checklist](https://www.level1geek.com/blog/dnd-session-0) by Level 1 Geek is a good place to start.",
     type: "RULE"
     },],},
     {
     title: "Making Enemies",
-    slug: "GM-MAKING-ENEMIES",text: [
+    slug: "ERROR",text: [
+    {
+    text: "Making Enemies",
+    type: "RULE"
+    },
+    {
+    text: "SLUG: GM-MAKING-ENEMIES",
+    type: "RULE"
+    },
     {
     text: "Three types of enemies, minions: easy to kill canon fodder, monsters: a reasonable challenge. bosses: a tough challenge. Every boss should provide a unique challenge.",
     type: "RULE"
     },],subRules: [
     {
     title: "Building Encounters",
-    slug: "GM-BUILDING-ENCOUNTERS",text: [
+    slug: "ERROR",text: [
+    {
+    text: "Building Encounters",
+    type: "RULE"
+    },
+    {
+    text: "SLUG: GM-BUILDING-ENCOUNTERS",
+    type: "RULE"
+    },
     {
     text: "An encounter encompasses everything that happens between opportunities for PCs to Catch Your Breath.",
     type: "RULE"
@@ -79,7 +159,15 @@ const gmSections: GenericRule[] = [
     },],},]},]},
     {
     title: "Resources",
-    slug: "RESOURCES",text: [
+    slug: "ERROR",text: [
+    {
+    text: "Resources",
+    type: "RULE"
+    },
+    {
+    text: "SLUG: RESOURCES",
+    type: "RULE"
+    },
     {
     text: "Useful resources for running a game.",
     type: "RULE"

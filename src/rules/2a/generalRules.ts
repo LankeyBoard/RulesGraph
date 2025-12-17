@@ -34,6 +34,11 @@ const generalRules: GenericRule[] = [
   {
     title: "What Makes Up a Character",
     slug: "WHAT-MAKES-UP-A-CHARACTER",
+    img: {
+      target:
+        "https://uploads6.wikiart.org/images/harry-clarke/tales-of-mystery-and-imagination-by-edgar-allan-poe-1923-19.jpg",
+      style: undefined,
+    },
     ruleType: "RULE",
     text: [
       {
@@ -260,6 +265,11 @@ const generalRules: GenericRule[] = [
   {
     title: "Tests",
     slug: "TESTS",
+    img: {
+      target:
+        "https://uploads6.wikiart.org/images/harry-clarke/tales-of-mystery-and-imagination-by-edgar-allan-poe-1923-23.jpg",
+      style: "float-left",
+    },
     ruleType: "RULE",
     text: [
       {
@@ -452,6 +462,11 @@ const generalRules: GenericRule[] = [
   {
     title: "Combat",
     slug: "COMBAT",
+    img: {
+      target:
+        "https://uploads6.wikiart.org/images/harry-clarke/the-year-s-at-the-spring-1920-18.jpg",
+      style: "w-auto mx-auto block my-4",
+    },
     ruleType: "RULE",
     text: [
       {
@@ -737,9 +752,17 @@ const generalRules: GenericRule[] = [
       },
       {
         title: "Cover",
-        slug: "OVER",
+        slug: "ERROR",
         ruleType: "RULE",
         text: [
+          {
+            text: "Cover",
+            type: "RULE",
+          },
+          {
+            text: "slug COVER",
+            type: "RULE",
+          },
           {
             text: "Attacks require a clear line from the attacker to the target. When the line is interrupted, it becomes harder to effectively hit and damage your target. A target has Cover if they are more than half hidden from the attacker. If the target has Cover, they gain +3 to their Armor and Counter for this attack.",
             type: "RULE",
@@ -787,6 +810,11 @@ const generalRules: GenericRule[] = [
   {
     title: "Weapons, Armor & Shields",
     slug: "EQUIPMENT",
+    img: {
+      target:
+        "https://uploads6.wikiart.org/images/harry-clarke/the-year-s-at-the-spring-1920-27.jpg",
+      style: undefined,
+    },
     ruleType: "RULE",
     subRules: [
       {
@@ -1035,6 +1063,11 @@ const generalRules: GenericRule[] = [
   {
     title: "Healing",
     slug: "NON-MAGICAL-HEALING",
+    img: {
+      target:
+        "https://uploads5.wikiart.org/images/harry-clarke/the-year-s-at-the-spring-1920-4.jpg",
+      style: "w-1/4 float-left",
+    },
     ruleType: "RULE",
     text: [
       {
@@ -1224,6 +1257,11 @@ const generalRules: GenericRule[] = [
   {
     title: "Gear",
     slug: "GEAR",
+    img: {
+      target:
+        "https://www.fromoldbooks.org/u.cgi?a=1&src=OldEngland&b=7&img=v1p127-tailpiece-ornament-hunting-symbols-q90-1250x786.jpg&n=8",
+      style: undefined,
+    },
     subRules: [
       {
         title: "Basic Supplies",

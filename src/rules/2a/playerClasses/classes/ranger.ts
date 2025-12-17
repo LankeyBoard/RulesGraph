@@ -6,6 +6,10 @@ const ranger: CharacterClass = {
   description: [
     "A skilled survivalist as well as ranged and melee fighter relying more on quickness and skill than outright strength.",
   ],
+  img: {
+    target:
+      "https://upload.wikimedia.org/wikipedia/commons/4/44/AnselmP040.gif",
+  },
   complexity: "SIMPLE",
   health: 18,
   healthOnLevel: 2,

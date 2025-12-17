@@ -198,6 +198,7 @@ interface Feature {
   ruleType: RuleType
   text: [RuleText]
   shortText: String
+  img: Img
 }
 
 type SearchResult implements Rule {
@@ -226,6 +227,7 @@ type Culture implements Rule {
   languages: String
   traits: [GenericFeature!]
   variants: [CultureVariant]
+  img: Img
 }
 
 type CultureVariant implements Rule {
@@ -237,6 +239,7 @@ type CultureVariant implements Rule {
   stat: String
   languages: String
   traits: [GenericFeature!]
+  img: Img
 }
 
 type Speed {
@@ -255,6 +258,7 @@ type Lineage implements Rule {
   stat: String
   traits: [GenericFeature!]!
   variants: [LineageVariant]
+  img: Img
 }
 
 type LineageVariant implements Rule {
@@ -267,6 +271,7 @@ type LineageVariant implements Rule {
   speeds: [Speed]
   stat: String
   traits: [GenericFeature!]
+  img: Img
 }
 
 type GenericRule implements Rule {
@@ -279,6 +284,7 @@ type GenericRule implements Rule {
   subRules: [GenericRule]
   lists: [List]
   shortText: String
+  img: Img
 }
 
 type List {
@@ -302,6 +308,7 @@ type GenericFeature implements Feature {
   chooseNum: Int
   featureType: FeatureType
   isVariant: Boolean
+  img: Img
 }
 
 type FeatureWithoutChoices implements Feature {
@@ -316,6 +323,7 @@ type FeatureWithoutChoices implements Feature {
   text: [RuleText]
   shortText: String
   multiSelect: Boolean
+  img: Img
 }
 
 type SlugDict {
@@ -360,6 +368,11 @@ type Deflect {
   flat: Int
 }
 
+type Img {
+  target: String!
+  style: String
+}
+
 type CharacterClassFeature implements Feature {
   title: String!
   slug: String!
@@ -376,6 +389,7 @@ type CharacterClassFeature implements Feature {
   choices: [FeatureChoices!]
   chooseNum: Int
   isVariant: Boolean
+  img: Img
 }
 
 type CharacterClass implements Rule {
@@ -398,6 +412,7 @@ type CharacterClass implements Rule {
   features: [CharacterClassFeature]!
   extra: CharacterExtras
   variants: [CharacterClassVariant]
+  img: Img
 }
 
 type CharacterClassVariant implements Rule {
@@ -419,6 +434,7 @@ type CharacterClassVariant implements Rule {
   deflect: Deflect!
   features: [CharacterClassFeature]!
   extra: CharacterExtras
+  img: Img
 }
 
 type CharacterExtras {

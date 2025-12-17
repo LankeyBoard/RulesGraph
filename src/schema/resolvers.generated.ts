@@ -20,6 +20,7 @@ import    { Effect } from './base/resolvers/Effect';
 import    { FeatureWithoutChoices } from './base/resolvers/FeatureWithoutChoices';
 import    { GenericFeature } from './base/resolvers/GenericFeature';
 import    { GenericRule } from './base/resolvers/GenericRule';
+import    { Img } from './base/resolvers/Img';
 import    { Item } from './base/resolvers/Item';
 import    { ItemShop } from './base/resolvers/ItemShop';
 import    { Lineage } from './base/resolvers/Lineage';
@@ -102,6 +103,7 @@ Effect: Effect,
 FeatureWithoutChoices: FeatureWithoutChoices,
 GenericFeature: GenericFeature,
 GenericRule: GenericRule,
+Img: Img,
 Item: Item,
 ItemShop: ItemShop,
 Lineage: Lineage,
