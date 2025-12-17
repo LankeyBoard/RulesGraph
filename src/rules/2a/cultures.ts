@@ -151,6 +151,10 @@ const culturesData: Culture[] = [
     description: [
       "The Mariners are seasoned sailors, tradesmen, and shipwrights, navigating the vast oceans of the world. Known for their seafaring instincts, they excel in maritime activities and shipbuilding.",
     ],
+    img: {
+      target:
+        "https://upload.wikimedia.org/wikipedia/commons/2/29/Harald_Fairhead.jpg",
+    },
     stat: "+1 to Agility or Heart",
     languages:
       "Allspeak and one language of your choice based on the regions most traveled in.",
@@ -229,6 +233,11 @@ const culturesData: Culture[] = [
     description: [
       "The Peoples of the Meadowlands are a community deeply rooted in the fertile plains and gentle meadows of the world. They are known for their idyllic farms, vibrant orchards, and close-knit communal spirit. The Meadowlands people balance hard work and relaxation, and their harvest festivals are some of the most spectacular in all the land.",
     ],
+    img: {
+      target:
+        "https://upload.wikimedia.org/wikipedia/commons/0/07/Page_193_illustration_in_More_English_Fairy_Tales.png",
+      style: "md:w-1/4",
+    },
     stat: "+1 to Mettle or Heart",
     languages: "Allspeak",
     traits: [
@@ -259,6 +268,11 @@ const culturesData: Culture[] = [
     description: [
       "The Fae are a strange and enigmatic folk. Fae communities tend to pop up where the magic is strongest and the barrier between the world and the beyond is thin and the connection between magic and nature is imbued in everything they do.",
     ],
+    img: {
+      style: "mx-auto w-full md:w-1/2",
+      target:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Illustration_inset_at_page_51_of_Indian_Fairy_Tales_%281892%29.png/1280px-Illustration_inset_at_page_51_of_Indian_Fairy_Tales_%281892%29.png",
+    },
     stat: "+1 to Intellect or Heart",
     languages: "Allspeak, Thissletongue",
     traits: [

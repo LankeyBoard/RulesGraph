@@ -55,6 +55,7 @@ const ruleToText = (rule: Maybe<GenericRule>, depth: number): string => {
   if (!rule) return "";
   let text = "#".repeat(depth) + " " + rule.title + "\n";
   if (rule.slug) text += "slug: " + rule.slug + "\n\n";
+  if (rule.img) text += "img: " + rule.img + "\n\n";
   if (rule.ruleType) text += "ruleType: " + rule.ruleType + `\\\n`;
   if (typeof rule.text !== "undefined" && rule.text !== null)
     text += textAreaToText(rule.text);

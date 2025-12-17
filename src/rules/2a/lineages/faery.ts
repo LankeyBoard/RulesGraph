@@ -7,6 +7,11 @@ const faery: Lineage = {
     "Faeries have large gossamer wings, usually similar to butterfly or moth wings. Fully grown they are usually 2-2.5ft tall.",
     "Faeries typically reach maturity at 10 years old and can live to be around 50 years old.",
   ],
+  img: {
+    target:
+      "https://upload.wikimedia.org/wikipedia/commons/9/92/Page_19_illustration_in_More_English_Fairy_Tales.png",
+    style: "w-1/3",
+  },
   size: ["TINY"],
   speeds: [
     { speed: 20, type: "ground" },

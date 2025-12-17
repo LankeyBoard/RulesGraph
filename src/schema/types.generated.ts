@@ -142,6 +142,7 @@ export type CharacterClass = Rule & {
   health: Scalars['Int']['output'];
   healthOnLevel: Scalars['Int']['output'];
   href?: Maybe<Scalars['String']['output']>;
+  img?: Maybe<Img>;
   range: Range;
   shortTitle?: Maybe<Scalars['String']['output']>;
   slug: Scalars['String']['output'];
@@ -160,6 +161,7 @@ export type CharacterClassFeature = Feature & {
   chooseNum?: Maybe<Scalars['Int']['output']>;
   costsFortunesFavor: Scalars['Boolean']['output'];
   href?: Maybe<Scalars['String']['output']>;
+  img?: Maybe<Img>;
   isVariant?: Maybe<Scalars['Boolean']['output']>;
   level: Scalars['Int']['output'];
   multiSelect?: Maybe<Scalars['Boolean']['output']>;
@@ -184,6 +186,7 @@ export type CharacterClassVariant = Rule & {
   health: Scalars['Int']['output'];
   healthOnLevel: Scalars['Int']['output'];
   href?: Maybe<Scalars['String']['output']>;
+  img?: Maybe<Img>;
   range: Range;
   shortTitle?: Maybe<Scalars['String']['output']>;
   slug: Scalars['String']['output'];
@@ -235,6 +238,7 @@ export type Culture = Rule & {
   __typename?: 'Culture';
   description?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   href?: Maybe<Scalars['String']['output']>;
+  img?: Maybe<Img>;
   languages?: Maybe<Scalars['String']['output']>;
   shortTitle?: Maybe<Scalars['String']['output']>;
   slug: Scalars['String']['output'];
@@ -248,6 +252,7 @@ export type CultureVariant = Rule & {
   __typename?: 'CultureVariant';
   description?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   href?: Maybe<Scalars['String']['output']>;
+  img?: Maybe<Img>;
   languages?: Maybe<Scalars['String']['output']>;
   shortTitle?: Maybe<Scalars['String']['output']>;
   slug: Scalars['String']['output'];
@@ -290,6 +295,7 @@ export type Feature = {
   actionType?: Maybe<Action>;
   costsFortunesFavor?: Maybe<Scalars['Boolean']['output']>;
   href?: Maybe<Scalars['String']['output']>;
+  img?: Maybe<Img>;
   ruleType?: Maybe<RuleType>;
   shortText?: Maybe<Scalars['String']['output']>;
   shortTitle?: Maybe<Scalars['String']['output']>;
@@ -310,6 +316,7 @@ export type FeatureWithoutChoices = Feature & {
   actionType?: Maybe<Action>;
   costsFortunesFavor?: Maybe<Scalars['Boolean']['output']>;
   href?: Maybe<Scalars['String']['output']>;
+  img?: Maybe<Img>;
   multiSelect?: Maybe<Scalars['Boolean']['output']>;
   ruleType?: Maybe<RuleType>;
   shortText?: Maybe<Scalars['String']['output']>;
@@ -328,6 +335,7 @@ export type GenericFeature = Feature & {
   costsFortunesFavor?: Maybe<Scalars['Boolean']['output']>;
   featureType?: Maybe<FeatureType>;
   href?: Maybe<Scalars['String']['output']>;
+  img?: Maybe<Img>;
   isVariant?: Maybe<Scalars['Boolean']['output']>;
   multiSelect?: Maybe<Scalars['Boolean']['output']>;
   ruleType?: Maybe<RuleType>;
@@ -342,6 +350,7 @@ export type GenericFeature = Feature & {
 export type GenericRule = Rule & {
   __typename?: 'GenericRule';
   href?: Maybe<Scalars['String']['output']>;
+  img?: Maybe<Img>;
   lists?: Maybe<Array<Maybe<List>>>;
   ruleType?: Maybe<RuleType>;
   shortText?: Maybe<Scalars['String']['output']>;
@@ -350,6 +359,12 @@ export type GenericRule = Rule & {
   subRules?: Maybe<Array<Maybe<GenericRule>>>;
   text?: Maybe<Array<Maybe<RuleText>>>;
   title: Scalars['String']['output'];
+};
+
+export type Img = {
+  __typename?: 'Img';
+  style?: Maybe<Scalars['String']['output']>;
+  target: Scalars['String']['output'];
 };
 
 export type Item = {
@@ -422,6 +437,7 @@ export type Lineage = Rule & {
   __typename?: 'Lineage';
   description: Array<Maybe<Scalars['String']['output']>>;
   href?: Maybe<Scalars['String']['output']>;
+  img?: Maybe<Img>;
   shortTitle?: Maybe<Scalars['String']['output']>;
   size: Array<Size>;
   slug: Scalars['String']['output'];
@@ -436,6 +452,7 @@ export type LineageVariant = Rule & {
   __typename?: 'LineageVariant';
   description?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   href?: Maybe<Scalars['String']['output']>;
+  img?: Maybe<Img>;
   shortTitle?: Maybe<Scalars['String']['output']>;
   size?: Maybe<Array<Maybe<Size>>>;
   slug: Scalars['String']['output'];
@@ -991,6 +1008,7 @@ export type ResolversTypes = {
   FeatureWithoutChoices: ResolverTypeWrapper<FeatureWithoutChoices>;
   GenericFeature: ResolverTypeWrapper<Omit<GenericFeature, 'choices'> & { choices?: Maybe<Array<ResolversTypes['FeatureChoices']>> }>;
   GenericRule: ResolverTypeWrapper<GenericRule>;
+  Img: ResolverTypeWrapper<Img>;
   Item: ResolverTypeWrapper<Omit<Item, 'createdBy' | 'heldBy'> & { createdBy: ResolversTypes['User'], heldBy: Array<Maybe<ResolversTypes['Character']>> }>;
   ItemInStockInput: ItemInStockInput;
   ItemInput: ItemInput;
@@ -1063,6 +1081,7 @@ export type ResolversParentTypes = {
   FeatureWithoutChoices: FeatureWithoutChoices;
   GenericFeature: Omit<GenericFeature, 'choices'> & { choices?: Maybe<Array<ResolversParentTypes['FeatureChoices']>> };
   GenericRule: GenericRule;
+  Img: Img;
   Item: Omit<Item, 'createdBy' | 'heldBy'> & { createdBy: ResolversParentTypes['User'], heldBy: Array<Maybe<ResolversParentTypes['Character']>> };
   ItemInStockInput: ItemInStockInput;
   ItemInput: ItemInput;
@@ -1199,6 +1218,7 @@ export type CharacterClassResolvers<ContextType = any, ParentType extends Resolv
   health?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   healthOnLevel?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   href?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  img?: Resolver<Maybe<ResolversTypes['Img']>, ParentType, ContextType>;
   range?: Resolver<ResolversTypes['Range'], ParentType, ContextType>;
   shortTitle?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -1217,6 +1237,7 @@ export type CharacterClassFeatureResolvers<ContextType = any, ParentType extends
   chooseNum?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   costsFortunesFavor?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   href?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  img?: Resolver<Maybe<ResolversTypes['Img']>, ParentType, ContextType>;
   isVariant?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
   level?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   multiSelect?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
@@ -1241,6 +1262,7 @@ export type CharacterClassVariantResolvers<ContextType = any, ParentType extends
   health?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   healthOnLevel?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   href?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  img?: Resolver<Maybe<ResolversTypes['Img']>, ParentType, ContextType>;
   range?: Resolver<ResolversTypes['Range'], ParentType, ContextType>;
   shortTitle?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -1261,6 +1283,7 @@ export type CharacterExtrasResolvers<ContextType = any, ParentType extends Resol
 export type CultureResolvers<ContextType = any, ParentType extends ResolversParentTypes['Culture'] = ResolversParentTypes['Culture']> = {
   description?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
   href?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  img?: Resolver<Maybe<ResolversTypes['Img']>, ParentType, ContextType>;
   languages?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   shortTitle?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -1274,6 +1297,7 @@ export type CultureResolvers<ContextType = any, ParentType extends ResolversPare
 export type CultureVariantResolvers<ContextType = any, ParentType extends ResolversParentTypes['CultureVariant'] = ResolversParentTypes['CultureVariant']> = {
   description?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
   href?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  img?: Resolver<Maybe<ResolversTypes['Img']>, ParentType, ContextType>;
   languages?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   shortTitle?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -1311,6 +1335,7 @@ export type FeatureResolvers<ContextType = any, ParentType extends ResolversPare
   actionType?: Resolver<Maybe<ResolversTypes['Action']>, ParentType, ContextType>;
   costsFortunesFavor?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
   href?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  img?: Resolver<Maybe<ResolversTypes['Img']>, ParentType, ContextType>;
   ruleType?: Resolver<Maybe<ResolversTypes['RuleType']>, ParentType, ContextType>;
   shortText?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   shortTitle?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
@@ -1328,6 +1353,7 @@ export type FeatureWithoutChoicesResolvers<ContextType = any, ParentType extends
   actionType?: Resolver<Maybe<ResolversTypes['Action']>, ParentType, ContextType>;
   costsFortunesFavor?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
   href?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  img?: Resolver<Maybe<ResolversTypes['Img']>, ParentType, ContextType>;
   multiSelect?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
   ruleType?: Resolver<Maybe<ResolversTypes['RuleType']>, ParentType, ContextType>;
   shortText?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
@@ -1346,6 +1372,7 @@ export type GenericFeatureResolvers<ContextType = any, ParentType extends Resolv
   costsFortunesFavor?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
   featureType?: Resolver<Maybe<ResolversTypes['FeatureType']>, ParentType, ContextType>;
   href?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  img?: Resolver<Maybe<ResolversTypes['Img']>, ParentType, ContextType>;
   isVariant?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
   multiSelect?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
   ruleType?: Resolver<Maybe<ResolversTypes['RuleType']>, ParentType, ContextType>;
@@ -1360,6 +1387,7 @@ export type GenericFeatureResolvers<ContextType = any, ParentType extends Resolv
 
 export type GenericRuleResolvers<ContextType = any, ParentType extends ResolversParentTypes['GenericRule'] = ResolversParentTypes['GenericRule']> = {
   href?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  img?: Resolver<Maybe<ResolversTypes['Img']>, ParentType, ContextType>;
   lists?: Resolver<Maybe<Array<Maybe<ResolversTypes['List']>>>, ParentType, ContextType>;
   ruleType?: Resolver<Maybe<ResolversTypes['RuleType']>, ParentType, ContextType>;
   shortText?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
@@ -1368,6 +1396,12 @@ export type GenericRuleResolvers<ContextType = any, ParentType extends Resolvers
   subRules?: Resolver<Maybe<Array<Maybe<ResolversTypes['GenericRule']>>>, ParentType, ContextType>;
   text?: Resolver<Maybe<Array<Maybe<ResolversTypes['RuleText']>>>, ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type ImgResolvers<ContextType = any, ParentType extends ResolversParentTypes['Img'] = ResolversParentTypes['Img']> = {
+  style?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  target?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -1405,6 +1439,7 @@ export type ItemShopResolvers<ContextType = any, ParentType extends ResolversPar
 export type LineageResolvers<ContextType = any, ParentType extends ResolversParentTypes['Lineage'] = ResolversParentTypes['Lineage']> = {
   description?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   href?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  img?: Resolver<Maybe<ResolversTypes['Img']>, ParentType, ContextType>;
   shortTitle?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   size?: Resolver<Array<ResolversTypes['Size']>, ParentType, ContextType>;
   slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -1419,6 +1454,7 @@ export type LineageResolvers<ContextType = any, ParentType extends ResolversPare
 export type LineageVariantResolvers<ContextType = any, ParentType extends ResolversParentTypes['LineageVariant'] = ResolversParentTypes['LineageVariant']> = {
   description?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
   href?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  img?: Resolver<Maybe<ResolversTypes['Img']>, ParentType, ContextType>;
   shortTitle?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   size?: Resolver<Maybe<Array<Maybe<ResolversTypes['Size']>>>, ParentType, ContextType>;
   slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -1632,6 +1668,7 @@ export type Resolvers<ContextType = any> = {
   FeatureWithoutChoices?: FeatureWithoutChoicesResolvers<ContextType>;
   GenericFeature?: GenericFeatureResolvers<ContextType>;
   GenericRule?: GenericRuleResolvers<ContextType>;
+  Img?: ImgResolvers<ContextType>;
   Item?: ItemResolvers<ContextType>;
   ItemShop?: ItemShopResolvers<ContextType>;
   Lineage?: LineageResolvers<ContextType>;

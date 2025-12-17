@@ -6,6 +6,10 @@ const maverick: CharacterClass = {
   description: [
     "The Maverick is a treasure seeker and risk taker, using an array of skills and a helping of luck to get them into the darkest of dungeons and out of the stickiest of situations.",
   ],
+  img: {
+    target:
+      "https://upload.wikimedia.org/wikipedia/commons/c/c9/Page_166_illustration_in_English_Fairy_Tales.png",
+  },
   complexity: "STANDARD",
   health: 20,
   healthOnLevel: 2,

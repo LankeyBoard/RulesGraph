@@ -19,6 +19,8 @@ Pick a [Novice Feature](/rules/generic_features/novice_features).
 
 slug: WHAT-MAKES-UP-A-CHARACTER
 
+img: https://uploads6.wikiart.org/images/harry-clarke/tales-of-mystery-and-imagination-by-edgar-allan-poe-1923-19.jpg
+
 ruleType: RULE\
 Level, Lineage, Culture, Class, and Stats
 
@@ -158,6 +160,8 @@ After successful Rest and Relaxation, regain all lost Health and Stamina and gai
 # Tests
 
 slug: TESTS
+img: https://uploads6.wikiart.org/images/harry-clarke/tales-of-mystery-and-imagination-by-edgar-allan-poe-1923-23.jpg
+style: float-left
 
 ruleType: RULE\
 Tests are how you determine the outcome of uncertain events, can you smash open a door (Mettle), talk a guard into looking the other way (Heart), dodging a tomato hurled at your head (Agility).
@@ -273,6 +277,8 @@ Circumstances may cause misfortune. When the GM calls for a roll with Misfortune
 # Combat
 
 slug: COMBAT
+img: https://uploads6.wikiart.org/images/harry-clarke/the-year-s-at-the-spring-1920-18.jpg
+style: w-auto mx-auto block my-4
 
 ruleType: RULE\
 Each round of combat is split into 3 parts, 1st, Environmental effects, 2nd, Players take their turn, 3rd, Enemies take their turn. During the player's turn, each player makes one Action and can move up to their speed. Enemies do the same during their turn.
@@ -469,6 +475,7 @@ EG: A goblin swings at you with a rusted short sword. They hit, and would deal 3
 # Weapons, Armor & Shields
 
 slug: EQUIPMENT
+img: https://uploads6.wikiart.org/images/harry-clarke/the-year-s-at-the-spring-1920-27.jpg
 
 ruleType: RULE\
 
@@ -621,6 +628,8 @@ When you have 0 Health & 0 Stamina you are dead and your soul begins to leave yo
 # Healing
 
 slug: NON-MAGICAL-HEALING
+img: https://uploads5.wikiart.org/images/harry-clarke/the-year-s-at-the-spring-1920-4.jpg
+style: w-1/4 float-left
 
 ruleType: RULE\
 Healing cannot affect dead creatures.
@@ -736,6 +745,8 @@ You can drag up to 4x your lifting capacity.
 # Gear
 
 slug: GEAR
+
+img: https://www.fromoldbooks.org/u.cgi?a=1&src=OldEngland&b=7&img=v1p127-tailpiece-ornament-hunting-symbols-q90-1250x786.jpg&n=8
 
 ## Basic Supplies
 

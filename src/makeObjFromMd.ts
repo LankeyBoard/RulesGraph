@@ -8,7 +8,7 @@ import {
 } from "./schema/types.generated";
 
 const files = [{ filename: "generalRules" }, { filename: "gmSections" }];
-
+const IMG_STYLE_LABEL = "style: ";
 const readFile = (filename: string): string => {
   try {
     const data = fs.readFileSync(`${filename}.md`, "utf8");
@@ -78,6 +78,8 @@ const fileContentsToJsonStr = (contents: Maybe<GenericRule>[]): string => {
     {
     title: "${rule.title}",
     slug: "${rule.slug}",`;
+    if (rule.img)
+      result += `img: {target: "${rule.img.target}", style: ${rule.img.style ? `"${rule.img.style}"` : undefined}}, `;
     if (rule.ruleType) result += `ruleType: "${rule.ruleType}",`;
     if (rule.text) result += `text: ${text},`;
     if (rule.lists) result += `lists: ${lists},`;
@@ -226,26 +228,46 @@ const ruleArrayToRule = (rulesArray: string[], level: number) => {
         : ruleArrayToRule(splitRule.slice(1), level + 1);
     // need to split out list text from text blocks
     const title = lineProcessor(baseRule[0]);
-    const slug = baseRule[2] ? lineProcessor(baseRule[2].slice(6)) : "ERROR";
+    const slugIndex = baseRule.findIndex((line) => line.includes("slug: "));
+    const slug =
+      slugIndex !== -1 ? lineProcessor(baseRule[slugIndex].slice(6)) : "ERROR";
+
+    const imgIndex = baseRule.findIndex((line) => line.includes("img: "));
+    const imgStr =
+      imgIndex !== -1 ? lineProcessor(baseRule[imgIndex].slice(5)) : undefined;
+    const imgStyleStr =
+      imgIndex !== -1
+        ? lineProcessor(baseRule[imgIndex + 1].slice(IMG_STYLE_LABEL.length))
+        : undefined;
     const unprocessedText: string[] = [];
     const unprocessedListText: string[] = [];
 
     let ruleType: RuleType | null = null;
 
-    baseRule.slice(3).forEach((line) => {
-      if (typeof line === "string") {
-        if (line.includes("ruleType")) ruleType = strToRuleType(line);
-        else if (line[0] !== "-" && !line.includes("label: "))
-          unprocessedText.push(lineProcessor(line));
-        else unprocessedListText.push(lineProcessor(line));
-      }
-    });
+    baseRule
+      .slice(imgIndex === -1 ? slugIndex + 1 : imgIndex + 2)
+      .forEach((line) => {
+        if (typeof line === "string") {
+          if (line.includes("ruleType")) ruleType = strToRuleType(line);
+          else if (line[0] !== "-" && !line.includes("label: "))
+            unprocessedText.push(lineProcessor(line));
+          else unprocessedListText.push(lineProcessor(line));
+        }
+      });
     const text = textMaker(unprocessedText);
     const lists: List[] = listMaker(unprocessedListText);
 
     if (baseRule.length > 1) {
-      const ruleBuilder: { title: string; slug: string; [k: string]: unknown } =
-        { title: title, slug: slug };
+      const ruleBuilder: {
+        title: string;
+        slug: string;
+        img: { target: string; style: string | undefined } | undefined;
+        [k: string]: unknown;
+      } = {
+        title: title,
+        slug: slug,
+        img: imgStr ? { target: imgStr, style: imgStyleStr } : undefined,
+      };
       if (ruleType) ruleBuilder.ruleType = ruleType;
       if (text.length > 0) ruleBuilder.text = text;
       if (lists.length > 0) ruleBuilder.lists = lists;

@@ -14,6 +14,11 @@ const beastmaster: CharacterClass = {
   staminaStat: "HEART",
   stamina: 10,
   staminaOnLevel: 0,
+  img: {
+    target:
+      "https://upload.wikimedia.org/wikipedia/commons/3/3a/Page_122_illustration_in_More_Celtic_Fairy_Tales.png",
+    style: "w-full",
+  },
   training: {
     armor: ["Light"],
     shields: null,

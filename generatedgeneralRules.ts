@@ -29,7 +29,7 @@ const generalRules: GenericRule[] = [
     },],},
     {
     title: "What Makes Up a Character",
-    slug: "WHAT-MAKES-UP-A-CHARACTER",ruleType: "RULE",text: [
+    slug: "WHAT-MAKES-UP-A-CHARACTER",img: {target: "https://uploads6.wikiart.org/images/harry-clarke/tales-of-mystery-and-imagination-by-edgar-allan-poe-1923-19.jpg", style: undefined}, ruleType: "RULE",text: [
     {
     text: "Level, Lineage, Culture, Class, and Stats",
     type: "RULE"
@@ -179,7 +179,7 @@ const generalRules: GenericRule[] = [
     },],},]},]},
     {
     title: "Tests",
-    slug: "TESTS",ruleType: "RULE",text: [
+    slug: "TESTS",img: {target: "https://uploads6.wikiart.org/images/harry-clarke/tales-of-mystery-and-imagination-by-edgar-allan-poe-1923-23.jpg", style: "float-left"}, ruleType: "RULE",text: [
     {
     text: "Tests are how you determine the outcome of uncertain events, can you smash open a door (Mettle), talk a guard into looking the other way (Heart), dodging a tomato hurled at your head (Agility).",
     type: "RULE"
@@ -313,7 +313,7 @@ const generalRules: GenericRule[] = [
     },],},]},
     {
     title: "Combat",
-    slug: "COMBAT",ruleType: "RULE",text: [
+    slug: "COMBAT",img: {target: "https://uploads6.wikiart.org/images/harry-clarke/the-year-s-at-the-spring-1920-18.jpg", style: "w-auto mx-auto block my-4"}, ruleType: "RULE",text: [
     {
     text: "Each round of combat is split into 3 parts, 1st, Environmental effects, 2nd, Players take their turn, 3rd, Enemies take their turn. During the player's turn, each player makes one Action and can move up to their speed. Enemies do the same during their turn.\nEach round of combat represents 30 seconds of in game time.",
     type: "RULE"
@@ -504,7 +504,15 @@ const generalRules: GenericRule[] = [
     },],},]},
     {
     title: "Cover",
-    slug: "OVER",ruleType: "RULE",text: [
+    slug: "ERROR",ruleType: "RULE",text: [
+    {
+    text: "Cover",
+    type: "RULE"
+    },
+    {
+    text: "slug COVER",
+    type: "RULE"
+    },
     {
     text: "Attacks require a clear line from the attacker to the target. When the line is interrupted, it becomes harder to effectively hit and damage your target. A target has Cover if they are more than half hidden from the attacker. If the target has Cover, they gain +3 to their Armor and Counter for this attack.",
     type: "RULE"
@@ -537,7 +545,7 @@ const generalRules: GenericRule[] = [
     },],},]},
     {
     title: "Weapons, Armor & Shields",
-    slug: "EQUIPMENT",ruleType: "RULE",subRules: [
+    slug: "EQUIPMENT",img: {target: "https://uploads6.wikiart.org/images/harry-clarke/the-year-s-at-the-spring-1920-27.jpg", style: undefined}, ruleType: "RULE",subRules: [
     {
     title: "Weapons",
     slug: "WEAPONS",ruleType: "RULE",text: [
@@ -686,7 +694,7 @@ const generalRules: GenericRule[] = [
     },],},]},
     {
     title: "Healing",
-    slug: "NON-MAGICAL-HEALING",ruleType: "RULE",text: [
+    slug: "NON-MAGICAL-HEALING",img: {target: "https://uploads5.wikiart.org/images/harry-clarke/the-year-s-at-the-spring-1920-4.jpg", style: "w-1/4 float-left"}, ruleType: "RULE",text: [
     {
     text: "Healing cannot affect dead creatures.",
     type: "RULE"
@@ -806,7 +814,7 @@ const generalRules: GenericRule[] = [
     },],},]},
     {
     title: "Gear",
-    slug: "GEAR",subRules: [
+    slug: "GEAR",img: {target: "https://www.fromoldbooks.org/u.cgi?a=1&src=OldEngland&b=7&img=v1p127-tailpiece-ornament-hunting-symbols-q90-1250x786.jpg&n=8", style: undefined}, subRules: [
     {
     title: "Basic Supplies",
     slug: "BASIC-SUPPLIES",ruleType: "RULE",text: [

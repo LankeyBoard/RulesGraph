@@ -7,6 +7,10 @@ const knight: CharacterClass = {
   description: [
     "An honorable fighter heavily armed and armored against the evils of the world.",
   ],
+  img: {
+    target:
+      "https://upload.wikimedia.org/wikipedia/commons/a/a3/Alfred_the_Great_at_the_Battle_of_Ashdown_by_Morris_Meredith_Williams.jpg",
+  },
   health: 24,
   healthOnLevel: 2,
   staminaStat: "METTLE",
