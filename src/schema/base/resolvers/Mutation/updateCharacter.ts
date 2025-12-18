@@ -19,9 +19,11 @@ export const updateCharacter: NonNullable<
   if (_arg.input.items) {
     const mappedItems = _arg.input.items.map((item) => {
       if (!item) return;
+      const { id, slots, ...itemWithoutIdAndSlots } = item;
       const updatedItemData = {
-        ...item,
-        id: Number(item.id) || undefined,
+        ...itemWithoutIdAndSlots,
+        id: Number(id) || undefined,
+        slots: slots || 0, // Explicitly include slots
         effects: item.effects
           ?.filter((effect) => effect !== undefined && effect !== null)
           .map((effect) => {
