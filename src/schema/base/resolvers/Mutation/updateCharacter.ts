@@ -6,7 +6,9 @@ import type { MutationResolvers } from "./../../../types.generated";
 import findClass from "../../../../extras/findClassWithSlug";
 import findCulture from "../../../../extras/findCultureWithSlug";
 import findLineage from "../../../../extras/findLineageWithSlug";
-export const updateCharacter: NonNullable<MutationResolvers['updateCharacter']> = async (_parent, _arg, _ctx) => {
+export const updateCharacter: NonNullable<
+  MutationResolvers["updateCharacter"]
+> = async (_parent, _arg, _ctx) => {
   if (!_ctx.currentUser) {
     throw new Error("You must be logged in to create a character");
   }
@@ -50,21 +52,29 @@ export const updateCharacter: NonNullable<MutationResolvers['updateCharacter']> 
     const upsertItems: { id: number }[] = [];
     await Promise.all(
       mappedItems.map(async (item) => {
-        console.log("item", item);
         if (item) {
           let i;
-          if (item.id) {
-            i = await _ctx.prisma.item.upsert({
-              where: { id: Number(item.id) },
-              update: { ...item },
-              create: { ...item },
-            });
-          } else {
-            i = await _ctx.prisma.item.create({
-              data: { ...item },
-            });
+          try {
+            if (item.id) {
+              const { id, ...itemData } = item; // Exclude `id` from create/update data
+              i = await _ctx.prisma.item.upsert({
+                where: { id: Number(id) },
+                update: { ...itemData },
+                create: { ...itemData },
+              });
+            } else {
+              // eslint-disable-next-line @typescript-eslint/no-unused-vars
+              const { id, ...itemData } = item; // Exclude `id` from create data
+              i = await _ctx.prisma.item.create({
+                data: { ...itemData },
+              });
+            }
+          } catch (error) {
+            const errorMessage = error instanceof Error ? error.message : String(error);
+            console.error("Prisma error during item upsert/create:", error);
+
+            return { errors: [errorMessage] };
           }
-          console.log("item from the upsert", i);
           if (i) upsertItems.push(i);
         }
       }),
@@ -76,7 +86,7 @@ export const updateCharacter: NonNullable<MutationResolvers['updateCharacter']> 
       },
     );
 
-    console.log("character item ids", charactersItemIds, upsertItems);
+    console.debug("character item ids", charactersItemIds, upsertItems);
 
     const updateCharacterData: Prisma.CharacterUpdateInput = {
       ..._arg.input,
@@ -94,7 +104,7 @@ export const updateCharacter: NonNullable<MutationResolvers['updateCharacter']> 
       },
     };
 
-    console.log(
+    console.debug(
       "Update Character Input Data",
       updateCharacterData,
       "items",
@@ -150,7 +160,10 @@ export const updateCharacter: NonNullable<MutationResolvers['updateCharacter']> 
           },
           0,
         );
-    console.log("updatedCharacter", updatedCharacter);
+    console.debug("updatedCharacter", updatedCharacter);
+    console.info(
+      `Updated character id: ${_arg.id}, name: ${updateCharacterData.name}`,
+    );
     return updatedCharacter;
   }
 };
