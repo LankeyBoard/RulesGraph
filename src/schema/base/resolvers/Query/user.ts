@@ -21,7 +21,6 @@ export const user: NonNullable<QueryResolvers['user']> = async (
   if (!user.createdCampaigns) user.createdCampaigns = [];
   if (!user.createdItemShops) user.createdItemShops = [];
   if (!user.characters) user.characters = [];
-  console.log(user);
   if (user.characters) {
     user.characters = user.characters.map(
       (character: { characterClass: string }) => {
@@ -34,5 +33,6 @@ export const user: NonNullable<QueryResolvers['user']> = async (
       },
     );
   }
+  console.debug("user query result", user);
   return user;
 };

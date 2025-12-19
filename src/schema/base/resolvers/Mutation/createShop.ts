@@ -66,7 +66,6 @@ export const createShop: NonNullable<MutationResolvers['createShop']> = async (
       },
     },
   });
-  console.log("New shop created", newShop);
-
+  console.debug("New shop created", newShop);
   return newShop;
 };

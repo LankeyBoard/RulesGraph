@@ -7,7 +7,6 @@ export const setPassword: NonNullable<MutationResolvers['setPassword']> = async 
     await _ctx.prisma.ForgottenPasswordLink.findUnique({
       where: { id: forgotPasswordId },
     });
-  console.log(forgotPasswordEntry);
   if (!forgotPasswordEntry) throw new Error("Invalid Forgot Password Id");
   if (
     (forgotPasswordEntry.createdAt &&

@@ -9,11 +9,11 @@ export const updateMe: NonNullable<MutationResolvers['updateMe']> = async (
   _ctx,
 ) => {
   const { name, email } = _arg;
-  console.log("Updating profile with ", name, email);
+  console.debug("Updating profile with ", name, email);
   let { password } = _arg;
   if (password) {
     password = await hash(password, 10);
-    console.log("Password updated");
+    console.debug("Password updated");
   }
   const user = await _ctx.prisma.user.update({
     where: { id: _ctx.currentUser.id },

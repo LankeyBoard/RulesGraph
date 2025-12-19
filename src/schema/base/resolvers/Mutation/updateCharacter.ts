@@ -55,29 +55,26 @@ export const updateCharacter: NonNullable<
     await Promise.all(
       mappedItems.map(async (item) => {
         if (item) {
-          let i;
+          let dbItem;
           try {
-            if (item.id) {
-              const { id, ...itemData } = item; // Exclude `id` from create/update data
-              i = await _ctx.prisma.item.upsert({
-                where: { id: Number(id) },
-                update: { ...itemData },
-                create: { ...itemData },
-              });
-            } else {
-              // eslint-disable-next-line @typescript-eslint/no-unused-vars
-              const { id, ...itemData } = item; // Exclude `id` from create data
-              i = await _ctx.prisma.item.create({
-                data: { ...itemData },
-              });
-            }
+            const { id, ...itemData } = item;
+            dbItem = await _ctx.prisma.item.upsert({
+              where: { id: Number(id) || -1 }, // Use -1 for non-existent IDs
+              update: { ...itemData },
+              create: { ...itemData },
+            });
+            console.debug("item from the db", dbItem);
           } catch (error) {
-            const errorMessage = error instanceof Error ? error.message : String(error);
-            console.error("Prisma error during item upsert/create:", error);
+            const errorMessage =
+              error instanceof Error ? error.message : String(error);
+            console.error(
+              `Prisma error during item upsert/create: ${errorMessage}`,
+              error,
+            );
 
             return { errors: [errorMessage] };
           }
-          if (i) upsertItems.push(i);
+          if (dbItem) upsertItems.push(dbItem);
         }
       }),
     );

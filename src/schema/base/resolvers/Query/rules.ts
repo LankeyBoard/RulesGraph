@@ -25,13 +25,12 @@ export const rules: NonNullable<QueryResolvers['rules']> = async (
       (sectionName) => sectionName as RuleSectionNames,
     );
 
-  console.log("Rule Sections", ruleSection, gmRules);
+  console.debug("Rule Sections", ruleSection, gmRules);
 
   const rulesOutput: RuleSection[] = [];
   Object.keys(sectionNames).forEach((sectionName) => {
     if (ruleSection.includes(sectionName as RuleSectionNames)) {
       const rules = rulesSections.get(sectionName);
-      console.log(sectionName, rules);
       if (rules) {
         rulesOutput.push({
           rules,
