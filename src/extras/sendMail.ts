@@ -21,7 +21,7 @@ const SendMail = (to: string, subject: string, body: string) => {
       // emails as html or as plain text
     });
 
-    console.log(`Email sent to ${to} with with subject: ${subject} 
+    console.debug(`Email sent to ${to} with with subject: ${subject} 
         contents ${body}`);
   })();
 };

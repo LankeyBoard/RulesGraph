@@ -70,7 +70,7 @@ export const itemShop: NonNullable<QueryResolvers['itemShop']> = async (
             : item.uses,
       })),
     };
-    console.log("item shop results", returnShop);
+    console.debug("item shop results", returnShop);
     return returnShop;
   } else throw new Error("A shop id must be included");
 };

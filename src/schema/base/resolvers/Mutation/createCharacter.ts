@@ -46,7 +46,6 @@ export const createCharacter: NonNullable<MutationResolvers['createCharacter']> 
   });
   newCharacter.createdBy = _ctx.currentUser;
   newCharacter.createdById = _ctx.currentUser.id;
-  console.log(newCharacter);
   newCharacter.characterClass = playerClasses.find(
     (playerClass) =>
       playerClass.slug.toLocaleUpperCase() ===
@@ -80,7 +79,6 @@ export const createCharacter: NonNullable<MutationResolvers['createCharacter']> 
       heldBy: { every: { id: Number(newCharacter.id) } },
     },
   });
-  console.log("newCharacter items", newCharacter.items);
   newCharacter.maxSlots =
     7 +
     Math.trunc(0.5 * newCharacter.mettle) +
@@ -93,5 +91,9 @@ export const createCharacter: NonNullable<MutationResolvers['createCharacter']> 
         },
         0,
       );
+  console.debug(`new character created with createCharacter`, createCharacter);
+  console.info(
+    `createCharacter mutation created ${newCharacter.name} with id: ${newCharacter.id}`,
+  );
   return newCharacter;
 };

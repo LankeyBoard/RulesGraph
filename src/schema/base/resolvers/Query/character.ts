@@ -34,7 +34,6 @@ export const character: NonNullable<QueryResolvers['character']> = async (
   const characterCulture = findCulture(cultures, character.characterCulture);
 
   // if the character is a spellsword and a high enough level to get a 3rd or 4th basic infusion, update the basic infusion chooseNum
-  console.log(characterClass.slug);
   if (characterClass.slug === "SPELLSWORD") {
     if (character.level >= 4) {
       const basicInfusionsIndex = characterClass.features.findIndex(
@@ -46,7 +45,7 @@ export const character: NonNullable<QueryResolvers['character']> = async (
         if (character.level >= 6) basicInfusions.chooseNum += 1;
       }
     }
-    console.log("SPELLSWORD UPDATED");
+    console.debug("SPELLSWORD UPDATED");
   }
   character.items = character.items || [];
   character.items = character.items.map((item: { uses: object }) => {
@@ -70,7 +69,7 @@ export const character: NonNullable<QueryResolvers['character']> = async (
         },
         0,
       );
-  console.log("character retrieved", character);
+  console.debug("character retrieved", character);
 
   return {
     ...character,

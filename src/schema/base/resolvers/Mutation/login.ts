@@ -15,7 +15,6 @@ export const login: NonNullable<MutationResolvers['login']> = async (
   if (!user) {
     throw new Error(`No user found with email: ${_arg.email}`);
   }
-  console.log(_arg.password, user.password);
 
   const valid = await compare(_arg.password, user.password);
   if (!valid) {

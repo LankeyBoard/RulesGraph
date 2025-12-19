@@ -4,7 +4,7 @@ const findClass = (characterClasses: CharacterClass[], slug: string) => {
   const flattenedClasses = characterClasses.flatMap((c) =>
     c.variants ? [c, ...c.variants] : [c],
   );
-  console.log("flattenedClasses", flattenedClasses);
+  console.debug("flattenedClasses", flattenedClasses);
   const characterClass = flattenedClasses.find((c) => {
     if (!c) return false;
     return c.slug.toUpperCase() === slug.toUpperCase();

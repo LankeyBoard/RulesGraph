@@ -14,7 +14,6 @@ export const sellItem: NonNullable<MutationResolvers['sellItem']> = async (
     },
   });
   if (!shop) throw new Error("Shop not found");
-  console.log("Shop", shop);
   const itemStocked = shop.ItemsStockedByShop.find(
     (item: { itemId: string }) => {
       return item.itemId.toString() === itemId;
@@ -31,7 +30,6 @@ export const sellItem: NonNullable<MutationResolvers['sellItem']> = async (
       text: true,
     },
   });
-  console.log("Item in Shop", itemFromShop);
 
   const character = await _ctx.prisma.character.findUnique({
     where: { id: Number(characterId) },
@@ -62,7 +60,7 @@ export const sellItem: NonNullable<MutationResolvers['sellItem']> = async (
     },
     include: { text: true },
   });
-  console.log("item created for character: ", newItem);
+  console.debug("item created for character: ", newItem);
 
   // 3. Deduct coin from character
   await _ctx.prisma.character.update({
@@ -127,7 +125,6 @@ export const sellItem: NonNullable<MutationResolvers['sellItem']> = async (
       a.item.title.localeCompare(b.item.title),
   );
 
-  console.log("updated shop", updatedShop);
   const returnShop = {
     ...updatedShop,
     campaign: updatedShop.Campaign,
@@ -157,6 +154,6 @@ export const sellItem: NonNullable<MutationResolvers['sellItem']> = async (
       }),
     ),
   };
-  console.log("item shop results", returnShop);
+  console.debug("sellItem mutation returns", returnShop);
   return returnShop;
 };

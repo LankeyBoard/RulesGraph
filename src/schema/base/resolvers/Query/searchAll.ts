@@ -71,7 +71,6 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (
   }
 
   const searchPhrase = _arg.phrase.toLocaleLowerCase();
-  console.log(_arg.phrase);
   const found = new Set<SearchResult>();
   const foundTitles = new Set<string>();
 
@@ -82,11 +81,10 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (
     type,
     page,
   }: SearchResult) => {
-    console.log(title, foundTitles);
     if (!foundTitles.has(title)) {
       found.add({ title, slug, text, type, page });
       foundTitles.add(title);
-    } else console.log("duplicate title", title);
+    } else console.debug("duplicate title", title);
   };
   const searchRule = (
     rule: GenericRule,
@@ -360,6 +358,6 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (
   currentVeteranFeatures.forEach((feature) => {
     searchGenericFeature(feature, feature.title, "veteranFeature");
   });
-
+  console.debug("searchAll query result", found);
   return [...found];
 };

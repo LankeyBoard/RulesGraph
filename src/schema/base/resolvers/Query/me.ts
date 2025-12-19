@@ -87,6 +87,6 @@ export const me: NonNullable<QueryResolvers['me']> = async (
     },
   );
 
-  console.log("User found", user);
+  console.debug("User found", user);
   return user;
 };
