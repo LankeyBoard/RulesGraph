@@ -1,7 +1,7 @@
 import culturesData from "./rules/2a/cultures";
 import generalRules from "./rules/2a/generalRules";
 import NoviceFeatures from "./rules/2a/noviceFeatures";
-import VeteranFeatures from "./rules/2a/veteranFeatures";
+import veteranFeatures from "./rules/2a/veteranFeatures";
 import lineagesData from "./rules/2a/lineages";
 import playerClasses from "./rules/2a/playerClasses";
 import gmSections from "./rules/2a/gmSections";
@@ -89,7 +89,7 @@ const SlugMapper = () => {
     });
   });
   //Veteran Features
-  VeteranFeatures.forEach((feature) => {
+  veteranFeatures.forEach((feature) => {
     slugMap.set(feature.slug, {
       slug: feature.slug,
       title: feature.shortTitle || feature.title,
@@ -126,10 +126,10 @@ const SlugMapper = () => {
           url: hrefer(s.url, classFeature.slug, true),
         });
         classFeature.choices?.forEach((choice) => {
-          if ("slug" in choice)
-            slugMap.set(choice.slug, {
-              slug: choice.slug,
-              title: choice.shortTitle || choice.title,
+          if (choice.choiceRule && "slug" in choice.choiceRule)
+            slugMap.set(choice.choiceRule.slug, {
+              slug: choice.choiceRule.slug,
+              title: choice.choiceRule.shortTitle || choice.choiceRule.title,
               url: hrefer(s.url, classFeature.slug, true),
             });
         });

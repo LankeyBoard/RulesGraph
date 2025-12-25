@@ -12,6 +12,7 @@ import    { CharacterClass } from './base/resolvers/CharacterClass';
 import    { CharacterClassFeature } from './base/resolvers/CharacterClassFeature';
 import    { CharacterClassVariant } from './base/resolvers/CharacterClassVariant';
 import    { CharacterExtras } from './base/resolvers/CharacterExtras';
+import    { Choice } from './base/resolvers/Choice';
 import    { Culture } from './base/resolvers/Culture';
 import    { CultureVariant } from './base/resolvers/CultureVariant';
 import    { Damage } from './base/resolvers/Damage';
@@ -95,6 +96,7 @@ CharacterClass: CharacterClass,
 CharacterClassFeature: CharacterClassFeature,
 CharacterClassVariant: CharacterClassVariant,
 CharacterExtras: CharacterExtras,
+Choice: Choice,
 Culture: Culture,
 CultureVariant: CultureVariant,
 Damage: Damage,

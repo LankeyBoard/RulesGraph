@@ -174,11 +174,16 @@ enum SpellType {
 # union #
 #########
 
-union FeatureChoices = RuleText | FeatureWithoutChoices
+union FeatureChoice = RuleText | FeatureWithoutChoices
 
 #########
 # TYPES #
 #########
+
+type Choice {
+  choiceRule: FeatureChoice!
+  isChosen: Boolean!
+}
 
 interface Rule {
   title: String!
@@ -214,7 +219,6 @@ type SearchResult implements Rule {
 type RuleText {
   text: String!
   type: String
-  choices: [String]
 }
 
 type Culture implements Rule {
@@ -304,7 +308,7 @@ type GenericFeature implements Feature {
   text: [RuleText]
   shortText: String
   multiSelect: Boolean
-  choices: [FeatureChoices!]
+  choices: [Choice!]
   chooseNum: Int
   featureType: FeatureType
   isVariant: Boolean
@@ -320,7 +324,7 @@ type FeatureWithoutChoices implements Feature {
   costsFortunesFavor: Boolean
   actionType: Action
   ruleType: RuleType
-  text: [RuleText]
+  text: [RuleText]!
   shortText: String
   multiSelect: Boolean
   img: Img
@@ -386,7 +390,7 @@ type CharacterClassFeature implements Feature {
   text: [RuleText]
   multiSelect: Boolean
   shortText: String
-  choices: [FeatureChoices!]
+  choices: [Choice!]
   chooseNum: Int
   isVariant: Boolean
   img: Img
@@ -541,10 +545,16 @@ type Character {
   baseDamage: Int!
   rangeMin: Int!
   rangeMax: Int!
-  featureChoiceSlugs: [String]
   slots: Int!
   maxSlots: Int!
   spells: [Spell]!
+  noviceFeatures: [GenericFeature]!
+  veteranFeatures: [GenericFeature]!
+}
+
+input ChoiceInput {
+  featureSlug: String!
+  choiceSlug: String!
 }
 
 input CharacterInput {
@@ -568,7 +578,7 @@ input CharacterInput {
   baseDamage: Int!
   rangeMin: Int!
   rangeMax: Int!
-  featureChoiceSlugs: [String]
+  chosen: [ChoiceInput]
   currentHealth: Int
   currentStamina: Int
 }

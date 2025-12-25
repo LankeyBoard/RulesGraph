@@ -189,40 +189,52 @@ const beastmaster: CharacterClass = {
       ],
       choices: [
         {
-          title: "Entangling Strike (Setup)",
-          slug: "BEASTMASTER-ENTANGLING-STRIKE",
-          text: [
-            {
-              text: "On Hit, the target must pass a Mettle Test with a difficulty of 10 + your Heart or become Entangled until the start of the next round.",
-            },
-          ],
+          choiceRule: {
+            title: "Entangling Strike (Setup)",
+            slug: "BEASTMASTER-ENTANGLING-STRIKE",
+            text: [
+              {
+                text: "On Hit, the target must pass a Mettle Test with a difficulty of 10 + your Heart or become Entangled until the start of the next round.",
+              },
+            ],
+          },
+          isChosen: false,
         },
         {
-          title: "Predator’s Leap (Setup)",
-          slug: "BEASTMASTER-PREDATORS-LEAP",
-          text: [
-            {
-              text: "On hit, you may immediately move up to half your Speed.",
-            },
-          ],
+          choiceRule: {
+            title: "Predator’s Leap (Setup)",
+            slug: "BEASTMASTER-PREDATORS-LEAP",
+            text: [
+              {
+                text: "On hit, you may immediately move up to half your Speed.",
+              },
+            ],
+          },
+          isChosen: false,
         },
         {
-          title: "Protective Pelt (Follow-up)",
-          slug: "BEASTMASTER-PROTECTIVE-PELT",
-          text: [
-            {
-              text: "You and your Beast each gain +3 Armor until the start of the next round.",
-            },
-          ],
+          choiceRule: {
+            title: "Protective Pelt (Follow-up)",
+            slug: "BEASTMASTER-PROTECTIVE-PELT",
+            text: [
+              {
+                text: "You and your Beast each gain +3 Armor until the start of the next round.",
+              },
+            ],
+          },
+          isChosen: false,
         },
         {
-          title: "Savage Rend (Follow-up)",
-          slug: "BEASTMASTER-SAVAGE-REND",
-          text: [
-            {
-              text: "Inflict deep wounds on the target. They take 2d4 damage at the start of each combat round until they use an Action to staunch the bleeding.",
-            },
-          ],
+          choiceRule: {
+            title: "Savage Rend (Follow-up)",
+            slug: "BEASTMASTER-SAVAGE-REND",
+            text: [
+              {
+                text: "Inflict deep wounds on the target. They take 2d4 damage at the start of each combat round until they use an Action to staunch the bleeding.",
+              },
+            ],
+          },
+          isChosen: false,
         },
       ],
     },

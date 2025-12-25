@@ -1,6 +1,6 @@
 import { Feature } from "../../schema/types.generated";
 
-const VeteranFeatures: Feature[] = [
+const veteranFeatures: Feature[] = [
   {
     title: "Charger",
     slug: "CHARGER",
@@ -71,4 +71,4 @@ const VeteranFeatures: Feature[] = [
   },
 ];
 
-export default VeteranFeatures;
+export default veteranFeatures;

@@ -128,27 +128,36 @@ const elementalist: CharacterClass = {
       chooseNum: 1,
       choices: [
         {
-          title: "Elemental Armor",
-          slug: "ELEM-ARMOR",
-          text: [
-            {
-              text: "Add your Intellect to your Armor and take half damage from your chosen element.",
-            },
-          ],
+          choiceRule: {
+            title: "Elemental Armor",
+            slug: "ELEM-ARMOR",
+            text: [
+              {
+                text: "Add your Intellect to your Armor and take half damage from your chosen element.",
+              },
+            ],
+          },
+          isChosen: false,
         },
         {
-          title: "Bolt Thrower",
-          slug: "ELEM-BOLT-THROWER",
-          text: [{ text: "Increase your Base Attack range by 30ft." }],
+          choiceRule: {
+            title: "Bolt Thrower",
+            slug: "ELEM-BOLT-THROWER",
+            text: [{ text: "Increase your Base Attack range by 30ft." }],
+          },
+          isChosen: false,
         },
         {
-          title: "Bigger Burst",
-          slug: "ELEM-BIGGER-BURST",
-          text: [
-            {
-              text: "Increase the size of your Elemental Burst by 5ft.",
-            },
-          ],
+          choiceRule: {
+            title: "Bigger Burst",
+            slug: "ELEM-BIGGER-BURST",
+            text: [
+              {
+                text: "Increase the size of your Elemental Burst by 5ft.",
+              },
+            ],
+          },
+          isChosen: false,
         },
       ],
     },
@@ -238,37 +247,46 @@ const elementalist: CharacterClass = {
       chooseNum: 1,
       choices: [
         {
-          title: "Fire",
-          slug: "ELEM-FOOTWORK-FIRE",
-          text: [
-            {
-              text: "+20ft. Base Speed.",
-            },
-          ],
+          choiceRule: {
+            title: "Fire",
+            slug: "ELEM-FOOTWORK-FIRE",
+            text: [
+              {
+                text: "+20ft. Base Speed.",
+              },
+            ],
+          },
+          isChosen: false,
         },
         {
-          title: "Cold",
-          slug: "ELEM-FOOTWORK-Cold",
-          text: [
-            {
-              text: "Automatically pass Agility Tests to stay standing on Ice.",
-            },
-            {
-              text: "You can create a path of ice when you walk. If you create a path, it lasts until the start of your next turn. If an enemy attempts to walk on the path, they must make an Agility Test equal to 10 + your Intellect. On a fail, they are knocked prone. On a mixed, their speed is halved on the path.",
-            },
-          ],
+          choiceRule: {
+            title: "Cold",
+            slug: "ELEM-FOOTWORK-Cold",
+            text: [
+              {
+                text: "Automatically pass Agility Tests to stay standing on Ice.",
+              },
+              {
+                text: "You can create a path of ice when you walk. If you create a path, it lasts until the start of your next turn. If an enemy attempts to walk on the path, they must make an Agility Test equal to 10 + your Intellect. On a fail, they are knocked prone. On a mixed, their speed is halved on the path.",
+              },
+            ],
+          },
+          isChosen: false,
         },
         {
-          title: "Lightning",
-          slug: "ELEM-FOOTWORK-LIGHTNING",
-          text: [
-            {
-              text: "Increase your jump distances by 10ft.",
-            },
-            {
-              text: "Add your Intellect to Tests to avoid falling damage.",
-            },
-          ],
+          choiceRule: {
+            title: "Lightning",
+            slug: "ELEM-FOOTWORK-LIGHTNING",
+            text: [
+              {
+                text: "Increase your jump distances by 10ft.",
+              },
+              {
+                text: "Add your Intellect to Tests to avoid falling damage.",
+              },
+            ],
+          },
+          isChosen: false,
         },
       ],
     },

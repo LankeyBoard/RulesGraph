@@ -159,60 +159,72 @@ const brawler: CharacterClass = {
       chooseNum: 1,
       choices: [
         {
-          title: "Spinning Lariat",
-          slug: "BRAWLER-SL",
-          staminaCost: 1,
-          costsFortunesFavor: false,
-          actionType: "ACTION",
-          text: [
-            {
-              type: "RULE",
-              text: "Spend 1 Stamina plus 1 Stamina per enemy within melee range of you. Make an AOE Attack that deals your base damage against all enemies within melee range of you.",
-            },
-          ],
+          choiceRule: {
+            title: "Spinning Lariat",
+            slug: "BRAWLER-SL",
+            staminaCost: 1,
+            costsFortunesFavor: false,
+            actionType: "ACTION",
+            text: [
+              {
+                type: "RULE",
+                text: "Spend 1 Stamina plus 1 Stamina per enemy within melee range of you. Make an AOE Attack that deals your base damage against all enemies within melee range of you.",
+              },
+            ],
+          },
+          isChosen: false,
         },
         {
-          title: "Crippling Strke",
-          slug: "BRAWLER-CS",
-          staminaCost: 2,
-          costsFortunesFavor: false,
-          actionType: "ACTION",
-          text: [
-            {
-              type: "RULE",
-              text: "Spend 2 Stamina plus 1 for each size larger than you the enemy is. When you hit an enemy with a melee attack, reduce the damage done by their attacks by half and reduce their speed to 0 until the end of this round.",
-            },
-          ],
+          choiceRule: {
+            title: "Crippling Strke",
+            slug: "BRAWLER-CS",
+            staminaCost: 2,
+            costsFortunesFavor: false,
+            actionType: "ACTION",
+            text: [
+              {
+                type: "RULE",
+                text: "Spend 2 Stamina plus 1 for each size larger than you the enemy is. When you hit an enemy with a melee attack, reduce the damage done by their attacks by half and reduce their speed to 0 until the end of this round.",
+              },
+            ],
+          },
+          isChosen: false,
         },
         {
-          title: "Top Rope Takedown",
-          slug: "BRAWLER-TRT",
-          staminaCost: 1,
-          costsFortunesFavor: false,
-          actionType: "ACTION",
-          text: [
-            {
-              type: "RULE",
-              text: "Requires an ally or sturdy object within 5' of the target to jump off of.",
-            },
-            {
-              type: "RULE",
-              text: "Spend 1 Stamina to attempt to knock the target prone with your next attack. You and your target make opposed tests based on your Attack Stat. If you succeed, you knock them prone.",
-            },
-          ],
+          choiceRule: {
+            title: "Top Rope Takedown",
+            slug: "BRAWLER-TRT",
+            staminaCost: 1,
+            costsFortunesFavor: false,
+            actionType: "ACTION",
+            text: [
+              {
+                type: "RULE",
+                text: "Requires an ally or sturdy object within 5' of the target to jump off of.",
+              },
+              {
+                type: "RULE",
+                text: "Spend 1 Stamina to attempt to knock the target prone with your next attack. You and your target make opposed tests based on your Attack Stat. If you succeed, you knock them prone.",
+              },
+            ],
+          },
+          isChosen: false,
         },
         {
-          title: "Counter Throw",
-          slug: "BRAWLER-CT",
-          staminaCost: 1,
-          costsFortunesFavor: false,
-          actionType: "COUNTER",
-          text: [
-            {
-              type: "RULE",
-              text: "When you use your [Counter](/rules/player_rules#BASIC-COUNTERS) to Push, spend 1 Stamina + 1 per size category the target is larger than you. If you do, you move the enemy up to 15 ft.",
-            },
-          ],
+          choiceRule: {
+            title: "Counter Throw",
+            slug: "BRAWLER-CT",
+            staminaCost: 1,
+            costsFortunesFavor: false,
+            actionType: "COUNTER",
+            text: [
+              {
+                type: "RULE",
+                text: "When you use your [Counter](/rules/player_rules#BASIC-COUNTERS) to Push, spend 1 Stamina + 1 per size category the target is larger than you. If you do, you move the enemy up to 15 ft.",
+              },
+            ],
+          },
+          isChosen: false,
         },
       ],
     },

@@ -1,11 +1,11 @@
 import { GraphQLError } from "graphql";
 import NoviceFeatures from "../../../../rules/2a/noviceFeatures";
-import VeteranFeatures from "../../../../rules/2a/veteranFeatures";
+import veteranFeatures from "../../../../rules/2a/veteranFeatures";
 import type { Feature, QueryResolvers } from "./../../../types.generated";
 
 export const universalFeatures: NonNullable<QueryResolvers['universalFeatures']> = async (_parent, _arg) => {
   let currentNoviceFeatures: Feature[] = NoviceFeatures;
-  let currentVeteranFeatures: Feature[] = VeteranFeatures;
+  let currentVeteranFeatures: Feature[] = veteranFeatures;
   if (_arg.version) {
     import(`../../../../rules/${_arg.version.slice(1)}/noviceFeatures`).then(
       (f) => {

@@ -52,6 +52,7 @@ model Character {
   rangeMin           Int       @default(0)
   rangeMax           Int       @default(0)
   featureChoiceSlugs String[]
+  chosen Json?
   campaignId         Int?
   campaign           Campaign? @relation(fields: [campaignId], references: [id])
   createdBy          User      @relation(fields: [userId], references: [id])

@@ -1,21 +1,16 @@
 import { Prisma } from "@prisma/client";
-import culturesData from "../../../../rules/2a/cultures";
-import lineagesData from "../../../../rules/2a/lineages";
-import playerClasses from "../../../../rules/2a/playerClasses";
 import type { MutationResolvers } from "./../../../types.generated";
-import findClass from "../../../../extras/findClassWithSlug";
-import findCulture from "../../../../extras/findCultureWithSlug";
-import findLineage from "../../../../extras/findLineageWithSlug";
-export const updateCharacter: NonNullable<
-  MutationResolvers["updateCharacter"]
-> = async (_parent, _arg, _ctx) => {
+import convertChosenToJson from "../../../../extras/convertChosenToJson";
+import convertPrismaToGraphQLCharacter from "../../../../extras/convertPrismaToGraphQLCharacter";
+
+export const updateCharacter: NonNullable<MutationResolvers['updateCharacter']> = async (_parent, _arg, _ctx) => {
   if (!_ctx.currentUser) {
     throw new Error("You must be logged in to create a character");
   }
   if (!_arg.input || _arg.input === undefined) {
     throw new Error("You must provide a character input");
   }
-
+  console.debug("Beginning character update with inputs", _arg.input);
   if (_arg.input.items) {
     const mappedItems = _arg.input.items.map((item) => {
       if (!item) return;
@@ -51,6 +46,7 @@ export const updateCharacter: NonNullable<
       };
       return updatedItemData;
     });
+
     const upsertItems: { id: number }[] = [];
     await Promise.all(
       mappedItems.map(async (item) => {
@@ -91,11 +87,9 @@ export const updateCharacter: NonNullable<
       ..._arg.input,
       currentHealth: _arg.input.currentHealth ?? undefined,
       currentStamina: _arg.input.currentStamina ?? undefined,
+      chosen: _arg.input.chosen ? convertChosenToJson(_arg.input.chosen) : {},
       languages: _arg.input.languages?.filter(
         (language) => language !== undefined,
-      ) as string[],
-      featureChoiceSlugs: _arg.input.featureChoiceSlugs?.filter(
-        (slug) => slug !== null && slug !== undefined,
       ) as string[],
       createdBy: { connect: { id: _ctx.currentUser.id } },
       items: {
@@ -110,59 +104,26 @@ export const updateCharacter: NonNullable<
       updateCharacterData.items,
     );
 
-    const updatedCharacter = await _ctx.prisma.character.update({
+    const prismaCharacterData = await _ctx.prisma.character.update({
       where: {
         id: Number(_arg.id),
       },
-      include: { items: { include: { text: true } } },
+      include: { createdBy: true, items: { include: { text: true } } },
       data: updateCharacterData,
     });
 
-    if (!updatedCharacter.items) updatedCharacter.items = [];
+    if (!prismaCharacterData)
+      throw new Error(`Error updating character ${_arg.id}`);
 
-    updatedCharacter.characterClass = findClass(
-      playerClasses,
-      _arg.input?.characterClass.toUpperCase(),
-    );
-    updatedCharacter.characterCulture = findCulture(
-      culturesData,
-      _arg.input?.characterCulture.toUpperCase(),
-    );
-    updatedCharacter.characterLineage = findLineage(
-      lineagesData,
-      _arg.input?.characterLineage.toLocaleUpperCase(),
-    );
-    if (!updatedCharacter.characterClass)
-      throw new Error(
-        `Player class ${updatedCharacter.playerClassSlug} not found in the player classes`,
-      );
+    const updatedCharacter =
+      await convertPrismaToGraphQLCharacter(prismaCharacterData);
 
-    if (!updatedCharacter.characterLineage)
-      throw new Error(
-        `Lineage ${updatedCharacter.characterLineage} not found in the player lineages`,
-      );
-
-    if (!updatedCharacter.characterCulture)
-      throw new Error(
-        `Culture ${updatedCharacter.characterCulture} not found in the player cultures`,
-      );
-
-    updatedCharacter.maxSlots =
-      7 +
-      Math.trunc(0.5 * updatedCharacter.mettle) +
-      Math.floor(0.5 * updatedCharacter.level);
-    updatedCharacter.slots = !updatedCharacter.items
-      ? 0
-      : updatedCharacter.items.reduce(
-          (accumulator: number, currentValue: { slots: number }) => {
-            return accumulator + currentValue.slots;
-          },
-          0,
-        );
     console.debug("updatedCharacter", updatedCharacter);
     console.info(
       `Updated character id: ${_arg.id}, name: ${updateCharacterData.name}`,
     );
-    return updatedCharacter;
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return updatedCharacter as any;
   }
 };
