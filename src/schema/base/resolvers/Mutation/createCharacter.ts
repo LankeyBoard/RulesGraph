@@ -15,7 +15,9 @@ export const createCharacter: NonNullable<MutationResolvers['createCharacter']> 
     ..._arg.input,
     currentHealth: _arg.input.currentHealth ?? undefined, // Ensure null is converted to undefined
     currentStamina: _arg.input.currentStamina ?? undefined, // Ensure null is converted to undefined
-    chosen: _arg.input.chosen ? convertChosenToJson(_arg.input.chosen) : {},
+    chosen: _arg.input.chosen
+      ? convertChosenToJson(_arg.input.chosen)
+      : undefined,
     items: {
       create:
         _arg.input.items
