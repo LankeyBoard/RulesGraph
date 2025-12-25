@@ -1,7 +1,7 @@
 import culturesData from "../../../../rules/2a/cultures";
 import generalRules from "../../../../rules/2a/generalRules";
 import NoviceFeatures from "../../../../rules/2a/noviceFeatures";
-import VeteranFeatures from "../../../../rules/2a/veteranFeatures";
+import veteranFeatures from "../../../../rules/2a/veteranFeatures";
 import lineagesData from "../../../../rules/2a/lineages";
 import playerClasses from "../../../../rules/2a/playerClasses";
 import type {
@@ -25,7 +25,7 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (
   let currentClasses: CharacterClass[] = playerClasses;
   let currentLineages: Lineage[] = lineagesData;
   let currentNoviceFeatures: Feature[] = NoviceFeatures;
-  let currentVeteranFeatures: Feature[] = VeteranFeatures;
+  let currentVeteranFeatures: Feature[] = veteranFeatures;
   let currentCultures: Culture[] = culturesData;
   let currentRules: GenericRule[] = generalRules;
 
@@ -104,7 +104,7 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (
       });
     }
     rule.text?.forEach((t) => {
-      if (t?.text.includes(searchPhrase) || t?.choices?.toLocaleString())
+      if (t?.text.includes(searchPhrase))
         uniqueAddToFound({
           title: rule.title,
           slug: rule.slug,
@@ -151,10 +151,7 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (
       });
     }
     feature.text?.forEach((t) => {
-      if (
-        t?.text.includes(searchPhrase) ||
-        t?.choices?.toLocaleString().includes(searchPhrase)
-      ) {
+      if (t?.text.includes(searchPhrase)) {
         uniqueAddToFound({
           title: feature.title,
           slug: feature.slug,
@@ -165,13 +162,15 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (
       }
     });
     feature.choices?.forEach((choice) => {
-      if ("slug" in choice)
-        searchGenericFeature(choice, parentPage, "characterClass");
-      else if (choice.text.toLocaleLowerCase().includes(searchPhrase)) {
+      if ("slug" in choice.choiceRule)
+        searchGenericFeature(choice.choiceRule, parentPage, "characterClass");
+      else if (
+        choice.choiceRule.text.toLocaleLowerCase().includes(searchPhrase)
+      ) {
         uniqueAddToFound({
           title: feature.title,
           slug: feature.slug,
-          text: [choice],
+          text: [choice.choiceRule],
           page: parentPage,
           type: "characterClass",
         });
@@ -210,8 +209,8 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (
       if ("choices" in feature) {
         feature.choices?.forEach((choice) => {
           if (
-            choice?.__typename === "RuleText" &&
-            choice.text?.toLocaleLowerCase().includes(searchPhrase)
+            choice.choiceRule?.__typename === "RuleText" &&
+            choice.choiceRule.text?.toLocaleLowerCase().includes(searchPhrase)
           ) {
             uniqueAddToFound({
               title: feature.title,
@@ -220,8 +219,14 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (
               page: parentPage,
               type: type,
             });
-          } else if (choice?.__typename === "FeatureWithoutChoices") {
-            searchGenericFeature(choice, feature.slug, "noviceFeature");
+          } else if (
+            choice?.choiceRule.__typename === "FeatureWithoutChoices"
+          ) {
+            searchGenericFeature(
+              choice.choiceRule,
+              feature.slug,
+              "noviceFeature",
+            );
           }
         });
       }
@@ -262,10 +267,7 @@ export const searchAll: NonNullable<QueryResolvers['searchAll']> = async (
         });
       }
       trait.text?.forEach((t) => {
-        if (
-          t?.text.includes(searchPhrase) ||
-          t?.choices?.toLocaleString().includes(searchPhrase)
-        )
+        if (t?.text.includes(searchPhrase))
           uniqueAddToFound({
             title: trait.title,
             slug: trait.slug,

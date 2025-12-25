@@ -81,76 +81,100 @@ const spellsword: CharacterClass = {
       chooseNum: 2,
       choices: [
         {
-          title: "Absorb",
-          slug: "INFUSION-ABSORB",
-          text: [
-            {
-              text: "Requires a shield, when you or an ally within 30 ft. would take damage, reduce the damage taken by your Infusion Dice.",
-            },
-          ],
+          choiceRule: {
+            title: "Absorb",
+            slug: "INFUSION-ABSORB",
+            text: [
+              {
+                text: "Requires a shield, when you or an ally within 30 ft. would take damage, reduce the damage taken by your Infusion Dice.",
+              },
+            ],
+          },
+          isChosen: false,
         },
         {
-          title: "Bind",
-          slug: "INFUSION-BIND",
-          text: [
-            {
-              text: "Attempt to bind an enemy within 30 ft. of you to the ground. They make a Mettle Test, difficulty is equal to 10+Infusion Dice. Fail, they are Pinned until the start of the next round. Mixed, they are Entangled until the start of the next round.",
-            },
-          ],
+          choiceRule: {
+            title: "Bind",
+            slug: "INFUSION-BIND",
+            text: [
+              {
+                text: "Attempt to bind an enemy within 30 ft. of you to the ground. They make a Mettle Test, difficulty is equal to 10+Infusion Dice. Fail, they are Pinned until the start of the next round. Mixed, they are Entangled until the start of the next round.",
+              },
+            ],
+          },
+          isChosen: false,
         },
         {
-          title: "Bolster",
-          slug: "INFUSION-BOLSTER",
-          text: [
-            {
-              text: "Add your Infusion Dice to your next Mettle or Agility Test within the next minute.",
-            },
-          ],
+          choiceRule: {
+            title: "Bolster",
+            slug: "INFUSION-BOLSTER",
+            text: [
+              {
+                text: "Add your Infusion Dice to your next Mettle or Agility Test within the next minute.",
+              },
+            ],
+          },
+          isChosen: false,
         },
         {
-          title: "Disrupt",
-          slug: "INFUSION-DISRUPT",
-          text: [
-            {
-              text: "When you or an ally within 30 ft. is Attacked, after the Attack is rolled, reduce the Attack Roll by your Infusion Dice. ",
-            },
-          ],
+          choiceRule: {
+            title: "Disrupt",
+            slug: "INFUSION-DISRUPT",
+            text: [
+              {
+                text: "When you or an ally within 30 ft. is Attacked, after the Attack is rolled, reduce the Attack Roll by your Infusion Dice. ",
+              },
+            ],
+          },
+          isChosen: false,
         },
         {
-          title: "Elemental Weapon",
-          slug: "INFUSION-WEAPON",
-          text: [
-            {
-              text: "Infuse your weapon with an elemental damage [Fire, Cold, or Lightning] for 6 rounds.  While infused, increase your Base Damage by 1 step and deal damage of the chosen element instead of the weapon's regular damage type.",
-            },
-          ],
+          choiceRule: {
+            title: "Elemental Weapon",
+            slug: "INFUSION-WEAPON",
+            text: [
+              {
+                text: "Infuse your weapon with an elemental damage [Fire, Cold, or Lightning] for 6 rounds.  While infused, increase your Base Damage by 1 step and deal damage of the chosen element instead of the weapon's regular damage type.",
+              },
+            ],
+          },
+          isChosen: false,
         },
         {
-          title: "Launch",
-          slug: "INFUSION-Launch",
-          text: [
-            {
-              text: "Use when you make a Ranged Attack. The Attacks Range doubles and deals extra damage equal to your Infusion Dice.",
-            },
-          ],
+          choiceRule: {
+            title: "Launch",
+            slug: "INFUSION-Launch",
+            text: [
+              {
+                text: "Use when you make a Ranged Attack. The Attacks Range doubles and deals extra damage equal to your Infusion Dice.",
+              },
+            ],
+          },
+          isChosen: false,
         },
         {
-          title: "Sight",
-          slug: "INFUSION-SIGHT",
-          text: [
-            {
-              text: "For the next 10 minutes you can see invisible creatures and objects. You can also see in dim light and complete darkness as though it was well lit.",
-            },
-          ],
+          choiceRule: {
+            title: "Sight",
+            slug: "INFUSION-SIGHT",
+            text: [
+              {
+                text: "For the next 10 minutes you can see invisible creatures and objects. You can also see in dim light and complete darkness as though it was well lit.",
+              },
+            ],
+          },
+          isChosen: false,
         },
         {
-          title: "Veil",
-          slug: "INFUSION-VEIL",
-          text: [
-            {
-              text: "Add your Infusion Dice to any Tests to hide or stealth you make for the next minute.",
-            },
-          ],
+          choiceRule: {
+            title: "Veil",
+            slug: "INFUSION-VEIL",
+            text: [
+              {
+                text: "Add your Infusion Dice to any Tests to hide or stealth you make for the next minute.",
+              },
+            ],
+          },
+          isChosen: false,
         },
       ],
     },
@@ -285,44 +309,56 @@ const spellsword: CharacterClass = {
       ],
       choices: [
         {
-          title: "Binding Cage",
-          slug: "INFUSION-BINDING",
-          type: "ACTION",
-          text: [
-            {
-              text: "As an Action, drive a weapon into the ground. As the weapon hits, a binding barbs. Enemies in the barbed area as Slowed, and if they move more than 5ft. they take piercing damage equal to your Infusion Dice.",
-            },
-          ],
+          choiceRule: {
+            title: "Binding Cage",
+            slug: "INFUSION-BINDING",
+            type: "ACTION",
+            text: [
+              {
+                text: "As an Action, drive a weapon into the ground. As the weapon hits, a binding barbs. Enemies in the barbed area as Slowed, and if they move more than 5ft. they take piercing damage equal to your Infusion Dice.",
+              },
+            ],
+          },
+          isChosen: false,
         },
         {
-          title: "Blink Step",
-          slug: "INFUSION-BLINK",
-          type: "ACTION",
-          text: [
-            {
-              text: "As an Action, teleport into an unoccupied space you can see within 30 ft. and then make a Basic Attack, adding your Infusion Dice to the roll. On a hit, add your Infusion Dice to the damage.",
-            },
-          ],
+          choiceRule: {
+            title: "Blink Step",
+            slug: "INFUSION-BLINK",
+            type: "ACTION",
+            text: [
+              {
+                text: "As an Action, teleport into an unoccupied space you can see within 30 ft. and then make a Basic Attack, adding your Infusion Dice to the roll. On a hit, add your Infusion Dice to the damage.",
+              },
+            ],
+          },
+          isChosen: false,
         },
         {
-          title: "Gravitational Warp",
-          slug: "INFUSION-GATHER",
-          text: [
-            {
-              text: `Use when you make a Basic Attack. Choose to either push or pull. On a hit, if you chose pull, enemies within 30ft. of the target are pulled 15ft. closer to them. If you chose push, enemies within 15ft. are pushed 15ft. away from them.  
+          choiceRule: {
+            title: "Gravitational Warp",
+            slug: "INFUSION-GATHER",
+            text: [
+              {
+                text: `Use when you make a Basic Attack. Choose to either push or pull. On a hit, if you chose pull, enemies within 30ft. of the target are pulled 15ft. closer to them. If you chose push, enemies within 15ft. are pushed 15ft. away from them.  
               Regardless, if they would collide with the target or another solid obstacle they stop in the nearest unoccupied space and take damage equal to your Infusion Dice.`,
-            },
-          ],
+              },
+            ],
+          },
+          isChosen: false,
         },
         {
-          title: "Dancing Blade",
-          slug: "INFUSION-DANCING-BLADE",
-          type: "ACTION",
-          text: [
-            {
-              text: "As an Action, infuse one of your weapons, allowing it to float and obey mental commands from you. As part of the infusion and for the next 5 rounds you can make 1 additional Basic Attack with this weapon. On a hit, deal damage equal to you Infusion Dice + Intellect.  The weapon stays within 30 ft. of you and you can move it up to your speed when you move. While Infused, you cannot use this weapon normally.",
-            },
-          ],
+          choiceRule: {
+            title: "Dancing Blade",
+            slug: "INFUSION-DANCING-BLADE",
+            type: "ACTION",
+            text: [
+              {
+                text: "As an Action, infuse one of your weapons, allowing it to float and obey mental commands from you. As part of the infusion and for the next 5 rounds you can make 1 additional Basic Attack with this weapon. On a hit, deal damage equal to you Infusion Dice + Intellect.  The weapon stays within 30 ft. of you and you can move it up to your speed when you move. While Infused, you cannot use this weapon normally.",
+              },
+            ],
+          },
+          isChosen: false,
         },
       ],
     },

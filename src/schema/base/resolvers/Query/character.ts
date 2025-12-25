@@ -1,10 +1,6 @@
-import findClass from "../../../../extras/findClassWithSlug";
-import findCulture from "../../../../extras/findCultureWithSlug";
-import findLineage from "../../../../extras/findLineageWithSlug";
-import cultures from "../../../../rules/2a/cultures";
-import lineages from "../../../../rules/2a/lineages";
-import playerClasses from "../../../../rules/2a/playerClasses";
+import convertPrismaToGraphQLCharacter from "../../../../extras/convertPrismaToGraphQLCharacter";
 import type { QueryResolvers } from "./../../../types.generated";
+
 export const character: NonNullable<QueryResolvers['character']> = async (
   _parent,
   _arg,
@@ -19,6 +15,7 @@ export const character: NonNullable<QueryResolvers['character']> = async (
   const character = await _ctx.prisma.character.findUnique({
     where: { id: Number(_arg.id) },
     include: {
+      createdBy: true,
       items: {
         orderBy: { id: "asc" },
         include: { text: true },
@@ -27,54 +24,15 @@ export const character: NonNullable<QueryResolvers['character']> = async (
     },
   });
   if (!character) {
-    throw new Error("Character not found");
+    throw new Error(`Failed to retrieve character with id: ${_arg.id}`);
   }
-  const characterClass = findClass(playerClasses, character.characterClass);
-  const characterLineage = findLineage(lineages, character.characterLineage);
-  const characterCulture = findCulture(cultures, character.characterCulture);
 
-  // if the character is a spellsword and a high enough level to get a 3rd or 4th basic infusion, update the basic infusion chooseNum
-  if (characterClass.slug === "SPELLSWORD") {
-    if (character.level >= 4) {
-      const basicInfusionsIndex = characterClass.features.findIndex(
-        (f) => f?.slug === "SPELLSWORD-INFUSIONS",
-      );
-      const basicInfusions = characterClass.features.at(basicInfusionsIndex);
-      if (basicInfusions && basicInfusions.chooseNum) {
-        basicInfusions.chooseNum += 1;
-        if (character.level >= 6) basicInfusions.chooseNum += 1;
-      }
-    }
-    console.debug("SPELLSWORD UPDATED");
-  }
-  character.items = character.items || [];
-  character.items = character.items.map((item: { uses: object }) => {
-    return {
-      ...item,
-      uses:
-        item.uses && Object.keys(item.uses).length > 0 ? item.uses : undefined,
-    };
-  });
+  console.log("Character from pirsma", character);
 
-  character.createdBy = await _ctx.prisma.user.findUnique({
-    where: { id: character.userId },
-  });
-  character.maxSlots =
-    7 + Math.trunc(0.5 * character.mettle) + Math.floor(0.5 * character.level);
-  character.slots = !character.items
-    ? 0
-    : character.items.reduce(
-        (accumulator: number, currentValue: { slots: number }) => {
-          return accumulator + currentValue.slots;
-        },
-        0,
-      );
-  console.debug("character retrieved", character);
+  const characterWithChoices = convertPrismaToGraphQLCharacter(character);
 
-  return {
-    ...character,
-    characterClass,
-    characterLineage,
-    characterCulture,
-  };
+  console.debug("character retrieved", characterWithChoices);
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return characterWithChoices as any;
 };
