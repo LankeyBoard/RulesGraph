@@ -55,7 +55,7 @@ const maverick: CharacterClass = {
       text: [
         {
           type: "RULE",
-          text: "When you make a test to identify a lie or avoid a trap, add +3 to the roll.",
+          text: "When you take a Test to identify a lie or avoid a trap, add +3 to the roll.",
         },
         {
           type: "FLAVOR",
@@ -90,7 +90,7 @@ const maverick: CharacterClass = {
       text: [
         {
           type: "RULE",
-          text: "As an action, spend 2 Stamina and make an attack with your whip. On a Hit deal your Base Damage and if you are at most 1 size smaller than the target, knock them Prone. On a Clash, deal half of your Base Damage and choose an ally to Expose the target to until the end of this Round.",
+          text: "As an Action, spend 2 Stamina and make an Attack with your whip. On a Hit deal your Base Damage and if you are at most 1 size smaller than the target, knock them Prone. On a Clash, deal half of your Base Damage and choose an ally to Expose the target to until the end of this Round.",
         },
       ],
     },

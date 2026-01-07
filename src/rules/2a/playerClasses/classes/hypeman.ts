@@ -124,6 +124,7 @@ const hypeman: CharacterClass = {
       slug: "HM-BEDTIME-STORY",
       staminaCost: 0,
       costsFortunesFavor: false,
+      uses: { used: 0, max: 1, rechargeOn: "REST_AND_RECUPERATE" },
       text: [
         {
           type: "RULE",

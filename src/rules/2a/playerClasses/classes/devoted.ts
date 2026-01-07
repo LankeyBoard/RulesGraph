@@ -84,6 +84,7 @@ const devoted: CharacterClass = {
       slug: "DEVOTED-RR",
       staminaCost: 0,
       costsFortunesFavor: false,
+      uses: { used: 0, max: 3, rechargeOn: "REST_AND_RECUPERATE" },
       text: [
         {
           type: "RULE",
@@ -143,7 +144,7 @@ const devoted: CharacterClass = {
       text: [
         {
           type: "RULE",
-          text: "Spend 1 Stamina and 10 minutes in deep meditation or praying on a solution to an issue to gain Fortune's Favor on the next Test to resolve the issue.",
+          text: "Spend 1 Stamina and 10 minutes in deep meditation or praying on a solution to a specific issue to gain Fortune's Favor on the next Test to resolve the issue.",
         },
       ],
     },
@@ -155,12 +156,12 @@ const devoted: CharacterClass = {
       costsFortunesFavor: false,
       text: [
         {
-          type: "FLAVOR",
-          text: "You act as a conduit for the word of your god and you know how to gather others to your cause.",
-        },
-        {
           type: "RULE",
           text: "Add a +3 to tests to persuade others to follow your god's tenets.",
+        },
+        {
+          type: "FLAVOR",
+          text: "You act as a conduit for the word of your god and you know how to gather others to your cause.",
         },
       ],
     },
@@ -189,12 +190,12 @@ const devoted: CharacterClass = {
       costsFortunesFavor: false,
       text: [
         {
-          type: "FLAVOR",
-          text: "Before you die, you make yourself a holy martyr seeking the final praise of your god.",
-        },
-        {
           type: "RULE",
           text: "When you use your Last Stand, you can cast 2 spells per Action, and increase your Base Damage by 1 Dice Step.",
+        },
+        {
+          type: "FLAVOR",
+          text: "Before you die, you make yourself a holy martyr seeking the final praise of your god.",
         },
       ],
     },
@@ -202,12 +203,13 @@ const devoted: CharacterClass = {
       level: 8,
       title: "Divine Inspiration",
       slug: "DEVOTED-DI",
-      staminaCost: 0,
+      staminaCost: 2,
       costsFortunesFavor: false,
+      uses: { used: 0, max: 3, rechargeOn: "REST_AND_RECUPERATE" },
       text: [
         {
           type: "RULE",
-          text: "3 times per Rest & Recuperation, cast a spell without spending Stamina. Any additional effects of the spell that require Stamina still require you to spend Stamina.",
+          text: "3 times per Rest & Recuperation, when you cast a spell as an Action, you can spend 2 Stamina to cast a second spell as part of the same Action.",
         },
       ],
     },

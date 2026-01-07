@@ -261,6 +261,7 @@ const beastmaster: CharacterClass = {
       slug: "BEASTMASTER-SHARED-SENSES",
       staminaCost: 0,
       costsFortunesFavor: false,
+      uses: { used: 0, max: 1, rechargeOn: "NIGHTS_REST" },
       text: [
         {
           type: "RULE",

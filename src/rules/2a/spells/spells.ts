@@ -1,17 +1,9 @@
+import { Spell } from "../../../schema/types.generated";
+
 enum SpellType {
   ARCANE = "Arcane",
   DIVINE = "Divine",
   NATURE = "Nature",
-}
-
-interface Spell {
-  name: string;
-  level: number;
-  type: SpellType[];
-  castingTime: string;
-  duration: string;
-  range: string;
-  description: string;
 }
 
 const spells: Spell[] = [
@@ -151,9 +143,179 @@ const spells: Spell[] = [
     type: [SpellType.ARCANE, SpellType.DIVINE],
     castingTime: "1 minute",
     duration: "Instant",
-    range: "10ft",
+    range: "10 ft.",
     description:
       "Return from whence you came. During your R&R you can create an anchor, an item tied to the location that later allows you to return to that location. When you cast this spell you and up to 6 other willing creatures are returned to the location you set up as your anchor. Spend 3 stamina to cast this as an action.",
+  },
+  {
+    name: "Wall",
+    level: 1,
+    type: [SpellType.ARCANE, SpellType.DIVINE, SpellType.NATURE],
+    castingTime: "Action",
+    duration: "1 minute",
+    range: "30 ft.",
+    description:
+      "You summon forth a solid wall starting at a point within 30 ft. of you and extending in a straight line. You create a 15 ft. long, 5 ft. wide, & 10 ft. tall wall. Creatures in the way when the wall appears, are pushed to the nearest unoccupied space. The wall requires at least 2 solid points of contact to form. You can spend extra stamina to increase the walls length. Spending 1 Stamina per 5ft of length. \n When the spell ends, the wall collapses and disappears.",
+  },
+  {
+    name: "Force Pulse",
+    level: 1,
+    type: [SpellType.ARCANE],
+    castingTime: "Action",
+    duration: "Instant",
+    range: "Self",
+    description:
+      "A wave of kinetic force erupts from you. Creatures in range take a Mettle Test On a Fail they are pushed 10 ft. directly away from you. On a Mixed, they are pushed 5 ft.",
+  },
+  {
+    name: "Quicken Step",
+    level: 1,
+    type: [SpellType.ARCANE, SpellType.NATURE],
+    castingTime: "Instant",
+    duration: "1 round",
+    range: "Self",
+    description:
+      "Until the end of the round, your movement does not trigger Counter Actions.",
+  },
+  {
+    name: "Tracker's Tag",
+    level: 1,
+    type: [SpellType.ARCANE, SpellType.NATURE],
+    castingTime: "Action",
+    duration: "1 hour",
+    range: "Touch",
+    description:
+      "Touch an item or creature, until the spell ends, you always know the direction and distance of the target as long as it is within 1 mile of you.",
+  },
+  {
+    name: "Seal",
+    level: 1,
+    type: [SpellType.ARCANE, SpellType.NATURE],
+    castingTime: "Action",
+    duration: "1 hour",
+    range: "Touch",
+    description:
+      "Magically seal a door, chest or other container. Any attempt to open it must first make a Mettle Test. Success breaks the seal, Mixed reduces the difficulty of the next Test by 3.",
+  },
+  {
+    name: "Phase",
+    level: 1,
+    type: [SpellType.ARCANE],
+    castingTime: "Action",
+    duration: "5 minutes",
+    range: "Touch",
+    description:
+      "The target become incorporeal, able to move through solid objects with ease. You can still see and hear the real world, but are unable to interact with anything. The target can end the spell at will. If they are intersecting with anything when the spell ends they take 4d10 damage.",
+  },
+  {
+    name: "Counterspell",
+    level: 3,
+    type: [SpellType.ARCANE],
+    castingTime: "Reaction",
+    duration: "Instant",
+    range: "60 ft.",
+    description:
+      "When a creature cast's a spell you make an attempt to disrupt it. Make an opposed Intellect Test. On a Success the spell has no effect. On a Mixed, the caster chooses if the spell fizzles or the Stamina cost is doubled.",
+  },
+  {
+    name: "Slow",
+    level: 3,
+    type: [SpellType.ARCANE],
+    castingTime: "Action",
+    duration: "4 rounds",
+    range: "60 ft.",
+    description:
+      "Choose a point within range you can see. A 15 ft. radius sphere of slowing energy appears at that point. Creatures in the area have their Speed halved and projectiles that pass through the field deal half damage.",
+  },
+  {
+    name: "Arcane Suppression",
+    level: 3,
+    type: [SpellType.ARCANE],
+    castingTime: "Action",
+    duration: "4 rounds",
+    range: "60 ft.",
+    description:
+      "Choose a point within range you can see. A 15 ft. radius sphere of magic dampening energy appears within range. Any spells cast within the sphere have their Stamina cost increased by your spellcasting modifier.",
+  },
+  {
+    name: "Rewind",
+    level: 5,
+    type: [SpellType.ARCANE],
+    castingTime: "Reaction",
+    duration: "Instant",
+    range: "15 ft.",
+    description:
+      "When a Test is taken, after the roll is made, reroll one dice, taking the new result.",
+  },
+  {
+    name: "Astral Projection",
+    level: 5,
+    type: [SpellType.ARCANE],
+    castingTime: "10 minutes",
+    duration: "1 hour",
+    range: "100 miles",
+    description:
+      "You project your mind far from your body. Choose a location within range. For the duration of the spell your senses inhabit an invisible and intangible mote that appears at the location. You can move with a flying speed of 30 ft. While in this form you have no sense of your own body. You can choose to end this spell early.",
+  },
+  {
+    name: "Minor Telekinesis",
+    level: 0,
+    type: [SpellType.ARCANE],
+    castingTime: "Action",
+    duration: "1 round",
+    range: "30 ft.",
+    description:
+      "You can manipulate objects from a distance. Choose an unsecured object within range. If the object weighs less than 10x your spellcasting modifier pounds, you can push, pull or rotate the object up to 15 ft. If the object is heavier, you can spend 1 Stamina per 10 pounds heavier it is to move it.",
+  },
+  {
+    name: "Spark",
+    level: 0,
+    type: [SpellType.ARCANE, SpellType.NATURE],
+    castingTime: "Action",
+    duration: "1 round",
+    range: "30 ft.",
+    description:
+      "Briefly control the flow of heat, igniting a flammable material, extinguishing a small flame, emitting a shower of sparks, or similar effect.",
+  },
+  {
+    name: "Repair",
+    level: 0,
+    type: [SpellType.ARCANE, SpellType.DIVINE],
+    castingTime: "Action",
+    duration: "1 round",
+    range: "Touch",
+    description:
+      "You weave magic into a crack or break, repairing the item as though it had never been broken. All pieces of the item must be present and arranged exactly as they were prior to the break. This has no effect on magic items.",
+  },
+  {
+    name: "Whisper",
+    level: 0,
+    type: [SpellType.ARCANE, SpellType.NATURE],
+    castingTime: "Action",
+    duration: "Instant",
+    range: "60 ft.",
+    description:
+      "You send a short, whispered message of no more than 10 words to a creature within range that you can see. Only the target hears the message.",
+  },
+  {
+    name: "Glimmer",
+    level: 0,
+    type: [SpellType.ARCANE, SpellType.NATURE],
+    castingTime: "Action",
+    duration: "1 minute",
+    range: "5 ft.",
+    description:
+      "Create a palm sized visual illusion. The illusion is silent and harmless.",
+  },
+  {
+    name: "Acceleration Gate",
+    level: 7,
+    type: [SpellType.ARCANE],
+    castingTime: "Action",
+    duration: "2 rounds",
+    range: "30 ft.",
+    description:
+      "Create a 10 ft. tall 10 ft. wide gate within range. When an allies physical ranged attack passes through the gate it gets accelerated, dealing an extra 1d6 + your spellcasting modifier. You can spend 2 Stamina to increase the extra damage by one Step. You can do this a number of times equal to your spellcasting modifier.",
   },
 ];
 

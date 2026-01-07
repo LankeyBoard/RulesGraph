@@ -164,7 +164,7 @@ const knight: CharacterClass = {
       text: [
         {
           type: "RULE",
-          text: "Spend Fortune's Favor, until the end of your next turn, your speed cannot be reduced below half your Base Speed.",
+          text: "Spend Fortune's Favor, until the end of your next turn, your speed cannot be reduced.",
         },
       ],
     },
@@ -206,12 +206,12 @@ const knight: CharacterClass = {
       costsFortunesFavor: false,
       text: [
         {
-          type: "FLAVOR",
-          text: "You never run from a fight and don’t stop until your enemies are dead.",
-        },
-        {
           type: "RULE",
           text: "If you Attack the same creature you attacked last turn and did not willingly get further away from them, increase your Base Damage by 1 Step for this Attack.",
+        },
+        {
+          type: "FLAVOR",
+          text: "You never run from a fight and don’t stop until your enemies are dead.",
         },
       ],
     },

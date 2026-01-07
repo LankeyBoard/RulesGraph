@@ -4,16 +4,29 @@ const NoviceFeatures: GenericFeature[] = [
   {
     title: "Academic",
     slug: "ACADEMIC",
+    costsFortunesFavor: true,
+    uses: {
+      used: 0,
+      rechargeOn: "REST_AND_RECUPERATE",
+      max: 1,
+    },
     text: [
       {
-        text: "When researching information in a library or another collection of knowledge you can roll with Fortune's Favor.",
+        text: "When researching information in a library or another collection of knowledge, add a +3 to Intellect tests to gather knowledge.",
+      },
+      {
+        text: "Once per R&R, when taking a Test to recall a piece of information or history, you can spend your Fortune's Favor to automatically pass the Test.",
       },
     ],
   },
   {
     title: "Aid",
     slug: "AID",
-    text: [{ text: "Add an additional +2 to Tests when helping an ally." }],
+    text: [
+      {
+        text: "When you use the Help action, your ally adds an additional +2 to the Test result.",
+      },
+    ],
   },
   {
     title: "Artisan",
@@ -22,6 +35,9 @@ const NoviceFeatures: GenericFeature[] = [
       {
         text: "Gain training in one set of artisan's tools (Woodworking, masonry, weaving, etc.)",
       },
+      {
+        text: "Add +3 to Tests to use your chosen tool and to analyze works made with the tool.",
+      },
     ],
     multiSelect: true,
   },
@@ -29,12 +45,17 @@ const NoviceFeatures: GenericFeature[] = [
     title: "Athletic",
     slug: "ATHLETIC",
     text: [
-      { text: "Add +3 to mettle Tests for feats of strength or endurance." },
+      { text: "Add +3 to Mettle Tests for feats of strength or endurance." },
     ],
   },
   {
     title: "Daring",
     slug: "DARING",
+    uses: {
+      used: 0,
+      max: 3,
+      rechargeOn: "REST_AND_RECUPERATE",
+    },
     text: [
       {
         text: "On 3 Tests per R&R, instead of rolling dice, flip a coin. If you win the flip, you pass the Test. Otherwise, you fail.",
@@ -42,27 +63,16 @@ const NoviceFeatures: GenericFeature[] = [
     ],
   },
   {
-    title: "Disguise Master",
-    slug: "DISGUISE-MASTER",
-    text: [
-      { text: "Add +3 to Tests to disguise yourself as another humanoid." },
-    ],
-  },
-  {
-    title: "Imitator",
-    slug: "IMITATOR",
-    text: [
-      {
-        text: "Add +3 to Tests when trying to imitate another humanoid's speech.",
-      },
-    ],
-  },
-  {
     title: "Independent",
     slug: "INDEPENDENT",
+    uses: {
+      used: 0,
+      max: 1,
+      rechargeOn: "NIGHTS_REST",
+    },
     text: [
       {
-        text: "Once per day, when you make a non-combat Test without help, add +3 to the results.",
+        text: "Once per Night's Rest, when you make a non-combat Test without help, add +3 to the results.",
       },
     ],
   },
@@ -76,7 +86,7 @@ const NoviceFeatures: GenericFeature[] = [
     slug: "INSIGHTFUL",
     text: [
       {
-        text: "Add +3 to heart Tests to determine if someone is lying to you or to determine their intentions.",
+        text: "Add +3 to Heart Tests to determine if someone is lying to you or to determine their intentions.",
       },
     ],
   },
@@ -84,7 +94,7 @@ const NoviceFeatures: GenericFeature[] = [
     title: "Keen Eyed",
     slug: "KEEN-EYED",
     text: [
-      { text: "Add +3 to heart Tests to spot hidden objects and creatures." },
+      { text: "Add +3 to Heart Tests to spot hidden objects and creatures." },
     ],
   },
   {
@@ -110,36 +120,39 @@ const NoviceFeatures: GenericFeature[] = [
     slug: "LINGUIST",
     text: [
       {
-        text: "Learn another language. Add a +3 to intellect Tests to decipher languages and codes you don't already know.",
+        text: "Learn another language. Add a +3 to Intellect Tests to decipher languages and codes you don't already know.",
       },
     ],
   },
   {
-    title: "Long Jumper",
-    slug: "LONG-JUMPER",
-    text: [{ text: "Increase your jump distance by 5ft." }],
+    title: "Logician",
+    slug: "LOGICIAN",
+    text: [
+      {
+        text: "When you make an Intellect Test to convince others with a logical appeal, add a +3 to the Test.",
+      },
+    ],
   },
   {
     title: "Medical Training",
     slug: "MEDICAL-TRAINING",
     text: [
       {
-        text: "When you take an Intellect Test to heal a dying ally, make the roll with Fortune's Favor.",
+        text: "When you take an Intellect Test to heal a dying ally, add a +3 to the test.",
       },
-    ],
-  },
-  {
-    title: "Performer",
-    slug: "PERFORMER",
-    text: [
       {
-        text: "Add +3 to Tests to determine the quality of your performance art. Gain training in one performance art of your choice (1 musical instrument, dance, acrobatics, etc.)",
+        text: "When you finish a Night's Rest, you or an ally who rested within 30ft. of you regains an extra 1 Health.",
       },
     ],
   },
   {
     title: "Reliable Skill",
     slug: "RELIABLE-SKILL",
+    uses: {
+      used: 0,
+      max: 3,
+      rechargeOn: "REST_AND_RECUPERATE",
+    },
     text: [
       {
         text: "When you make a non-combat Test, before you roll, you can choose to treat the Test as though you rolled a 12. You can do this 3 times per R&R.",
@@ -151,24 +164,27 @@ const NoviceFeatures: GenericFeature[] = [
     slug: "SILVER-TONGUED",
     text: [
       {
-        text: "When you make a heart Test to convince others with emotional appeal, add a +3 to the Test.",
+        text: "When you make a Heart Test to convince others with emotional appeal, add a +3 to the Test.",
+      },
+    ],
+  },
+  {
+    title: "Snoop",
+    slug: "SNOOP",
+    text: [
+      {
+        text: "Add +3 to Tests to disguise yourself and your voice as another humanoid.",
+      },
+      {
+        text: "You've spent time perfecting the art of disguise and mimicry, allowing you to easily slip into a disguise and fool your target.",
+        type: "Flavor",
       },
     ],
   },
   {
     title: "Swift",
     slug: "SWIFT",
-    text: [{ text: "Increase your ground speed by 10ft." }],
-  },
-  {
-    title: "Swift Climber",
-    slug: "SWIFT-CLIMBER",
-    text: [{ text: "Increase your climb speed by 5ft." }],
-  },
-  {
-    title: "Swift Swimmer",
-    slug: "SWIFT-SWIMMER",
-    text: [{ text: "Increase your swim speed by 5ft." }],
+    text: [{ text: "Increase your Base Speed by 10ft." }],
   },
   {
     title: "Trekker",

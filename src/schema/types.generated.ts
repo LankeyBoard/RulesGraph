@@ -173,6 +173,7 @@ export type CharacterClassFeature = Feature & {
   staminaCost: Scalars['Int']['output'];
   text?: Maybe<Array<Maybe<RuleText>>>;
   title: Scalars['String']['output'];
+  uses?: Maybe<Uses>;
 };
 
 export type CharacterClassVariant = Rule & {
@@ -315,6 +316,7 @@ export type Feature = {
   staminaCost?: Maybe<Scalars['Int']['output']>;
   text?: Maybe<Array<Maybe<RuleText>>>;
   title: Scalars['String']['output'];
+  uses?: Maybe<Uses>;
 };
 
 export type FeatureChoice = FeatureWithoutChoices | RuleText;
@@ -337,6 +339,7 @@ export type FeatureWithoutChoices = Feature & {
   staminaCost?: Maybe<Scalars['Int']['output']>;
   text: Array<Maybe<RuleText>>;
   title: Scalars['String']['output'];
+  uses?: Maybe<Uses>;
 };
 
 export type GenericFeature = Feature & {
@@ -357,6 +360,7 @@ export type GenericFeature = Feature & {
   staminaCost?: Maybe<Scalars['Int']['output']>;
   text?: Maybe<Array<Maybe<RuleText>>>;
   title: Scalars['String']['output'];
+  uses?: Maybe<Uses>;
 };
 
 export type GenericRule = Rule & {
@@ -627,6 +631,7 @@ export type Query = {
   allCampaigns: Array<Maybe<Campaign>>;
   allItems?: Maybe<Array<Maybe<Item>>>;
   allShops?: Maybe<Array<Maybe<ItemShop>>>;
+  allSpells: Array<Maybe<Spell>>;
   campaign?: Maybe<Campaign>;
   character?: Maybe<Character>;
   characterClasses: Array<Maybe<CharacterClass>>;
@@ -642,6 +647,11 @@ export type Query = {
   universalFeatures: Array<Maybe<GenericFeature>>;
   user?: Maybe<User>;
   users: Array<Maybe<User>>;
+};
+
+
+export type QueryallSpellsArgs = {
+  version?: InputMaybe<VERSIONS>;
 };
 
 
@@ -835,9 +845,9 @@ export type Spell = {
 };
 
 export type SpellType =
-  | 'ARCANE'
-  | 'DIVINE'
-  | 'NATURE';
+  | 'Arcane'
+  | 'Divine'
+  | 'Nature';
 
 export type StatOptions =
   | 'AGILITY'
@@ -1264,6 +1274,7 @@ export type CharacterClassFeatureResolvers<ContextType = any, ParentType extends
   staminaCost?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   text?: Resolver<Maybe<Array<Maybe<ResolversTypes['RuleText']>>>, ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  uses?: Resolver<Maybe<ResolversTypes['Uses']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -1365,6 +1376,7 @@ export type FeatureResolvers<ContextType = any, ParentType extends ResolversPare
   staminaCost?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   text?: Resolver<Maybe<Array<Maybe<ResolversTypes['RuleText']>>>, ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  uses?: Resolver<Maybe<ResolversTypes['Uses']>, ParentType, ContextType>;
 };
 
 export type FeatureChoiceResolvers<ContextType = any, ParentType extends ResolversParentTypes['FeatureChoice'] = ResolversParentTypes['FeatureChoice']> = {
@@ -1384,6 +1396,7 @@ export type FeatureWithoutChoicesResolvers<ContextType = any, ParentType extends
   staminaCost?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   text?: Resolver<Array<Maybe<ResolversTypes['RuleText']>>, ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  uses?: Resolver<Maybe<ResolversTypes['Uses']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -1404,6 +1417,7 @@ export type GenericFeatureResolvers<ContextType = any, ParentType extends Resolv
   staminaCost?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   text?: Resolver<Maybe<Array<Maybe<ResolversTypes['RuleText']>>>, ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  uses?: Resolver<Maybe<ResolversTypes['Uses']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -1525,6 +1539,7 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
   allCampaigns?: Resolver<Array<Maybe<ResolversTypes['Campaign']>>, ParentType, ContextType>;
   allItems?: Resolver<Maybe<Array<Maybe<ResolversTypes['Item']>>>, ParentType, ContextType>;
   allShops?: Resolver<Maybe<Array<Maybe<ResolversTypes['ItemShop']>>>, ParentType, ContextType>;
+  allSpells?: Resolver<Array<Maybe<ResolversTypes['Spell']>>, ParentType, ContextType, Partial<QueryallSpellsArgs>>;
   campaign?: Resolver<Maybe<ResolversTypes['Campaign']>, ParentType, ContextType, RequireFields<QuerycampaignArgs, 'id'>>;
   character?: Resolver<Maybe<ResolversTypes['Character']>, ParentType, ContextType, RequireFields<QuerycharacterArgs, 'id'>>;
   characterClasses?: Resolver<Array<Maybe<ResolversTypes['CharacterClass']>>, ParentType, ContextType, Partial<QuerycharacterClassesArgs>>;

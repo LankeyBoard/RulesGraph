@@ -50,6 +50,7 @@ import    { MyCampaignsResult } from './base/resolvers/MyCampaignsResult';
 import    { allCampaigns as Query_allCampaigns } from './base/resolvers/Query/allCampaigns';
 import    { allItems as Query_allItems } from './base/resolvers/Query/allItems';
 import    { allShops as Query_allShops } from './base/resolvers/Query/allShops';
+import    { allSpells as Query_allSpells } from './base/resolvers/Query/allSpells';
 import    { campaign as Query_campaign } from './base/resolvers/Query/campaign';
 import    { character as Query_character } from './base/resolvers/Query/character';
 import    { characterClasses as Query_characterClasses } from './base/resolvers/Query/characterClasses';
@@ -81,7 +82,7 @@ import    { Weapons } from './base/resolvers/Weapons';
 import    { shifterArmor } from './base/resolvers/shifterArmor';
 import    { shifterFeature } from './base/resolvers/shifterFeature';
     export const resolvers: Resolvers = {
-      Query: { allCampaigns: Query_allCampaigns,allItems: Query_allItems,allShops: Query_allShops,campaign: Query_campaign,character: Query_character,characterClasses: Query_characterClasses,cultures: Query_cultures,genericRules: Query_genericRules,itemShop: Query_itemShop,lineages: Query_lineages,me: Query_me,myCampaigns: Query_myCampaigns,rules: Query_rules,searchAll: Query_searchAll,slugMap: Query_slugMap,universalFeatures: Query_universalFeatures,user: Query_user,users: Query_users },
+      Query: { allCampaigns: Query_allCampaigns,allItems: Query_allItems,allShops: Query_allShops,allSpells: Query_allSpells,campaign: Query_campaign,character: Query_character,characterClasses: Query_characterClasses,cultures: Query_cultures,genericRules: Query_genericRules,itemShop: Query_itemShop,lineages: Query_lineages,me: Query_me,myCampaigns: Query_myCampaigns,rules: Query_rules,searchAll: Query_searchAll,slugMap: Query_slugMap,universalFeatures: Query_universalFeatures,user: Query_user,users: Query_users },
       Mutation: { addCharacterToCampaign: Mutation_addCharacterToCampaign,addShopToCampaign: Mutation_addShopToCampaign,createCampaign: Mutation_createCampaign,createCharacter: Mutation_createCharacter,createShop: Mutation_createShop,createUser: Mutation_createUser,deleteCampaign: Mutation_deleteCampaign,deleteCharacter: Mutation_deleteCharacter,deleteShop: Mutation_deleteShop,forgotPassword: Mutation_forgotPassword,login: Mutation_login,removeCharacterFromCampaign: Mutation_removeCharacterFromCampaign,removeShopFromCampaign: Mutation_removeShopFromCampaign,sellItem: Mutation_sellItem,setPassword: Mutation_setPassword,updateCampaign: Mutation_updateCampaign,updateCharacter: Mutation_updateCharacter,updateMe: Mutation_updateMe,updateShop: Mutation_updateShop },
       
       AuthPayload: AuthPayload,

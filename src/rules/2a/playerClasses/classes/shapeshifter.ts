@@ -48,7 +48,7 @@ const shapeshifter: CharacterClass = {
       text: [
         {
           type: "RULE",
-          text: "When you take your first level, pick your form from the list of Forms at the end of the Class rules. The exact form is up to you and your GM, the forms provide templates for general size and type of animal. While transformed. Your Size, Armor and Damage are replaced by your new Form's, and  you can use your Heart instead of your Form's Attack Stat anywhere that Stat would be used. Any gear you are wearing or carrying when you transform is melded with the new form. The form lasts until you Catch Your Breath or you are reduced to 0 Health. You can also end the form early at any time.",
+          text: "Pick your form from the list of Forms at the end of the Class rules. The exact form is up to you and your GM, the forms provide templates for general size and type of animal. While transformed. Your Size, Armor and Damage are replaced by your new Form's, and  you can use your Heart instead of your Form's Attack Stat anywhere that Stat would be used. Any gear you are wearing or carrying when you transform is melded with the new form. The form lasts until you Catch Your Breath or you are reduced to 0 Health. You can also end the form early at any time.",
         },
       ],
     },
@@ -91,12 +91,12 @@ const shapeshifter: CharacterClass = {
       costsFortunesFavor: true,
       text: [
         {
-          type: "FLAVOR",
-          text: "The spirit of nature fills your body, hardening your flesh against attack.",
-        },
-        {
           type: "RULE",
           text: "Spend Fortune's Favor to add your Heart to your Armor until the end of your next turn.",
+        },
+        {
+          type: "FLAVOR",
+          text: "The spirit of nature fills your body, hardening your flesh against attack.",
         },
       ],
     },

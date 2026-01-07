@@ -38,6 +38,8 @@ type Query {
   myCampaigns: MyCampaignsResult!
 
   allCampaigns: [Campaign]!
+
+  allSpells(version: VERSIONS): [Spell]!
 }
 
 type Mutation {
@@ -165,9 +167,9 @@ enum CampaignStatus {
 }
 
 enum SpellType {
-  ARCANE
-  DIVINE
-  NATURE
+  Arcane
+  Divine
+  Nature
 }
 
 #########
@@ -204,6 +206,7 @@ interface Feature {
   text: [RuleText]
   shortText: String
   img: Img
+  uses: Uses
 }
 
 type SearchResult implements Rule {
@@ -313,6 +316,7 @@ type GenericFeature implements Feature {
   featureType: FeatureType
   isVariant: Boolean
   img: Img
+  uses: Uses
 }
 
 type FeatureWithoutChoices implements Feature {
@@ -328,6 +332,7 @@ type FeatureWithoutChoices implements Feature {
   shortText: String
   multiSelect: Boolean
   img: Img
+  uses: Uses
 }
 
 type SlugDict {
@@ -394,6 +399,7 @@ type CharacterClassFeature implements Feature {
   chooseNum: Int
   isVariant: Boolean
   img: Img
+  uses: Uses
 }
 
 type CharacterClass implements Rule {
