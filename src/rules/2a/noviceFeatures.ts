@@ -4,16 +4,29 @@ const NoviceFeatures: GenericFeature[] = [
   {
     title: "Academic",
     slug: "ACADEMIC",
+    costsFortunesFavor: true,
+    uses: {
+      used: 0,
+      rechargeOn: "REST_AND_RECUPERATE",
+      max: 1,
+    },
     text: [
       {
         text: "When researching information in a library or another collection of knowledge, add a +3 to Intellect tests to gather knowledge.",
+      },
+      {
+        text: "Once per R&R, when taking a Test to recall a piece of information or history, you can spend your Fortune's Favor to automatically pass the Test.",
       },
     ],
   },
   {
     title: "Aid",
     slug: "AID",
-    text: [{ text: "Add an additional +2 to Tests when helping an ally." }],
+    text: [
+      {
+        text: "When you use the Help action, your ally adds an additional +2 to the Test result.",
+      },
+    ],
   },
   {
     title: "Artisan",
@@ -23,7 +36,7 @@ const NoviceFeatures: GenericFeature[] = [
         text: "Gain training in one set of artisan's tools (Woodworking, masonry, weaving, etc.)",
       },
       {
-        text: "Add +3 to Tests to use your chosen tool.",
+        text: "Add +3 to Tests to use your chosen tool and to analyze works made with the tool.",
       },
     ],
     multiSelect: true,
@@ -38,6 +51,11 @@ const NoviceFeatures: GenericFeature[] = [
   {
     title: "Daring",
     slug: "DARING",
+    uses: {
+      used: 0,
+      max: 3,
+      rechargeOn: "REST_AND_RECUPERATE",
+    },
     text: [
       {
         text: "On 3 Tests per R&R, instead of rolling dice, flip a coin. If you win the flip, you pass the Test. Otherwise, you fail.",
@@ -47,6 +65,11 @@ const NoviceFeatures: GenericFeature[] = [
   {
     title: "Independent",
     slug: "INDEPENDENT",
+    uses: {
+      used: 0,
+      max: 1,
+      rechargeOn: "NIGHTS_REST",
+    },
     text: [
       {
         text: "Once per Night's Rest, when you make a non-combat Test without help, add +3 to the results.",
@@ -125,6 +148,11 @@ const NoviceFeatures: GenericFeature[] = [
   {
     title: "Reliable Skill",
     slug: "RELIABLE-SKILL",
+    uses: {
+      used: 0,
+      max: 3,
+      rechargeOn: "REST_AND_RECUPERATE",
+    },
     text: [
       {
         text: "When you make a non-combat Test, before you roll, you can choose to treat the Test as though you rolled a 12. You can do this 3 times per R&R.",
@@ -156,7 +184,7 @@ const NoviceFeatures: GenericFeature[] = [
   {
     title: "Swift",
     slug: "SWIFT",
-    text: [{ text: "Increase your ground speed by 10ft." }],
+    text: [{ text: "Increase your Base Speed by 10ft." }],
   },
   {
     title: "Trekker",

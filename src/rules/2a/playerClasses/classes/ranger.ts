@@ -59,12 +59,12 @@ const ranger: CharacterClass = {
       costsFortunesFavor: false,
       text: [
         {
-          type: "FLAVOR",
-          text: "Your attacks are incredibly accurate, always targeting the weakest points in the target.",
-        },
-        {
           type: "RULE",
           text: "When you roll Weapon Attack Damage, if you have any 1's on your dice you can spend 1 Stamina per 1 on the dice to reroll it.",
+        },
+        {
+          type: "FLAVOR",
+          text: "Your attacks are incredibly accurate, always targeting the weakest points in the target.",
         },
       ],
     },
@@ -123,12 +123,12 @@ const ranger: CharacterClass = {
       costsFortunesFavor: false,
       text: [
         {
-          type: "FLAVOR",
-          text: "You have spent countless hours tracking prey through the woods or back alleys and instinctively step lightly and quietly.",
-        },
-        {
           type: "RULE",
           text: "Spend 3 Stamina. You leave no tracks and are almost silent as you move. Gain +5 to Stealth Tests.",
+        },
+        {
+          type: "FLAVOR",
+          text: "You have spent countless hours tracking prey through the woods or back alleys and instinctively step lightly and quietly.",
         },
       ],
     },
@@ -140,12 +140,12 @@ const ranger: CharacterClass = {
       costsFortunesFavor: false,
       text: [
         {
-          type: "FLAVOR",
-          text: "Your weapons are just a hand twitch away.",
-        },
-        {
           type: "RULE",
           text: "When you Counter Attack, you can use any weapon on your person to make the Counter.",
+        },
+        {
+          type: "FLAVOR",
+          text: "Your weapons are just a hand twitch away.",
         },
       ],
     },
@@ -159,6 +159,10 @@ const ranger: CharacterClass = {
         {
           type: "RULE",
           text: "Whenever you Catch Your Breath you can coat one of your weapons in poison. When you deal damage with that weapon, deal an extra 1d4 rot damage.",
+        },
+        {
+          type: "RULE",
+          text: "Only one of your weapons can be coated at a time.",
         },
       ],
     },
@@ -189,7 +193,7 @@ const ranger: CharacterClass = {
       text: [
         {
           type: "RULE",
-          text: "Reduce your speed to 0 to double your range until the start of the next round.",
+          text: "Reduce your speed to 0 to double your Range until the start of the next round.",
         },
       ],
     },

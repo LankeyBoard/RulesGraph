@@ -134,7 +134,7 @@ const brawler: CharacterClass = {
       text: [
         {
           type: "RULE",
-          text: "When you take a Clash Action, you can spend 2 Stamina to use 2 Clash Actions as part of the action.",
+          text: "When you make a [Basic Counter](/rules/player_rules#BASIC-COUNTERS), you can spend 2 Stamina to use 2 Basic Counters as part of the action.",
         },
         {
           type: "FLAVOR",

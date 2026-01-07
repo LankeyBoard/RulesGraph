@@ -103,12 +103,12 @@ const elementalist: CharacterClass = {
       costsFortunesFavor: false,
       text: [
         {
-          type: "FLAVOR",
-          text: "Surround yourself or an ally with your element, bolstering their natural abilities.",
+          type: "RULE",
+          text: "Select yourself or an ally you can see within 30ft. of you, add your Intellect to the next Mettle or Agility test they make within the next minute. If you have Fortune's Favor, you can spend it to double the bonus Enhance provides.",
         },
         {
-          type: "RULE",
-          text: "Select yourself or an ally you can see within 30ft. of you, add your Intellect to the next Mettle or Agility test they make. If you have Fortune's Favor, you can spend it to double the bonus Enhance provides.",
+          type: "FLAVOR",
+          text: "Surround yourself or an ally with your element, bolstering their natural abilities.",
         },
       ],
     },
@@ -133,7 +133,7 @@ const elementalist: CharacterClass = {
             slug: "ELEM-ARMOR",
             text: [
               {
-                text: "Add your Intellect to your Armor and take half damage from your chosen element.",
+                text: "Add your Intellect to your Armor and gain Resistance to your Element.",
               },
             ],
           },
@@ -279,7 +279,7 @@ const elementalist: CharacterClass = {
             slug: "ELEM-FOOTWORK-LIGHTNING",
             text: [
               {
-                text: "Increase your jump distances by 10ft.",
+                text: "Add your Intellect to your Mettle when calculating (Jump)[/rules/player_rules#JUMP] distances",
               },
               {
                 text: "Add your Intellect to Tests to avoid falling damage.",

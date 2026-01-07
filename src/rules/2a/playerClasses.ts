@@ -9,6 +9,8 @@ import knight from "./playerClasses/classes/knight";
 import maverick from "./playerClasses/classes/maverick";
 import ranger from "./playerClasses/classes/ranger";
 import shapeshifter from "./playerClasses/classes/shapeshifter";
+import fulminare from "./playerClasses/classes/fulminare";
+import wizard from "./playerClasses/classes/wizard";
 
 const playerClasses: CharacterClass[] = [];
 playerClasses.push(spellsword);
@@ -21,5 +23,7 @@ playerClasses.push(knight);
 playerClasses.push(maverick);
 playerClasses.push(ranger);
 playerClasses.push(shapeshifter);
+playerClasses.push(fulminare);
+playerClasses.push(wizard);
 playerClasses.sort((a, b) => a.title.localeCompare(b.title));
 export default playerClasses;

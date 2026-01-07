@@ -4,9 +4,10 @@ const veteranFeatures: Feature[] = [
   {
     title: "Battle Hardened",
     slug: "BATTLE-HARDENED",
+    costsFortunesFavor: true,
     text: [
       {
-        text: "If you would gain a Condition.",
+        text: "If you would gain a Condition, you may spend Fortune's Favor to ignore the condition until the end of the next Round.",
       },
     ],
   },
@@ -22,6 +23,11 @@ const veteranFeatures: Feature[] = [
   {
     title: "Commander",
     slug: "COMMANDER",
+    uses: {
+      used: 0,
+      max: 3,
+      rechargeOn: "REST_AND_RECUPERATE",
+    },
     text: [
       {
         text: "Three times per R&R, when you Attack an enemy you can spend Fortune's Favor to grant the next ally to attack them this round a bonus to their Attack roll equal to your Attack Bonus.",
@@ -46,7 +52,7 @@ const veteranFeatures: Feature[] = [
     slug: "IMBUED-ATTACKS",
     text: [
       {
-        text: "You have become imbued with magic. Pick a Damage type. When you make an Attack, you can chose between your available Damage types.",
+        text: "Pick a Non-physical Damage type. When you make an Attack, you can chose between your available Damage types.",
       },
     ],
   },
@@ -98,6 +104,7 @@ const veteranFeatures: Feature[] = [
   {
     title: "Unfailing",
     slug: "UNFAILING",
+    costsFortunesFavor: true,
     text: [
       {
         text: "Spend Fortune's Favor when you take a Test. If you roll below a Mixed result, treat the roll as though it was a Mixed result.",
