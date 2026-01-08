@@ -71,7 +71,7 @@ const wizard: CharacterClass = {
         },
         {
           type: "RULE",
-          text: "[All Spells](/rules/spells)",
+          text: "[Arcane Spells](/rules/spells?filter=1)",
         },
       ],
     },

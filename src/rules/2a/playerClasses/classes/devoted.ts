@@ -40,7 +40,7 @@ const devoted: CharacterClass = {
         },
         {
           type: "RULE",
-          text: "[All Spells](/rules/spells)",
+          text: "[Divine Spells](/rules/spells?filter=2)",
         },
       ],
     },
