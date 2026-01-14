@@ -27,6 +27,14 @@ export type AuthPayload = {
   user?: Maybe<User>;
 };
 
+export type BaseStats = {
+  __typename?: 'BaseStats';
+  agility: Scalars['Int']['output'];
+  heart: Scalars['Int']['output'];
+  intellect: Scalars['Int']['output'];
+  mettle: Scalars['Int']['output'];
+};
+
 export type BeastAbility = {
   __typename?: 'BeastAbility';
   text: Scalars['String']['output'];
@@ -43,7 +51,7 @@ export type BeastForm = {
   size: Size;
   slug: Scalars['String']['output'];
   speed: Array<Speed>;
-  stats: BeastStats;
+  stats: BaseStats;
   title: Scalars['String']['output'];
 };
 
@@ -51,14 +59,6 @@ export type BeastHealth = {
   __typename?: 'BeastHealth';
   base: Scalars['Int']['output'];
   perLevel: Scalars['Int']['output'];
-};
-
-export type BeastStats = {
-  __typename?: 'BeastStats';
-  agility: Scalars['Int']['output'];
-  heart: Scalars['Int']['output'];
-  intellect: Scalars['Int']['output'];
-  mettle: Scalars['Int']['output'];
 };
 
 export type BeastmasterPet = {
@@ -278,6 +278,7 @@ export type Damage = {
   __typename?: 'Damage';
   count: Scalars['Int']['output'];
   dice: Scalars['Int']['output'];
+  flat?: Maybe<Scalars['Int']['output']>;
   stat?: Maybe<Array<StatOptions>>;
   type?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
 };
@@ -484,6 +485,40 @@ export type List = {
   label?: Maybe<Scalars['String']['output']>;
 };
 
+export type Monster = {
+  __typename?: 'Monster';
+  Stats?: Maybe<BaseStats>;
+  armor: Scalars['Int']['output'];
+  damage: Damage;
+  description: Array<Maybe<RuleText>>;
+  features: Array<Maybe<GenericFeature>>;
+  health: Scalars['Int']['output'];
+  hit: Scalars['Int']['output'];
+  img?: Maybe<Img>;
+  level: Scalars['Float']['output'];
+  name: Scalars['String']['output'];
+  range: Range;
+  size: Size;
+  speed: Array<Speed>;
+  tags?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  type: MonsterType;
+};
+
+export type MonsterGroup = {
+  __typename?: 'MonsterGroup';
+  description: Array<Maybe<RuleText>>;
+  img?: Maybe<Img>;
+  monsters: Array<Monster>;
+  name: Scalars['String']['output'];
+};
+
+export type MonsterList = Monster | MonsterGroup;
+
+export type MonsterType =
+  | 'Boss'
+  | 'Minion'
+  | 'Monster';
+
 export type Mutation = {
   __typename?: 'Mutation';
   addCharacterToCampaign: Campaign;
@@ -630,6 +665,7 @@ export type Query = {
   __typename?: 'Query';
   allCampaigns: Array<Maybe<Campaign>>;
   allItems?: Maybe<Array<Maybe<Item>>>;
+  allMonsters: Array<Maybe<MonsterList>>;
   allShops?: Maybe<Array<Maybe<ItemShop>>>;
   allSpells: Array<Maybe<Spell>>;
   campaign?: Maybe<Campaign>;
@@ -647,6 +683,11 @@ export type Query = {
   universalFeatures: Array<Maybe<GenericFeature>>;
   user?: Maybe<User>;
   users: Array<Maybe<User>>;
+};
+
+
+export type QueryallMonstersArgs = {
+  version?: InputMaybe<VERSIONS>;
 };
 
 
@@ -986,6 +1027,7 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 /** Mapping of union types */
 export type ResolversUnionTypes<_RefType extends Record<string, unknown>> = {
   FeatureChoice: ( FeatureWithoutChoices & { __typename: 'FeatureWithoutChoices' } ) | ( RuleText & { __typename: 'RuleText' } );
+  MonsterList: ( Omit<Monster, 'damage' | 'features'> & { damage: _RefType['Damage'], features: Array<Maybe<_RefType['GenericFeature']>> } & { __typename: 'Monster' } ) | ( Omit<MonsterGroup, 'monsters'> & { monsters: Array<_RefType['Monster']> } & { __typename: 'MonsterGroup' } );
 };
 
 /** Mapping of interface types */
@@ -999,11 +1041,11 @@ export type ResolversTypes = {
   Action: Action;
   AuthPayload: ResolverTypeWrapper<Omit<AuthPayload, 'user'> & { user?: Maybe<ResolversTypes['User']> }>;
   String: ResolverTypeWrapper<Scalars['String']['output']>;
+  BaseStats: ResolverTypeWrapper<BaseStats>;
+  Int: ResolverTypeWrapper<Scalars['Int']['output']>;
   BeastAbility: ResolverTypeWrapper<BeastAbility>;
   BeastForm: ResolverTypeWrapper<Omit<BeastForm, 'damage'> & { damage: ResolversTypes['Damage'] }>;
-  Int: ResolverTypeWrapper<Scalars['Int']['output']>;
   BeastHealth: ResolverTypeWrapper<BeastHealth>;
-  BeastStats: ResolverTypeWrapper<BeastStats>;
   BeastmasterPet: ResolverTypeWrapper<BeastmasterPet>;
   Campaign: ResolverTypeWrapper<Omit<Campaign, 'characters' | 'owner'> & { characters: Array<Maybe<ResolversTypes['Character']>>, owner: ResolversTypes['User'] }>;
   ID: ResolverTypeWrapper<Scalars['ID']['output']>;
@@ -1040,6 +1082,11 @@ export type ResolversTypes = {
   Lineage: ResolverTypeWrapper<Omit<Lineage, 'traits' | 'variants'> & { traits: Array<ResolversTypes['GenericFeature']>, variants?: Maybe<Array<Maybe<ResolversTypes['LineageVariant']>>> }>;
   LineageVariant: ResolverTypeWrapper<Omit<LineageVariant, 'traits'> & { traits?: Maybe<Array<ResolversTypes['GenericFeature']>> }>;
   List: ResolverTypeWrapper<List>;
+  Monster: ResolverTypeWrapper<Omit<Monster, 'damage' | 'features'> & { damage: ResolversTypes['Damage'], features: Array<Maybe<ResolversTypes['GenericFeature']>> }>;
+  Float: ResolverTypeWrapper<Scalars['Float']['output']>;
+  MonsterGroup: ResolverTypeWrapper<Omit<MonsterGroup, 'monsters'> & { monsters: Array<ResolversTypes['Monster']> }>;
+  MonsterList: ResolverTypeWrapper<ResolversUnionTypes<ResolversTypes>['MonsterList']>;
+  MonsterType: MonsterType;
   Mutation: ResolverTypeWrapper<{}>;
   MyCampaignsResult: ResolverTypeWrapper<MyCampaignsResult>;
   Query: ResolverTypeWrapper<{}>;
@@ -1077,11 +1124,11 @@ export type ResolversTypes = {
 export type ResolversParentTypes = {
   AuthPayload: Omit<AuthPayload, 'user'> & { user?: Maybe<ResolversParentTypes['User']> };
   String: Scalars['String']['output'];
+  BaseStats: BaseStats;
+  Int: Scalars['Int']['output'];
   BeastAbility: BeastAbility;
   BeastForm: Omit<BeastForm, 'damage'> & { damage: ResolversParentTypes['Damage'] };
-  Int: Scalars['Int']['output'];
   BeastHealth: BeastHealth;
-  BeastStats: BeastStats;
   BeastmasterPet: BeastmasterPet;
   Campaign: Omit<Campaign, 'characters' | 'owner'> & { characters: Array<Maybe<ResolversParentTypes['Character']>>, owner: ResolversParentTypes['User'] };
   ID: Scalars['ID']['output'];
@@ -1115,6 +1162,10 @@ export type ResolversParentTypes = {
   Lineage: Omit<Lineage, 'traits' | 'variants'> & { traits: Array<ResolversParentTypes['GenericFeature']>, variants?: Maybe<Array<Maybe<ResolversParentTypes['LineageVariant']>>> };
   LineageVariant: Omit<LineageVariant, 'traits'> & { traits?: Maybe<Array<ResolversParentTypes['GenericFeature']>> };
   List: List;
+  Monster: Omit<Monster, 'damage' | 'features'> & { damage: ResolversParentTypes['Damage'], features: Array<Maybe<ResolversParentTypes['GenericFeature']>> };
+  Float: Scalars['Float']['output'];
+  MonsterGroup: Omit<MonsterGroup, 'monsters'> & { monsters: Array<ResolversParentTypes['Monster']> };
+  MonsterList: ResolversUnionTypes<ResolversParentTypes>['MonsterList'];
   Mutation: {};
   MyCampaignsResult: MyCampaignsResult;
   Query: {};
@@ -1144,6 +1195,14 @@ export type AuthPayloadResolvers<ContextType = any, ParentType extends Resolvers
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
+export type BaseStatsResolvers<ContextType = any, ParentType extends ResolversParentTypes['BaseStats'] = ResolversParentTypes['BaseStats']> = {
+  agility?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  heart?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  intellect?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  mettle?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
 export type BeastAbilityResolvers<ContextType = any, ParentType extends ResolversParentTypes['BeastAbility'] = ResolversParentTypes['BeastAbility']> = {
   text?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -1159,7 +1218,7 @@ export type BeastFormResolvers<ContextType = any, ParentType extends ResolversPa
   size?: Resolver<ResolversTypes['Size'], ParentType, ContextType>;
   slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   speed?: Resolver<Array<ResolversTypes['Speed']>, ParentType, ContextType>;
-  stats?: Resolver<ResolversTypes['BeastStats'], ParentType, ContextType>;
+  stats?: Resolver<ResolversTypes['BaseStats'], ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
@@ -1167,14 +1226,6 @@ export type BeastFormResolvers<ContextType = any, ParentType extends ResolversPa
 export type BeastHealthResolvers<ContextType = any, ParentType extends ResolversParentTypes['BeastHealth'] = ResolversParentTypes['BeastHealth']> = {
   base?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   perLevel?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
-export type BeastStatsResolvers<ContextType = any, ParentType extends ResolversParentTypes['BeastStats'] = ResolversParentTypes['BeastStats']> = {
-  agility?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  heart?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  intellect?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  mettle?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -1343,6 +1394,7 @@ export type CultureVariantResolvers<ContextType = any, ParentType extends Resolv
 export type DamageResolvers<ContextType = any, ParentType extends ResolversParentTypes['Damage'] = ResolversParentTypes['Damage']> = {
   count?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   dice?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  flat?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   stat?: Resolver<Maybe<Array<ResolversTypes['StatOptions']>>, ParentType, ContextType>;
   type?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
@@ -1507,6 +1559,37 @@ export type ListResolvers<ContextType = any, ParentType extends ResolversParentT
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
+export type MonsterResolvers<ContextType = any, ParentType extends ResolversParentTypes['Monster'] = ResolversParentTypes['Monster']> = {
+  Stats?: Resolver<Maybe<ResolversTypes['BaseStats']>, ParentType, ContextType>;
+  armor?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  damage?: Resolver<ResolversTypes['Damage'], ParentType, ContextType>;
+  description?: Resolver<Array<Maybe<ResolversTypes['RuleText']>>, ParentType, ContextType>;
+  features?: Resolver<Array<Maybe<ResolversTypes['GenericFeature']>>, ParentType, ContextType>;
+  health?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  hit?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  img?: Resolver<Maybe<ResolversTypes['Img']>, ParentType, ContextType>;
+  level?: Resolver<ResolversTypes['Float'], ParentType, ContextType>;
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  range?: Resolver<ResolversTypes['Range'], ParentType, ContextType>;
+  size?: Resolver<ResolversTypes['Size'], ParentType, ContextType>;
+  speed?: Resolver<Array<ResolversTypes['Speed']>, ParentType, ContextType>;
+  tags?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
+  type?: Resolver<ResolversTypes['MonsterType'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type MonsterGroupResolvers<ContextType = any, ParentType extends ResolversParentTypes['MonsterGroup'] = ResolversParentTypes['MonsterGroup']> = {
+  description?: Resolver<Array<Maybe<ResolversTypes['RuleText']>>, ParentType, ContextType>;
+  img?: Resolver<Maybe<ResolversTypes['Img']>, ParentType, ContextType>;
+  monsters?: Resolver<Array<ResolversTypes['Monster']>, ParentType, ContextType>;
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type MonsterListResolvers<ContextType = any, ParentType extends ResolversParentTypes['MonsterList'] = ResolversParentTypes['MonsterList']> = {
+  __resolveType?: TypeResolveFn<'Monster' | 'MonsterGroup', ParentType, ContextType>;
+};
+
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
   addCharacterToCampaign?: Resolver<ResolversTypes['Campaign'], ParentType, ContextType, RequireFields<MutationaddCharacterToCampaignArgs, 'campaignId' | 'characterId'>>;
   addShopToCampaign?: Resolver<ResolversTypes['Campaign'], ParentType, ContextType, RequireFields<MutationaddShopToCampaignArgs, 'campaignId' | 'shopId'>>;
@@ -1538,6 +1621,7 @@ export type MyCampaignsResultResolvers<ContextType = any, ParentType extends Res
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
   allCampaigns?: Resolver<Array<Maybe<ResolversTypes['Campaign']>>, ParentType, ContextType>;
   allItems?: Resolver<Maybe<Array<Maybe<ResolversTypes['Item']>>>, ParentType, ContextType>;
+  allMonsters?: Resolver<Array<Maybe<ResolversTypes['MonsterList']>>, ParentType, ContextType, Partial<QueryallMonstersArgs>>;
   allShops?: Resolver<Maybe<Array<Maybe<ResolversTypes['ItemShop']>>>, ParentType, ContextType>;
   allSpells?: Resolver<Array<Maybe<ResolversTypes['Spell']>>, ParentType, ContextType, Partial<QueryallSpellsArgs>>;
   campaign?: Resolver<Maybe<ResolversTypes['Campaign']>, ParentType, ContextType, RequireFields<QuerycampaignArgs, 'id'>>;
@@ -1683,10 +1767,10 @@ export type shifterFeatureResolvers<ContextType = any, ParentType extends Resolv
 
 export type Resolvers<ContextType = any> = {
   AuthPayload?: AuthPayloadResolvers<ContextType>;
+  BaseStats?: BaseStatsResolvers<ContextType>;
   BeastAbility?: BeastAbilityResolvers<ContextType>;
   BeastForm?: BeastFormResolvers<ContextType>;
   BeastHealth?: BeastHealthResolvers<ContextType>;
-  BeastStats?: BeastStatsResolvers<ContextType>;
   BeastmasterPet?: BeastmasterPetResolvers<ContextType>;
   Campaign?: CampaignResolvers<ContextType>;
   Character?: CharacterResolvers<ContextType>;
@@ -1711,6 +1795,9 @@ export type Resolvers<ContextType = any> = {
   Lineage?: LineageResolvers<ContextType>;
   LineageVariant?: LineageVariantResolvers<ContextType>;
   List?: ListResolvers<ContextType>;
+  Monster?: MonsterResolvers<ContextType>;
+  MonsterGroup?: MonsterGroupResolvers<ContextType>;
+  MonsterList?: MonsterListResolvers<ContextType>;
   Mutation?: MutationResolvers<ContextType>;
   MyCampaignsResult?: MyCampaignsResultResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;

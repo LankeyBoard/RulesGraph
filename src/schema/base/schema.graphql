@@ -40,6 +40,8 @@ type Query {
   allCampaigns: [Campaign]!
 
   allSpells(version: VERSIONS): [Spell]!
+
+  allMonsters(version: VERSIONS): [MonsterList]!
 }
 
 type Mutation {
@@ -172,11 +174,19 @@ enum SpellType {
   Nature
 }
 
+enum MonsterType {
+  Minion
+  Monster
+  Boss
+}
+
 #########
 # union #
 #########
 
 union FeatureChoice = RuleText | FeatureWithoutChoices
+
+union MonsterList = Monster | MonsterGroup
 
 #########
 # TYPES #
@@ -369,6 +379,7 @@ type Damage {
   count: Int!
   stat: [StatOptions!]
   type: [String]
+  flat: Int
 }
 
 type Deflect {
@@ -487,7 +498,7 @@ type BeastForm {
   size: Size!
   health: BeastHealth!
   armor: Int!
-  stats: BeastStats!
+  stats: BaseStats!
   speed: [Speed!]!
   damage: Damage!
   abilities: [BeastAbility!]!
@@ -498,7 +509,7 @@ type BeastHealth {
   perLevel: Int!
 }
 
-type BeastStats {
+type BaseStats {
   mettle: Int!
   agility: Int!
   heart: Int!
@@ -723,4 +734,29 @@ type Spell {
   duration: String!
   range: String
   description: String!
+}
+
+type Monster {
+  name: String!
+  level: Float!
+  size: Size!
+  type: MonsterType!
+  description: [RuleText]!
+  img: Img
+  health: Int!
+  armor: Int!
+  Stats: BaseStats
+  speed: [Speed!]!
+  hit: Int!
+  range: Range!
+  damage: Damage!
+  tags: [String]
+  features: [GenericFeature]!
+}
+
+type MonsterGroup {
+  name: String!
+  description: [RuleText]!
+  img: Img
+  monsters: [Monster!]!
 }
