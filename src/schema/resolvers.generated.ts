@@ -1,10 +1,10 @@
 /* This file was automatically generated. DO NOT UPDATE MANUALLY. */
     import type   { Resolvers } from './types.generated';
     import    { AuthPayload } from './base/resolvers/AuthPayload';
+import    { BaseStats } from './base/resolvers/BaseStats';
 import    { BeastAbility } from './base/resolvers/BeastAbility';
 import    { BeastForm } from './base/resolvers/BeastForm';
 import    { BeastHealth } from './base/resolvers/BeastHealth';
-import    { BeastStats } from './base/resolvers/BeastStats';
 import    { BeastmasterPet } from './base/resolvers/BeastmasterPet';
 import    { Campaign } from './base/resolvers/Campaign';
 import    { Character } from './base/resolvers/Character';
@@ -27,6 +27,8 @@ import    { ItemShop } from './base/resolvers/ItemShop';
 import    { Lineage } from './base/resolvers/Lineage';
 import    { LineageVariant } from './base/resolvers/LineageVariant';
 import    { List } from './base/resolvers/List';
+import    { Monster } from './base/resolvers/Monster';
+import    { MonsterGroup } from './base/resolvers/MonsterGroup';
 import    { addCharacterToCampaign as Mutation_addCharacterToCampaign } from './base/resolvers/Mutation/addCharacterToCampaign';
 import    { addShopToCampaign as Mutation_addShopToCampaign } from './base/resolvers/Mutation/addShopToCampaign';
 import    { createCampaign as Mutation_createCampaign } from './base/resolvers/Mutation/createCampaign';
@@ -49,6 +51,7 @@ import    { updateShop as Mutation_updateShop } from './base/resolvers/Mutation/
 import    { MyCampaignsResult } from './base/resolvers/MyCampaignsResult';
 import    { allCampaigns as Query_allCampaigns } from './base/resolvers/Query/allCampaigns';
 import    { allItems as Query_allItems } from './base/resolvers/Query/allItems';
+import    { allMonsters as Query_allMonsters } from './base/resolvers/Query/allMonsters';
 import    { allShops as Query_allShops } from './base/resolvers/Query/allShops';
 import    { allSpells as Query_allSpells } from './base/resolvers/Query/allSpells';
 import    { campaign as Query_campaign } from './base/resolvers/Query/campaign';
@@ -82,14 +85,14 @@ import    { Weapons } from './base/resolvers/Weapons';
 import    { shifterArmor } from './base/resolvers/shifterArmor';
 import    { shifterFeature } from './base/resolvers/shifterFeature';
     export const resolvers: Resolvers = {
-      Query: { allCampaigns: Query_allCampaigns,allItems: Query_allItems,allShops: Query_allShops,allSpells: Query_allSpells,campaign: Query_campaign,character: Query_character,characterClasses: Query_characterClasses,cultures: Query_cultures,genericRules: Query_genericRules,itemShop: Query_itemShop,lineages: Query_lineages,me: Query_me,myCampaigns: Query_myCampaigns,rules: Query_rules,searchAll: Query_searchAll,slugMap: Query_slugMap,universalFeatures: Query_universalFeatures,user: Query_user,users: Query_users },
+      Query: { allCampaigns: Query_allCampaigns,allItems: Query_allItems,allMonsters: Query_allMonsters,allShops: Query_allShops,allSpells: Query_allSpells,campaign: Query_campaign,character: Query_character,characterClasses: Query_characterClasses,cultures: Query_cultures,genericRules: Query_genericRules,itemShop: Query_itemShop,lineages: Query_lineages,me: Query_me,myCampaigns: Query_myCampaigns,rules: Query_rules,searchAll: Query_searchAll,slugMap: Query_slugMap,universalFeatures: Query_universalFeatures,user: Query_user,users: Query_users },
       Mutation: { addCharacterToCampaign: Mutation_addCharacterToCampaign,addShopToCampaign: Mutation_addShopToCampaign,createCampaign: Mutation_createCampaign,createCharacter: Mutation_createCharacter,createShop: Mutation_createShop,createUser: Mutation_createUser,deleteCampaign: Mutation_deleteCampaign,deleteCharacter: Mutation_deleteCharacter,deleteShop: Mutation_deleteShop,forgotPassword: Mutation_forgotPassword,login: Mutation_login,removeCharacterFromCampaign: Mutation_removeCharacterFromCampaign,removeShopFromCampaign: Mutation_removeShopFromCampaign,sellItem: Mutation_sellItem,setPassword: Mutation_setPassword,updateCampaign: Mutation_updateCampaign,updateCharacter: Mutation_updateCharacter,updateMe: Mutation_updateMe,updateShop: Mutation_updateShop },
       
       AuthPayload: AuthPayload,
+BaseStats: BaseStats,
 BeastAbility: BeastAbility,
 BeastForm: BeastForm,
 BeastHealth: BeastHealth,
-BeastStats: BeastStats,
 BeastmasterPet: BeastmasterPet,
 Campaign: Campaign,
 Character: Character,
@@ -112,6 +115,8 @@ ItemShop: ItemShop,
 Lineage: Lineage,
 LineageVariant: LineageVariant,
 List: List,
+Monster: Monster,
+MonsterGroup: MonsterGroup,
 MyCampaignsResult: MyCampaignsResult,
 Range: Range,
 RuleSection: RuleSection,
