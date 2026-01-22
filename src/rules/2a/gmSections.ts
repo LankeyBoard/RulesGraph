@@ -114,6 +114,22 @@ const gmSections: GenericRule[] = [
                 text: "For each character on the Player's side, there should be 1 Monster of the same level. 2 Minions can be used in place of 1 Monster, or 1 Boss can be used in place of 2 Monsters.\nThese stat's assume 5 encounters per Rest & Recuperation. If you have less encounters, you will need to add either more enemies or increase the damage of the enemies.",
                 type: "RULE",
               },
+
+              {
+                text: "When making your own monsters, use the following table as a reference. Minions should be weaker with less health, and Bosses should be stronger and usually have some unique feature to set them apart.",
+              },
+              {
+                text: `|        | Level 1 | Level 2 | Level 3 | Level 4 | Level 5 | Level 6 | Level 7 | Level 8 |
+| ------ | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- |
+| Attack | 4       | 4       | 5       | 5       | 5       | 6       | 6       | 6       |
+| Dmg    | 1d8+4   | 1d10+4  | 1d10+5  | 1d12+5  | 1d12+5  | 2d6+6   | 2d6+6   | 2d8+6   |
+| Armor  | 12      | 13      | 13      | 14      | 14      | 14      | 14      | 15      |
+| HP     | 17      | 18      | 21      | 21      | 21      | 26      | 26      | 27      |
+`,
+              },
+              {
+                text: "Visit [the beastiary](/monsters) for examples of monsters",
+              },
             ],
           },
         ],
