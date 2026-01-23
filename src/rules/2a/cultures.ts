@@ -153,7 +153,7 @@ const culturesData: Culture[] = [
     ],
     img: {
       target:
-        "https://upload.wikimedia.org/wikipedia/commons/2/29/Harald_Fairhead.jpg",
+        "https://uploads5.wikiart.org/images/harry-clarke/the-year-s-at-the-spring-1920-9.jpg",
     },
     stat: "+1 to Agility or Heart",
     languages:

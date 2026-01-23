@@ -1,76 +1,11 @@
 import { MonsterList } from "../../../schema/types.generated";
+import AnimatedItems from "./animatedItems/animatedItems";
+import Goblins from "./goblins/goblins";
+import { MonsterTags } from "./MonsterTags";
+import Orcs from "./orcs/orcs";
+import Skeletons from "./undead/skeletons";
 
 const basicMonsters: MonsterList[] = [
-  {
-    name: "Skeletons",
-    description: [
-      {
-        text: "Skeletons are reanimated bones, suitable for low level adventures.",
-      },
-    ],
-    monsters: [
-      {
-        name: "Skeleton",
-        level: 0.5,
-        size: "MEDIUM",
-        type: "Minion",
-        description: [
-          {
-            text: "A reanimated skeleton. It has limited senses and follows exactly the commands of its creator.",
-          },
-        ],
-        img: null,
-        health: 10,
-        armor: 10,
-        Stats: { mettle: -2, agility: -4, heart: -4, intellect: -4 },
-        speed: [{ type: "ground", speed: 20 }],
-        hit: 2,
-        range: { min: 0, max: 5 },
-        damage: { count: 1, dice: 4 },
-        features: [],
-      },
-      {
-        name: "Armored Skeleton",
-        level: 0.5,
-        size: "MEDIUM",
-        type: "Monster",
-        description: [
-          {
-            text: "A reanimated skeleton equipped with a rusted set of armor and weapons.",
-          },
-        ],
-        img: null,
-        health: 20,
-        armor: 12,
-        Stats: { mettle: -2, agility: -4, heart: -4, intellect: -4 },
-        speed: [{ type: "ground", speed: 20 }],
-        hit: 3,
-        range: { min: 0, max: 60 },
-        damage: { count: 1, dice: 4, flat: 2 },
-        features: [],
-      },
-      {
-        name: "Skeleton Juggernaut",
-        level: 0.5,
-        size: "LARGE",
-        type: "Boss",
-        description: [
-          {
-            text: "Extra enchantments and runes have infused this skeleton with more power.",
-          },
-        ],
-        img: null,
-        health: 20,
-        armor: 12,
-        Stats: { mettle: 0, agility: -4, heart: -4, intellect: -4 },
-        speed: [{ type: "ground", speed: 30 }],
-        hit: 3,
-        range: { min: 0, max: 80 },
-        damage: { count: 1, dice: 6, flat: 2 },
-        features: [],
-      },
-    ],
-  },
   {
     name: "Minotaur",
     level: 3,
@@ -89,6 +24,7 @@ const basicMonsters: MonsterList[] = [
     hit: 5,
     range: { min: 0, max: 20 },
     damage: { count: 1, dice: 12, flat: 5 },
+    tags: [MonsterTags.SKIRMISHER],
     features: [
       {
         title: "Charger",
@@ -101,70 +37,27 @@ const basicMonsters: MonsterList[] = [
       },
     ],
   },
-  {
-    name: "Goblins",
-    description: [
-      {
-        text: "Small, vile creatures with pointed features and a wicked inventiveness.",
-      },
-    ],
-    monsters: [
-      {
-        name: "Goblin",
-        level: 1,
-        size: "SMALL",
-        type: "Minion",
-        description: [
-          {
-            text: "A typical goblin, usually wielding a scavenged sword and a light bow.",
-          },
-        ],
-        img: null,
-        health: 12,
-        armor: 12,
-        Stats: { mettle: -1, agility: 2, heart: -2, intellect: -1 },
-        speed: [{ type: "ground", speed: 30 }],
-        hit: 3,
-        range: { min: 0, max: 60 },
-        damage: { count: 1, dice: 6, flat: 3 },
-        features: [],
-      },
-      {
-        name: "Goblin Scout",
-        level: 1,
-        size: "SMALL",
-        type: "Monster",
-        description: [
-          {
-            text: "Scouts tend to be more agile and use basic poisons to add some extra damage to their attacks.",
-          },
-        ],
-        img: null,
-        health: 17,
-        armor: 12,
-        Stats: { mettle: -1, agility: 3, heart: -2, intellect: 0 },
-        speed: [{ type: "ground", speed: 30 }],
-        hit: 4,
-        range: { min: 0, max: 60 },
-        damage: { count: 1, dice: 8, flat: 3, type: ["Rot"] },
-        features: [],
-      },
-    ],
-  },
+
   /* ===========================
      LEVEL 1 – BANDITS
      =========================== */
   {
-    name: "Roadside Bandits",
-    description: [{ text: "Desperate or cruel folk preying on travelers." }],
+    name: "Bandits",
+    description: [
+      {
+        text: "Desperate or cruel folk preying on travelers. They will happily use underhanded tricks and anything else to get the upper hand and live another day.",
+      },
+    ],
     monsters: [
       {
         name: "Bandit Cutpurse",
         level: 1,
         size: "MEDIUM",
         type: "Minion",
-        tags: ["Skirmisher"],
-        description: [{ text: "A fast-moving thief with a short blade." }],
+        tags: [MonsterTags.SKIRMISHER],
+        description: [
+          { text: "A fast-moving thief with a short blade and a few darts." },
+        ],
         health: 12,
         armor: 12,
         Stats: { mettle: 0, agility: 2, heart: -1, intellect: 0 },
@@ -179,7 +72,7 @@ const basicMonsters: MonsterList[] = [
         level: 1,
         size: "MEDIUM",
         type: "Monster",
-        tags: ["Bruiser"],
+        tags: [MonsterTags.BRUISER],
         description: [{ text: "A broad-shouldered thug who relies on force." }],
         health: 18,
         armor: 13,
@@ -200,6 +93,76 @@ const basicMonsters: MonsterList[] = [
           },
         ],
       },
+      {
+        name: "Bandit Hunter",
+        level: 1,
+        size: "MEDIUM",
+        type: "Monster",
+        tags: [MonsterTags.AMBUSHER],
+        description: [
+          {
+            text: "Even bandits need to eat, and hunters are usually the ones to get it.",
+          },
+        ],
+        health: 16,
+        armor: 13,
+        Stats: { mettle: -1, agility: 3, heart: 0, intellect: -1 },
+        speed: [{ type: "ground", speed: 30 }],
+        hit: 3,
+        range: { min: 0, max: 100 },
+        damage: { count: 1, dice: 8, flat: 3 },
+        features: [
+          {
+            title: "Sneak's Strike",
+            slug: "BANDIT-SNEAKS-STRIKE",
+            text: [
+              {
+                text: "When the Bandit Hunter is Hidden, their Attack Damage is increased by 2 Steps.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: "Bandit King",
+        level: 1,
+        size: "MEDIUM",
+        type: "Boss",
+        tags: [MonsterTags.LEADER],
+        description: [
+          {
+            text: "A self appointed king, they lead their little group, pillaging and stealing and taking what they need from those who can't stop them.",
+          },
+        ],
+        health: 22,
+        armor: 14,
+        Stats: { mettle: 2, agility: 0, heart: 2, intellect: -1 },
+        speed: [{ type: "ground", speed: 30 }],
+        hit: 4,
+        range: { min: 0, max: 60 },
+        damage: { count: 1, dice: 10, flat: 4 },
+        features: [
+          {
+            title: "Leaders Call",
+            slug: "BANDIT-LEADER",
+            text: [
+              {
+                text: "Other Bandits gain +5 Speed when moving towards the Bandit King.",
+              },
+            ],
+          },
+          {
+            title: "To Arms",
+            slug: "BANDIT-TO-ARMS",
+            actionType: "ACTION",
+            text: [
+              {
+                text: "When unengaged, as an Action, the Bandit King can increase the Damage Dice of all bandits within 120 ft. by 1 Dice Step.",
+              },
+            ],
+          },
+        ],
+      },
     ],
   },
 
@@ -211,7 +174,7 @@ const basicMonsters: MonsterList[] = [
     level: 2,
     size: "MEDIUM",
     type: "Monster",
-    tags: ["Ambusher"],
+    tags: [MonsterTags.AMBUSHER],
     description: [
       { text: "A half-formed humanoid that strikes from murky water." },
     ],
@@ -244,7 +207,7 @@ const basicMonsters: MonsterList[] = [
     level: 3,
     size: "SMALL",
     type: "Monster",
-    tags: ["Controller"],
+    tags: [MonsterTags.CONTROLLER],
     description: [{ text: "A floating stone marked with glowing runes." }],
     health: 21,
     armor: 14,
@@ -309,7 +272,7 @@ const basicMonsters: MonsterList[] = [
     level: 5,
     size: "MEDIUM",
     type: "Monster",
-    tags: ["Bruiser"],
+    tags: [MonsterTags.BRUISER],
     description: [{ text: "A massive predator crackling with static." }],
     health: 26,
     armor: 14,
@@ -343,7 +306,7 @@ const basicMonsters: MonsterList[] = [
         level: 6,
         size: "MEDIUM",
         type: "Monster",
-        tags: ["Defender"],
+        tags: [MonsterTags.BRUISER],
         description: [{ text: "A heavily armored frontline soldier." }],
         health: 26,
         armor: 14,
@@ -364,37 +327,6 @@ const basicMonsters: MonsterList[] = [
   },
 
   /* ===========================
-     LEVEL 7 – SPELL HUNTERS
-     =========================== */
-
-  {
-    name: "Magebreaker Stalker",
-    level: 7,
-    size: "MEDIUM",
-    type: "Monster",
-    tags: ["Skirmisher", "Anti-Magic"],
-    description: [{ text: "A silent killer armed with disruptor blades." }],
-    health: 26,
-    armor: 15,
-    Stats: { mettle: 3, agility: 3, heart: 1, intellect: 1 },
-    speed: [{ type: "ground", speed: 35 }],
-    hit: 6,
-    range: { min: 0, max: 5 },
-    damage: { count: 2, dice: 6, flat: 5 },
-    features: [
-      {
-        title: "Spell Disruption",
-        slug: "MAGEBREAKER-DISRUPT",
-        text: [
-          {
-            text: "On a hit, the target must spend +1 Stamina on their next spell.",
-          },
-        ],
-      },
-    ],
-  },
-
-  /* ===========================
      LEVEL 8 – BOSS
      =========================== */
   {
@@ -402,7 +334,7 @@ const basicMonsters: MonsterList[] = [
     level: 8,
     size: "GIGANTIC",
     type: "Boss",
-    tags: ["Controller", "Damage"],
+    tags: [MonsterTags.CONTROLLER, MonsterTags.SKIRMISHER],
     description: [{ text: "A towering figure wreathed in living lightning." }],
     health: 45,
     armor: 15,
@@ -429,5 +361,9 @@ const basicMonsters: MonsterList[] = [
     ],
   },
 ];
+basicMonsters.push(AnimatedItems);
+basicMonsters.push(Skeletons);
+basicMonsters.push(Goblins);
+basicMonsters.push(Orcs);
 
-export default basicMonsters;
+export default basicMonsters.sort();
