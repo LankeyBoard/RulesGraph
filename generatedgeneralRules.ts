@@ -504,15 +504,7 @@ const generalRules: GenericRule[] = [
     },],},]},
     {
     title: "Cover",
-    slug: "ERROR",ruleType: "RULE",text: [
-    {
-    text: "Cover",
-    type: "RULE"
-    },
-    {
-    text: "slug COVER",
-    type: "RULE"
-    },
+    slug: "COVER",ruleType: "RULE",text: [
     {
     text: "Attacks require a clear line from the attacker to the target. When the line is interrupted, it becomes harder to effectively hit and damage your target. A target has Cover if they are more than half hidden from the attacker. If the target has Cover, they gain +3 to their Armor and Counter for this attack.",
     type: "RULE"

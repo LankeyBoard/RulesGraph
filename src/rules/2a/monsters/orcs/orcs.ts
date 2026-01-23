@@ -1,13 +1,17 @@
 import { MonsterList } from "../../../../schema/types.generated";
-import { MonsterTags } from "../basicMonsters";
+import { MonsterTags } from "../MonsterTags";
 
-const orcs: MonsterList = {
+const Orcs: MonsterList = {
   name: "Orcs",
   description: [
     {
       text: "Orcs are large, they are green, and they are mean. They take what they want and leave destruction in their wake. They usually travel in small to medium war bands, but with the right leadership, their numbers can swell.",
     },
   ],
+  img: {
+    target:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/DnD_Orc.png/960px-DnD_Orc.png",
+  },
   monsters: [
     {
       name: "Orc Initiate",
@@ -26,12 +30,12 @@ const orcs: MonsterList = {
       speed: [{ type: "ground", speed: 30 }],
       hit: 4,
       range: { min: 0, max: 60 },
-      damage: { count: 1, dice: 10, flat: 4 },
+      damage: { count: 1, dice: 10, flat: 4, type: ["Piercing", "Slashing"] },
       features: [],
     },
     {
       name: "Orc Raider",
-      level: 1,
+      level: 3,
       size: "MEDIUM",
       type: "Monster",
       tags: [MonsterTags.BRUISER],
@@ -45,8 +49,38 @@ const orcs: MonsterList = {
       Stats: { mettle: 4, agility: 2, heart: -1, intellect: -2 },
       speed: [{ type: "ground", speed: 30 }],
       hit: 5,
+      range: { min: 0, max: 80 },
+      damage: { count: 1, dice: 10, flat: 5, type: ["Piercing", "Slashing"] },
+      features: [
+        {
+          title: "Worg Rider",
+          slug: "ORC-WORG-RIDER",
+          text: [
+            {
+              text: "While mounted on a Worg, the Orc Raider's Damage Dice is increased by 1 Step.",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "Worg",
+      level: 3,
+      size: "LARGE",
+      type: "Monster",
+      tags: [MonsterTags.MOUNT],
+      description: [
+        {
+          text: "Worgs are large, hiena like animals, covered in coarse gray and brown fur, with large strong jaws. They were bread by the orcs to act as equal parts attack dog and mount. They are ferocious and loyal to their orcs, but quick to snap at any perceived threat.",
+        },
+      ],
+      health: 21,
+      armor: 14,
+      Stats: { mettle: 3, agility: 3, heart: -2, intellect: -3 },
+      speed: [{ type: "ground", speed: 40 }],
+      hit: 5,
       range: { min: 0, max: 5 },
-      damage: { count: 1, dice: 10, flat: 5 },
+      damage: { count: 1, dice: 10, flat: 5, type: ["Piercing"] },
       features: [],
     },
     {
@@ -66,7 +100,7 @@ const orcs: MonsterList = {
       speed: [{ type: "ground", speed: 30 }],
       hit: 5,
       range: { min: 0, max: 100 },
-      damage: { count: 1, dice: 8, flat: 5 },
+      damage: { count: 1, dice: 8, flat: 5, type: ["Rot"] },
       features: [
         {
           title: "Invigorating Chant",
@@ -96,7 +130,7 @@ const orcs: MonsterList = {
       speed: [{ type: "ground", speed: 30 }],
       hit: 5,
       range: { min: 0, max: 120 },
-      damage: { count: 2, dice: 6, flat: 5 },
+      damage: { count: 2, dice: 6, flat: 5, type: ["Piercing", "Slashing"] },
       features: [
         {
           title: "Cleaving Strikes",
@@ -125,4 +159,4 @@ const orcs: MonsterList = {
   ],
 };
 
-export default orcs;
+export default Orcs;

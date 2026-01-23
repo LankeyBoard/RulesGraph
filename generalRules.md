@@ -447,7 +447,7 @@ Dropping [prone](/rules/player_rules#PRONE) is a free action. Standing up from [
 
 ## Cover
 
-slug COVER
+slug: COVER
 
 ruleType: RULE\
 Attacks require a clear line from the attacker to the target. When the line is interrupted, it becomes harder to effectively hit and damage your target. A target has Cover if they are more than half hidden from the attacker. If the target has Cover, they gain +3 to their Armor and Counter for this attack.

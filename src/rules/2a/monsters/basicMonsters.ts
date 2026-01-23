@@ -1,87 +1,11 @@
 import { MonsterList } from "../../../schema/types.generated";
-import orcs from "./orcs/orcs";
-
-export enum MonsterTags {
-  SKIRMISHER = "Skirmisher",
-  BRUISER = "Bruiser",
-  CONTROLLER = "Controller",
-  SUPPORT = "Support",
-  LEADER = "Leader",
-  AMBUSHER = "Ambusher",
-}
+import AnimatedItems from "./animatedItems/animatedItems";
+import Goblins from "./goblins/goblins";
+import { MonsterTags } from "./MonsterTags";
+import Orcs from "./orcs/orcs";
+import Skeletons from "./undead/skeletons";
 
 const basicMonsters: MonsterList[] = [
-  {
-    name: "Skeletons",
-    description: [
-      {
-        text: "Skeletons are reanimated bones, suitable for low level adventures.",
-      },
-    ],
-    monsters: [
-      {
-        name: "Skeleton",
-        level: 0.5,
-        size: "MEDIUM",
-        type: "Minion",
-        description: [
-          {
-            text: "A reanimated skeleton. It has limited senses and follows exactly the commands of its creator.",
-          },
-        ],
-        img: null,
-        health: 10,
-        armor: 10,
-        Stats: { mettle: -2, agility: -4, heart: -4, intellect: -4 },
-        speed: [{ type: "ground", speed: 20 }],
-        hit: 2,
-        range: { min: 0, max: 5 },
-        damage: { count: 1, dice: 4 },
-        features: [],
-      },
-      {
-        name: "Armored Skeleton",
-        level: 0.5,
-        size: "MEDIUM",
-        type: "Monster",
-        description: [
-          {
-            text: "A reanimated skeleton equipped with a rusted set of armor and weapons.",
-          },
-        ],
-        img: null,
-        health: 20,
-        armor: 12,
-        Stats: { mettle: -2, agility: -4, heart: -4, intellect: -4 },
-        speed: [{ type: "ground", speed: 20 }],
-        hit: 3,
-        range: { min: 0, max: 60 },
-        damage: { count: 1, dice: 4, flat: 2 },
-        features: [],
-      },
-      {
-        name: "Skeleton Juggernaut",
-        level: 0.5,
-        size: "LARGE",
-        type: "Boss",
-        description: [
-          {
-            text: "Extra enchantments and runes have infused this skeleton with more power.",
-          },
-        ],
-        img: null,
-        health: 20,
-        armor: 12,
-        Stats: { mettle: 0, agility: -4, heart: -4, intellect: -4 },
-        speed: [{ type: "ground", speed: 30 }],
-        hit: 3,
-        range: { min: 0, max: 80 },
-        damage: { count: 1, dice: 6, flat: 2 },
-        tags: [MonsterTags.BRUISER],
-        features: [],
-      },
-    ],
-  },
   {
     name: "Minotaur",
     level: 3,
@@ -113,57 +37,7 @@ const basicMonsters: MonsterList[] = [
       },
     ],
   },
-  {
-    name: "Goblins",
-    description: [
-      {
-        text: "Small, vile creatures with pointed features and a wicked inventiveness.",
-      },
-    ],
-    monsters: [
-      {
-        name: "Goblin",
-        level: 1,
-        size: "SMALL",
-        type: "Minion",
-        description: [
-          {
-            text: "A typical goblin, usually wielding a scavenged sword and a light bow.",
-          },
-        ],
-        img: null,
-        health: 12,
-        armor: 12,
-        Stats: { mettle: -1, agility: 2, heart: -2, intellect: -1 },
-        speed: [{ type: "ground", speed: 30 }],
-        hit: 3,
-        range: { min: 0, max: 60 },
-        damage: { count: 1, dice: 6, flat: 3 },
-        features: [],
-      },
-      {
-        name: "Goblin Scout",
-        level: 1,
-        size: "SMALL",
-        type: "Monster",
-        description: [
-          {
-            text: "Scouts tend to be more agile and use basic poisons to add some extra damage to their attacks.",
-          },
-        ],
-        img: null,
-        health: 17,
-        armor: 12,
-        Stats: { mettle: -1, agility: 3, heart: -2, intellect: 0 },
-        speed: [{ type: "ground", speed: 30 }],
-        hit: 4,
-        range: { min: 0, max: 60 },
-        damage: { count: 1, dice: 8, flat: 3, type: ["Rot"] },
-        tags: [MonsterTags.AMBUSHER],
-        features: [],
-      },
-    ],
-  },
+
   /* ===========================
      LEVEL 1 – BANDITS
      =========================== */
@@ -487,7 +361,9 @@ const basicMonsters: MonsterList[] = [
     ],
   },
 ];
-
-basicMonsters.push(orcs);
+basicMonsters.push(AnimatedItems);
+basicMonsters.push(Skeletons);
+basicMonsters.push(Goblins);
+basicMonsters.push(Orcs);
 
 export default basicMonsters.sort();
