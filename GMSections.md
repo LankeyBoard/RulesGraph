@@ -124,14 +124,32 @@ slug: ITEMS
 | Torch                   | 1    | 0     | Emits Bright light in a 20 ft. sphere. A strong breeze or water puts the flame out.                                                                                  |
 | Waterproof Fire Starter | 1    | 0     | A small box of waterproof matches or alchemical fire starter.                                                                                                        |
 
+## Lodging & Lifestyle
+
+slug: LODGING
+
+| Name                     | Cost     | Slots | Description                                                                      |
+| ------------------------ | -------- | ----- | :------------------------------------------------------------------------------- |
+| Inn (per night)          | 1        | -     | A warm bed, a basic meal, and safety for a Night's Rest.                         |
+| Fine Inn (per night)     | 3        | -     | Comfortable accommodations in a private room and good meals.                     |
+| Fine Dining (per person) | 1        | -     | An excellent meal at an upscale establishment.                                   |
+| Fine Clothing            | 10       | 1     | A well made outfit fitted and tailored, suitable for formal occasions.           |
+| Common Clothing          | 1        | 1     | A practical outfit suited for adventure as well as walking around town.          |
+| Jewelry                  | 5 - 100+ | 0     | Decorative and valuable. Can be sold or used as collateral.                      |
+| Book (Common)            | 0        | 0     | Contains general knowledge, poetry, stories, etc.                                |
+| Book (Uncommon)          | 3        | 0     | Contains specialized knowledge, rare histories or some other uncommon knowledge. |
+| Book (Rare)              | 20 +     | 1     | Only available in the largest of cities. One of a kind tomes and manuscripts.    |
+
 ## Services
 
 slug: SERVICES
 
-| Name               | Cost | Description                                                                                          |
-| ------------------ | ---- | ---------------------------------------------------------------------------------------------------- |
-| Armor Improvement  | 7    | Increase the benefits of your armor by 1.                                                            |
-| Weapon Improvement | 4    | Increase the Damage or Attack of your weapon by 1. Each weapon can only be improved this way 1 time. |
+| Name                | Cost | Description                                                                                                  |
+| ------------------- | ---- | ------------------------------------------------------------------------------------------------------------ |
+| Armor Improvement   | 7    | Increase the benefits of your armor by 1.                                                                    |
+| Weapon Improvement  | 4    | Increase the Damage or Attack of your weapon by 1. Each weapon can only be improved this way 1 time.         |
+| Spa Treatment       | 5    | Spend a day rejuvenating at the spa, reduce the time needed to complete a Rest and Recuperation by two days. |
+| Commission Portrait | 8    | An artist paints your portrait. Takes several days.                                                          |
 
 # Resources
 

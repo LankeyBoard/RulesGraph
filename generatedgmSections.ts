@@ -103,10 +103,17 @@ const gmSections: GenericRule[] = [
     type: "RULE"
     },],},
     {
+    title: "Lodging & Lifestyle",
+    slug: "LODGING",text: [
+    {
+    text: "| Name                     | Cost     | Slots | Description                                                                      |\n| ------------------------ | -------- | ----- | :------------------------------------------------------------------------------- |\n| Inn (per night)          | 1        | -     | A warm bed, a basic meal, and safety for a Night's Rest.                         |\n| Fine Inn (per night)     | 3        | -     | Comfortable accommodations in a private room and good meals.                     |\n| Fine Dining (per person) | 1        | -     | An excellent meal at an upscale establishment.                                   |\n| Fine Clothing            | 10       | 1     | A well made outfit fitted and tailored, suitable for formal occasions.           |\n| Common Clothing          | 1        | 1     | A practical outfit suited for adventure as well as walking around town.          |\n| Jewelry                  | 5 - 100+ | 0     | Decorative and valuable. Can be sold or used as collateral.                      |\n| Book (Common)            | 0        | 0     | Contains general knowledge, poetry, stories, etc.                                |\n| Book (Uncommon)          | 3        | 0     | Contains specialized knowledge, rare histories or some other uncommon knowledge. |\n| Book (Rare)              | 20 +     | 1     | Only available in the largest of cities. One of a kind tomes and manuscripts.    |",
+    type: "RULE"
+    },],},
+    {
     title: "Services",
     slug: "SERVICES",text: [
     {
-    text: "| Name               | Cost | Description                                                                                          |\n| ------------------ | ---- | ---------------------------------------------------------------------------------------------------- |\n| Armor Improvement  | 7    | Increase the benefits of your armor by 1.                                                            |\n| Weapon Improvement | 4    | Increase the Damage or Attack of your weapon by 1. Each weapon can only be improved this way 1 time. |",
+    text: "| Name                | Cost | Description                                                                                                  |\n| ------------------- | ---- | ------------------------------------------------------------------------------------------------------------ |\n| Armor Improvement   | 7    | Increase the benefits of your armor by 1.                                                                    |\n| Weapon Improvement  | 4    | Increase the Damage or Attack of your weapon by 1. Each weapon can only be improved this way 1 time.         |\n| Spa Treatment       | 5    | Spend a day rejuvenating at the spa, reduce the time needed to complete a Rest and Recuperation by two days. |\n| Commission Portrait | 8    | An artist paints your portrait. Takes several days.                                                          |",
     type: "RULE"
     },],},]},
     {
