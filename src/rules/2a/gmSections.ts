@@ -2,7 +2,7 @@ import { GenericRule } from "../../schema/types.generated";
 const gmSections: GenericRule[] = [
   {
     title: "The Basics",
-    slug: ":GM-BASICS",
+    slug: "GM-BASICS",
     text: [
       {
         text: "Fortune's Favor is a game for playing fantasy stories of a band of adventurers going out and changing the world. As the Game Master (GM), your role is to set up the events, respond to players actions and adjudicate the rules for your table.",
@@ -114,23 +114,63 @@ const gmSections: GenericRule[] = [
                 text: "For each character on the Player's side, there should be 1 Monster of the same level. 2 Minions can be used in place of 1 Monster, or 1 Boss can be used in place of 2 Monsters.\nThese stat's assume 5 encounters per Rest & Recuperation. If you have less encounters, you will need to add either more enemies or increase the damage of the enemies.",
                 type: "RULE",
               },
-
-              {
-                text: "When making your own monsters, use the following table as a reference. Minions should be weaker with less health, and Bosses should be stronger and usually have some unique feature to set them apart.",
-              },
-              {
-                text: `|        | Level 1 | Level 2 | Level 3 | Level 4 | Level 5 | Level 6 | Level 7 | Level 8 |
-| ------ | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- |
-| Attack | 4       | 4       | 5       | 5       | 5       | 6       | 6       | 6       |
-| Dmg    | 1d8+4   | 1d10+4  | 1d10+5  | 1d12+5  | 1d12+5  | 2d6+6   | 2d6+6   | 2d8+6   |
-| Armor  | 12      | 13      | 13      | 14      | 14      | 14      | 14      | 15      |
-| HP     | 17      | 18      | 21      | 21      | 21      | 26      | 26      | 27      |
-`,
-              },
-              {
-                text: "Visit [the beastiary](/monsters) for examples of monsters",
-              },
             ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Treasure & Other Rewards",
+    slug: "TREASURE",
+    text: [
+      {
+        text: "As characters go on adventures they will inevitably end up with Coin and be looking for things to spend it on. Some players will seek out only mechanically beneficial items, while others will take an interest in cosmetic or socially beneficial items. If your players tend to only look for mechanical benefit. I would recommend increasing some of these costs, and providing more consumable items to give them things to spend coin on without becoming overpowered.",
+        type: "RULE",
+      },
+      {
+        text: "These prices are just baselines and should be adjusted up or down depending on your world and game.",
+        type: "RULE",
+      },
+    ],
+    subRules: [
+      {
+        title: "Consumables",
+        slug: "CONSUMABLES",
+        text: [
+          {
+            text: "| Name            | Cost | Slots | Description                                                                                                                                                                                                                                                                |\n| --------------- | ---- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| Bandages        | 2    | 1     | When you take a Night's Rest apply bandages and salves, regain an additional 2 Health.                                                                                                                                                                                     |\n| Caltrops        | 1    | 1     | Scatter in a 10ft area circle. Th area either causes the creature to be Slowed, or they take 1d6 Piercing Damage for every 5 ft. they move. Creatures choice.                                                                                                              |\n| Damage Grease   | 3    | 0     | Can be available in any non-physical damage. It takes 1 minute to apply grease to a weapon. When applied the weapon deals an extra 1d4 Damage of the greases type for the next combat the weapon is used in or after 24 hours.                                             |\n| Flash Powder x3 | 2    | 1     | As an Action, toss the powder up to 15 ft. away. Creatures within a 5 ft. radius take an Agility Test (12/7) On a Fail they are Blind until the end of their next turn. On a Mixed, they are Rattled.                                                                      |\n| Healing Potion  | 10   | 1     | When drunk, heals 2d4 Health                                                                                                                                                                                                                                               |\n| Smoke Bomb x3   | 2    | 1     | As an Action, toss the bombs up to 30 ft. away, causing a fast acting smoke to expand from the point of impact.. A 15ft. radius area is instantly obscured, creatures inside are Hidden and Blind. After 4 Rounds (2 Minutes) or a strong wind the area returns to normal. |\n| Supplies        | 1    | 1     | Supplies represent an item or set of mundane items that a standard adventurer is likely to have with them.                                                                                                                                                                 |",
+            type: "RULE",
+          },
+        ],
+      },
+      {
+        title: "Items",
+        slug: "ITEMS",
+        text: [
+          {
+            text: "| Name                    | Cost | Slots | Description                                                                                                                                                          |\n| ----------------------- | ---- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| All Weather Tent        | 2    | 0     | Fits 2 Medium creatures and their gear. Keeps them warm and dry in the harshest environments.                                                                        |\n| Bullseye Lantern        | 2    | 0     | Emits Bright light in a 60 ft. by 5 ft. line. and dim light for an additional 20 ft. forward and 5 ft. to the side.                                                  |\n| Climbing Gear           | 1    | 1     | A set of ropes, spikes and other tools to aid in climbing. Grants +3 on Tests to climb.                                                                              |\n| Horse                   | 3    | 0     | Upkeep 1 Coin per Month.                                                                                                                                             |\n| Tangle Net              | 1    | 1     | Make a Ranged 30ft. (Agility) Attack. On hit target is Pinned until they use an Action to Escape. On a Mixed, they are Entangled until the start of their next turn. |\n| Torch                   | 1    | 0     | Emits Bright light in a 20 ft. sphere. A strong breeze or water puts the flame out.                                                                                  |\n| Waterproof Fire Starter | 1    | 0     | A small box of waterproof matches or alchemical fire starter.                                                                                                        |",
+            type: "RULE",
+          },
+        ],
+      },
+      {
+        title: "Lodging & Lifestyle",
+        slug: "LODGING",
+        text: [
+          {
+            text: "| Name                     | Cost     | Slots | Description                                                                      |\n| ------------------------ | -------- | ----- | :------------------------------------------------------------------------------- |\n| Inn (per night)          | 1        | -     | A warm bed, a basic meal, and safety for a Night's Rest.                         |\n| Fine Inn (per night)     | 3        | -     | Comfortable accommodations in a private room and good meals.                     |\n| Fine Dining (per person) | 1        | -     | An excellent meal at an upscale establishment.                                   |\n| Fine Clothing            | 10       | 1     | A well made outfit fitted and tailored, suitable for formal occasions.           |\n| Common Clothing          | 1        | 1     | A practical outfit suited for adventure as well as walking around town.          |\n| Jewelry                  | 5 - 100+ | 0     | Decorative and valuable. Can be sold or used as collateral.                      |\n| Book (Common)            | 0        | 0     | Contains general knowledge, poetry, stories, etc.                                |\n| Book (Uncommon)          | 3        | 0     | Contains specialized knowledge, rare histories or some other uncommon knowledge. |\n| Book (Rare)              | 20 +     | 1     | Only available in the largest of cities. One of a kind tomes and manuscripts.    |",
+            type: "RULE",
+          },
+        ],
+      },
+      {
+        title: "Services",
+        slug: "SERVICES",
+        text: [
+          {
+            text: "| Name                | Cost | Description                                                                                                  |\n| ------------------- | ---- | ------------------------------------------------------------------------------------------------------------ |\n| Armor Improvement   | 7    | Increase the benefits of your armor by 1.                                                                    |\n| Weapon Improvement  | 4    | Increase the Damage or Attack of your weapon by 1. Each weapon can only be improved this way 1 time.         |\n| Spa Treatment       | 5    | Spend a day rejuvenating at the spa, reduce the time needed to complete a Rest and Recuperation by two days. |\n| Commission Portrait | 8    | An artist paints your portrait. Takes several days.                                                          |",
+            type: "RULE",
           },
         ],
       },

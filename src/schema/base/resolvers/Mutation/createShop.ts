@@ -1,3 +1,4 @@
+import { GraphQLError } from "graphql/error";
 import type { MutationResolvers } from "../../../types.generated";
 
 export const createShop: NonNullable<MutationResolvers['createShop']> = async (
@@ -15,57 +16,68 @@ export const createShop: NonNullable<MutationResolvers['createShop']> = async (
   if (!input) {
     throw new Error("Shop info must be provided");
   }
-  // Create the ItemShop in the database
-  const newShop = await ctx.prisma.itemShop.create({
-    data: {
-      name: input.name,
-      description: input.description,
-      createdBy: { connect: ctx.currentUser },
-      ItemsStockedByShop: {
-        create: input.itemsInStock.map((item) => ({
-          salePrice: item?.salePrice,
-          item: {
-            create: {
-              ...item,
-              uses: item?.uses
-                ? {
-                    used: item.uses.used,
-                    max: item.uses.max,
-                    rechargeOn: item.uses.rechargeOn,
-                  }
-                : undefined,
-              text: {
-                create: item?.text.map((ruleText) => ({
-                  text: ruleText?.text,
-                  type: ruleText?.type,
-                  choice: ruleText?.choices || [],
-                })),
+  try {
+    // Create the ItemShop in the database
+    const newShop = await ctx.prisma.itemShop.create({
+      data: {
+        name: input.name,
+        description: input.description,
+        createdBy: { connect: ctx.currentUser },
+        ItemsStockedByShop: {
+          create: input.itemsInStock.map((item) => {
+            // salePrice belongs to the join model; don't pass it into Item.create
+            const { salePrice, ...itemData } = item || {};
+            return {
+              salePrice: salePrice,
+              item: {
+                create: {
+                  ...itemData,
+                  uses: item?.uses
+                    ? {
+                        used: item.uses.used,
+                        max: item.uses.max,
+                        rechargeOn: item.uses.rechargeOn,
+                      }
+                    : undefined,
+                  text: {
+                    create: item?.text.map((ruleText) => ({
+                      text: ruleText?.text,
+                      type: ruleText?.type,
+                      choice: ruleText?.choices || [],
+                    })),
+                  },
+                },
               },
+            };
+          }),
+        },
+        itemsCouldStock: {
+          create: input.itemsCouldStock.map((item) => ({
+            ...item,
+            uses: item?.uses
+              ? {
+                  used: item.uses.used,
+                  max: item.uses.max,
+                  rechargeOn: item.uses.rechargeOn,
+                }
+              : undefined,
+            text: {
+              create: item?.text.map((ruleText) => ({
+                text: ruleText?.text,
+                type: ruleText?.type,
+                choice: ruleText?.choices || [],
+              })),
             },
-          },
-        })),
+          })),
+        },
       },
-      itemsCouldStock: {
-        create: input.itemsCouldStock.map((item) => ({
-          ...item,
-          uses: item?.uses
-            ? {
-                used: item.uses.used,
-                max: item.uses.max,
-                rechargeOn: item.uses.rechargeOn,
-              }
-            : undefined,
-          text: {
-            create: item?.text.map((ruleText) => ({
-              text: ruleText?.text,
-              type: ruleText?.type,
-              choice: ruleText?.choices || [],
-            })),
-          },
-        })),
-      },
-    },
-  });
-  console.debug("New shop created", newShop);
-  return newShop;
+    });
+
+    console.debug("New shop created", newShop);
+    return newShop;
+  } catch (error) {
+    console.error(error);
+    if (error instanceof Error)
+      return new GraphQLError(`${error.name}: ${error.message}`);
+  }
 };
