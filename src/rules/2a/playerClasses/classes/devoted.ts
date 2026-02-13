@@ -215,7 +215,7 @@ const devoted: CharacterClass = {
       ],
     },
   ],
-  availableSpells: spells.filter((spell) =>
+  possibleSpells: spells.filter((spell) =>
     spell.type.includes(SpellType.DIVINE),
   ),
 };
