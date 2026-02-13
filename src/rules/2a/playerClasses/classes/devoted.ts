@@ -1,4 +1,5 @@
 import { CharacterClass } from "../../../../schema/types.generated";
+import spells, { SpellType } from "../../spells/spells";
 
 const devoted: CharacterClass = {
   title: "Devoted",
@@ -214,6 +215,9 @@ const devoted: CharacterClass = {
       ],
     },
   ],
+  possibleSpells: spells.filter((spell) =>
+    spell.type.includes(SpellType.DIVINE),
+  ),
 };
 
 export default devoted;

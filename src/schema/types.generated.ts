@@ -127,7 +127,7 @@ export type Character = {
   rangeMin: Scalars['Int']['output'];
   shieldName: Scalars['String']['output'];
   slots: Scalars['Int']['output'];
-  spells: Array<Maybe<Spell>>;
+  spells?: Maybe<Array<Maybe<Spell>>>;
   veteranFeatures: Array<Maybe<GenericFeature>>;
 };
 
@@ -144,6 +144,7 @@ export type CharacterClass = Rule & {
   healthOnLevel: Scalars['Int']['output'];
   href?: Maybe<Scalars['String']['output']>;
   img?: Maybe<Img>;
+  possibleSpells?: Maybe<Array<Maybe<Spell>>>;
   range: Range;
   shortTitle?: Maybe<Scalars['String']['output']>;
   slug: Scalars['String']['output'];
@@ -1279,7 +1280,7 @@ export type CharacterResolvers<ContextType = any, ParentType extends ResolversPa
   rangeMin?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   shieldName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   slots?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  spells?: Resolver<Array<Maybe<ResolversTypes['Spell']>>, ParentType, ContextType>;
+  spells?: Resolver<Maybe<Array<Maybe<ResolversTypes['Spell']>>>, ParentType, ContextType>;
   veteranFeatures?: Resolver<Array<Maybe<ResolversTypes['GenericFeature']>>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
@@ -1296,6 +1297,7 @@ export type CharacterClassResolvers<ContextType = any, ParentType extends Resolv
   healthOnLevel?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   href?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   img?: Resolver<Maybe<ResolversTypes['Img']>, ParentType, ContextType>;
+  possibleSpells?: Resolver<Maybe<Array<Maybe<ResolversTypes['Spell']>>>, ParentType, ContextType>;
   range?: Resolver<ResolversTypes['Range'], ParentType, ContextType>;
   shortTitle?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;

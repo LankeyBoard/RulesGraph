@@ -30,4 +30,7 @@ export const Character: CharacterResolvers = {
           return accumulator;
         }, 0);
   },
+  spells: (parent) => parent.spells || [],
+  noviceFeatures: (parent) => parent.noviceFeatures || [],
+  veteranFeatures: (parent) => parent.veteranFeatures || [],
 };

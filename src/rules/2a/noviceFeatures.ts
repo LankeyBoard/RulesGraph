@@ -114,6 +114,7 @@ const NoviceFeatures: GenericFeature[] = [
       { choiceRule: { text: "Religion" }, isChosen: false },
     ],
     multiSelect: true,
+    chooseNum: 1,
   },
   {
     title: "Linguist",

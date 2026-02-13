@@ -1,4 +1,5 @@
 import { CharacterClass } from "../../../../schema/types.generated";
+import spells, { SpellType } from "../../spells/spells";
 
 const wizard: CharacterClass = {
   title: "Wizard",
@@ -231,6 +232,9 @@ const wizard: CharacterClass = {
       ],
     },
   ],
+  possibleSpells: spells.filter((spell) =>
+    spell.type.includes(SpellType.ARCANE),
+  ),
 };
 
 export default wizard;
