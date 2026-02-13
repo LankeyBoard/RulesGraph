@@ -1,6 +1,6 @@
 import { Spell } from "../../../schema/types.generated";
 
-enum SpellType {
+export enum SpellType {
   ARCANE = "Arcane",
   DIVINE = "Divine",
   NATURE = "Nature",
@@ -317,6 +317,11 @@ const spells: Spell[] = [
     description:
       "Create a 10 ft. tall 10 ft. wide gate within range. When an allies physical ranged attack passes through the gate it gets accelerated, dealing an extra 1d6 + your spellcasting modifier. You can spend 2 Stamina to increase the extra damage by one Step. You can do this a number of times equal to your spellcasting modifier.",
   },
-];
+].sort((a, b) => {
+  if (a.level !== b.level) {
+    return a.level - b.level;
+  }
+  return a.name.localeCompare(b.name);
+});
 
 export default spells;

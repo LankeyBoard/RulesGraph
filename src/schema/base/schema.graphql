@@ -434,6 +434,7 @@ type CharacterClass implements Rule {
   extra: CharacterExtras
   variants: [CharacterClassVariant]
   img: Img
+  availableSpells: [Spell]
 }
 
 type CharacterClassVariant implements Rule {
@@ -564,7 +565,8 @@ type Character {
   rangeMax: Int!
   slots: Int!
   maxSlots: Int!
-  spells: [Spell]!
+  spells: [Spell]
+  possibleSpells: [Spell]
   noviceFeatures: [GenericFeature]!
   veteranFeatures: [GenericFeature]!
 }

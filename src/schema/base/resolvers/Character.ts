@@ -1,3 +1,4 @@
+import spells, { SpellType } from "../../../rules/2a/spells/spells";
 import type { CharacterResolvers } from "./../../types.generated";
 
 export const Character: CharacterResolvers = {
@@ -30,4 +31,16 @@ export const Character: CharacterResolvers = {
           return accumulator;
         }, 0);
   },
+  spells: (parent) => parent.spells || [],
+  possibleSpells: (parent) => {
+    if (parent.characterClass.slug === "DEVOTED") {
+      return spells.filter((s) => s.type.includes(SpellType.DIVINE));
+    }
+    if (parent.characterClass.slug === "WIZARD") {
+      return spells.filter((s) => s.type.includes(SpellType.ARCANE));
+    }
+    return;
+  },
+  noviceFeatures: (parent) => parent.noviceFeatures || [],
+  veteranFeatures: (parent) => parent.veteranFeatures || [],
 };

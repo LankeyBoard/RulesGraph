@@ -1,9 +1,11 @@
 import noviceFeatures from "../rules/2a/noviceFeatures";
+import spells from "../rules/2a/spells/spells";
 import veteranFeatures from "../rules/2a/veteranFeatures";
 import type {
   CharacterClassFeature,
   Character,
   GenericFeature,
+  Spell,
 } from "../schema/types.generated";
 
 /**
@@ -57,10 +59,10 @@ export const applyCharacterChoices = (
     return character;
   }
 
-  const characterNoviceFeatures = chosen.noviceFeatures?.map((featureSlug) =>
+  const characterNoviceFeatures = chosen.noviceFeature?.map((featureSlug) =>
     noviceFeatures.find((f) => f.slug === featureSlug),
   );
-  const characterVeteranFeatures = chosen.veteranFeatures?.map((featureSlug) =>
+  const characterVeteranFeatures = chosen.veteranFeature?.map((featureSlug) =>
     veteranFeatures.find((f) => f.slug === featureSlug),
   );
   const updatedClassFeatures = character.characterClass?.features?.map(
@@ -87,6 +89,9 @@ export const applyCharacterChoices = (
       if (!chosenForFeature) return feature;
       return updateFeatureChoices(feature, chosenForFeature);
     }) as GenericFeature[];
+  const characterSpells: Spell[] = chosen.spells
+    ?.map((spellName) => spells.find((s) => s.name === spellName))
+    .filter((s) => s !== undefined);
 
   return {
     ...character,
@@ -104,5 +109,6 @@ export const applyCharacterChoices = (
     },
     noviceFeatures: characterNoviceFeatures,
     veteranFeatures: characterVeteranFeatures,
+    spells: characterSpells,
   };
 };
