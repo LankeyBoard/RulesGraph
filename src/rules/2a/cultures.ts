@@ -9,6 +9,10 @@ const culturesData: Culture[] = [
     ],
     stat: "+1 to Mettle or Heart",
     languages: "Allspeak & Dwarvish",
+    img: {
+      target:
+        "https://upload.wikimedia.org/wikipedia/commons/f/fa/D%C3%A9sir%C3%A9_Mathieu_Quesnel%2C_Jules_F%C3%A9rat_-_Sulphur_-_A_sulphur_mine_in_Girgenti_%28a.k.a.Agrigento%29_Sicily_-_engraving_in_Les_merveilles_de_l%27industrie%2C_vol._4.jpg",
+    },
     traits: [
       {
         title: "A Sense of Value",
@@ -91,6 +95,11 @@ const culturesData: Culture[] = [
     stat: "+1 to Heart or Mettle",
     languages:
       "Allspeak and one language of your choice based on the regions most traveled in.",
+    img: {
+      target:
+        "https://upload.wikimedia.org/wikipedia/commons/8/8b/SEP_1917-05-17_P_06-07--No_Mean_City--String_of_wagons_crawled_over_the_dessert.jpg",
+      style: "w-full md:w-full",
+    },
     traits: [
       {
         title: "Natural Navigator",
@@ -235,8 +244,8 @@ const culturesData: Culture[] = [
     ],
     img: {
       target:
-        "https://upload.wikimedia.org/wikipedia/commons/0/07/Page_193_illustration_in_More_English_Fairy_Tales.png",
-      style: "md:w-1/4",
+        "https://upload.wikimedia.org/wikipedia/commons/9/99/Annandale_Farm_Samuel_Elyard_1877.jpg",
+      style: "w-1/2 md:w-1/4",
     },
     stat: "+1 to Mettle or Heart",
     languages: "Allspeak",
