@@ -1,3 +1,4 @@
+import { enrichEncounterMonstersWithRuleData } from "../../../../extras/enrichEncounterMonsters";
 import findClass from "../../../../extras/findClassWithSlug";
 import findCulture from "../../../../extras/findCultureWithSlug";
 import findLineage from "../../../../extras/findLineageWithSlug";
@@ -19,6 +20,7 @@ export const me: NonNullable<QueryResolvers['me']> = async (
       createdCampaigns: true,
       createdItemShops: true,
       characters: true,
+      encounters: true,
     },
   });
 
@@ -41,6 +43,7 @@ export const me: NonNullable<QueryResolvers['me']> = async (
       );
     },
   );
+  console.debug(user, "User returned from db");
   user.characters = user.characters.map(
     (character: {
       campaign: unknown;
@@ -85,6 +88,15 @@ export const me: NonNullable<QueryResolvers['me']> = async (
         character.characterCulture
       );
     },
+  );
+
+  user.createdEncounters = user.encounters.map(
+    (encounter: { monsters: unknown[] }) => ({
+      ...encounter,
+      monsters: encounter.monsters
+        ? enrichEncounterMonstersWithRuleData(encounter.monsters)
+        : [],
+    }),
   );
 
   console.debug("User found", user);

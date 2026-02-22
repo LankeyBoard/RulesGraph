@@ -18,6 +18,8 @@ import    { CultureVariant } from './base/resolvers/CultureVariant';
 import    { Damage } from './base/resolvers/Damage';
 import    { Deflect } from './base/resolvers/Deflect';
 import    { Effect } from './base/resolvers/Effect';
+import    { Encounter } from './base/resolvers/Encounter';
+import    { EncounterMonster } from './base/resolvers/EncounterMonster';
 import    { FeatureWithoutChoices } from './base/resolvers/FeatureWithoutChoices';
 import    { GenericFeature } from './base/resolvers/GenericFeature';
 import    { GenericRule } from './base/resolvers/GenericRule';
@@ -33,10 +35,12 @@ import    { addCharacterToCampaign as Mutation_addCharacterToCampaign } from './
 import    { addShopToCampaign as Mutation_addShopToCampaign } from './base/resolvers/Mutation/addShopToCampaign';
 import    { createCampaign as Mutation_createCampaign } from './base/resolvers/Mutation/createCampaign';
 import    { createCharacter as Mutation_createCharacter } from './base/resolvers/Mutation/createCharacter';
+import    { createEncounter as Mutation_createEncounter } from './base/resolvers/Mutation/createEncounter';
 import    { createShop as Mutation_createShop } from './base/resolvers/Mutation/createShop';
 import    { createUser as Mutation_createUser } from './base/resolvers/Mutation/createUser';
 import    { deleteCampaign as Mutation_deleteCampaign } from './base/resolvers/Mutation/deleteCampaign';
 import    { deleteCharacter as Mutation_deleteCharacter } from './base/resolvers/Mutation/deleteCharacter';
+import    { deleteEncounter as Mutation_deleteEncounter } from './base/resolvers/Mutation/deleteEncounter';
 import    { deleteShop as Mutation_deleteShop } from './base/resolvers/Mutation/deleteShop';
 import    { forgotPassword as Mutation_forgotPassword } from './base/resolvers/Mutation/forgotPassword';
 import    { login as Mutation_login } from './base/resolvers/Mutation/login';
@@ -46,6 +50,7 @@ import    { sellItem as Mutation_sellItem } from './base/resolvers/Mutation/sell
 import    { setPassword as Mutation_setPassword } from './base/resolvers/Mutation/setPassword';
 import    { updateCampaign as Mutation_updateCampaign } from './base/resolvers/Mutation/updateCampaign';
 import    { updateCharacter as Mutation_updateCharacter } from './base/resolvers/Mutation/updateCharacter';
+import    { updateEncounter as Mutation_updateEncounter } from './base/resolvers/Mutation/updateEncounter';
 import    { updateMe as Mutation_updateMe } from './base/resolvers/Mutation/updateMe';
 import    { updateShop as Mutation_updateShop } from './base/resolvers/Mutation/updateShop';
 import    { MyCampaignsResult } from './base/resolvers/MyCampaignsResult';
@@ -58,11 +63,13 @@ import    { campaign as Query_campaign } from './base/resolvers/Query/campaign';
 import    { character as Query_character } from './base/resolvers/Query/character';
 import    { characterClasses as Query_characterClasses } from './base/resolvers/Query/characterClasses';
 import    { cultures as Query_cultures } from './base/resolvers/Query/cultures';
+import    { encounter as Query_encounter } from './base/resolvers/Query/encounter';
 import    { genericRules as Query_genericRules } from './base/resolvers/Query/genericRules';
 import    { itemShop as Query_itemShop } from './base/resolvers/Query/itemShop';
 import    { lineages as Query_lineages } from './base/resolvers/Query/lineages';
 import    { me as Query_me } from './base/resolvers/Query/me';
 import    { myCampaigns as Query_myCampaigns } from './base/resolvers/Query/myCampaigns';
+import    { myEncounters as Query_myEncounters } from './base/resolvers/Query/myEncounters';
 import    { rules as Query_rules } from './base/resolvers/Query/rules';
 import    { searchAll as Query_searchAll } from './base/resolvers/Query/searchAll';
 import    { slugMap as Query_slugMap } from './base/resolvers/Query/slugMap';
@@ -84,9 +91,10 @@ import    { Uses } from './base/resolvers/Uses';
 import    { Weapons } from './base/resolvers/Weapons';
 import    { shifterArmor } from './base/resolvers/shifterArmor';
 import    { shifterFeature } from './base/resolvers/shifterFeature';
+import    { DateResolver,DateTimeResolver } from 'graphql-scalars';
     export const resolvers: Resolvers = {
-      Query: { allCampaigns: Query_allCampaigns,allItems: Query_allItems,allMonsters: Query_allMonsters,allShops: Query_allShops,allSpells: Query_allSpells,campaign: Query_campaign,character: Query_character,characterClasses: Query_characterClasses,cultures: Query_cultures,genericRules: Query_genericRules,itemShop: Query_itemShop,lineages: Query_lineages,me: Query_me,myCampaigns: Query_myCampaigns,rules: Query_rules,searchAll: Query_searchAll,slugMap: Query_slugMap,universalFeatures: Query_universalFeatures,user: Query_user,users: Query_users },
-      Mutation: { addCharacterToCampaign: Mutation_addCharacterToCampaign,addShopToCampaign: Mutation_addShopToCampaign,createCampaign: Mutation_createCampaign,createCharacter: Mutation_createCharacter,createShop: Mutation_createShop,createUser: Mutation_createUser,deleteCampaign: Mutation_deleteCampaign,deleteCharacter: Mutation_deleteCharacter,deleteShop: Mutation_deleteShop,forgotPassword: Mutation_forgotPassword,login: Mutation_login,removeCharacterFromCampaign: Mutation_removeCharacterFromCampaign,removeShopFromCampaign: Mutation_removeShopFromCampaign,sellItem: Mutation_sellItem,setPassword: Mutation_setPassword,updateCampaign: Mutation_updateCampaign,updateCharacter: Mutation_updateCharacter,updateMe: Mutation_updateMe,updateShop: Mutation_updateShop },
+      Query: { allCampaigns: Query_allCampaigns,allItems: Query_allItems,allMonsters: Query_allMonsters,allShops: Query_allShops,allSpells: Query_allSpells,campaign: Query_campaign,character: Query_character,characterClasses: Query_characterClasses,cultures: Query_cultures,encounter: Query_encounter,genericRules: Query_genericRules,itemShop: Query_itemShop,lineages: Query_lineages,me: Query_me,myCampaigns: Query_myCampaigns,myEncounters: Query_myEncounters,rules: Query_rules,searchAll: Query_searchAll,slugMap: Query_slugMap,universalFeatures: Query_universalFeatures,user: Query_user,users: Query_users },
+      Mutation: { addCharacterToCampaign: Mutation_addCharacterToCampaign,addShopToCampaign: Mutation_addShopToCampaign,createCampaign: Mutation_createCampaign,createCharacter: Mutation_createCharacter,createEncounter: Mutation_createEncounter,createShop: Mutation_createShop,createUser: Mutation_createUser,deleteCampaign: Mutation_deleteCampaign,deleteCharacter: Mutation_deleteCharacter,deleteEncounter: Mutation_deleteEncounter,deleteShop: Mutation_deleteShop,forgotPassword: Mutation_forgotPassword,login: Mutation_login,removeCharacterFromCampaign: Mutation_removeCharacterFromCampaign,removeShopFromCampaign: Mutation_removeShopFromCampaign,sellItem: Mutation_sellItem,setPassword: Mutation_setPassword,updateCampaign: Mutation_updateCampaign,updateCharacter: Mutation_updateCharacter,updateEncounter: Mutation_updateEncounter,updateMe: Mutation_updateMe,updateShop: Mutation_updateShop },
       
       AuthPayload: AuthPayload,
 BaseStats: BaseStats,
@@ -106,6 +114,8 @@ CultureVariant: CultureVariant,
 Damage: Damage,
 Deflect: Deflect,
 Effect: Effect,
+Encounter: Encounter,
+EncounterMonster: EncounterMonster,
 FeatureWithoutChoices: FeatureWithoutChoices,
 GenericFeature: GenericFeature,
 GenericRule: GenericRule,
@@ -132,5 +142,7 @@ User: User,
 Uses: Uses,
 Weapons: Weapons,
 shifterArmor: shifterArmor,
-shifterFeature: shifterFeature
+shifterFeature: shifterFeature,
+Date: DateResolver,
+DateTime: DateTimeResolver
     }

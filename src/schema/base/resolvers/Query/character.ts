@@ -27,11 +27,7 @@ export const character: NonNullable<QueryResolvers['character']> = async (
     throw new Error(`Failed to retrieve character with id: ${_arg.id}`);
   }
 
-  console.log("Character from pirsma", character);
-
   const characterWithChoices = convertPrismaToGraphQLCharacter(character);
-
-  console.debug("character retrieved", characterWithChoices);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return characterWithChoices as any;

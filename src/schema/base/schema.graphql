@@ -1,3 +1,4 @@
+scalar Date
 type Query {
   genericRules(slug: String, version: VERSIONS): [GenericRule]!
 
@@ -42,6 +43,10 @@ type Query {
   allSpells(version: VERSIONS): [Spell]!
 
   allMonsters(version: VERSIONS): [MonsterList]!
+
+  myEncounters: [Encounter]
+
+  encounter(id: ID!): Encounter!
 }
 
 type Mutation {
@@ -69,6 +74,9 @@ type Mutation {
   forgotPassword(email: String!, baseUrl: String): Boolean
   setPassword(forgotPasswordId: String!, newPassword: String!): User
   sellItem(shopId: ID!, itemId: ID!, characterId: ID!): ItemShop
+  createEncounter(input: EncounterInput): Encounter
+  updateEncounter(id: ID!, input: EncounterInput): Encounter
+  deleteEncounter(id: ID!): Boolean!
 }
 
 #########
@@ -530,6 +538,7 @@ type User {
   characters: [Character]
   createdItemShops: [ItemShop]
   createdCampaigns: [Campaign]
+  createdEncounters: [Encounter]
 }
 
 type AuthPayload {
@@ -761,4 +770,45 @@ type MonsterGroup {
   description: [RuleText]!
   img: Img
   monsters: [Monster!]!
+}
+
+input EncounterMonsterInput {
+  name: String!
+  currentHealth: Int
+  maxHealth: Int
+}
+
+input EncounterInput {
+  title: String
+  description: String
+  monsters: [EncounterMonsterInput]
+}
+
+type EncounterMonster {
+  name: String!
+  level: Float!
+  size: Size!
+  type: MonsterType!
+  description: [RuleText]!
+  img: Img
+  maxHealth: Int!
+  currentHealth: Int!
+  armor: Int!
+  Stats: BaseStats
+  speed: [Speed!]!
+  hit: Int!
+  range: Range!
+  damage: Damage!
+  tags: [String]
+  features: [GenericFeature]!
+}
+
+type Encounter {
+  id: String!
+  title: String!
+  description: String
+  createdBy: User!
+  createdAt: Date
+  updatedAt: Date
+  monsters: [EncounterMonster]
 }

@@ -101,7 +101,7 @@ const AnimatedItems: MonsterList = {
           slug: "DOOR-BLOCK",
           text: [
             {
-              text: "Allies within 5ft. of the door have (Cover)[/rules/player_rules#COVER].",
+              text: "Allies within 5ft. of the door have [Cover](/rules/player_rules#COVER).",
             },
           ],
         },

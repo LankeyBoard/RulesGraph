@@ -15,7 +15,6 @@ export const Character: CharacterResolvers = {
           if (parent.level >= 6) basicInfusions.chooseNum += 1;
         }
       }
-      console.debug("SPELLSWORD UPDATED", tempClass);
       return tempClass;
     } else return parent.characterClass;
   },
