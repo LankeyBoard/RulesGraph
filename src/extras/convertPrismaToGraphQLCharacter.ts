@@ -9,7 +9,6 @@ import { applyCharacterChoices } from "./applyCharacterChoices";
  * @returns a character matching the graphQL schema
  */
 const convertPrismaToGraphQLCharacter = (character: any): Character => {
-  console.log("Character to convert", character);
   character.characterClass = playerClasses.find(
     (playerClass) =>
       playerClass.slug.toUpperCase() === character.characterClass.toUpperCase(),
@@ -52,7 +51,6 @@ const convertPrismaToGraphQLCharacter = (character: any): Character => {
         item.uses && Object.keys(item.uses).length > 0 ? item.uses : undefined,
     };
   });
-  console.log("converted character", characterWithChoices);
   return characterWithChoices;
 };
 export default convertPrismaToGraphQLCharacter;

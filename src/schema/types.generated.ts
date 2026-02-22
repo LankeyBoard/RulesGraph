@@ -1,4 +1,4 @@
-import { GraphQLResolveInfo } from 'graphql';
+import { GraphQLResolveInfo, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
 export type Maybe<T> = T | null | undefined;
 export type InputMaybe<T> = T | null | undefined;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -15,6 +15,8 @@ export type Scalars = {
   Boolean: { input: boolean; output: boolean; }
   Int: { input: number; output: number; }
   Float: { input: number; output: number; }
+  Date: { input: Date | string; output: Date | string; }
+  DateTime: { input: Date | string; output: Date | string; }
 };
 
 export type Action =
@@ -306,6 +308,49 @@ export type EffectInput = {
   value: Scalars['Int']['input'];
 };
 
+export type Encounter = {
+  __typename?: 'Encounter';
+  createdAt?: Maybe<Scalars['Date']['output']>;
+  createdBy: User;
+  description?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  monsters?: Maybe<Array<Maybe<EncounterMonster>>>;
+  title: Scalars['String']['output'];
+  updatedAt?: Maybe<Scalars['Date']['output']>;
+};
+
+export type EncounterInput = {
+  description?: InputMaybe<Scalars['String']['input']>;
+  monsters?: InputMaybe<Array<InputMaybe<EncounterMonsterInput>>>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type EncounterMonster = {
+  __typename?: 'EncounterMonster';
+  Stats?: Maybe<BaseStats>;
+  armor: Scalars['Int']['output'];
+  currentHealth: Scalars['Int']['output'];
+  damage: Damage;
+  description: Array<Maybe<RuleText>>;
+  features: Array<Maybe<GenericFeature>>;
+  hit: Scalars['Int']['output'];
+  img?: Maybe<Img>;
+  level: Scalars['Float']['output'];
+  maxHealth: Scalars['Int']['output'];
+  name: Scalars['String']['output'];
+  range: Range;
+  size: Size;
+  speed: Array<Speed>;
+  tags?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  type: MonsterType;
+};
+
+export type EncounterMonsterInput = {
+  currentHealth?: InputMaybe<Scalars['Int']['input']>;
+  maxHealth?: InputMaybe<Scalars['Int']['input']>;
+  name: Scalars['String']['input'];
+};
+
 export type Feature = {
   actionType?: Maybe<Action>;
   costsFortunesFavor?: Maybe<Scalars['Boolean']['output']>;
@@ -526,10 +571,12 @@ export type Mutation = {
   addShopToCampaign: Campaign;
   createCampaign: Campaign;
   createCharacter?: Maybe<Character>;
+  createEncounter?: Maybe<Encounter>;
   createShop?: Maybe<ItemShop>;
   createUser?: Maybe<AuthPayload>;
   deleteCampaign: Scalars['Boolean']['output'];
   deleteCharacter?: Maybe<Scalars['Boolean']['output']>;
+  deleteEncounter: Scalars['Boolean']['output'];
   deleteShop?: Maybe<Scalars['Boolean']['output']>;
   forgotPassword?: Maybe<Scalars['Boolean']['output']>;
   login?: Maybe<AuthPayload>;
@@ -539,6 +586,7 @@ export type Mutation = {
   setPassword?: Maybe<User>;
   updateCampaign: Campaign;
   updateCharacter?: Maybe<Character>;
+  updateEncounter?: Maybe<Encounter>;
   updateMe?: Maybe<AuthPayload>;
   updateShop?: Maybe<ItemShop>;
 };
@@ -566,6 +614,11 @@ export type MutationcreateCharacterArgs = {
 };
 
 
+export type MutationcreateEncounterArgs = {
+  input?: InputMaybe<EncounterInput>;
+};
+
+
 export type MutationcreateShopArgs = {
   input?: InputMaybe<ItemShopInput>;
 };
@@ -584,6 +637,11 @@ export type MutationdeleteCampaignArgs = {
 
 
 export type MutationdeleteCharacterArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
+export type MutationdeleteEncounterArgs = {
   id: Scalars['ID']['input'];
 };
 
@@ -644,6 +702,12 @@ export type MutationupdateCharacterArgs = {
 };
 
 
+export type MutationupdateEncounterArgs = {
+  id: Scalars['ID']['input'];
+  input?: InputMaybe<EncounterInput>;
+};
+
+
 export type MutationupdateMeArgs = {
   email?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
@@ -673,11 +737,13 @@ export type Query = {
   character?: Maybe<Character>;
   characterClasses: Array<Maybe<CharacterClass>>;
   cultures: Array<Maybe<Culture>>;
+  encounter: Encounter;
   genericRules: Array<Maybe<GenericRule>>;
   itemShop?: Maybe<ItemShop>;
   lineages: Array<Maybe<Lineage>>;
   me?: Maybe<User>;
   myCampaigns: MyCampaignsResult;
+  myEncounters?: Maybe<Array<Maybe<Encounter>>>;
   rules: Array<Maybe<RuleSection>>;
   searchAll: Array<Maybe<SearchResult>>;
   slugMap?: Maybe<Array<Maybe<SlugDict>>>;
@@ -716,6 +782,11 @@ export type QuerycharacterClassesArgs = {
 export type QueryculturesArgs = {
   slug?: InputMaybe<Scalars['String']['input']>;
   version?: InputMaybe<VERSIONS>;
+};
+
+
+export type QueryencounterArgs = {
+  id: Scalars['ID']['input'];
 };
 
 
@@ -915,6 +986,7 @@ export type User = {
   __typename?: 'User';
   characters?: Maybe<Array<Maybe<Character>>>;
   createdCampaigns?: Maybe<Array<Maybe<Campaign>>>;
+  createdEncounters?: Maybe<Array<Maybe<Encounter>>>;
   createdItemShops?: Maybe<Array<Maybe<ItemShop>>>;
   email: Scalars['String']['output'];
   id: Scalars['ID']['output'];
@@ -1065,9 +1137,16 @@ export type ResolversTypes = {
   Culture: ResolverTypeWrapper<Omit<Culture, 'traits' | 'variants'> & { traits?: Maybe<Array<ResolversTypes['GenericFeature']>>, variants?: Maybe<Array<Maybe<ResolversTypes['CultureVariant']>>> }>;
   CultureVariant: ResolverTypeWrapper<Omit<CultureVariant, 'traits'> & { traits?: Maybe<Array<ResolversTypes['GenericFeature']>> }>;
   Damage: ResolverTypeWrapper<Damage>;
+  Date: ResolverTypeWrapper<Scalars['Date']['output']>;
+  DateTime: ResolverTypeWrapper<Scalars['DateTime']['output']>;
   Deflect: ResolverTypeWrapper<Deflect>;
   Effect: ResolverTypeWrapper<Effect>;
   EffectInput: EffectInput;
+  Encounter: ResolverTypeWrapper<Omit<Encounter, 'createdBy' | 'monsters'> & { createdBy: ResolversTypes['User'], monsters?: Maybe<Array<Maybe<ResolversTypes['EncounterMonster']>>> }>;
+  EncounterInput: EncounterInput;
+  EncounterMonster: ResolverTypeWrapper<Omit<EncounterMonster, 'damage' | 'features'> & { damage: ResolversTypes['Damage'], features: Array<Maybe<ResolversTypes['GenericFeature']>> }>;
+  Float: ResolverTypeWrapper<Scalars['Float']['output']>;
+  EncounterMonsterInput: EncounterMonsterInput;
   Feature: ResolverTypeWrapper<ResolversInterfaceTypes<ResolversTypes>['Feature']>;
   FeatureChoice: ResolverTypeWrapper<ResolversUnionTypes<ResolversTypes>['FeatureChoice']>;
   FeatureType: FeatureType;
@@ -1084,7 +1163,6 @@ export type ResolversTypes = {
   LineageVariant: ResolverTypeWrapper<Omit<LineageVariant, 'traits'> & { traits?: Maybe<Array<ResolversTypes['GenericFeature']>> }>;
   List: ResolverTypeWrapper<List>;
   Monster: ResolverTypeWrapper<Omit<Monster, 'damage' | 'features'> & { damage: ResolversTypes['Damage'], features: Array<Maybe<ResolversTypes['GenericFeature']>> }>;
-  Float: ResolverTypeWrapper<Scalars['Float']['output']>;
   MonsterGroup: ResolverTypeWrapper<Omit<MonsterGroup, 'monsters'> & { monsters: Array<ResolversTypes['Monster']> }>;
   MonsterList: ResolverTypeWrapper<ResolversUnionTypes<ResolversTypes>['MonsterList']>;
   MonsterType: MonsterType;
@@ -1112,7 +1190,7 @@ export type ResolversTypes = {
   StatOptions: StatOptions;
   Training: ResolverTypeWrapper<Training>;
   TrainingOptions: ResolverTypeWrapper<TrainingOptions>;
-  User: ResolverTypeWrapper<Omit<User, 'characters'> & { characters?: Maybe<Array<Maybe<ResolversTypes['Character']>>> }>;
+  User: ResolverTypeWrapper<Omit<User, 'characters' | 'createdEncounters'> & { characters?: Maybe<Array<Maybe<ResolversTypes['Character']>>>, createdEncounters?: Maybe<Array<Maybe<ResolversTypes['Encounter']>>> }>;
   Uses: ResolverTypeWrapper<Uses>;
   UsesInput: UsesInput;
   VERSIONS: VERSIONS;
@@ -1146,9 +1224,16 @@ export type ResolversParentTypes = {
   Culture: Omit<Culture, 'traits' | 'variants'> & { traits?: Maybe<Array<ResolversParentTypes['GenericFeature']>>, variants?: Maybe<Array<Maybe<ResolversParentTypes['CultureVariant']>>> };
   CultureVariant: Omit<CultureVariant, 'traits'> & { traits?: Maybe<Array<ResolversParentTypes['GenericFeature']>> };
   Damage: Damage;
+  Date: Scalars['Date']['output'];
+  DateTime: Scalars['DateTime']['output'];
   Deflect: Deflect;
   Effect: Effect;
   EffectInput: EffectInput;
+  Encounter: Omit<Encounter, 'createdBy' | 'monsters'> & { createdBy: ResolversParentTypes['User'], monsters?: Maybe<Array<Maybe<ResolversParentTypes['EncounterMonster']>>> };
+  EncounterInput: EncounterInput;
+  EncounterMonster: Omit<EncounterMonster, 'damage' | 'features'> & { damage: ResolversParentTypes['Damage'], features: Array<Maybe<ResolversParentTypes['GenericFeature']>> };
+  Float: Scalars['Float']['output'];
+  EncounterMonsterInput: EncounterMonsterInput;
   Feature: ResolversInterfaceTypes<ResolversParentTypes>['Feature'];
   FeatureChoice: ResolversUnionTypes<ResolversParentTypes>['FeatureChoice'];
   FeatureWithoutChoices: FeatureWithoutChoices;
@@ -1164,7 +1249,6 @@ export type ResolversParentTypes = {
   LineageVariant: Omit<LineageVariant, 'traits'> & { traits?: Maybe<Array<ResolversParentTypes['GenericFeature']>> };
   List: List;
   Monster: Omit<Monster, 'damage' | 'features'> & { damage: ResolversParentTypes['Damage'], features: Array<Maybe<ResolversParentTypes['GenericFeature']>> };
-  Float: Scalars['Float']['output'];
   MonsterGroup: Omit<MonsterGroup, 'monsters'> & { monsters: Array<ResolversParentTypes['Monster']> };
   MonsterList: ResolversUnionTypes<ResolversParentTypes>['MonsterList'];
   Mutation: {};
@@ -1182,7 +1266,7 @@ export type ResolversParentTypes = {
   Spell: Spell;
   Training: Training;
   TrainingOptions: TrainingOptions;
-  User: Omit<User, 'characters'> & { characters?: Maybe<Array<Maybe<ResolversParentTypes['Character']>>> };
+  User: Omit<User, 'characters' | 'createdEncounters'> & { characters?: Maybe<Array<Maybe<ResolversParentTypes['Character']>>>, createdEncounters?: Maybe<Array<Maybe<ResolversParentTypes['Encounter']>>> };
   Uses: Uses;
   UsesInput: UsesInput;
   Weapons: Weapons;
@@ -1402,6 +1486,14 @@ export type DamageResolvers<ContextType = any, ParentType extends ResolversParen
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
+export interface DateScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['Date'], any> {
+  name: 'Date';
+}
+
+export interface DateTimeScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['DateTime'], any> {
+  name: 'DateTime';
+}
+
 export type DeflectResolvers<ContextType = any, ParentType extends ResolversParentTypes['Deflect'] = ResolversParentTypes['Deflect']> = {
   count?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   dice?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
@@ -1414,6 +1506,37 @@ export type EffectResolvers<ContextType = any, ParentType extends ResolversParen
   operation?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   target?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   value?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type EncounterResolvers<ContextType = any, ParentType extends ResolversParentTypes['Encounter'] = ResolversParentTypes['Encounter']> = {
+  createdAt?: Resolver<Maybe<ResolversTypes['Date']>, ParentType, ContextType>;
+  createdBy?: Resolver<ResolversTypes['User'], ParentType, ContextType>;
+  description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  monsters?: Resolver<Maybe<Array<Maybe<ResolversTypes['EncounterMonster']>>>, ParentType, ContextType>;
+  title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['Date']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type EncounterMonsterResolvers<ContextType = any, ParentType extends ResolversParentTypes['EncounterMonster'] = ResolversParentTypes['EncounterMonster']> = {
+  Stats?: Resolver<Maybe<ResolversTypes['BaseStats']>, ParentType, ContextType>;
+  armor?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  currentHealth?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  damage?: Resolver<ResolversTypes['Damage'], ParentType, ContextType>;
+  description?: Resolver<Array<Maybe<ResolversTypes['RuleText']>>, ParentType, ContextType>;
+  features?: Resolver<Array<Maybe<ResolversTypes['GenericFeature']>>, ParentType, ContextType>;
+  hit?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  img?: Resolver<Maybe<ResolversTypes['Img']>, ParentType, ContextType>;
+  level?: Resolver<ResolversTypes['Float'], ParentType, ContextType>;
+  maxHealth?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  range?: Resolver<ResolversTypes['Range'], ParentType, ContextType>;
+  size?: Resolver<ResolversTypes['Size'], ParentType, ContextType>;
+  speed?: Resolver<Array<ResolversTypes['Speed']>, ParentType, ContextType>;
+  tags?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
+  type?: Resolver<ResolversTypes['MonsterType'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -1597,10 +1720,12 @@ export type MutationResolvers<ContextType = any, ParentType extends ResolversPar
   addShopToCampaign?: Resolver<ResolversTypes['Campaign'], ParentType, ContextType, RequireFields<MutationaddShopToCampaignArgs, 'campaignId' | 'shopId'>>;
   createCampaign?: Resolver<ResolversTypes['Campaign'], ParentType, ContextType, RequireFields<MutationcreateCampaignArgs, 'input'>>;
   createCharacter?: Resolver<Maybe<ResolversTypes['Character']>, ParentType, ContextType, Partial<MutationcreateCharacterArgs>>;
+  createEncounter?: Resolver<Maybe<ResolversTypes['Encounter']>, ParentType, ContextType, Partial<MutationcreateEncounterArgs>>;
   createShop?: Resolver<Maybe<ResolversTypes['ItemShop']>, ParentType, ContextType, Partial<MutationcreateShopArgs>>;
   createUser?: Resolver<Maybe<ResolversTypes['AuthPayload']>, ParentType, ContextType, RequireFields<MutationcreateUserArgs, 'email' | 'password'>>;
   deleteCampaign?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType, RequireFields<MutationdeleteCampaignArgs, 'id'>>;
   deleteCharacter?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType, RequireFields<MutationdeleteCharacterArgs, 'id'>>;
+  deleteEncounter?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType, RequireFields<MutationdeleteEncounterArgs, 'id'>>;
   deleteShop?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType, RequireFields<MutationdeleteShopArgs, 'id'>>;
   forgotPassword?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType, RequireFields<MutationforgotPasswordArgs, 'email'>>;
   login?: Resolver<Maybe<ResolversTypes['AuthPayload']>, ParentType, ContextType, RequireFields<MutationloginArgs, 'email' | 'password'>>;
@@ -1610,6 +1735,7 @@ export type MutationResolvers<ContextType = any, ParentType extends ResolversPar
   setPassword?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType, RequireFields<MutationsetPasswordArgs, 'forgotPasswordId' | 'newPassword'>>;
   updateCampaign?: Resolver<ResolversTypes['Campaign'], ParentType, ContextType, RequireFields<MutationupdateCampaignArgs, 'id' | 'input'>>;
   updateCharacter?: Resolver<Maybe<ResolversTypes['Character']>, ParentType, ContextType, RequireFields<MutationupdateCharacterArgs, 'id'>>;
+  updateEncounter?: Resolver<Maybe<ResolversTypes['Encounter']>, ParentType, ContextType, RequireFields<MutationupdateEncounterArgs, 'id'>>;
   updateMe?: Resolver<Maybe<ResolversTypes['AuthPayload']>, ParentType, ContextType, Partial<MutationupdateMeArgs>>;
   updateShop?: Resolver<Maybe<ResolversTypes['ItemShop']>, ParentType, ContextType, RequireFields<MutationupdateShopArgs, 'id'>>;
 };
@@ -1630,11 +1756,13 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
   character?: Resolver<Maybe<ResolversTypes['Character']>, ParentType, ContextType, RequireFields<QuerycharacterArgs, 'id'>>;
   characterClasses?: Resolver<Array<Maybe<ResolversTypes['CharacterClass']>>, ParentType, ContextType, Partial<QuerycharacterClassesArgs>>;
   cultures?: Resolver<Array<Maybe<ResolversTypes['Culture']>>, ParentType, ContextType, Partial<QueryculturesArgs>>;
+  encounter?: Resolver<ResolversTypes['Encounter'], ParentType, ContextType, RequireFields<QueryencounterArgs, 'id'>>;
   genericRules?: Resolver<Array<Maybe<ResolversTypes['GenericRule']>>, ParentType, ContextType, Partial<QuerygenericRulesArgs>>;
   itemShop?: Resolver<Maybe<ResolversTypes['ItemShop']>, ParentType, ContextType, Partial<QueryitemShopArgs>>;
   lineages?: Resolver<Array<Maybe<ResolversTypes['Lineage']>>, ParentType, ContextType, Partial<QuerylineagesArgs>>;
   me?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType>;
   myCampaigns?: Resolver<ResolversTypes['MyCampaignsResult'], ParentType, ContextType>;
+  myEncounters?: Resolver<Maybe<Array<Maybe<ResolversTypes['Encounter']>>>, ParentType, ContextType>;
   rules?: Resolver<Array<Maybe<ResolversTypes['RuleSection']>>, ParentType, ContextType, Partial<QueryrulesArgs>>;
   searchAll?: Resolver<Array<Maybe<ResolversTypes['SearchResult']>>, ParentType, ContextType, RequireFields<QuerysearchAllArgs, 'phrase'>>;
   slugMap?: Resolver<Maybe<Array<Maybe<ResolversTypes['SlugDict']>>>, ParentType, ContextType>;
@@ -1734,6 +1862,7 @@ export type TrainingOptionsResolvers<ContextType = any, ParentType extends Resol
 export type UserResolvers<ContextType = any, ParentType extends ResolversParentTypes['User'] = ResolversParentTypes['User']> = {
   characters?: Resolver<Maybe<Array<Maybe<ResolversTypes['Character']>>>, ParentType, ContextType>;
   createdCampaigns?: Resolver<Maybe<Array<Maybe<ResolversTypes['Campaign']>>>, ParentType, ContextType>;
+  createdEncounters?: Resolver<Maybe<Array<Maybe<ResolversTypes['Encounter']>>>, ParentType, ContextType>;
   createdItemShops?: Resolver<Maybe<Array<Maybe<ResolversTypes['ItemShop']>>>, ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
@@ -1784,8 +1913,12 @@ export type Resolvers<ContextType = any> = {
   Culture?: CultureResolvers<ContextType>;
   CultureVariant?: CultureVariantResolvers<ContextType>;
   Damage?: DamageResolvers<ContextType>;
+  Date?: GraphQLScalarType;
+  DateTime?: GraphQLScalarType;
   Deflect?: DeflectResolvers<ContextType>;
   Effect?: EffectResolvers<ContextType>;
+  Encounter?: EncounterResolvers<ContextType>;
+  EncounterMonster?: EncounterMonsterResolvers<ContextType>;
   Feature?: FeatureResolvers<ContextType>;
   FeatureChoice?: FeatureChoiceResolvers<ContextType>;
   FeatureWithoutChoices?: FeatureWithoutChoicesResolvers<ContextType>;

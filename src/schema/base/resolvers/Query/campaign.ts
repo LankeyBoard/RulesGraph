@@ -23,7 +23,6 @@ export const campaign: NonNullable<QueryResolvers['campaign']> = async (
   if (!campaign) {
     throw new Error(`Campaign with ID ${id} not found.`);
   }
-  console.log("campaign characters before search", campaign.characters);
 
   campaign.characters = campaign.characters.map(
     (character: {
@@ -48,7 +47,6 @@ export const campaign: NonNullable<QueryResolvers['campaign']> = async (
       };
     },
   );
-  console.log("campaign characters after search", campaign.characters);
   campaign.characters = campaign.characters.filter(
     (character: {
       characterClass: object;
@@ -62,7 +60,6 @@ export const campaign: NonNullable<QueryResolvers['campaign']> = async (
       );
     },
   );
-  console.log("campaign characters after filter", campaign.characters);
   campaign.startDate = new Date(Number(campaign.startDate)).toDateString();
   campaign.endDate = new Date(Number(campaign.endDate)).toDateString();
   return campaign;

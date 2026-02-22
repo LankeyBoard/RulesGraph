@@ -13,6 +13,7 @@ export const user: NonNullable<QueryResolvers['user']> = async (
       createdCampaigns: true,
       createdItemShops: true,
       characters: true,
+      encounters: true,
     },
   });
   if (!user) {
@@ -33,6 +34,5 @@ export const user: NonNullable<QueryResolvers['user']> = async (
       },
     );
   }
-  console.debug("user query result", user);
   return user;
 };
