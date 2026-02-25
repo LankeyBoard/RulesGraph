@@ -1,5 +1,5 @@
 import type { QueryResolvers } from "./../../../types.generated";
-import allMonstersData from "../../../../rules/2a/allMonstersData";
+import allMonstersData from "../../../../rules/2a/allMonsters";
 export const allMonsters: NonNullable<QueryResolvers['allMonsters']> = async (
   _parent,
   _arg,

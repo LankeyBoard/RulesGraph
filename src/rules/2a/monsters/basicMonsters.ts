@@ -1,5 +1,6 @@
 import { MonsterList } from "../../../schema/types.generated";
 import AnimatedItems from "./animatedItems/animatedItems";
+import Demons from "./demons/demons";
 import Goblins from "./goblins/goblins";
 import { MonsterTags } from "./MonsterTags";
 import Orcs from "./orcs/orcs";
@@ -531,5 +532,6 @@ basicMonsters.push(AnimatedItems);
 basicMonsters.push(Skeletons);
 basicMonsters.push(Goblins);
 basicMonsters.push(Orcs);
+basicMonsters.push(Demons);
 
 export default basicMonsters.sort();
