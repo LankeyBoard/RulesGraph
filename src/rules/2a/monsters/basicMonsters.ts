@@ -1,5 +1,6 @@
 import { MonsterList } from "../../../schema/types.generated";
 import AnimatedItems from "./animatedItems/animatedItems";
+import Demons from "./demons/demons";
 import Goblins from "./goblins/goblins";
 import { MonsterTags } from "./MonsterTags";
 import Orcs from "./orcs/orcs";
@@ -360,10 +361,177 @@ const basicMonsters: MonsterList[] = [
       },
     ],
   },
+  {
+    name: "Generic Monster Templates",
+    description: [{ text: "Generic templates for monsters at each level." }],
+    monsters: [
+      {
+        name: "1st Level",
+        level: 1,
+        size: "MEDIUM",
+        type: "Monster",
+        description: [
+          {
+            text: "A 1st level monster",
+          },
+        ],
+        img: null,
+        health: 17,
+        armor: 12,
+        Stats: { mettle: 0, agility: 0, heart: 0, intellect: 0 },
+        speed: [{ type: "ground", speed: 30 }],
+        hit: 4,
+        range: { min: 0, max: 60 },
+        damage: { count: 1, dice: 8, flat: 4 },
+        features: [],
+      },
+      {
+        name: "2nd Level",
+        level: 1,
+        size: "MEDIUM",
+        type: "Monster",
+        description: [
+          {
+            text: "A 2nd level monster",
+          },
+        ],
+        img: null,
+        health: 18,
+        armor: 13,
+        Stats: { mettle: 0, agility: 0, heart: 0, intellect: 0 },
+        speed: [{ type: "ground", speed: 30 }],
+        hit: 4,
+        range: { min: 0, max: 60 },
+        damage: { count: 1, dice: 10, flat: 4 },
+        features: [],
+      },
+      {
+        name: "3rd Level",
+        level: 1,
+        size: "MEDIUM",
+        type: "Monster",
+        description: [
+          {
+            text: "A 3rd level monster",
+          },
+        ],
+        img: null,
+        health: 21,
+        armor: 13,
+        Stats: { mettle: 0, agility: 0, heart: 0, intellect: 0 },
+        speed: [{ type: "ground", speed: 30 }],
+        hit: 5,
+        range: { min: 0, max: 60 },
+        damage: { count: 1, dice: 10, flat: 5 },
+        features: [],
+      },
+      {
+        name: "4th Level",
+        level: 1,
+        size: "MEDIUM",
+        type: "Monster",
+        description: [
+          {
+            text: "A 4th level monster",
+          },
+        ],
+        img: null,
+        health: 21,
+        armor: 14,
+        Stats: { mettle: 0, agility: 0, heart: 0, intellect: 0 },
+        speed: [{ type: "ground", speed: 30 }],
+        hit: 5,
+        range: { min: 0, max: 60 },
+        damage: { count: 1, dice: 12, flat: 5 },
+        features: [],
+      },
+      {
+        name: "5th Level",
+        level: 1,
+        size: "MEDIUM",
+        type: "Monster",
+        description: [
+          {
+            text: "A 5th level monster",
+          },
+        ],
+        img: null,
+        health: 22,
+        armor: 14,
+        Stats: { mettle: 0, agility: 0, heart: 0, intellect: 0 },
+        speed: [{ type: "ground", speed: 30 }],
+        hit: 5,
+        range: { min: 0, max: 60 },
+        damage: { count: 1, dice: 12, flat: 5 },
+        features: [],
+      },
+      {
+        name: "6th Level",
+        level: 1,
+        size: "MEDIUM",
+        type: "Monster",
+        description: [
+          {
+            text: "A 6th level monster",
+          },
+        ],
+        img: null,
+        health: 24,
+        armor: 14,
+        Stats: { mettle: 0, agility: 0, heart: 0, intellect: 0 },
+        speed: [{ type: "ground", speed: 30 }],
+        hit: 6,
+        range: { min: 0, max: 60 },
+        damage: { count: 2, dice: 6, flat: 6 },
+        features: [],
+      },
+      {
+        name: "7th Level",
+        level: 1,
+        size: "MEDIUM",
+        type: "Monster",
+        description: [
+          {
+            text: "A 7th level monster",
+          },
+        ],
+        img: null,
+        health: 26,
+        armor: 14,
+        Stats: { mettle: 0, agility: 0, heart: 0, intellect: 0 },
+        speed: [{ type: "ground", speed: 30 }],
+        hit: 6,
+        range: { min: 0, max: 60 },
+        damage: { count: 2, dice: 6, flat: 6 },
+        features: [],
+      },
+      {
+        name: "8th Level",
+        level: 1,
+        size: "MEDIUM",
+        type: "Monster",
+        description: [
+          {
+            text: "An 8th level monster",
+          },
+        ],
+        img: null,
+        health: 27,
+        armor: 15,
+        Stats: { mettle: 0, agility: 0, heart: 0, intellect: 0 },
+        speed: [{ type: "ground", speed: 30 }],
+        hit: 6,
+        range: { min: 0, max: 60 },
+        damage: { count: 2, dice: 8, flat: 6 },
+        features: [],
+      },
+    ],
+  },
 ];
 basicMonsters.push(AnimatedItems);
 basicMonsters.push(Skeletons);
 basicMonsters.push(Goblins);
 basicMonsters.push(Orcs);
+basicMonsters.push(Demons);
 
 export default basicMonsters.sort();

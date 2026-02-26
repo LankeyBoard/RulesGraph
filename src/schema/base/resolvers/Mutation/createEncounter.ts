@@ -1,9 +1,7 @@
 import type { MutationResolvers } from "./../../../types.generated";
 import { enrichEncounterMonstersWithRuleData } from "../../../../extras/enrichEncounterMonsters";
 
-export const createEncounter: NonNullable<
-  MutationResolvers["createEncounter"]
-> = async (_parent, _arg, _ctx) => {
+export const createEncounter: NonNullable<MutationResolvers['createEncounter']> = async (_parent, _arg, _ctx) => {
   if (!_ctx.currentUser) {
     throw new Error("Not authenticated");
   }
