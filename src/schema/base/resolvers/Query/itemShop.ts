@@ -53,6 +53,7 @@ export const itemShop: NonNullable<QueryResolvers['itemShop']> = async (
         (item: {
           item: (typeof shop.ItemsStockedByShop)[0]["item"];
           salePrice: number;
+          count: number;
         }) => ({
           ...item.item,
           uses:
@@ -60,6 +61,7 @@ export const itemShop: NonNullable<QueryResolvers['itemShop']> = async (
               ? undefined
               : item.item.uses,
           salePrice: item.salePrice,
+          count: item.count,
         }),
       ),
       itemsCouldStock: shop.itemsCouldStock.map((item: { uses: object }) => ({

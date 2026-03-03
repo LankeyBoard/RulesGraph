@@ -449,7 +449,28 @@ export type Item = {
   uses?: Maybe<Uses>;
 };
 
+export type ItemInStock = {
+  __typename?: 'ItemInStock';
+  couldStock: Array<Maybe<ItemShop>>;
+  count: Scalars['Int']['output'];
+  createdBy: User;
+  defaultPrice: Scalars['Int']['output'];
+  effects: Array<Maybe<Effect>>;
+  heldBy: Array<Maybe<Character>>;
+  id: Scalars['ID']['output'];
+  inStock: Scalars['Boolean']['output'];
+  isMagic: Scalars['Boolean']['output'];
+  rarity?: Maybe<Rarity>;
+  salePrice?: Maybe<Scalars['Int']['output']>;
+  slots: Scalars['Int']['output'];
+  tags: Array<Maybe<Scalars['String']['output']>>;
+  text: Array<Maybe<RuleText>>;
+  title: Scalars['String']['output'];
+  uses?: Maybe<Uses>;
+};
+
 export type ItemInStockInput = {
+  count: Scalars['Int']['input'];
   defaultPrice: Scalars['Int']['input'];
   effects: Array<InputMaybe<EffectInput>>;
   id?: InputMaybe<Scalars['ID']['input']>;
@@ -484,7 +505,7 @@ export type ItemShop = {
   description: Scalars['String']['output'];
   id: Scalars['ID']['output'];
   itemsCouldStock: Array<Maybe<Item>>;
-  itemsInStock: Array<Maybe<Item>>;
+  itemsInStock: Array<Maybe<ItemInStock>>;
   name: Scalars['String']['output'];
 };
 
@@ -1155,6 +1176,7 @@ export type ResolversTypes = {
   GenericRule: ResolverTypeWrapper<GenericRule>;
   Img: ResolverTypeWrapper<Img>;
   Item: ResolverTypeWrapper<Omit<Item, 'createdBy' | 'heldBy'> & { createdBy: ResolversTypes['User'], heldBy: Array<Maybe<ResolversTypes['Character']>> }>;
+  ItemInStock: ResolverTypeWrapper<Omit<ItemInStock, 'createdBy' | 'heldBy'> & { createdBy: ResolversTypes['User'], heldBy: Array<Maybe<ResolversTypes['Character']>> }>;
   ItemInStockInput: ItemInStockInput;
   ItemInput: ItemInput;
   ItemShop: ResolverTypeWrapper<Omit<ItemShop, 'createdBy'> & { createdBy: ResolversTypes['User'] }>;
@@ -1241,6 +1263,7 @@ export type ResolversParentTypes = {
   GenericRule: GenericRule;
   Img: Img;
   Item: Omit<Item, 'createdBy' | 'heldBy'> & { createdBy: ResolversParentTypes['User'], heldBy: Array<Maybe<ResolversParentTypes['Character']>> };
+  ItemInStock: Omit<ItemInStock, 'createdBy' | 'heldBy'> & { createdBy: ResolversParentTypes['User'], heldBy: Array<Maybe<ResolversParentTypes['Character']>> };
   ItemInStockInput: ItemInStockInput;
   ItemInput: ItemInput;
   ItemShop: Omit<ItemShop, 'createdBy'> & { createdBy: ResolversParentTypes['User'] };
@@ -1637,6 +1660,26 @@ export type ItemResolvers<ContextType = any, ParentType extends ResolversParentT
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
+export type ItemInStockResolvers<ContextType = any, ParentType extends ResolversParentTypes['ItemInStock'] = ResolversParentTypes['ItemInStock']> = {
+  couldStock?: Resolver<Array<Maybe<ResolversTypes['ItemShop']>>, ParentType, ContextType>;
+  count?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  createdBy?: Resolver<ResolversTypes['User'], ParentType, ContextType>;
+  defaultPrice?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  effects?: Resolver<Array<Maybe<ResolversTypes['Effect']>>, ParentType, ContextType>;
+  heldBy?: Resolver<Array<Maybe<ResolversTypes['Character']>>, ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  inStock?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
+  isMagic?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
+  rarity?: Resolver<Maybe<ResolversTypes['Rarity']>, ParentType, ContextType>;
+  salePrice?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  slots?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  tags?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
+  text?: Resolver<Array<Maybe<ResolversTypes['RuleText']>>, ParentType, ContextType>;
+  title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  uses?: Resolver<Maybe<ResolversTypes['Uses']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
 export type ItemShopResolvers<ContextType = any, ParentType extends ResolversParentTypes['ItemShop'] = ResolversParentTypes['ItemShop']> = {
   campaign?: Resolver<Maybe<ResolversTypes['Campaign']>, ParentType, ContextType>;
   canEdit?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
@@ -1644,7 +1687,7 @@ export type ItemShopResolvers<ContextType = any, ParentType extends ResolversPar
   description?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   itemsCouldStock?: Resolver<Array<Maybe<ResolversTypes['Item']>>, ParentType, ContextType>;
-  itemsInStock?: Resolver<Array<Maybe<ResolversTypes['Item']>>, ParentType, ContextType>;
+  itemsInStock?: Resolver<Array<Maybe<ResolversTypes['ItemInStock']>>, ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
@@ -1926,6 +1969,7 @@ export type Resolvers<ContextType = any> = {
   GenericRule?: GenericRuleResolvers<ContextType>;
   Img?: ImgResolvers<ContextType>;
   Item?: ItemResolvers<ContextType>;
+  ItemInStock?: ItemInStockResolvers<ContextType>;
   ItemShop?: ItemShopResolvers<ContextType>;
   Lineage?: LineageResolvers<ContextType>;
   LineageVariant?: LineageVariantResolvers<ContextType>;
