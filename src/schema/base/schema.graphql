@@ -575,9 +575,10 @@ type Character {
   slots: Int!
   maxSlots: Int!
   spells: [Spell]
-
   noviceFeatures: [GenericFeature]!
   veteranFeatures: [GenericFeature]!
+  form: ShifterForm
+  beast: BeastForm
 }
 
 input ChoiceInput {
