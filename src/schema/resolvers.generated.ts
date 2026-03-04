@@ -25,6 +25,7 @@ import    { GenericFeature } from './base/resolvers/GenericFeature';
 import    { GenericRule } from './base/resolvers/GenericRule';
 import    { Img } from './base/resolvers/Img';
 import    { Item } from './base/resolvers/Item';
+import    { ItemInStock } from './base/resolvers/ItemInStock';
 import    { ItemShop } from './base/resolvers/ItemShop';
 import    { Lineage } from './base/resolvers/Lineage';
 import    { LineageVariant } from './base/resolvers/LineageVariant';
@@ -121,6 +122,7 @@ GenericFeature: GenericFeature,
 GenericRule: GenericRule,
 Img: Img,
 Item: Item,
+ItemInStock: ItemInStock,
 ItemShop: ItemShop,
 Lineage: Lineage,
 LineageVariant: LineageVariant,
