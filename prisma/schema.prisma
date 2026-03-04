@@ -18,7 +18,7 @@ model User {
   ForgottenPasswordLink ForgottenPasswordLink[]
   createdItems          Item[]
   createdItemShops      ItemShop[]
-  encounters             Encounter[]
+  encounters            Encounter[]
 }
 
 model ForgottenPasswordLink {
@@ -105,6 +105,7 @@ model ItemsStockedByShop {
   salePrice Int?
   item      Item     @relation(fields: [itemId], references: [id])
   shop      ItemShop @relation(fields: [shopId], references: [id])
+  count     Int      @default(1)
 
   @@id([shopId, itemId])
 }
@@ -133,7 +134,7 @@ model EncounterMonster {
 
 model Encounter {
   id          String             @id @default(uuid())
-  title String @default("")
+  title       String             @default("")
   monsters    EncounterMonster[]
   description String
   createdBy   User               @relation(fields: [userId], references: [id])

@@ -28,6 +28,7 @@ export const sellItem: NonNullable<MutationResolvers['sellItem']> = async (
     where: { id: Number(itemId) },
     include: {
       text: true,
+      ItemsStockedByShop: true,
     },
   });
 
@@ -36,13 +37,17 @@ export const sellItem: NonNullable<MutationResolvers['sellItem']> = async (
     include: { items: true },
   });
   if (!character) throw new Error("Character not found");
-
-  const price = itemFromShop.salePrice ?? itemFromShop.defaultPrice ?? 0;
+  console.log(itemFromShop);
+  const price =
+    itemFromShop.ItemsStockedByShop[0].salePrice !== undefined
+      ? itemFromShop.ItemsStockedByShop[0].salePrice
+      : (itemFromShop.defaultPrice ?? 0);
+  console.log("price", price, itemFromShop.ItemsStockedByShop[0].salePrice);
   if (character.coin < price) throw new Error("Not enough coin");
 
   // 2. Copy the item for the character (excluding id and relations)
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { id, createdById, ...itemData } = itemFromShop;
+  const { id, createdById, ItemsStockedByShop, ...itemData } = itemFromShop;
   const newItem = await _ctx.prisma.item.create({
     data: {
       ...itemData,
@@ -68,25 +73,38 @@ export const sellItem: NonNullable<MutationResolvers['sellItem']> = async (
     data: { coin: { decrement: price } },
   });
 
-  // 4. Remove item from ItemsStockedByShop
-  await _ctx.prisma.itemsStockedByShop.delete({
-    where: {
-      shopId_itemId: {
-        shopId: String(shopId),
-        itemId: Number(itemId),
+  if (itemFromShop.ItemsStockedByShop[0].count > 1) {
+    // 4. Decrease item count by 1 from ItemsStockedByShop
+    await _ctx.prisma.itemsStockedByShop.update({
+      where: {
+        shopId_itemId: {
+          shopId: String(shopId),
+          itemId: Number(itemId),
+        },
       },
-    },
-  });
+      data: { count: itemFromShop.ItemsStockedByShop[0].count - 1 },
+    });
+  } else {
+    // 4b. Remove item from ItemsStockedByShop
+    await _ctx.prisma.itemsStockedByShop.delete({
+      where: {
+        shopId_itemId: {
+          shopId: String(shopId),
+          itemId: Number(itemId),
+        },
+      },
+    });
 
-  // 5. Add item to itemsCouldStock for the shop (if not already present)
-  await _ctx.prisma.itemShop.update({
-    where: { id: String(shopId) },
-    data: {
-      itemsCouldStock: {
-        connect: { id: itemFromShop.id },
+    // 5. Add item to itemsCouldStock for the shop (if not already present)
+    await _ctx.prisma.itemShop.update({
+      where: { id: String(shopId) },
+      data: {
+        itemsCouldStock: {
+          connect: { id: itemFromShop.id },
+        },
       },
-    },
-  });
+    });
+  }
 
   // 6. Return the updated shop
   const updatedShop = await _ctx.prisma.itemShop.findUnique({

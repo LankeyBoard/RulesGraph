@@ -630,6 +630,25 @@ type Item {
   slots: Int!
 }
 
+type ItemInStock {
+  id: ID!
+  title: String!
+  isMagic: Boolean!
+  rarity: Rarity
+  uses: Uses
+  text: [RuleText]!
+  effects: [Effect]!
+  heldBy: [Character]!
+  createdBy: User!
+  couldStock: [ItemShop]!
+  defaultPrice: Int!
+  salePrice: Int
+  tags: [String]!
+  inStock: Boolean!
+  slots: Int!
+  count: Int!
+}
+
 type Uses {
   used: Int!
   max: Int!
@@ -659,7 +678,7 @@ type ItemShop {
   id: ID!
   name: String!
   description: String!
-  itemsInStock: [Item]!
+  itemsInStock: [ItemInStock]!
   itemsCouldStock: [Item]!
   createdBy: User!
   campaign: Campaign
@@ -686,6 +705,7 @@ input ItemInStockInput {
   tags: [String]!
   salePrice: Int
   slots: Int!
+  count: Int!
 }
 
 type Effect {

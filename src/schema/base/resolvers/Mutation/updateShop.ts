@@ -42,6 +42,7 @@ export const updateShop: NonNullable<MutationResolvers['updateShop']> = async (
         deleteMany: {},
         create: input.itemsInStock.map((item) => ({
           salePrice: item?.salePrice,
+          count: item?.count,
           item: {
             create: {
               title: item?.title,
@@ -89,6 +90,8 @@ export const updateShop: NonNullable<MutationResolvers['updateShop']> = async (
             operation: effect?.operation,
             value: effect?.value,
             condition: effect?.condition,
+            defaultPrice: item?.defaultPrice,
+            tags: item?.tags,
           })),
         })),
       },
@@ -117,9 +120,6 @@ export const updateShop: NonNullable<MutationResolvers['updateShop']> = async (
   });
 
   console.log("Updated shop", updatedShop);
-  updatedShop.ItemsStockedByShop.forEach((item: unknown) => {
-    console.log(item);
-  });
 
   return {
     ...updatedShop,
@@ -130,9 +130,11 @@ export const updateShop: NonNullable<MutationResolvers['updateShop']> = async (
       (item: {
         item: (typeof updatedShop.ItemsStockedByShop)[0]["item"];
         salePrice: number;
+        count: number;
       }) => ({
         ...item.item,
         salePrice: item.salePrice,
+        count: item.count,
       }),
     ),
   };

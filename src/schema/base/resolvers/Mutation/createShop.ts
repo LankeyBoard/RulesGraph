@@ -26,9 +26,10 @@ export const createShop: NonNullable<MutationResolvers['createShop']> = async (
         ItemsStockedByShop: {
           create: input.itemsInStock.map((item) => {
             // salePrice belongs to the join model; don't pass it into Item.create
-            const { salePrice, ...itemData } = item || {};
+            const { salePrice, count, ...itemData } = item || {};
             return {
               salePrice: salePrice,
+              count: count,
               item: {
                 create: {
                   ...itemData,
