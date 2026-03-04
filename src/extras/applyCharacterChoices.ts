@@ -1,4 +1,6 @@
 import noviceFeatures from "../rules/2a/noviceFeatures";
+import beastmaster from "../rules/2a/playerClasses/classes/beastmaster";
+import shapeshifter from "../rules/2a/playerClasses/classes/shapeshifter";
 import spells from "../rules/2a/spells/spells";
 import veteranFeatures from "../rules/2a/veteranFeatures";
 import type {
@@ -92,7 +94,14 @@ export const applyCharacterChoices = (
   const characterSpells: Spell[] = chosen.spells
     ?.map((spellName) => spells.find((s) => s.name === spellName))
     .filter((s) => s !== undefined);
-
+  const beast = chosen.beast
+    ? beastmaster.extra?.beastMasterPet?.beasts.find((b) =>
+        chosen.beast.includes(b.slug),
+      )
+    : undefined;
+  const form = chosen.form
+    ? shapeshifter.extra?.forms?.find((f) => chosen.beast.includes(f.slug))
+    : undefined;
   return {
     ...character,
     characterClass: {
@@ -110,5 +119,7 @@ export const applyCharacterChoices = (
     noviceFeatures: characterNoviceFeatures,
     veteranFeatures: characterVeteranFeatures,
     spells: characterSpells,
+    beast: beast,
+    form: form,
   };
 };
