@@ -39,7 +39,7 @@ export const sellItem: NonNullable<MutationResolvers['sellItem']> = async (
   if (!character) throw new Error("Character not found");
   console.log(itemFromShop);
   const price =
-    itemFromShop.ItemsStockedByShop[0].salePrice !== undefined
+    itemFromShop.ItemsStockedByShop[0].salePrice != undefined
       ? itemFromShop.ItemsStockedByShop[0].salePrice
       : (itemFromShop.defaultPrice ?? 0);
   console.log("price", price, itemFromShop.ItemsStockedByShop[0].salePrice);
