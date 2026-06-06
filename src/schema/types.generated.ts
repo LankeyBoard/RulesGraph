@@ -126,6 +126,7 @@ export type Character = {
   maxStamina: Scalars['Int']['output'];
   mettle: Scalars['Int']['output'];
   name: Scalars['String']['output'];
+  notes: Scalars['String']['output'];
   noviceFeatures: Array<Maybe<GenericFeature>>;
   rangeMax: Scalars['Int']['output'];
   rangeMin: Scalars['Int']['output'];
@@ -231,6 +232,7 @@ export type CharacterInput = {
   maxStamina: Scalars['Int']['input'];
   mettle: Scalars['Int']['input'];
   name: Scalars['String']['input'];
+  notes: Scalars['String']['input'];
   rangeMax: Scalars['Int']['input'];
   rangeMin: Scalars['Int']['input'];
   shieldName: Scalars['String']['input'];
@@ -1386,6 +1388,7 @@ export type CharacterResolvers<ContextType = any, ParentType extends ResolversPa
   maxStamina?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   mettle?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  notes?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   noviceFeatures?: Resolver<Array<Maybe<ResolversTypes['GenericFeature']>>, ParentType, ContextType>;
   rangeMax?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   rangeMin?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
