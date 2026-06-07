@@ -308,7 +308,8 @@
     "writeMD": "ts-node src/makeMdFromObjs.ts",
     "writeTS": "ts-node src/makeObjFromMD.ts",
     "simulateCombat": "ts-node timeToDie.ts",
-    "testMail": "ts-node src/extras/sendMail.ts"
+    "testMail": "ts-node src/extras/sendMail.ts",
+    "exportAsMD": "ts-node src/makeCombinedMd.ts"
   },
   "keywords": [],
   "author": "",

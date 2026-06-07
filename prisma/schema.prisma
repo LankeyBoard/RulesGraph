@@ -58,6 +58,7 @@ model Character {
   campaign           Campaign? @relation(fields: [campaignId], references: [id])
   createdBy          User      @relation(fields: [userId], references: [id])
   items              Item[]    @relation("CharacterToItem")
+  notes              String    @default("")
 }
 
 model Item {
