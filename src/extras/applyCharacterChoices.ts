@@ -100,7 +100,7 @@ export const applyCharacterChoices = (
       )
     : undefined;
   const form = chosen.form
-    ? shapeshifter.extra?.forms?.find((f) => chosen.beast.includes(f.slug))
+    ? shapeshifter.extra?.forms?.find((f) => chosen.form.includes(f.slug))
     : undefined;
   return {
     ...character,

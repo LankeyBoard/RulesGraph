@@ -1,6 +1,9 @@
 import culturesData from "../rules/2a/cultures";
 import lineagesData from "../rules/2a/lineages";
 import playerClasses from "../rules/2a/playerClasses";
+import findClass from "./findClassWithSlug";
+import findLineage from "./findLineageWithSlug";
+import findCulture from "./findCultureWithSlug";
 import { Character } from "../schema/types.generated";
 import { applyCharacterChoices } from "./applyCharacterChoices";
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -8,34 +11,27 @@ import { applyCharacterChoices } from "./applyCharacterChoices";
  * @param character - Character object from prisma
  * @returns a character matching the graphQL schema
  */
-const convertPrismaToGraphQLCharacter = (character: any): Character => {
-  character.characterClass = playerClasses.find(
-    (playerClass) =>
-      playerClass.slug.toUpperCase() === character.characterClass.toUpperCase(),
-  );
+const convertPrismaToGraphQLCharacter = (data: any): Character => {
+  // deep-clone input so we don't mutate the original prisma object
+  const character: any = JSON.parse(JSON.stringify(data));
+  console.log("Converting character from Prisma to GraphQL format:", character);
 
-  if (!character.characterClass)
-    throw new Error(
-      `Player class ${character.playerClassSlug} not found in the player classes`,
-    );
-  character.characterLineage = lineagesData.find(
-    (lineage) =>
-      lineage.slug.toLocaleUpperCase() ===
-      character.characterLineage.toLocaleUpperCase(),
-  );
-  if (!character.characterLineage)
-    throw new Error(
-      `Lineage ${character.characterLineage} not found in the player lineages`,
-    );
-  character.characterCulture = culturesData.find(
-    (culture) =>
-      culture.slug.toLocaleUpperCase() ===
-      character.characterCulture.toLocaleUpperCase(),
-  );
-  if (!character.characterCulture)
-    throw new Error(
-      `Culture ${character.characterCulture} not found in the player cultures`,
-    );
+  const getSlug = (val: any) => {
+    if (!val && val !== "") return "";
+    if (typeof val === "string") return val;
+    if (typeof val === "object" && val !== null && "slug" in val)
+      return val.slug;
+    return String(val);
+  };
+
+  const classSlug = getSlug(character.characterClass);
+  character.characterClass = findClass(playerClasses, classSlug);
+
+  const lineageSlug = getSlug(character.characterLineage);
+  character.characterLineage = findLineage(lineagesData, lineageSlug);
+
+  const cultureSlug = getSlug(character.characterCulture);
+  character.characterCulture = findCulture(culturesData, cultureSlug);
 
   // Apply chosen feature choices to the character
   const characterWithChoices = applyCharacterChoices(
@@ -43,14 +39,12 @@ const convertPrismaToGraphQLCharacter = (character: any): Character => {
     character.chosen as Record<string, string[]> | undefined,
   );
 
-  characterWithChoices.items = character.items || [];
-  characterWithChoices.items = character.items.map((item: { uses: object }) => {
-    return {
-      ...item,
-      uses:
-        item.uses && Object.keys(item.uses).length > 0 ? item.uses : undefined,
-    };
-  });
+  // Ensure items is an array and normalize `uses` to undefined when empty
+  const items = (character.items || []).map((item: any) => ({
+    ...item,
+    uses: item.uses && Object.keys(item.uses || {}).length > 0 ? item.uses : undefined,
+  }));
+  characterWithChoices.items = items;
   return characterWithChoices;
 };
 export default convertPrismaToGraphQLCharacter;
