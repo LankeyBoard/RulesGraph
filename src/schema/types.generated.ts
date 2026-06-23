@@ -131,6 +131,7 @@ export type Character = {
   rangeMax: Scalars['Int']['output'];
   rangeMin: Scalars['Int']['output'];
   shieldName: Scalars['String']['output'];
+  size?: Maybe<Scalars['String']['output']>;
   slots: Scalars['Int']['output'];
   spells?: Maybe<Array<Maybe<Spell>>>;
   veteranFeatures: Array<Maybe<GenericFeature>>;
@@ -1393,6 +1394,7 @@ export type CharacterResolvers<ContextType = any, ParentType extends ResolversPa
   rangeMax?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   rangeMin?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   shieldName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  size?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   slots?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   spells?: Resolver<Maybe<Array<Maybe<ResolversTypes['Spell']>>>, ParentType, ContextType>;
   veteranFeatures?: Resolver<Array<Maybe<ResolversTypes['GenericFeature']>>, ParentType, ContextType>;
