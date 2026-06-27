@@ -188,6 +188,18 @@ enum MonsterType {
   Boss
 }
 
+enum DamageType {
+  Bludgeoning
+  Cold
+  Fire
+  Lightning
+  Piercing
+  Psychic
+  Radiant
+  Rot
+  Slashing
+}
+
 #########
 # union #
 #########
@@ -560,6 +572,7 @@ type Character {
   coin: Int!
   languages: [String]!
   size: String
+  damageType: DamageType
   characterClass: CharacterClass!
   characterLineage: Lineage!
   characterCulture: Culture!
@@ -613,6 +626,7 @@ input CharacterInput {
   currentHealth: Int
   currentStamina: Int
   notes: String!
+  damageType: DamageType
 }
 
 type Item {

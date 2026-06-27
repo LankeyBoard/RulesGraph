@@ -114,6 +114,7 @@ export type Character = {
   createdBy: User;
   currentHealth?: Maybe<Scalars['Int']['output']>;
   currentStamina?: Maybe<Scalars['Int']['output']>;
+  damageType?: Maybe<DamageType>;
   form?: Maybe<ShifterForm>;
   heart: Scalars['Int']['output'];
   id: Scalars['ID']['output'];
@@ -224,6 +225,7 @@ export type CharacterInput = {
   counter: Scalars['Int']['input'];
   currentHealth?: InputMaybe<Scalars['Int']['input']>;
   currentStamina?: InputMaybe<Scalars['Int']['input']>;
+  damageType?: InputMaybe<DamageType>;
   heart: Scalars['Int']['input'];
   intellect: Scalars['Int']['input'];
   items?: InputMaybe<Array<InputMaybe<ItemInput>>>;
@@ -290,6 +292,17 @@ export type Damage = {
   stat?: Maybe<Array<StatOptions>>;
   type?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
 };
+
+export type DamageType =
+  | 'Bludgeoning'
+  | 'Cold'
+  | 'Fire'
+  | 'Lightning'
+  | 'Piercing'
+  | 'Psychic'
+  | 'Radiant'
+  | 'Rot'
+  | 'Slashing';
 
 export type Deflect = {
   __typename?: 'Deflect';
@@ -1163,6 +1176,7 @@ export type ResolversTypes = {
   Culture: ResolverTypeWrapper<Omit<Culture, 'traits' | 'variants'> & { traits?: Maybe<Array<ResolversTypes['GenericFeature']>>, variants?: Maybe<Array<Maybe<ResolversTypes['CultureVariant']>>> }>;
   CultureVariant: ResolverTypeWrapper<Omit<CultureVariant, 'traits'> & { traits?: Maybe<Array<ResolversTypes['GenericFeature']>> }>;
   Damage: ResolverTypeWrapper<Damage>;
+  DamageType: DamageType;
   Date: ResolverTypeWrapper<Scalars['Date']['output']>;
   DateTime: ResolverTypeWrapper<Scalars['DateTime']['output']>;
   Deflect: ResolverTypeWrapper<Deflect>;
@@ -1377,6 +1391,7 @@ export type CharacterResolvers<ContextType = any, ParentType extends ResolversPa
   createdBy?: Resolver<ResolversTypes['User'], ParentType, ContextType>;
   currentHealth?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   currentStamina?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  damageType?: Resolver<Maybe<ResolversTypes['DamageType']>, ParentType, ContextType>;
   form?: Resolver<Maybe<ResolversTypes['ShifterForm']>, ParentType, ContextType>;
   heart?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;

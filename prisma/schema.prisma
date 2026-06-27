@@ -59,6 +59,7 @@ model Character {
   createdBy          User      @relation(fields: [userId], references: [id])
   items              Item[]    @relation("CharacterToItem")
   notes              String    @default("")
+  damageType String?
 }
 
 model Item {
