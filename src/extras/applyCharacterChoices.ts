@@ -102,6 +102,8 @@ export const applyCharacterChoices = (
   const form = chosen.form
     ? shapeshifter.extra?.forms?.find((f) => chosen.form.includes(f.slug))
     : undefined;
+
+  const size = chosen.size[0];
   return {
     ...character,
     characterClass: {
@@ -121,5 +123,6 @@ export const applyCharacterChoices = (
     spells: characterSpells,
     beast: beast,
     form: form,
+    size: size
   };
 };

@@ -120,7 +120,7 @@ const shapeshifter: CharacterClass = {
     {
       level: 4,
       title: "Shifter's Strike",
-      slug: "SHIFTER-WRATH",
+      slug: "SHIFTER-STRIKE",
       staminaCost: 0,
       costsFortunesFavor: false,
       text: [
