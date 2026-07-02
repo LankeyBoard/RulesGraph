@@ -103,7 +103,7 @@ export const applyCharacterChoices = (
     ? shapeshifter.extra?.forms?.find((f) => chosen.form.includes(f.slug))
     : undefined;
 
-  const size = chosen.size[0];
+  const size = chosen.size ? chosen.size[0] : "medium";
   return {
     ...character,
     characterClass: {
