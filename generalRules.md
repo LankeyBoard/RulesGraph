@@ -604,26 +604,33 @@ slug: EDL
 ruleType: RULE\
 If you would be reduced to below 0 Stamina or 0 Health, you are reduced to 0 instead.
 
-## Dying
+## Ready to Drop
 
 slug: DYING
 
 ruleType: RULE\
-When your Health is reduced to 0, you have been mortally wounded and are Dying. Taking an Action or moving more than half your Speed costs 3 Stamina. An ally can use the Help Action to aid you, removing the Stamina cost as long as they stay within 5ft of you.
+When your Health is reduced to 0, you have been mortally wounded and are Ready to Drop. Taking an Action costs 3 Stamina. An ally can use the Help Action to aid you, removing the Stamina cost as long as they stay within 5ft of you. Any time you take damage while you are ready to drop could kill you. When you take damage, make a Death Test with no modifier, the difficulty is equal to damage taken. On a failure, you die. On a mixed, make the next Death Test with Misfortune. On a Natural 20, regain 1 Health.
+
+### One Hit KO
+
+slug: OHKO
+
+ruleType RULE\
+If damage would take you to – Max Health, you die without a chance to make a Death Tests.
 
 ## Last Stand
 
 slug: LAST-STAND
 
 ruleType: RULE\
-At the start of your turn you can opt to make a Last Stand to push yourself yourself to the absolute limit. Immediately and the start of each round of combat you regain all of your Health & Stamina. If you are reduced to 0 Health or at the end of the 3 rounds, you die.
+When you would make a Death Test, instead of rolling you can make a Last Stand, accepting your death and pushing yourself to the limit. Immediately and the start of each round of combat you regain all of your Health & Stamina. If you are reduced to 0 Health or at the end of the 3 rounds, you die.
 
 ## Death
 
 slug: DEATH
 
 ruleType: RULE\
-When you have 0 Health & 0 Stamina you are dead and your soul begins to leave your body, making the long journey to The Tribunal and the lands beyond. Only magical resuscitation can bring you back.
+Only magical resuscitation can bring you back.
 
 # Healing
 
