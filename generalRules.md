@@ -470,7 +470,7 @@ When you would take damage and you are not Surprised, Unconscious or otherwise u
 
 Depending on the source of the damage this might represent a last second dodge to reduce the effect of the blow or gritting your teeth through the damage to reduce the effect.
 
-EG: A goblin swings at you with a rusted short sword. They hit, and would deal 3 damage to you. You decide to Deflect, spending 2 Stamina and rolling your 1d4 dice. You get a 2, reducing the Slashing damage to 1. Your GM narrates how you throw yourself back at the last second, avoiding the worst of the attack, but still getting caught by the tip of the blade.
+EG: A goblin swings at you with a rusted short sword. They hit, and would deal 3 damage to you. You decide to Deflect, spending 3 Stamina and rolling your 1d4 dice. You get a 2, reducing the Slashing damage to 1. Your GM narrates how you throw yourself back at the last second, avoiding the worst of the attack, but still getting caught by the tip of the blade.
 
 # Weapons, Armor & Shields
 

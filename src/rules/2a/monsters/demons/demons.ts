@@ -5,7 +5,7 @@ const Demons: MonsterList = {
   level: 6,
   size: "LARGE",
   type: "Boss",
-  tags: ["STRIKER"],
+  tags: ["Striker"],
   img: {
     target:
       "https://upload.wikimedia.org/wikipedia/commons/4/4a/Kobo_Daishi_Practicing_the_Tantra%2C_with_Demon_and_Wolf%2C_by_Hokusai.jpg",

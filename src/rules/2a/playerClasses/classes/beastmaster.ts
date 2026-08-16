@@ -184,7 +184,7 @@ const beastmaster: CharacterClass = {
       text: [
         {
           type: "RULE",
-          text: "Choose two of the following maneuvers. Spend 2 additional Stamina to use the move in place of a standard Setup or Follow-up.",
+          text: "Choose two of the following maneuvers. Spend 2 additional Stamina to add the moves effect to the setup/followup.",
         },
       ],
       choices: [
